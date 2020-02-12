@@ -160,6 +160,9 @@ namespace ACE.Server.WorldObjects
             NumDeaths++;
             suicideInProgress = false;
 
+            if (CombatMode == CombatMode.Magic && MagicState.IsCasting)
+                FailCast(false);
+
             // TODO: instead of setting IsBusy here,
             // eventually all of the places that check for states such as IsBusy || Teleporting
             // might want to use a common function, and IsDead should return a separate error
@@ -989,7 +992,7 @@ namespace ACE.Server.WorldObjects
         {
             var allPossessions = GetAllPossessions();
 
-            return allPossessions.Where(i => (i.Bonded ?? 0) == (int)BondedStatus.Slippery).ToList();
+            return allPossessions.Where(i => i.Bonded == BondedStatus.Slippery).ToList();
         }
 
         public List<WorldObject> HandleDestroyBonded()
@@ -997,7 +1000,7 @@ namespace ACE.Server.WorldObjects
             var destroyedItems = new List<WorldObject>();
 
             var allPossessions = GetAllPossessions();
-            foreach (var destroyItem in allPossessions.Where(i => (i.Bonded ?? 0) == (int)BondedStatus.Destroy).ToList())
+            foreach (var destroyItem in allPossessions.Where(i => i.Bonded == BondedStatus.Destroy).ToList())
             {
                 TryConsumeFromInventoryWithNetworking(destroyItem, (destroyItem.StackSize ?? 1));
                 destroyedItems.Add(destroyItem);
