@@ -176,6 +176,37 @@ namespace ACE.Server.WorldObjects
                 if (playerDamager.AugmentationBonusXp > 0)
                     totalXP *= 1.0f + playerDamager.AugmentationBonusXp * 0.05f;
 
+                    if (playerDamager.Level < 10)
+                      totalXP *= 0.3f;
+                    if (playerDamager.Level > 9 && playerDamager.Level < 16)
+                      totalXP *= 0.5f;
+                    if (playerDamager.Level > 15 && playerDamager.Level < 25)
+                      totalXP *= 0.7f;
+                    if (playerDamager.Level > 24 && playerDamager.Level < 35)
+                      totalXP *= 1.0f;
+                    if (playerDamager.Level > 34 && playerDamager.Level < 50)
+                      totalXP *= 1.5f;
+                    if (playerDamager.Level > 49 && playerDamager.Level < 65)
+                      totalXP *= 2.0f;
+                    if (playerDamager.Level > 64 && playerDamager.Level < 80)
+                      totalXP *= 2.5f;
+                    if (playerDamager.Level > 79 && playerDamager.Level < 100)
+                      totalXP *= 3.0f;
+                    if (playerDamager.Level > 99 && playerDamager.Level < 120)
+                      totalXP *= 3.5f;
+                    if (playerDamager.Level > 119 && playerDamager.Level < 150)
+                      totalXP *= 4.0f;
+                    if (playerDamager.Level > 149 && playerDamager.Level < 170)
+                      totalXP *= 5.0f;
+                    if (playerDamager.Level > 169 && playerDamager.Level < 200)
+                      totalXP *= 6.5f;
+                    if (playerDamager.Level > 199 && playerDamager.Level < 220)
+                      totalXP *= 8.0f;
+                    if (playerDamager.Level > 219 && playerDamager.Level < 240)
+                      totalXP *= 10.0f;
+                    if (playerDamager.Level > 239)
+                      totalXP *= 12.0f;
+
                 playerDamager.EarnXP((long)Math.Round(totalXP), XpType.Kill);
 
                 // handle luminance

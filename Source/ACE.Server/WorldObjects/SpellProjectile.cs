@@ -109,7 +109,7 @@ namespace ACE.Server.WorldObjects
                     ScriptedCollision = false;
                 }
             }
-                
+
             // Whirling Blade spells get omega values and "align path" turned off which
             // creates the nice swirling animation
             if (WeenieClassId == 1636 || WeenieClassId == 7268 || WeenieClassId == 20979)
@@ -398,7 +398,7 @@ namespace ACE.Server.WorldObjects
             // life magic projectiles: ie., martyr's hecatomb
             if (Spell.School == MagicSchool.LifeMagic)
             {
-                var lifeMagicDamage = LifeProjectileDamage * Spell.DamageRatio;
+                var lifeMagicDamage = 0.5*(LifeProjectileDamage * Spell.DamageRatio);
 
                 // could life magic projectiles crit?
                 // if so, did they use the same 1.5x formula as war magic, instead of 2.0x?

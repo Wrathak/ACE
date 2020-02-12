@@ -176,6 +176,11 @@ namespace ACE.Server.WorldObjects
             SalvageMessage message = null;
             var amountProduced = GetStructure(item, salvageResults, ref message);
 
+            //if (source.MaterialType == MaterialType.Steel && !target.IsEnchantable)
+
+            //if (item.MaterialType == MaterialType.Steel)
+            //amountProduced *=4;
+
             var remaining = amountProduced;
 
             while (remaining > 0)
@@ -301,8 +306,13 @@ namespace ACE.Server.WorldObjects
             // cap tinkeringAmount to item workmanship
             tinkeringAmount = Math.Min(tinkeringAmount, (int)Math.Round(salvageItem.Workmanship ?? 1.0f)) * stackSize;
 
+            salvageAmount = (int)Math.Round(salvageAmount / 2.0);
+            tinkeringAmount = (int)Math.Round(tinkeringAmount / 2.0);
+
             // choose the best one
             var addStructure = Math.Max(salvageAmount, tinkeringAmount);
+
+
 
             var skill = salvageAmount > tinkeringAmount ? Skill.Salvaging : GetMaxSkill(TinkeringSkills).Skill;
 

@@ -29,6 +29,11 @@ namespace ACE.Server.WorldObjects
 
             var m_amount = (long)Math.Round(amount * enchantment * modifier);
 
+            if (xpType == XpType.Quest && Level < 50)
+            m_amount = (long)Math.Round(amount * 0.3);
+            if (xpType == XpType.Quest && Level > 99)
+            m_amount = (long)Math.Round(amount * 2.0);
+
             if (m_amount < 0)
             {
                 log.Warn($"{Name}.EarnXP({amount}, {shareType})");
@@ -419,7 +424,12 @@ namespace ACE.Server.WorldObjects
         {
             var nextLevelXP = GetXPBetweenLevels(Level.Value, Level.Value + 1);
 
-            var scaledXP = (long)Math.Round(nextLevelXP * percent);
+            var scaledXP = (long)Math.Round(nextLevelXP * 1.0); //percent);
+
+            if (Level < 50)
+            scaledXP = (long)Math.Round(nextLevelXP * 0.3);
+            if (Level > 99)
+            scaledXP = (long)Math.Round(nextLevelXP * 2.0);
 
             if (max > 0)
                 scaledXP = Math.Min(scaledXP, max);

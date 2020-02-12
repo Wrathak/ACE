@@ -134,11 +134,11 @@ namespace ACE.Server.WorldObjects
             {
                 if (item.CurrentLandblock != null && !item.Visibility && item.Guid != LastOpenedContainerId)
                 {
-                    if (IsBusy)
-                    {
-                        SendUseDoneEvent(WeenieError.YoureTooBusy);
-                        return;
-                    }
+                    //if (IsBusy)
+                  //  {
+                    //    SendUseDoneEvent(WeenieError.YoureTooBusy);
+                    //    return;
+                    //}
 
                     CreateMoveToChain(item, (success) => TryUseItem(item, success));
                 }

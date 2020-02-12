@@ -572,15 +572,15 @@ namespace ACE.Server.WorldObjects
             ActionChain pickupChain = new ActionChain();
 
             // start picking up item animation
-            var motion = new Motion(CurrentMotionState.Stance, MotionPickup);
-            EnqueueBroadcast(
-                new GameMessageUpdatePosition(this),
-                new GameMessageUpdateMotion(this, motion));
+            //var motion = new Motion(CurrentMotionState.Stance, MotionPickup);
+            //EnqueueBroadcast(
+            //    new GameMessageUpdatePosition(this),
+            //    new GameMessageUpdateMotion(this, motion));
 
             // Wait for animation to progress
             var motionTable = DatManager.PortalDat.ReadFromDat<MotionTable>(MotionTableId);
-            var pickupAnimationLength = motionTable.GetAnimationLength(CurrentMotionState.Stance, MotionPickup, MotionCommand.Ready);
-            pickupChain.AddDelaySeconds(pickupAnimationLength);
+            //var pickupAnimationLength = 0;//motionTable.GetAnimationLength(CurrentMotionState.Stance, MotionPickup, MotionCommand.Ready);
+            pickupChain.AddDelaySeconds(0);//pickupAnimationLength);
 
             return pickupChain;
         }
@@ -618,17 +618,17 @@ namespace ACE.Server.WorldObjects
                 return new ActionChain();
 
             // start picking up item animation
-            var motion = new Motion(CurrentMotionState.Stance, pickupMotion);
-            EnqueueBroadcast(
-                new GameMessageUpdatePosition(this),
-                new GameMessageUpdateMotion(this, motion));
+            //var motion = new Motion(CurrentMotionState.Stance, pickupMotion);
+            //EnqueueBroadcast(
+            //    new GameMessageUpdatePosition(this),
+            //    new GameMessageUpdateMotion(this, motion));
 
             // Wait for animation to progress
             var motionTable = DatManager.PortalDat.ReadFromDat<MotionTable>(MotionTableId);
-            var pickupAnimationLength = motionTable.GetAnimationLength(CurrentMotionState.Stance, pickupMotion, MotionCommand.Ready);
+            //var pickupAnimationLength = 0;//motionTable.GetAnimationLength(CurrentMotionState.Stance, pickupMotion, MotionCommand.Ready);
 
             var pickupChain = new ActionChain();
-            pickupChain.AddDelaySeconds(pickupAnimationLength);
+            pickupChain.AddDelaySeconds(0);//(pickupAnimationLength);
 
             return pickupChain;
         }
@@ -683,7 +683,7 @@ namespace ACE.Server.WorldObjects
             var animTime = DatManager.PortalDat.ReadFromDat<MotionTable>(MotionTableId).GetAnimationLength(pickupMotion);
 
             var actionChain = new ActionChain();
-            actionChain.AddDelaySeconds(animTime);
+            actionChain.AddDelaySeconds(0);//(animTime);
             actionChain.AddAction(this, () =>
             {
                 PickupState = PickupState.None;
@@ -699,7 +699,7 @@ namespace ACE.Server.WorldObjects
         }
 
         // =========================================
-        // Game Action Handlers - Inventory Movement 
+        // Game Action Handlers - Inventory Movement
         // =========================================
 
         /// <summary>
@@ -715,7 +715,7 @@ namespace ACE.Server.WorldObjects
         {
             //Console.WriteLine($"{Name}.HandleActionPutItemInContainer({itemGuid:X8}, {containerGuid:X8}, {placement})");
 
-            if (IsBusy)
+            /*if (IsBusy)
             {
                 if (PickupState != PickupState.Return || NextPickup != null)
                 {
@@ -726,7 +726,7 @@ namespace ACE.Server.WorldObjects
                     NextPickup = () => { HandleActionPutItemInContainer(itemGuid, containerGuid, placement); };
 
                 return;
-            }
+            }*/
 
             OnPutItemInContainer(itemGuid, containerGuid, placement);
 
@@ -830,7 +830,7 @@ namespace ACE.Server.WorldObjects
                 if (itemRootOwner == this)
                     moveToTarget = containerRootOwner ?? container; // Movement is from player
                 else
-                    moveToTarget = itemRootOwner ?? item; // Movement is too player
+                    moveToTarget = itemRootOwner ?? item; // Movement is to player
 
                 CreateMoveToChain(moveToTarget, (success) =>
                 {
@@ -1042,9 +1042,9 @@ namespace ACE.Server.WorldObjects
                 {
                     var landblockReturn = new ActionChain();
 
-                    landblockReturn.AddDelaySeconds(1);
+                    landblockReturn.AddDelaySeconds(0);
                     landblockReturn.AddAction(prevLandblock, () => RemoveTrackedObject(item, false));
-                    landblockReturn.AddDelaySeconds(1);
+                    landblockReturn.AddDelaySeconds(0);
                     landblockReturn.AddAction(prevLandblock, () =>
                     {
                         item.Location = new Position(prevLocation);
@@ -1618,7 +1618,7 @@ namespace ACE.Server.WorldObjects
 
 
         // =========================================
-        // Game Action Handlers - Inventory Stacking 
+        // Game Action Handlers - Inventory Stacking
         // =========================================
 
         /// <summary>
@@ -2255,7 +2255,7 @@ namespace ACE.Server.WorldObjects
 
 
         // =============================================
-        // Game Action Handlers - Inventory Give/Receive 
+        // Game Action Handlers - Inventory Give/Receive
         // =============================================
 
         /// <summary>
@@ -2751,7 +2751,7 @@ namespace ACE.Server.WorldObjects
             Prev_PutItemInContainer[1] = Prev_PutItemInContainer[0];
             Prev_PutItemInContainer[0] = new PutItemInContainerEvent(itemGuid, containerGuid, placement);
         }
-        
+
         public void GiveFromEmote(WorldObject emoter, uint weenieClassId, int amount = 1)
         {
             if (emoter is null || weenieClassId == 0)

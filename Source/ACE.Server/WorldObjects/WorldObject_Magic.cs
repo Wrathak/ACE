@@ -113,6 +113,8 @@ namespace ACE.Server.WorldObjects
             var targetSelf = spell.Flags.HasFlag(SpellFlags.SelfTargeted);
             if (targetSelf) return false;
 
+            return true;/*
+
             switch (spell.School)
             {
                 case MagicSchool.WarMagic:
@@ -143,7 +145,7 @@ namespace ACE.Server.WorldObjects
                     }
                     break;
             }
-            return false;
+            return false;*/
         }
 
         /// <summary>
@@ -1328,7 +1330,7 @@ namespace ACE.Server.WorldObjects
                 sp.Caster = caster;
 
                 // side projectiles always untargeted?
-                if (i == 0)     
+                if (i == 0)
                     sp.ProjectileTarget = target;
 
                 sp.SetProjectilePhysicsState(target, useGravity);

@@ -154,7 +154,7 @@ namespace ACE.Server.WorldObjects
             if (AugTypeHelper.IsAttribute(type))
             {
                 // innate attributes shared cap
-                if (player.AugmentationInnateFamily >= MaxAugs[type])
+                if (player.AugmentationInnateFamily >= 20)//MaxAugs[type])
                 {
                     player.SendWeenieError(WeenieError.AugmentationTypeUsedTooManyTimes);
                     return false;
@@ -182,7 +182,7 @@ namespace ACE.Server.WorldObjects
             else if (AugTypeHelper.IsResist(type))
             {
                 // resistance shared cap
-                if (player.AugmentationResistanceFamily >= MaxAugs[type])
+                if (player.AugmentationResistanceFamily >= 7)//MaxAugs[type])
                 {
                     player.SendWeenieError(WeenieError.AugmentationTypeUsedTooManyTimes);
                     return false;
@@ -224,13 +224,13 @@ namespace ACE.Server.WorldObjects
             { AugmentationType.ImbueChance, 1 },
             { AugmentationType.RegenBonus, 2 },
             { AugmentationType.SpellDuration, 5 },
-            { AugmentationType.ResistSlash, 2 },        // resistances in shared group
-            { AugmentationType.ResistPierce, 2 },
-            { AugmentationType.ResistBludgeon, 2 },
-            { AugmentationType.ResistAcid, 2 },
-            { AugmentationType.ResistFire, 2 },
-            { AugmentationType.ResistCold, 2 },
-            { AugmentationType.ResistElectric, 2 },
+            { AugmentationType.ResistSlash, 1 },        // resistances in shared group
+            { AugmentationType.ResistPierce, 1 },
+            { AugmentationType.ResistBludgeon, 1 },
+            { AugmentationType.ResistAcid, 1 },
+            { AugmentationType.ResistFire, 1 },
+            { AugmentationType.ResistCold, 1 },
+            { AugmentationType.ResistElectric, 1 },
             { AugmentationType.FociCreature, 1 },
             { AugmentationType.FociItem, 1 },
             { AugmentationType.FociLife, 1 },

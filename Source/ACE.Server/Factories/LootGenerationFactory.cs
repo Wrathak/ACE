@@ -159,10 +159,10 @@ namespace ACE.Server.Factories
                 }
             }
 
-            if (lootBias != LootBias.Armor && lootBias != LootBias.Weapons && lootBias != LootBias.MagicEquipment && profile.MagicItemMinAmount > 0)
+            /*if (lootBias != LootBias.Armor && lootBias != LootBias.Weapons && lootBias != LootBias.MagicEquipment && profile.MagicItemMinAmount > 0)
             {
-                // 17% chance to drop a summoning essence
-                itemChance = ThreadSafeRandom.Next(1, 6);
+                // 17% chance to drop a summoning essence (1% now)
+                itemChance = ThreadSafeRandom.Next(1, 100);
                 if (itemChance == 6)
                 {
                     lootWorldObject = CreateSummoningEssence(profile.Tier);
@@ -172,7 +172,7 @@ namespace ACE.Server.Factories
                 }
 
                 // Roll for a 1 in 50 chance to drop an Encapsulated Spirit
-                itemChance = ThreadSafeRandom.Next(1, 50);
+                itemChance = ThreadSafeRandom.Next(1, 100);
                 if (itemChance == 50)
                 {
                     var encapSpirit = WorldObjectFactory.CreateNewWorldObject(49485);
@@ -180,7 +180,7 @@ namespace ACE.Server.Factories
                     if (encapSpirit != null)
                         loot.Add(encapSpirit);
                 }
-            }
+            }*/
 
             return loot;
         }
@@ -232,7 +232,7 @@ namespace ACE.Server.Factories
             int type;
             WorldObject wo;
 
-            // Adjusting rolls for changing drop rates for clothing - HarliQ 11/11/19 
+            // Adjusting rolls for changing drop rates for clothing - HarliQ 11/11/19
 
             switch (lootBias)
             {
@@ -264,11 +264,11 @@ namespace ACE.Server.Factories
                     // jewels (Gems)
                     wo = CreateJewels(tier, isMagical);
                     return wo;
-                case var rate when (type > 14 && type < 39):
+                case var rate when (type > 14 && type < 46):
                     //armor
                     wo = CreateArmor(tier, isMagical, true, lootBias);
                     return wo;
-                case var rate when (type > 38 && type < 53):
+                case var rate when (type > 45 && type < 53):
                     // clothing (shirts/pants)
                     wo = CreateArmor(tier, isMagical, false, lootBias);
                     return wo;
@@ -954,7 +954,7 @@ namespace ACE.Server.Factories
                     manaRate = 0.04166667;
                     break;
                 default:
-                    manaRate = 1.0 / ThreadSafeRandom.Next(10, 30);
+                    manaRate = 1.0 / ThreadSafeRandom.Next(9999, 9999);
                     break;
             }
 
@@ -963,7 +963,7 @@ namespace ACE.Server.Factories
 
         private static WorldObject AssignMagic(WorldObject wo, int tier, bool covenantArmor = false)
         {
-            const int armorSpellImpenIndex = 47; // 47th row in the LootTables.ArmorSpells array, starting from zero
+            const int armorSpellImpenIndex = 0; // 47th row in the LootTables.ArmorSpells array, starting from zero
 
             int[][] spells;
             int[][] cantrips;
@@ -1211,20 +1211,22 @@ namespace ACE.Server.Factories
                     lowSpellTier = 1;
                     break;
                 case 2:
-                    lowSpellTier = 3;
+                    lowSpellTier = 1;
                     break;
                 case 3:
-                    lowSpellTier = 4;
+                    lowSpellTier = 2;
                     break;
                 case 4:
-                    lowSpellTier = 5;
+                    lowSpellTier = 3;
                     break;
                 case 5:
+                    lowSpellTier = 4;
+                    break;
                 case 6:
-                    lowSpellTier = 6;
+                    lowSpellTier = 5;
                     break;
                 default:
-                    lowSpellTier = 7;
+                    lowSpellTier = 6;
                     break;
             }
 
@@ -1238,16 +1240,20 @@ namespace ACE.Server.Factories
             switch (tier)
             {
                 case 1:
-                    highSpellTier = 3;
+                    highSpellTier = 2;
                     break;
                 case 2:
-                    highSpellTier = 5;
+                    highSpellTier = 3;
                     break;
                 case 3:
+                    highSpellTier = 4;
+                    break;
                 case 4:
-                    highSpellTier = 6;
+                    highSpellTier = 5;
                     break;
                 case 5:
+                    highSpellTier = 6;
+                    break;
                 case 6:
                     highSpellTier = 7;
                     break;
@@ -1536,71 +1542,71 @@ namespace ACE.Server.Factories
                         workmanship = 3;
                     break;
                 case 2:
-                    if (chance < 30)
+                    if (chance < 20)
                         workmanship = 2;
-                    else if (chance < 50)
+                    else if (chance < 40)
                         workmanship = 3;
-                    else if (chance < 65)
+                    else if (chance < 50)
                         workmanship = 4;
-                    else if (chance < 85)
+                    else if (chance < 80)
                         workmanship = 5;
                     else
                         workmanship = 6;
                     break;
                 case 3:
-                    if (chance < 30)
+                    if (chance < 20)
                         workmanship = 3;
-                    else if (chance < 50)
+                    else if (chance < 40)
                         workmanship = 4;
-                    else if (chance < 65)
+                    else if (chance < 60)
                         workmanship = 5;
-                    else if (chance < 85)
+                    else if (chance < 80)
                         workmanship = 6;
                     else
                         workmanship = 7;
                     break;
                 case 4:
-                    if (chance < 30)
+                    if (chance < 20)
                         workmanship = 3;
-                    else if (chance < 50)
+                    else if (chance < 40)
                         workmanship = 4;
-                    else if (chance < 65)
+                    else if (chance < 55)
                         workmanship = 5;
-                    else if (chance < 80)
+                    else if (chance < 70)
                         workmanship = 6;
-                    else if (chance < 92)
+                    else if (chance < 80)
                         workmanship = 7;
                     else
                         workmanship = 8;
                     break;
                 case 5:
-                    if (chance < 15)
+                    if (chance < 10)
                         workmanship = 3;
-                    else if (chance < 30)
+                    else if (chance < 20)
                         workmanship = 4;
-                    else if (chance < 50)
+                    else if (chance < 30)
                         workmanship = 5;
-                    else if (chance < 65)
+                    else if (chance < 45)
                         workmanship = 6;
-                    else if (chance < 80)
+                    else if (chance < 60)
                         workmanship = 7;
-                    else if (chance < 92)
+                    else if (chance < 80)
                         workmanship = 8;
                     else
                         workmanship = 9;
                     break;
                 default: // tier 6 through 8
-                    if (chance < 15)
+                    if (chance < 10)
                         workmanship = 4;
-                    else if (chance < 30)
+                    else if (chance < 20)
                         workmanship = 5;
-                    else if (chance < 50)
+                    else if (chance < 30)
                         workmanship = 6;
-                    else if (chance < 65)
+                    else if (chance < 50)
                         workmanship = 7;
-                    else if (chance < 80)
+                    else if (chance < 60)
                         workmanship = 8;
-                    else if (chance < 92)
+                    else if (chance < 80)
                         workmanship = 9;
                     else
                         workmanship = 10;
@@ -1685,8 +1691,8 @@ namespace ACE.Server.Factories
 
         private static int GetMaxMana(int spellAmount, int tier)
         {
-            int maxmana = 0;
-            switch (tier)
+            int maxmana = 9999;
+            /*switch (tier)
             {
                 case 1:
                     maxmana = ThreadSafeRandom.Next(200, 400) * spellAmount;
@@ -1714,7 +1720,7 @@ namespace ACE.Server.Factories
                     break;
                 default:
                     break;
-            }
+            }*/
 
             return maxmana;
         }
@@ -1728,7 +1734,7 @@ namespace ACE.Server.Factories
         private static int GetMaterialType(WorldObject wo, int tier)
         {
             int defaultMaterialType = (int)SetDefaultMaterialType(wo);
-
+            return defaultMaterialType;/*
             if (wo.TsysMutationData == null)
             {
                 log.Warn($"[LOOT] Missing PropertyInt.TsysMutationData on loot item {wo.WeenieClassId} - {wo.Name}");
@@ -1778,11 +1784,11 @@ namespace ACE.Server.Factories
                 }
             }
 
-            return (int)defaultMaterialType;
+            return (int)defaultMaterialType;*/
         }
 
         /// <summary>
-        /// Sets a randomized default material type for when a weenie does not have TsysMutationData 
+        /// Sets a randomized default material type for when a weenie does not have TsysMutationData
         /// </summary>
         /// <param name="wo"></param>
         /// <returns></returns>
@@ -1792,7 +1798,7 @@ namespace ACE.Server.Factories
                 return MaterialType.Unknown;
 
             MaterialType material = MaterialType.Unknown;
-            int defaultMaterialEntry = ThreadSafeRandom.Next(0, 4);
+            int defaultMaterialEntry = ThreadSafeRandom.Next(0, 9);
 
             WeenieType weenieType = wo.WeenieType;
             switch (weenieType)
@@ -1933,7 +1939,7 @@ namespace ACE.Server.Factories
 
             var dropRateMod = 1.0 / dropRate;
 
-            // 1% chance for a legendary, 0.02% chance for 2 legendaries
+            // 1% chance for a legendary, 0.33% chance for 2 legendaries
             if (ThreadSafeRandom.Next(1, (int)(100 * dropRateMod)) == 1)
                 numLegendaries = 1;
             if (ThreadSafeRandom.Next(1, (int)(500 * dropRateMod)) == 1)
@@ -1958,15 +1964,14 @@ namespace ACE.Server.Factories
             // 25% base chance for no epics for tier 7
             if (ThreadSafeRandom.Next(1, 4) > 1)
             {
-                // 1% chance for 1 Epic, 0.1% chance for 2 Epics,
-                // 0.01% chance for 3 Epics, 0.001% chance for 4 Epics 
+                // 1% chance for 1 Epic
                 if (ThreadSafeRandom.Next(1, (int)(100 * dropRateMod)) == 1)
                     numEpics = 1;
-                if (ThreadSafeRandom.Next(1, (int)(1000 * dropRateMod)) == 1)
+                if (ThreadSafeRandom.Next(1, (int)(250 * dropRateMod)) == 1)
                     numEpics = 2;
-                if (ThreadSafeRandom.Next(1, (int)(10000 * dropRateMod)) == 1)
+                if (ThreadSafeRandom.Next(1, (int)(500 * dropRateMod)) == 1)
                     numEpics = 3;
-                if (ThreadSafeRandom.Next(1, (int)(100000 * dropRateMod)) == 1)
+                if (ThreadSafeRandom.Next(1, (int)(1000 * dropRateMod)) == 1)
                     numEpics = 4;
             }
 
@@ -1989,30 +1994,30 @@ namespace ACE.Server.Factories
                     numMajors = 0;
                     break;
                 case 2:
-                    if (ThreadSafeRandom.Next(1, (int)(500 * dropRateMod)) == 1)
+                    if (ThreadSafeRandom.Next(1, (int)(100 * dropRateMod)) == 1)
                         numMajors = 1;
                     break;
                 case 3:
-                    if (ThreadSafeRandom.Next(1, (int)(500 * dropRateMod)) == 1)
+                    if (ThreadSafeRandom.Next(1, (int)(100 * dropRateMod)) == 1)
                         numMajors = 1;
-                    if (ThreadSafeRandom.Next(1, (int)(10000 * dropRateMod)) == 1)
+                    if (ThreadSafeRandom.Next(1, (int)(250 * dropRateMod)) == 1)
                         numMajors = 2;
                     break;
                 case 4:
                 case 5:
                 case 6:
-                    if (ThreadSafeRandom.Next(1, (int)(500 * dropRateMod)) == 1)
+                    if (ThreadSafeRandom.Next(1, (int)(100 * dropRateMod)) == 1)
                         numMajors = 1;
-                    if (ThreadSafeRandom.Next(1, (int)(5000 * dropRateMod)) == 1)
+                    if (ThreadSafeRandom.Next(1, (int)(250 * dropRateMod)) == 1)
                         numMajors = 2;
                     break;
                 case 7:
                 default:
-                    if (ThreadSafeRandom.Next(1, (int)(500 * dropRateMod)) == 1)
+                    if (ThreadSafeRandom.Next(1, (int)(100 * dropRateMod)) == 1)
                         numMajors = 1;
-                    if (ThreadSafeRandom.Next(1, (int)(5000 * dropRateMod)) == 1)
+                    if (ThreadSafeRandom.Next(1, (int)(250 * dropRateMod)) == 1)
                         numMajors = 2;
-                    if (ThreadSafeRandom.Next(1, (int)(15000 * dropRateMod)) == 1)
+                    if (ThreadSafeRandom.Next(1, (int)(500 * dropRateMod)) == 1)
                         numMajors = 3;
                     break;
             }
@@ -2033,23 +2038,23 @@ namespace ACE.Server.Factories
             switch (tier)
             {
                 case 1:
-                    if (ThreadSafeRandom.Next(1, (int)(100 * dropRateMod)) == 1)
+                    if (ThreadSafeRandom.Next(1, (int)(50 * dropRateMod)) == 1)
                         numMinors = 1;
                     break;
                 case 2:
                 case 3:
                     if (ThreadSafeRandom.Next(1, (int)(50 * dropRateMod)) == 1)
                         numMinors = 1;
-                    if (ThreadSafeRandom.Next(1, (int)(250 * dropRateMod)) == 1)
+                    if (ThreadSafeRandom.Next(1, (int)(100 * dropRateMod)) == 1)
                         numMinors = 2;
                     break;
                 case 4:
                 case 5:
                     if (ThreadSafeRandom.Next(1, (int)(50 * dropRateMod)) == 1)
                         numMinors = 1;
-                    if (ThreadSafeRandom.Next(1, (int)(250 * dropRateMod)) == 1)
+                    if (ThreadSafeRandom.Next(1, (int)(100 * dropRateMod)) == 1)
                         numMinors = 2;
-                    if (ThreadSafeRandom.Next(1, (int)(1000 * dropRateMod)) == 1)
+                    if (ThreadSafeRandom.Next(1, (int)(200 * dropRateMod)) == 1)
                         numMinors = 3;
                     break;
                 case 6:
@@ -2057,11 +2062,11 @@ namespace ACE.Server.Factories
                 default:
                     if (ThreadSafeRandom.Next(1, (int)(50 * dropRateMod)) == 1)
                         numMinors = 1;
-                    if (ThreadSafeRandom.Next(1, (int)(250 * dropRateMod)) == 1)
+                    if (ThreadSafeRandom.Next(1, (int)(100 * dropRateMod)) == 1)
                         numMinors = 2;
-                    if (ThreadSafeRandom.Next(1, (int)(1000 * dropRateMod)) == 1)
+                    if (ThreadSafeRandom.Next(1, (int)(200 * dropRateMod)) == 1)
                         numMinors = 3;
-                    if (ThreadSafeRandom.Next(1, (int)(5000 * dropRateMod)) == 1)
+                    if (ThreadSafeRandom.Next(1, (int)(300 * dropRateMod)) == 1)
                         numMinors = 4;
                     break;
             }
@@ -2317,7 +2322,7 @@ namespace ACE.Server.Factories
                     else
                         meleeMod = 0.09;
                     break;
-                case 330: // Casters    
+                case 330: // Casters
                 case 315: // Missile
                 case 335: // Missile
                     if (chance < 10)
@@ -2379,5 +2384,5 @@ namespace ACE.Server.Factories
             meleeMod = meleeMod + 1.0;
             return meleeMod;
         }
-    }         
+    }
 }

@@ -66,7 +66,7 @@ namespace ACE.Server.Factories
             // Perform an additional roll check for a chance at a higher Aetheria level for tiers 6+
             if (tier > 5)
             {
-                if (ThreadSafeRandom.Next(1, 50) == 1)
+                if (ThreadSafeRandom.Next(1, 10) == 1)
                 {
                     wo.ItemMaxLevel = 4;
                     if (tier > 6 && ThreadSafeRandom.Next(1, 5) == 1)

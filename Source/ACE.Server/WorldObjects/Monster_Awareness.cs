@@ -20,7 +20,7 @@ namespace ACE.Server.WorldObjects
         /// <summary>
         /// Determines when a monster wakes up from idle state
         /// </summary>
-        public const float RadiusAwareness = 35.0f;
+        public const float RadiusAwareness = 25.0f;
         public const float RadiusAwarenessSquared = RadiusAwareness * RadiusAwareness;
 
         /// <summary>
@@ -253,7 +253,7 @@ namespace ACE.Server.WorldObjects
         }
 
         /// <summary>
-        /// Returns the list of potential attack targets, sorted by closest distance 
+        /// Returns the list of potential attack targets, sorted by closest distance
         /// </summary>
         public List<TargetDistance> BuildTargetDistance(List<Creature> targets)
         {

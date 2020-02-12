@@ -25,7 +25,7 @@ namespace ACE.Server.WorldObjects
         /// <summary>
         /// The maximum number of seconds for an empty corpse to stick around
         /// </summary>
-        public static readonly double EmptyDecayTime = 15.0;
+        public static readonly double EmptyDecayTime = 10.0;
 
         /// <summary>
         /// Flag indicates if a corpse is from a monster or a player
@@ -246,7 +246,7 @@ namespace ACE.Server.WorldObjects
         }
 
         /// <summary>
-        /// A list of landblocks the player cannot drop items on corpse on death 
+        /// A list of landblocks the player cannot drop items on corpse on death
         /// </summary>
         public static HashSet<ushort> NoDrop_Landblocks = new HashSet<ushort>()
         {

@@ -144,8 +144,14 @@ namespace ACE.Server.Factories
 
                     switch (tier)
                     {
+                        case 5:         // Level requirements
+                            wield = 50; // Items with Level 6 Spells
+                            break;
+                        case 6:
+                            wield = 80; // Items with Level 7 Spells
+                            break;
                         case 7:
-                            wield = 150; // In this instance, used for indicating player level, rather than skill level
+                            wield = 150; // Items with Level 8 Spells
                             break;
                         default:
                             wield = 180; // In this instance, used for indicating player level, rather than skill level
@@ -162,7 +168,7 @@ namespace ACE.Server.Factories
                 int casterType = ThreadSafeRandom.Next(1, 3);
 
                 // Determine element type: 0 - Slashing, 1 - Piercing, 2 - Blunt, 3 - Frost, 4 - Fire, 5 - Acid, 6 - Electric, 7 - Nether
-                int element = forceWar ? ThreadSafeRandom.Next(0, 6) : ThreadSafeRandom.Next(0, 7);
+                int element = forceWar ? ThreadSafeRandom.Next(0, 6) : ThreadSafeRandom.Next(0, 6);
                 casterWeenie = LootTables.CasterWeaponsMatrix[casterType][element];
 
                 // If element is Nether, Void Magic is required, else War Magic is required for all other elements
@@ -196,7 +202,7 @@ namespace ACE.Server.Factories
             // Is this right??
             wo.LongDesc = wo.Name;
 
-            // Setting Weapon defensive mods 
+            // Setting Weapon defensive mods
             wo.WeaponDefense = GetWieldReqMeleeDMod(wield);
             wo.WeaponMagicDefense = GetMagicMissileDMod(tier);
             wo.WeaponMissileDefense = GetMagicMissileDMod(tier);

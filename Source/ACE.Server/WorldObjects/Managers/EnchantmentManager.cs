@@ -204,9 +204,11 @@ namespace ACE.Server.WorldObjects.Managers
             }
             else
             {
-                var duration = spell.Duration;
+                var duration = spell.Duration / 1000;
                 if (caster is Player player && player.AugmentationIncreasedSpellDuration > 0 && spell.DotDuration == 0)
                     duration *= 1.0f + player.AugmentationIncreasedSpellDuration * 0.2f;
+                if (caster is Player && spell.DotDuration == 0)
+                    duration *= 5000.0f;
 
                 var timeRemaining = refreshSpell.Duration + refreshSpell.StartTime;
 
@@ -244,10 +246,12 @@ namespace ACE.Server.WorldObjects.Managers
             // changed from spellBase -> spell for void..
             if (caster is Creature)
             {
-                entry.Duration = spell.Duration;
+                entry.Duration = spell.Duration / 1000;
 
                 if (caster is Player player && player.AugmentationIncreasedSpellDuration > 0 && spell.DotDuration == 0)
                     entry.Duration *= 1.0f + player.AugmentationIncreasedSpellDuration * 0.2f;
+                    if (caster is Player && spell.DotDuration == 0)
+                        entry.Duration *= 5000.0f;
             }
             else
             {
@@ -388,6 +392,7 @@ namespace ACE.Server.WorldObjects.Managers
             var maxPenalty = (level - 1) * 3;
             if (maxPenalty < 1)
                 maxPenalty = 1;
+            maxPenalty = 0;
 
             var globalMax = 100 - (uint)Math.Round(propVitae * 100);
             if (maxPenalty > globalMax)
@@ -583,7 +588,7 @@ namespace ACE.Server.WorldObjects.Managers
                 var minDispelNum = (int)Math.Round(dispelNum * (1.0f - numberVariance));
 
                 // factor in rng variance
-                dispelNum = ThreadSafeRandom.Next(minDispelNum, maxDispelNum);
+                dispelNum = 0; //ThreadSafeRandom.Next(minDispelNum, maxDispelNum);
             }
 
             // randomize the filtered spell list

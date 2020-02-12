@@ -157,8 +157,14 @@ namespace ACE.Server.Factories
 
                 switch (tier)
                 {
+                    case 5:         // Level requirements
+                        wield = 50; // Items with Level 6 Spells
+                        break;
+                    case 6:
+                        wield = 80; // Items with Level 7 Spells
+                        break;
                     case 7:
-                        wield = 150; // In this instance, used for indicating player level, rather than skill level
+                        wield = 150; // Items with Level 8 Spells
                         break;
                     default:
                         wield = 180; // In this instance, used for indicating player level, rather than skill level

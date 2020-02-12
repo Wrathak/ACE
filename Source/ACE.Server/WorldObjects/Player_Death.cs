@@ -456,7 +456,7 @@ namespace ACE.Server.WorldObjects
             var numCoinsDropped = GetNumCoinsDropped();
 
             var level = Level ?? 1;
-            var canDropWielded = level >= 35;
+            var canDropWielded = level >= 300;
 
             // get all items in inventory
             var inventory = GetAllPossessions();
@@ -505,7 +505,7 @@ namespace ACE.Server.WorldObjects
                         var dropItem = WorldObjectFactory.CreateNewWorldObject(deathItem.WorldObject.WeenieClassId);
 
                         //Console.WriteLine("Dropping " + deathItem.WorldObject.Name + " (stack)");
-                        dropItems.Add(dropItem);
+                        //dropItems.Add(dropItem);
                     }
                     else
                     {
@@ -517,7 +517,7 @@ namespace ACE.Server.WorldObjects
                     if (TryRemoveFromInventoryWithNetworking(deathItem.WorldObject.Guid, out _, RemoveFromInventoryAction.ToCorpseOnDeath) || TryDequipObjectWithNetworking(deathItem.WorldObject.Guid, out _, DequipObjectAction.ToCorpseOnDeath))
                     {
                         //Console.WriteLine("Dropping " + deathItem.WorldObject.Name);
-                        dropItems.Add(deathItem.WorldObject);
+                        //dropItems.Add(deathItem.WorldObject);
                     }
                     else
                     {

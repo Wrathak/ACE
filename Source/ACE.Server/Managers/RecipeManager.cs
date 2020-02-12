@@ -217,7 +217,7 @@ namespace ACE.Server.Managers
                 // thanks to Endy's Tinkering Calculator for this formula!
                 var attemptMod = TinkeringDifficulty[tinkeredCount];
 
-                var difficulty = (int)Math.Floor(((salvageMod * 5.0f) + (itemWorkmanship * salvageMod * 2.0f) - (toolWorkmanship * workmanshipMod * salvageMod / 5.0f)) * attemptMod);
+                var difficulty = (int)Math.Floor(((salvageMod * 5.0f) + (itemWorkmanship * salvageMod * 2.0f) - (toolWorkmanship * workmanshipMod * salvageMod / 4.0f)) * attemptMod);
 
                 successChance = SkillCheck.GetSkillChance((int)skill.Current, difficulty);
 
@@ -926,12 +926,19 @@ namespace ACE.Server.Managers
             var destroyTarget = ThreadSafeRandom.Next(0.0f, 1.0f) <= destroyTargetChance;
             var destroySource = ThreadSafeRandom.Next(0.0f, 1.0f) <= destroySourceChance;
 
-            if (destroyTarget)
+            if (recipe.Skill > 0 || recipe.Difficulty > 0)
             {
+              player.EnqueueBroadcast(new GameMessageSystemChat($"You are crafting and the source will remain intact.", ChatMessageType.Craft), WorldObject.LocalBroadcastRange, ChatMessageType.Craft);
+            }
+            else
+            {
+              if (destroyTarget)
+              {
                 var destroyTargetAmount = success ? recipe.SuccessDestroyTargetAmount : recipe.FailDestroyTargetAmount;
                 var destroyTargetMessage = success ? recipe.SuccessDestroyTargetMessage : recipe.FailDestroyTargetMessage;
 
                 DestroyItem(player, recipe, target, destroyTargetAmount, destroyTargetMessage);
+              }
             }
 
             if (destroySource)

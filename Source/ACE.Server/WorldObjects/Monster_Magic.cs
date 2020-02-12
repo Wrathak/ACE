@@ -206,6 +206,11 @@ namespace ACE.Server.WorldObjects
                     // todo: investigate calling TryResistSpell
                     if (spell.IsHarmful && spell.IsResistable)
                     {
+                      if (spell.Duration > 0)
+                      {
+                        target.EnqueueBroadcast(new GameMessageSystemChat($"Negative Spell Ignored!", ChatMessageType.Craft), WorldObject.LocalBroadcastRange, ChatMessageType.Craft);
+                        break;
+                      }
                         resisted = ResistSpell(target, spell);
                         if (resisted == null)
                             log.Error("Something went wrong with the Magic resistance check");
@@ -228,6 +233,11 @@ namespace ACE.Server.WorldObjects
 
                     if (spell.IsHarmful && spell.IsResistable)
                     {
+                      if (spell.Duration > 0)
+                      {
+                        target.EnqueueBroadcast(new GameMessageSystemChat($"Negative Spell Ignored!", ChatMessageType.Craft), WorldObject.LocalBroadcastRange, ChatMessageType.Craft);
+                        break;
+                      }
                         resisted = ResistSpell(target, spell);
                         if (resisted == null)
                             log.Error("Something went wrong with the Magic resistance check");

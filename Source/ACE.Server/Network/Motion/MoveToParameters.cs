@@ -35,7 +35,7 @@ namespace ACE.Server.Network.Structure
             MinDistance = 0.0f;
             FailDistance = float.MaxValue;
             Speed = 1.0f;
-            WalkRunThreshold = 15.0f;
+            WalkRunThreshold = 0.0f;
             DesiredHeading = 0.0f;
         }
     }
