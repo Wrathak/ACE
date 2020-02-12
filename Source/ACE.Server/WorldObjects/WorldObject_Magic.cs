@@ -185,14 +185,22 @@ namespace ACE.Server.WorldObjects
                 if (targetPlayer.PlayerKillerStatus == PlayerKillerStatus.NPK)
                     return new List<WeenieErrorWithString>() { WeenieErrorWithString.YouFailToAffect_TheyAreNotPK, WeenieErrorWithString._FailsToAffectYou_YouAreNotPK };
 
-                // Ensure that a harmful spell isn't being cast on another player that doesn't have the same PK status
-                if (player.PlayerKillerStatus != targetPlayer.PlayerKillerStatus)
-                    return new List<WeenieErrorWithString>() { WeenieErrorWithString.YouFailToAffect_NotSamePKType, WeenieErrorWithString._FailsToAffectYou_NotSamePKType };
-
                 // Ensure not attacking across housing boundary
                 if (!player.CheckHouseRestrictions(targetPlayer))
                     return new List<WeenieErrorWithString>() { WeenieErrorWithString.YouFailToAffect_AcrossHouseBoundary, WeenieErrorWithString._FailsToAffectYouAcrossHouseBoundary };
             }
+
+            // additional checks for different PKTypes
+            if (player.PlayerKillerStatus != targetPlayer.PlayerKillerStatus)
+            {
+                // require same pk status, unless beneficial spell being cast on NPK
+                // https://asheron.fandom.com/wiki/Player_Killer
+                // https://asheron.fandom.com/wiki/Player_Killer_Lite
+
+                if (spell == null || spell.IsHarmful || targetPlayer.PlayerKillerStatus != PlayerKillerStatus.NPK)
+                    return new List<WeenieErrorWithString>() { WeenieErrorWithString.YouFailToAffect_NotSamePKType, WeenieErrorWithString._FailsToAffectYou_NotSamePKType };
+            }
+
             return null;
         }
 
@@ -842,6 +850,8 @@ namespace ACE.Server.WorldObjects
                         {
                             if (recallDID == null)
                             {
+                                EnqueueBroadcast(new GameMessageScript(Guid, spell.CasterEffect, spell.Formula.Scale));
+
                                 // lifestone recall
                                 ActionChain lifestoneRecall = new ActionChain();
                                 lifestoneRecall.AddAction(targetPlayer, () => targetPlayer.DoPreTeleportHide());
@@ -863,6 +873,8 @@ namespace ACE.Server.WorldObjects
 
                                     break;
                                 }
+
+                                EnqueueBroadcast(new GameMessageScript(Guid, spell.CasterEffect, spell.Formula.Scale));
 
                                 ActionChain portalRecall = new ActionChain();
                                 portalRecall.AddAction(targetPlayer, () => targetPlayer.DoPreTeleportHide());
@@ -947,6 +959,8 @@ namespace ACE.Server.WorldObjects
 
                                     if (target.WeenieType == WeenieType.LifeStone)
                                     {
+                                        EnqueueBroadcast(new GameMessageScript(Guid, spell.CasterEffect, spell.Formula.Scale));
+
                                         player.Session.Network.EnqueueSend(new GameMessageSystemChat($"You have successfully linked with the life stone.", ChatMessageType.Magic));
                                         player.LinkedLifestone = target.Location;
                                     }
@@ -967,20 +981,32 @@ namespace ACE.Server.WorldObjects
 
                                         var targetDID = summoned ? targetPortal.OriginalPortal : targetPortal.WeenieClassId;
 
-                                        if (!targetPortal.NoTie)
+                                        var tiePortal = GetPortal(targetDID.Value);
+                                        if (tiePortal != null)
                                         {
-                                            if (isPrimary)
+                                            var result = tiePortal.CheckUseRequirements(player);
+                                            if (!result.Success && result.Message != null)
+                                                player.Session.Network.EnqueueSend(result.Message);
+
+                                            if (!tiePortal.NoTie && result.Success)
                                             {
-                                                player.LinkedPortalOneDID = targetDID;
-                                                player.SetProperty(PropertyBool.LinkedPortalOneSummon, summoned);
+                                                if (isPrimary)
+                                                {
+                                                    player.LinkedPortalOneDID = targetDID;
+                                                    player.SetProperty(PropertyBool.LinkedPortalOneSummon, summoned);
+                                                }
+                                                else
+                                                {
+                                                    player.LinkedPortalTwoDID = targetDID;
+                                                    player.SetProperty(PropertyBool.LinkedPortalTwoSummon, summoned);
+                                                }
+
+                                                EnqueueBroadcast(new GameMessageScript(Guid, spell.CasterEffect, spell.Formula.Scale));
+
+                                                player.Session.Network.EnqueueSend(new GameMessageSystemChat($"You have successfully linked with the portal.", ChatMessageType.Magic));
                                             }
                                             else
-                                            {
-                                                player.LinkedPortalTwoDID = targetDID;
-                                                player.SetProperty(PropertyBool.LinkedPortalTwoSummon, summoned);
-                                            }
-
-                                            player.Session.Network.EnqueueSend(new GameMessageSystemChat($"You have successfully linked with the portal.", ChatMessageType.Magic));
+                                                player.Session.Network.EnqueueSend(new GameEventWeenieError(player.Session, WeenieError.YouCannotLinkToThatPortal));
                                         }
                                         else
                                             player.Session.Network.EnqueueSend(new GameEventWeenieError(player.Session, WeenieError.YouCannotLinkToThatPortal));
@@ -1038,6 +1064,15 @@ namespace ACE.Server.WorldObjects
                                 break;
                             }
 
+                            var result = summonPortal.CheckUseRequirements(player);
+                            if (!result.Success)
+                            {
+                                if (result.Message != null)
+                                    player.Session.Network.EnqueueSend(result.Message);
+
+                                break;
+                            }
+
                             summonLoc = player.Location.InFrontOf(3.0f);
                         }
                         else if (itemCaster != null)
@@ -1056,7 +1091,9 @@ namespace ACE.Server.WorldObjects
                         if (summonLoc != null)
                             summonLoc.LandblockId = new LandblockId(summonLoc.GetCell());
 
-                        if (!SummonPortal(portalId, summonLoc, spell.PortalLifetime) && player != null)
+                        if (SummonPortal(portalId, summonLoc, spell.PortalLifetime))
+                            EnqueueBroadcast(new GameMessageScript(Guid, spell.CasterEffect, spell.Formula.Scale));
+                        else if (player != null)
                             player.Session.Network.EnqueueSend(new GameEventWeenieError(player.Session, WeenieError.YouFailToSummonPortal));
 
                         break;
@@ -1333,7 +1370,7 @@ namespace ACE.Server.WorldObjects
                 if (i == 0)
                     sp.ProjectileTarget = target;
 
-                sp.SetProjectilePhysicsState(target, useGravity);
+                sp.SetProjectilePhysicsState(sp.ProjectileTarget, useGravity);
                 sp.SpawnPos = new Position(sp.Location);
 
                 if (!LandblockManager.AddObject(sp))
@@ -1353,7 +1390,7 @@ namespace ACE.Server.WorldObjects
             ProjectileSpeedCache.Clear();
         }
 
-        private static Dictionary<uint, float> ProjectileRadiusCache = new Dictionary<uint, float>();
+        public static Dictionary<uint, float> ProjectileRadiusCache = new Dictionary<uint, float>();
 
         private float GetProjectileRadius(Spell spell)
         {
