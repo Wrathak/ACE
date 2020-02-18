@@ -177,11 +177,11 @@ namespace ACE.Server.WorldObjects
                     totalXP *= 1.0f + playerDamager.AugmentationBonusXp * 0.05f;
 
                     if (playerDamager.Level < 10)
-                      totalXP *= 0.3f;
+                      totalXP *= 0.2f;
                     if (playerDamager.Level > 9 && playerDamager.Level < 16)
-                      totalXP *= 0.5f;
+                      totalXP *= 2.0f;
                     if (playerDamager.Level > 15 && playerDamager.Level < 25)
-                      totalXP *= 0.7f;
+                      totalXP *= 1.0f;
                     if (playerDamager.Level > 24 && playerDamager.Level < 35)
                       totalXP *= 1.0f;
                     if (playerDamager.Level > 34 && playerDamager.Level < 50)
