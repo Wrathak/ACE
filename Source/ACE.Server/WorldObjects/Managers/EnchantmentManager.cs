@@ -1382,7 +1382,12 @@ namespace ACE.Server.WorldObjects.Managers
 
                 var damageSourcePlayer = damager as Player;
                 if (damageSourcePlayer != null)
+                {
                     creature.TakeDamageOverTime_NotifySource(damageSourcePlayer, damageType, amount);
+
+                    if (creature.IsAlive)
+                        creature.EmoteManager.OnDamage(damageSourcePlayer);
+                }
             }
         }
 

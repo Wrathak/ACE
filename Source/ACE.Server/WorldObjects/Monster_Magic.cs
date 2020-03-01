@@ -182,9 +182,6 @@ namespace ACE.Server.WorldObjects
         {
             if (AttackTarget == null) return;
 
-            bool? resisted;
-            //var spell = GetCurrentSpell();
-
             var targetSelf = spell.Flags.HasFlag(SpellFlags.SelfTargeted);
             var untargeted = spell.NonComponentTargetType == ItemType.None;
 
@@ -193,6 +190,10 @@ namespace ACE.Server.WorldObjects
                 target = null;
             else if (targetSelf)
                 target = this;
+
+            // try to resist spell, if applicable
+            if (TryResistSpell(target, spell))
+                return;
 
             switch (spell.School)
             {
@@ -203,19 +204,11 @@ namespace ACE.Server.WorldObjects
 
                 case MagicSchool.LifeMagic:
 
-                    // todo: investigate calling TryResistSpell
-                    if (spell.IsHarmful && spell.IsResistable)
+                    // Ignore Vuln
+                    if (spell.IsHarmful && spell.IsResistable && spell.Duration > 0)
                     {
-                      if (spell.Duration > 0)
-                      {
                         target.EnqueueBroadcast(new GameMessageSystemChat($"Negative Spell Ignored!", ChatMessageType.Craft), WorldObject.LocalBroadcastRange, ChatMessageType.Craft);
                         break;
-                      }
-                        resisted = ResistSpell(target, spell);
-                        if (resisted == null)
-                            log.Error("Something went wrong with the Magic resistance check");
-                        if (resisted ?? true)
-                            break;
                     }
 
                     var targetDeath = LifeMagic(spell, out uint damage, out bool critical, out var msg, target);
@@ -231,19 +224,12 @@ namespace ACE.Server.WorldObjects
 
                 case MagicSchool.CreatureEnchantment:
 
-                    if (spell.IsHarmful && spell.IsResistable)
+                    if (spell.IsHarmful && spell.IsResistable && spell.Duration > 0)
                     {
-                      if (spell.Duration > 0)
-                      {
                         target.EnqueueBroadcast(new GameMessageSystemChat($"Negative Spell Ignored!", ChatMessageType.Craft), WorldObject.LocalBroadcastRange, ChatMessageType.Craft);
                         break;
-                      }
-                        resisted = ResistSpell(target, spell);
-                        if (resisted == null)
-                            log.Error("Something went wrong with the Magic resistance check");
-                        if (resisted ?? true)
-                            break;
                     }
+
 
                     CreatureMagic(target, spell);
 
@@ -254,17 +240,11 @@ namespace ACE.Server.WorldObjects
 
                 case MagicSchool.VoidMagic:
 
-                    if (spell.NumProjectiles == 0 && spell.IsHarmful && spell.IsResistable)
-                    {
-                        resisted = ResistSpell(target, spell);
-                        if (resisted == null)
-                            log.Error("Something went wrong with the Magic resistance check");
-                        if (resisted ?? true)
-                            break;
-                    }
                     VoidMagic(target, spell, this);
+
                     if (spell.NumProjectiles == 0 && target != null)
                         EnqueueBroadcast(new GameMessageScript(target.Guid, spell.TargetEffect, spell.Formula.Scale));
+
                     break;
             }
         }
