@@ -306,8 +306,8 @@ namespace ACE.Server.WorldObjects
             // cap tinkeringAmount to item workmanship
             tinkeringAmount = Math.Min(tinkeringAmount, (int)Math.Round(salvageItem.Workmanship ?? 1.0f)) * stackSize;
 
-            salvageAmount = (int)Math.Round(salvageAmount / 2.0);
-            tinkeringAmount = (int)Math.Round(tinkeringAmount / 2.0);
+            salvageAmount = (int)Math.Round(salvageAmount / 1.0);
+            tinkeringAmount = (int)Math.Round(tinkeringAmount / 1.0);
 
             // choose the best one
             var addStructure = Math.Max(salvageAmount, tinkeringAmount);

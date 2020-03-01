@@ -64,8 +64,9 @@ namespace ACE.Server.Command.Handlers.Processors
 
                 if (contentType == FileType.Undefined)
                 {
-                    CommandHandlerHelper.WriteOutputInfo(session, $"Unknown content type '{parameters[1]}'");
-                    return;
+                  contentType = FileType.Weenie;
+                    //CommandHandlerHelper.WriteOutputInfo(session, $"Unknown content type '{parameters[1]}'");
+                    //return;
                 }
             }
             switch (contentType)
@@ -182,8 +183,9 @@ namespace ACE.Server.Command.Handlers.Processors
 
                 if (contentType == FileType.Undefined)
                 {
-                    CommandHandlerHelper.WriteOutputInfo(session, $"Unknown content type '{parameters[1]}'");
-                    return;
+                  contentType = FileType.Weenie;
+                  //  CommandHandlerHelper.WriteOutputInfo(session, $"Unknown content type '{parameters[1]}'");
+                    //return;
                 }
             }
             switch (contentType)

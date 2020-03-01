@@ -82,6 +82,8 @@ namespace ACE.Server.Factories
             if (itemChance <= profile.ItemChance)
             {
                 numItems = ThreadSafeRandom.Next(profile.ItemMinAmount, profile.ItemMaxAmount);
+                numItems = (int)Math.Round(numItems / 2.0);
+
                 for (var i = 0; i < numItems; i++)
                 {
                     if (lootBias == LootBias.MagicEquipment)
@@ -96,6 +98,8 @@ namespace ACE.Server.Factories
             if (itemChance <= profile.MagicItemChance)
             {
                 numItems = ThreadSafeRandom.Next(profile.MagicItemMinAmount, profile.MagicItemMaxAmount);
+                numItems = (int)Math.Round(numItems / 2.0);
+
 
                 bool aetheriaGenerated = false;
                 bool generateAetheria = false;
@@ -109,7 +113,7 @@ namespace ACE.Server.Factories
                     // a loot role will only drop one Coealesced Aetheria per call into loot system, as I don't remember there
                     // being multiples, and I didn't find any written mention of it.
                     if (!aetheriaGenerated && profile.Tier > 4 && lootBias != LootBias.Weapons && dropRate > 0)
-                        generateAetheria = ThreadSafeRandom.Next(1, (int)(100 * dropRateMod)) == 1;     // base 1% of all magical items aetheria?
+                        generateAetheria = ThreadSafeRandom.Next(1, (int)(50 * dropRateMod)) == 1;     // base 2% of all magical items aetheria?
                     else
                         generateAetheria = false;
 
@@ -134,9 +138,11 @@ namespace ACE.Server.Factories
             if (itemChance <= profile.MundaneItemChance)
             {
                 numItems = ThreadSafeRandom.Next(profile.MundaneItemMinAmount, profile.MundaneItemMaxAmount);
+                numItems = (int)Math.Round(numItems / 2.0);
+
                 for (var i = 0; i < numItems; i++)
                 {
-                    if (lootBias != LootBias.UnBiased)
+                    if (lootBias != LootBias.UnBiased && profile.Tier >= 7)
                         lootWorldObject = CreateRandomScroll(profile.Tier);
                     else
                         lootWorldObject = CreateMundaneObjects(profile.Tier);
@@ -148,7 +154,7 @@ namespace ACE.Server.Factories
 
             // 25% chance to drop a scroll
             itemChance = ThreadSafeRandom.Next(0, 3);
-            if (itemChance == 3)
+            if (itemChance == 3 && profile.Tier >= 7)
             {
                 if (lootBias == LootBias.UnBiased && profile.MagicItemMinAmount > 0)
                 {
@@ -320,7 +326,7 @@ namespace ACE.Server.Factories
         {
 
             int wield = 0;
-            int chance = ThreadSafeRandom.Next(1, 100);
+            int chance = ThreadSafeRandom.Next(50, 100);
 
             ////Types: 1 Missiles, 2 Casters, 3 melee weapons, 4 covenant armor
             switch (type)
@@ -522,7 +528,7 @@ namespace ACE.Server.Factories
                             damageMod = 0;
                             break;
                         case 2:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 80)
                                 damageMod = .01;
                             else if (chance < 95)
@@ -531,7 +537,7 @@ namespace ACE.Server.Factories
                                 damageMod = .03;
                             break;
                         case 3:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 50)
                                 damageMod = .03;
                             else if (chance < 80)
@@ -542,7 +548,7 @@ namespace ACE.Server.Factories
                                 damageMod = .06;
                             break;
                         case 4:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 50)
                                 damageMod = .06;
                             else if (chance < 80)
@@ -553,7 +559,7 @@ namespace ACE.Server.Factories
                                 damageMod = .09;
                             break;
                         case 5:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 50)
                                 damageMod = .09;
                             else if (chance < 80)
@@ -564,7 +570,7 @@ namespace ACE.Server.Factories
                                 damageMod = .12;
                             break;
                         case 6:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 50)
                                 damageMod = .09;
                             else if (chance < 80)
@@ -575,7 +581,7 @@ namespace ACE.Server.Factories
                                 damageMod = .12;
                             break;
                         case 7:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 50)
                                 damageMod = .11;
                             else if (chance < 80)
@@ -584,7 +590,7 @@ namespace ACE.Server.Factories
                                 damageMod = .13;
                             break;
                         case 8:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 50)
                                 damageMod = .13;
                             else if (chance < 80)
@@ -602,7 +608,7 @@ namespace ACE.Server.Factories
                             damageMod = 0;
                             break;
                         case 2:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 80)
                                 damageMod = .01;
                             else if (chance < 95)
@@ -611,7 +617,7 @@ namespace ACE.Server.Factories
                                 damageMod = .03;
                             break;
                         case 3:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 50)
                                 damageMod = .03;
                             else if (chance < 80)
@@ -622,7 +628,7 @@ namespace ACE.Server.Factories
                                 damageMod = .06;
                             break;
                         case 4:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 50)
                                 damageMod = .06;
                             else if (chance < 80)
@@ -633,7 +639,7 @@ namespace ACE.Server.Factories
                                 damageMod = .09;
                             break;
                         case 5:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 50)
                                 damageMod = .09;
                             else if (chance < 80)
@@ -644,7 +650,7 @@ namespace ACE.Server.Factories
                                 damageMod = .12;
                             break;
                         case 6:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 50)
                                 damageMod = .12;
                             else if (chance < 80)
@@ -655,7 +661,7 @@ namespace ACE.Server.Factories
                                 damageMod = .15;
                             break;
                         case 7:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 50)
                                 damageMod = .15;
                             else if (chance < 80)
@@ -664,7 +670,7 @@ namespace ACE.Server.Factories
                                 damageMod = .17;
                             break;
                         case 8:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 50)
                                 damageMod = .16;
                             else if (chance < 80)
@@ -682,7 +688,7 @@ namespace ACE.Server.Factories
                             damageMod = 0;
                             break;
                         case 2:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 80)
                                 damageMod = .01;
                             else if (chance < 95)
@@ -691,7 +697,7 @@ namespace ACE.Server.Factories
                                 damageMod = .03;
                             break;
                         case 3:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 50)
                                 damageMod = .02;
                             else if (chance < 80)
@@ -702,7 +708,7 @@ namespace ACE.Server.Factories
                                 damageMod = .05;
                             break;
                         case 4:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 50)
                                 damageMod = .05;
                             else if (chance < 80)
@@ -713,7 +719,7 @@ namespace ACE.Server.Factories
                                 damageMod = .08;
                             break;
                         case 5:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 50)
                                 damageMod = .07;
                             else if (chance < 80)
@@ -724,7 +730,7 @@ namespace ACE.Server.Factories
                                 damageMod = .10;
                             break;
                         case 6:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 50)
                                 damageMod = .11;
                             else if (chance < 80)
@@ -735,7 +741,7 @@ namespace ACE.Server.Factories
                                 damageMod = .14;
                             break;
                         case 7:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 50)
                                 damageMod = .13;
                             else if (chance < 80)
@@ -746,7 +752,7 @@ namespace ACE.Server.Factories
                                 damageMod = .16;
                             break;
                         case 8:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 50)
                                 damageMod = .17;
                             else if (chance < 80)
@@ -766,7 +772,7 @@ namespace ACE.Server.Factories
                             damageMod = 0;
                             break;
                         case 2:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 80)
                                 damageMod = .01;
                             else if (chance < 95)
@@ -775,7 +781,7 @@ namespace ACE.Server.Factories
                                 damageMod = .03;
                             break;
                         case 3:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 50)
                                 damageMod = .02;
                             else if (chance < 80)
@@ -786,7 +792,7 @@ namespace ACE.Server.Factories
                                 damageMod = .05;
                             break;
                         case 4:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 50)
                                 damageMod = .05;
                             else if (chance < 80)
@@ -797,7 +803,7 @@ namespace ACE.Server.Factories
                                 damageMod = .08;
                             break;
                         case 5:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 50)
                                 damageMod = .07;
                             else if (chance < 80)
@@ -808,7 +814,7 @@ namespace ACE.Server.Factories
                                 damageMod = .10;
                             break;
                         case 6:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 50)
                                 damageMod = .11;
                             else if (chance < 80)
@@ -819,7 +825,7 @@ namespace ACE.Server.Factories
                                 damageMod = .14;
                             break;
                         case 7:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 50)
                                 damageMod = .14;
                             else if (chance < 80)
@@ -830,7 +836,7 @@ namespace ACE.Server.Factories
                                 damageMod = .17;
                             break;
                         case 8:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 50)
                                 damageMod = .18;
                             else if (chance < 80)
@@ -852,7 +858,7 @@ namespace ACE.Server.Factories
                             damageMod = 0;
                             break;
                         case 2:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 80)
                                 damageMod = .01;
                             else if (chance < 70)
@@ -863,7 +869,7 @@ namespace ACE.Server.Factories
                                 damageMod = .04;
                             break;
                         case 3:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 50)
                                 damageMod = .04;
                             else if (chance < 80)
@@ -874,7 +880,7 @@ namespace ACE.Server.Factories
                                 damageMod = .07;
                             break;
                         case 4:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 50)
                                 damageMod = .07;
                             else if (chance < 70)
@@ -887,7 +893,7 @@ namespace ACE.Server.Factories
                                 damageMod = .11;
                             break;
                         case 5:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 50)
                                 damageMod = .11;
                             else if (chance < 70)
@@ -900,7 +906,7 @@ namespace ACE.Server.Factories
                                 damageMod = .15;
                             break;
                         case 6:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 50)
                                 damageMod = .15;
                             else if (chance < 70)
@@ -911,7 +917,7 @@ namespace ACE.Server.Factories
                                 damageMod = .18;
                             break;
                         case 7:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 50)
                                 damageMod = .18;
                             else if (chance < 80)
@@ -922,7 +928,7 @@ namespace ACE.Server.Factories
                                 damageMod = .21;
                             break;
                         case 8:
-                            chance = ThreadSafeRandom.Next(0, 100);
+                            chance = ThreadSafeRandom.Next(50, 100);
                             if (chance < 50)
                                 damageMod = .21;
                             else if (chance < 80)
@@ -1286,7 +1292,7 @@ namespace ACE.Server.Factories
                     magicMod = 0;
                     break;
                 case 3:
-                    chance = ThreadSafeRandom.Next(0, 1000);
+                    chance = ThreadSafeRandom.Next(500, 1000);
                     if (chance > 900)
                         magicMod = 5;
                     else if (chance > 800)
@@ -1299,7 +1305,7 @@ namespace ACE.Server.Factories
                         magicMod = 1;
                     break;
                 case 4:
-                    chance = ThreadSafeRandom.Next(0, 1000);
+                    chance = ThreadSafeRandom.Next(500, 1000);
                     if (chance > 900)
                         magicMod = 10;
                     else if (chance > 800)
@@ -1314,7 +1320,7 @@ namespace ACE.Server.Factories
                         magicMod = 5;
                     break;
                 case 5:
-                    chance = ThreadSafeRandom.Next(0, 1000);
+                    chance = ThreadSafeRandom.Next(500, 1000);
                     if (chance > 900)
                         magicMod = 10;
                     else if (chance > 800)
@@ -1329,7 +1335,7 @@ namespace ACE.Server.Factories
                         magicMod = 5;
                     break;
                 case 6:
-                    chance = ThreadSafeRandom.Next(0, 1000);
+                    chance = ThreadSafeRandom.Next(500, 1000);
                     if (chance > 900)
                         magicMod = 10;
                     else if (chance > 800)
@@ -1344,7 +1350,7 @@ namespace ACE.Server.Factories
                         magicMod = 5;
                     break;
                 case 7:
-                    chance = ThreadSafeRandom.Next(0, 1000);
+                    chance = ThreadSafeRandom.Next(500, 1000);
                     if (chance > 900)
                         magicMod = 10;
                     else if (chance > 800)
@@ -1359,7 +1365,7 @@ namespace ACE.Server.Factories
                         magicMod = 5;
                     break;
                 default:
-                    chance = ThreadSafeRandom.Next(0, 1000);
+                    chance = ThreadSafeRandom.Next(500, 1000);
                     if (chance > 900)
                         magicMod = 10;
                     else if (chance > 800)
@@ -1396,12 +1402,12 @@ namespace ACE.Server.Factories
                         magicMissileDefenseMod = 0;
                         break;
                     case 3:
-                        int chance = ThreadSafeRandom.Next(1, 100);
+                        int chance = ThreadSafeRandom.Next(50, 100);
                         if (chance > 95)
                             magicMissileDefenseMod = .005;
                         break;
                     case 4:
-                        chance = ThreadSafeRandom.Next(1, 100);
+                        chance = ThreadSafeRandom.Next(50, 100);
                         if (chance > 95)
                             magicMissileDefenseMod = .01;
                         else if (chance > 80)
@@ -1410,7 +1416,7 @@ namespace ACE.Server.Factories
                             magicMissileDefenseMod = 0;
                         break;
                     case 5:
-                        chance = ThreadSafeRandom.Next(1, 1000);
+                        chance = ThreadSafeRandom.Next(500, 1000);
                         if (chance > 950)
                             magicMissileDefenseMod = .01;
                         else if (chance > 800)
@@ -1419,7 +1425,7 @@ namespace ACE.Server.Factories
                             magicMissileDefenseMod = 0;
                         break;
                     case 6:
-                        chance = ThreadSafeRandom.Next(1, 1000);
+                        chance = ThreadSafeRandom.Next(500, 1000);
                         if (chance > 975)
                             magicMissileDefenseMod = .020;
                         else if (chance > 900)
@@ -1432,7 +1438,7 @@ namespace ACE.Server.Factories
                             magicMissileDefenseMod = 0;
                         break;
                     case 7:
-                        chance = ThreadSafeRandom.Next(1, 1000);
+                        chance = ThreadSafeRandom.Next(500, 1000);
                         if (chance > 990)
                             magicMissileDefenseMod = .030;
                         else if (chance > 985)
@@ -1449,7 +1455,7 @@ namespace ACE.Server.Factories
                             magicMissileDefenseMod = 0;
                         break;
                     default: // tier 8
-                        chance = ThreadSafeRandom.Next(1, 1000);
+                        chance = ThreadSafeRandom.Next(500, 1000);
                         if (chance > 998)
                             magicMissileDefenseMod = .04;
                         else if (chance > 994)
@@ -1844,7 +1850,7 @@ namespace ACE.Server.Factories
                     meleeMod = 0;
                     break;
                 case 2:
-                    chance = ThreadSafeRandom.Next(1, 100);
+                    chance = ThreadSafeRandom.Next(50, 100);
                     if (chance < 60)
                         meleeMod = 0;
                     else if (chance < 80)
@@ -1855,7 +1861,7 @@ namespace ACE.Server.Factories
                         meleeMod = .03;
                     break;
                 case 3:
-                    chance = ThreadSafeRandom.Next(1, 100);
+                    chance = ThreadSafeRandom.Next(50, 100);
                     if (chance < 60)
                         meleeMod = .03;
                     else if (chance < 80)
@@ -1866,7 +1872,7 @@ namespace ACE.Server.Factories
                         meleeMod = .06;
                     break;
                 case 4:
-                    chance = ThreadSafeRandom.Next(1, 100);
+                    chance = ThreadSafeRandom.Next(50, 100);
                     if (chance < 60)
                         meleeMod = .06;
                     else if (chance < 80)
@@ -1877,7 +1883,7 @@ namespace ACE.Server.Factories
                         meleeMod = .09;
                     break;
                 case 5:
-                    chance = ThreadSafeRandom.Next(1, 100);
+                    chance = ThreadSafeRandom.Next(50, 100);
                     if (chance < 60)
                         meleeMod = .09;
                     else if (chance < 80)
@@ -1888,7 +1894,7 @@ namespace ACE.Server.Factories
                         meleeMod = .12;
                     break;
                 case 6:
-                    chance = ThreadSafeRandom.Next(1, 100);
+                    chance = ThreadSafeRandom.Next(50, 100);
                     if (chance < 60)
                         meleeMod = .12;
                     else if (chance < 80)
@@ -1899,7 +1905,7 @@ namespace ACE.Server.Factories
                         meleeMod = .15;
                     break;
                 case 7:
-                    chance = ThreadSafeRandom.Next(1, 100);
+                    chance = ThreadSafeRandom.Next(50, 100);
                     if (chance < 60)
                         meleeMod = .15;
                     else if (chance < 80)
@@ -1910,7 +1916,7 @@ namespace ACE.Server.Factories
                         meleeMod = .18;
                     break;
                 case 8:
-                    chance = ThreadSafeRandom.Next(1, 100);
+                    chance = ThreadSafeRandom.Next(50, 100);
                     if (chance < 60)
                         meleeMod = .17;
                     else if (chance < 80)
@@ -2267,7 +2273,7 @@ namespace ACE.Server.Factories
         {
             double meleeMod = 0;
 
-            int chance = ThreadSafeRandom.Next(1, 100);
+            int chance = ThreadSafeRandom.Next(40, 100);
             switch (wield)
             {
                 case 0:

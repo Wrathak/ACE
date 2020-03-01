@@ -703,7 +703,7 @@ namespace ACE.Server.WorldObjects
         {
             //Console.WriteLine($"{Name}.HandleActionPutItemInContainer({itemGuid:X8}, {containerGuid:X8}, {placement})");
 
-            /*if (IsBusy)
+            if (IsBusy)
             {
                 if (PickupState != PickupState.Return || NextPickup != null)
                 {
@@ -714,7 +714,7 @@ namespace ACE.Server.WorldObjects
                     NextPickup = () => { HandleActionPutItemInContainer(itemGuid, containerGuid, placement); };
 
                 return;
-            }*/
+            }
 
             OnPutItemInContainer(itemGuid, containerGuid, placement);
 

@@ -249,7 +249,7 @@ namespace ACE.Server.Factories
         {
             double elementBonus = 0;
 
-           int chance = ThreadSafeRandom.Next(1, 100);
+           int chance = ThreadSafeRandom.Next(50, 100);
             switch (wield)
             {
                 case 290:

@@ -29,12 +29,13 @@ namespace ACE.Server.WorldObjects
 
             var m_amount = (long)Math.Round(amount * enchantment * modifier);
 
+            if (xpType == XpType.Quest && Level < 5)
             m_amount = (long)Math.Round(amount * 0.1);
-            if (xpType == XpType.Quest && Level > 4)
+            if (xpType == XpType.Quest && Level > 4 && Level < 30)
             m_amount = (long)Math.Round(amount * 0.2);
-            if (xpType == XpType.Quest && Level > 30)
-            m_amount = (long)Math.Round(amount * 0.5);
-            if (xpType == XpType.Quest && Level > 50)
+            if (xpType == XpType.Quest && Level > 29 && Level < 50)
+            m_amount = (long)Math.Round(amount * 0.35);
+            if (xpType == XpType.Quest && Level > 49 && Level < 100)
             m_amount = (long)Math.Round(amount * 1.0);
             if (xpType == XpType.Quest && Level > 99)
             m_amount = (long)Math.Round(amount * 2.0);
@@ -431,12 +432,13 @@ namespace ACE.Server.WorldObjects
 
             var scaledXP = (long)Math.Round(nextLevelXP * 1.0); //percent);
 
-            scaledXP = (long)Math.Round(nextLevelXP * 0.1);
-            if (Level > 5)
-            scaledXP = (long)Math.Round(nextLevelXP * 0.2);
-            if (Level > 30)
-            scaledXP = (long)Math.Round(nextLevelXP * 0.5);
-            if (Level > 50)
+            if (Level < 5)
+            scaledXP = (long)Math.Round(nextLevelXP * 0.3);
+            if (Level > 4 && Level < 30)
+            scaledXP = (long)Math.Round(nextLevelXP * 0.3);
+            if (Level > 29 && Level < 50)
+            scaledXP = (long)Math.Round(nextLevelXP * 0.4);
+            if (Level > 49 && Level < 100)
             scaledXP = (long)Math.Round(nextLevelXP * 1.0);
             if (Level > 99)
             scaledXP = (long)Math.Round(nextLevelXP * 2.0);

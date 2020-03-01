@@ -99,9 +99,9 @@ namespace ACE.Server.Factories
         {
 
             // 35% chance ring, 35% chance bracelet, 30% chance necklace
-            int ringPercent = 35;
-            int braceletPercent = 35;
-            int necklacePercent = 30;
+            int ringPercent = 40;
+            int braceletPercent = 40;
+            int necklacePercent = 20;
 
             int jewelrySlot = ThreadSafeRandom.Next(0, ringPercent + braceletPercent + necklacePercent);
             int jewelType;

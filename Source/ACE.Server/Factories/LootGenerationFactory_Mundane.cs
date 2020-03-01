@@ -29,7 +29,7 @@ namespace ACE.Server.Factories
             switch (chance)
             {
                 case 0:
-                    id = (uint)CreateFood();
+                    //id = (uint)CreateFood();
                     break;
                 default:
                     int mundaneLootMatrixIndex = tier - 1;
@@ -50,7 +50,7 @@ namespace ACE.Server.Factories
             // TODO - Doesn't handle damage/speed/etc that the mutate engine should for these types of items.
             if (wo.TsysMutationData != null)
             {
-                
+
                 wo.SetProperty(PropertyInt.GemCount, ThreadSafeRandom.Next(1, 5));
                 wo.SetProperty(PropertyInt.GemType, ThreadSafeRandom.Next(10, 50));
 
