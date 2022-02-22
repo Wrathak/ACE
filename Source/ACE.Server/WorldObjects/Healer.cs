@@ -101,6 +101,8 @@ namespace ACE.Server.WorldObjects
                 DoHealMotion(healer, targetPlayer, true);
         }
 
+        public static readonly float Healing_MaxMove = 3.0f;
+
         public void DoHealMotion(Player healer, Player target, bool success)
         {
             if (!success || target.IsDead || target.Teleporting)
@@ -128,7 +130,7 @@ namespace ACE.Server.WorldObjects
                 var dist = startPos.DistanceTo(endPos);
 
                 // only PKs affected by these caps?
-                if (dist < Player.Windup_MaxMove || PlayerKillerStatus == PlayerKillerStatus.NPK)
+                if (dist < Healing_MaxMove || healer.PlayerKillerStatus == PlayerKillerStatus.NPK)
                     DoHealing(healer, target);
                 else
                     healer.Session.Network.EnqueueSend(new GameMessageSystemChat("Your movement disrupted healing!", ChatMessageType.Broadcast));
@@ -255,7 +257,7 @@ namespace ACE.Server.WorldObjects
             // stamina check? On the Q&A board a dev posted that stamina directly effects the amount of damage you can heal
             // low stam = less vital healed. I don't have exact numbers for it. Working through forum archive.
 
-            // stamina cost: 1 stamina per 5 vital healed 
+            // stamina cost: 1 stamina per 5 vital healed
             staminaCost = (uint)Math.Round(healAmount / 5.0f);
             if (staminaCost > healer.Stamina.Current)
             {

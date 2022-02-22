@@ -19,7 +19,10 @@ namespace ACE.Server.Factories
             if (tier < 1) tier = 1;
             if (tier > 8) tier = 8;
 
-            chance = ThreadSafeRandom.Next(1, 100);
+            if (tier > 6)
+            chance = ThreadSafeRandom.Next(28, 100);
+            else
+            chance = ThreadSafeRandom.Next(57, 100);
 
             switch (chance)
             {
@@ -30,10 +33,10 @@ namespace ACE.Server.Factories
                     wo = CreateSummoningEssence(tier);
                     break;
                 case var rate when (rate < 28):
-                    wo = CreateRandomScroll(tier);
+                    wo = CreateFood();
                     break;
                 case var rate when (rate < 57):
-                    wo = CreateFood();
+                    wo = CreateRandomScroll(tier);
                     break;
                 default:
                     int genericLootMatrixIndex = tier - 1;

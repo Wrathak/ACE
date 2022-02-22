@@ -141,19 +141,19 @@ namespace ACE.Server.Factories
                 numItems = (int)Math.Round(numItems / 2.0);
 
 
-                                for (var i = 0; i < numItems; i++)
-                                {
-                                    if (lootBias != LootBias.UnBiased)
-                                        lootWorldObject = CreateRandomScroll(profile.Tier);
-                                    else
-                                        lootWorldObject = CreateGenericObjects(profile.Tier);
+                for (var i = 0; i < numItems; i++)
+                {
+                  if (lootBias != LootBias.UnBiased)
+                  lootWorldObject = CreateRandomScroll(profile.Tier);
+                  else
+                  lootWorldObject = CreateGenericObjects(profile.Tier);
 
-                                    if (lootWorldObject != null)
-                                        loot.Add(lootWorldObject);
-                                }
-                            }
+                  if (lootWorldObject != null)
+                  loot.Add(lootWorldObject);
+                }
+              }
 
-                            return loot;
+              return loot;
         }
 
         /// <summary>
@@ -921,6 +921,7 @@ namespace ACE.Server.Factories
                 WeenieType.MissileLauncher => 0.04166667,
                 _ => 1.0 / ThreadSafeRandom.Next(10, 30),
             };
+            manaRate = 0.0001;
             return -manaRate;
         }
 

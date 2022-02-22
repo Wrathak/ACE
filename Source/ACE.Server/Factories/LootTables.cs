@@ -1142,7 +1142,7 @@ namespace ACE.Server.Factories
                 new int[] { 581, 582, 583, 584, 585, 586, 2249, 4564 }, // Item Enchantment Mastery
                 new int[] { 605, 606, 607, 608, 609, 610, 2267, 4582 }, // Life Magic Mastery
                 new int[] { 629, 630, 631, 632, 633, 634, 2323, 4638 },  ////War Magic
-                new int[] { 1599, 1600, 1601, 1602, 1603, 1604, 2101, 4400 }, // Defender
+                new int[] { 1599, 1601, 1602, 1603, 1604, 1605, 2101, 4400 }, // Defender
                 new int[] { 1475, 1476, 1477, 1478, 1479, 1480, 2117, 4418 }, // Hermetic Link
                 new int[] { 1421, 1422, 1423, 1424, 1425, 1426, 2067, 4305 }, // Focus
                 new int[] { 1445, 1446, 1447, 1448, 1449, 1450, 2091, 4329 }, // Willpower
@@ -1304,10 +1304,6 @@ namespace ACE.Server.Factories
         {
           ////Shield
           new int[] { 5843, 5844, 5845, 5846, 5847, 5848, 5857, 5858 },
-          ////Light Weapon
-          new int[] { 298, 299, 300, 301, 302, 303, 2275, 4518 },
-          ////Finesse Weapon
-          new int[] { 322, 323, 324, 325, 326, 327, 2223, 4538 },
           ////Heavy Weapon
           new int[] { 418, 419, 420, 421, 422, 423, 2309, 4624 },
             ////Dirty Fighting
@@ -1319,7 +1315,7 @@ namespace ACE.Server.Factories
             ////Heart Seeker
             new int[] { 1587, 1588, 1589, 1590, 1591, 1592, 2106, 4405 },
             ////Defender
-            new int[] { 1599, 1600, 1601, 1602, 1603, 1604, 2101, 4400 },
+            new int[] { 1599, 1601, 1602, 1603, 1604, 1605, 2101, 4400 },
             ////SwiftKiller
             new int[] { 49, 1623, 1624, 1625, 1626, 1627, 2116, 4417 },
             ////Blooddrinker
@@ -1343,7 +1339,7 @@ namespace ACE.Server.Factories
             ////Heart Seeker
             new int[] { 1587, 1588, 1589, 1590, 1591, 1592, 2106, 4405 },
             ////Defender
-            new int[] { 1599, 1600, 1601, 1602, 1603, 1604, 2101, 4400 },
+            new int[] { 1599, 1601, 1602, 1603, 1604, 1605, 2101, 4400 },
             ////SwiftKiller
             new int[] { 49, 1623, 1624, 1625, 1626, 1627, 2116, 4417 },
             ////Blooddrinker
@@ -1444,12 +1440,8 @@ namespace ACE.Server.Factories
         {
           ////Shield
           new int[] { 5885, 5890, 5895, 6067},
-          ////Finesse Weapon
-          new int[] { 2544, 2509, 4691, 6047},
           ////Heavy Weapon
           new int[] { 2566, 2531, 4712, 6072},
-          ////Light Weapon
-          new int[] { 2557, 2522, 4686, 6043},
             ////Dirty Fighting
             new int[] { 5882, 5888, 5893, 6049 },
             ////Recklessness
@@ -1495,7 +1487,7 @@ namespace ACE.Server.Factories
           new int[] { (int)MaterialType.Steel, (int)MaterialType.Alabaster, (int)MaterialType.Bronze, (int)MaterialType.Ceramic, (int)MaterialType.Marble, (int)MaterialType.Peridot, (int)MaterialType.Opal, (int)MaterialType.Wool, (int)MaterialType.YellowTopaz, (int)MaterialType.Zircon },
           new int[] { (int)MaterialType.Steel, (int)MaterialType.Bronze, (int)MaterialType.Bronze, (int)MaterialType.Steel, (int)MaterialType.GreenGarnet, (int)MaterialType.Peridot, (int)MaterialType.ReedSharkHide, (int)MaterialType.Brass, (int)MaterialType.YellowTopaz, (int)MaterialType.SmokeyQuartz },
           new int[] { (int)MaterialType.Brass, (int)MaterialType.Granite, (int)MaterialType.GreenGarnet, (int)MaterialType.Iron, (int)MaterialType.Mahogany, (int)MaterialType.Oak, (int)MaterialType.Opal, (int)MaterialType.Velvet, (int)MaterialType.Brass, (int)MaterialType.Iron },
-          new int[] { (int)MaterialType.Bloodstone, (int)MaterialType.Agate, (int)MaterialType.Azurite, (int)MaterialType.Carnelian, (int)MaterialType.Citrine, (int)MaterialType.Hematite, (int)MaterialType.LapisLazuli, (int)MaterialType.LavenderJade, (int)MaterialType.Malachite, (int)MaterialType.RoseQuartz },
+          new int[] { (int)MaterialType.Velvet, (int)MaterialType.Velvet, (int)MaterialType.Azurite, (int)MaterialType.Carnelian, (int)MaterialType.Agate, (int)MaterialType.Hematite, (int)MaterialType.LapisLazuli, (int)MaterialType.LavenderJade, (int)MaterialType.Malachite, (int)MaterialType.Mahogany },
           new int[] { (int)MaterialType.Brass, (int)MaterialType.Opal, (int)MaterialType.Steel, (int)MaterialType.Steel, (int)MaterialType.Steel, (int)MaterialType.Steel, (int)MaterialType.Ebony, (int)MaterialType.GromnieHide, (int)MaterialType.Amber, (int)MaterialType.Diamond },
           new int[] { (int)MaterialType.BlackOpal, (int)MaterialType.RedGarnet, (int)MaterialType.Jet, (int)MaterialType.Emerald, (int)MaterialType.WhiteSapphire, (int)MaterialType.ImperialTopaz, (int)MaterialType.BlackGarnet, (int)MaterialType.Aquamarine, (int)MaterialType.Sunstone, (int)MaterialType.FireOpal }
 
