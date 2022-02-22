@@ -10,8 +10,6 @@ using ACE.Entity.Models;
 using ACE.Server.Entity.Actions;
 using ACE.Server.Network.GameMessages.Messages;
 
-using Biota = ACE.Database.Models.Shard.Biota;
-
 namespace ACE.Server.WorldObjects
 {
     public class Hotspot : WorldObject
@@ -93,9 +91,9 @@ namespace ACE.Server.WorldObjects
         {
             get
             {
-                var variance = CycleTime * CycleTimeVariance;
-                var min = CycleTime - variance;
-                var max = CycleTime + variance;
+                var max = CycleTime;
+                var min = max * (1.0f - CycleTimeVariance ?? 0.0f);
+
                 return ThreadSafeRandom.Next((float)min, (float)max);
             }
         }
@@ -117,7 +115,7 @@ namespace ACE.Server.WorldObjects
             get
             {
                 var r = GetBaseDamage();
-                var p = ThreadSafeRandom.Next(r.MinDamage, r.MaxDamage);
+                var p = (float)ThreadSafeRandom.Next(r.MinDamage, r.MaxDamage);
                 return p;
             }
         }
@@ -177,8 +175,7 @@ namespace ACE.Server.WorldObjects
 
                     if (creature.Invincible) return;
 
-                    if (!IgnoreMagicResist)
-                        amount *= (float)creature.GetLifeResistance(DamageType);
+                    amount *= creature.GetResistanceMod(DamageType, this, null);
 
                     if (player != null)
                         iAmount = player.TakeDamage(this, DamageType, amount, Server.Entity.BodyPart.Foot);

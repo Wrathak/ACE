@@ -10,8 +10,6 @@ using ACE.Entity.Models;
 using ACE.Server.Entity;
 using ACE.Server.Network.GameEvent.Events;
 
-using Biota = ACE.Database.Models.Shard.Biota;
-
 namespace ACE.Server.WorldObjects
 {
     public sealed class HousePortal : Portal
@@ -79,6 +77,9 @@ namespace ACE.Server.WorldObjects
             if (!(activator is Player player))
                 return new ActivationResult(false);
 
+            if (player.IsOlthoiPlayer)
+                return new ActivationResult(new GameEventWeenieError(player.Session, WeenieError.OlthoiMayNotUsePortal));
+
             if (player.CurrentLandblock.IsDungeon && Destination.LandblockId != player.CurrentLandblock.Id)
                 return new ActivationResult(true);   // allow escape to overworld always
 
@@ -88,9 +89,10 @@ namespace ACE.Server.WorldObjects
             var houseOwner = rootHouse.HouseOwner;
 
             if (houseOwner == null)
-                return new ActivationResult(new GameEventWeenieError(player.Session, WeenieError.YouMustBeHouseGuestToUsePortal));
+                //return new ActivationResult(new GameEventWeenieError(player.Session, WeenieError.YouMustBeHouseGuestToUsePortal));
+                return new ActivationResult(true);
 
-            if (rootHouse.IsOpen)
+            if (rootHouse.OpenToEveryone)
                 return new ActivationResult(true);
 
             if (!rootHouse.HasPermission(player))

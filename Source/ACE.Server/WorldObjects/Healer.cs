@@ -9,10 +9,9 @@ using ACE.Server.Entity;
 using ACE.Server.Entity.Actions;
 using ACE.Server.Network.GameEvent.Events;
 using ACE.Server.Network.GameMessages.Messages;
+using ACE.Server.Physics;
 using ACE.Server.Physics.Animation;
 using ACE.Server.WorldObjects.Entity;
-
-using Biota = ACE.Database.Models.Shard.Biota;
 
 namespace ACE.Server.WorldObjects
 {
@@ -49,7 +48,13 @@ namespace ACE.Server.WorldObjects
 
         public override void HandleActionUseOnTarget(Player healer, WorldObject target)
         {
-            if (healer.IsBusy || healer.Teleporting)
+            if (healer.GetCreatureSkill(Skill.Healing).AdvancementClass < SkillAdvancementClass.Trained)
+            {
+                healer.SendUseDoneEvent(WeenieError.YouArentTrainedInHealing);
+                return;
+            }
+
+            if (healer.IsBusy || healer.Teleporting || healer.suicideInProgress)
             {
                 healer.SendUseDoneEvent(WeenieError.YoureTooBusy);
                 return;
@@ -58,6 +63,12 @@ namespace ACE.Server.WorldObjects
             if (!(target is Player targetPlayer) || targetPlayer.Teleporting)
             {
                 healer.SendUseDoneEvent(WeenieError.YouCantHealThat);
+                return;
+            }
+
+            if (healer.IsJumping)
+            {
+                healer.SendUseDoneEvent(WeenieError.YouCantDoThatWhileInTheAir);
                 return;
             }
 
@@ -93,20 +104,23 @@ namespace ACE.Server.WorldObjects
                 return;
             }
 
-            if (!healer.Equals(targetPlayer))
+            /*if (!healer.Equals(targetPlayer))
             {
                 // perform moveto
                 healer.CreateMoveToChain(target, (success) => DoHealMotion(healer, targetPlayer, success));
             }
             else
-                DoHealMotion(healer, targetPlayer, true);
+                DoHealMotion(healer, targetPlayer, true);*/
+
+            // MoveTo is now handled in base Player_Use
+            DoHealMotion(healer, targetPlayer, true);
         }
 
-        public static readonly float Healing_MaxMove = 3.0f;
+        public static readonly float Healing_MaxMove = 5.0f;
 
         public void DoHealMotion(Player healer, Player target, bool success)
         {
-            if (!success || target.IsDead || target.Teleporting)
+            if (!success || target.IsDead || target.Teleporting || target.suicideInProgress)
             {
                 healer.SendUseDoneEvent();
                 return;
@@ -117,18 +131,22 @@ namespace ACE.Server.WorldObjects
             var motionCommand = healer.Equals(target) ? MotionCommand.SkillHealSelf : MotionCommand.SkillHealOther;
 
             var motion = new Motion(healer, motionCommand);
-            var animLength = MotionTable.GetAnimationLength(healer.MotionTableId, healer.CurrentMotionState.Stance, motionCommand);
+            var currentStance = healer.CurrentMotionState.Stance;
+            var animLength = MotionTable.GetAnimationLength(healer.MotionTableId, currentStance, motionCommand);
 
-            var startPos = new Position(healer.Location);
+            var startPos = new Physics.Common.Position(healer.PhysicsObj.Position);
 
             var actionChain = new ActionChain();
-            actionChain.AddAction(healer, () => healer.EnqueueBroadcastMotion(motion));
+            //actionChain.AddAction(healer, () => healer.EnqueueBroadcastMotion(motion));
+            actionChain.AddAction(healer, () => healer.SendMotionAsCommands(motionCommand, currentStance));
             actionChain.AddDelaySeconds(animLength);
             actionChain.AddAction(healer, () =>
             {
                 // check healing move distance cap
-                var endPos = new Position(healer.Location);
-                var dist = startPos.DistanceTo(endPos);
+                var endPos = new Physics.Common.Position(healer.PhysicsObj.Position);
+                var dist = startPos.Distance(endPos);
+
+                //Console.WriteLine($"Dist: {dist}");
 
                 // only PKs affected by these caps?
                 if (dist < Healing_MaxMove || healer.PlayerKillerStatus == PlayerKillerStatus.NPK)
@@ -223,7 +241,7 @@ namespace ACE.Server.WorldObjects
             difficulty = (int)Math.Round((vital.MaxValue - vital.Current) * 2 * combatMod);
 
             var skillCheck = SkillCheck.GetSkillChance(effectiveSkill, difficulty);
-            return skillCheck >= ThreadSafeRandom.Next(0.0f, 1.0f);
+            return skillCheck > ThreadSafeRandom.Next(0.0f, 1.0f);
         }
 
         /// <summary>

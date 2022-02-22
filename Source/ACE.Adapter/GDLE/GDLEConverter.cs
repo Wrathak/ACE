@@ -164,6 +164,10 @@ namespace ACE.Adapter.GDLE
                     }
                 }
 
+                // reguid if needed
+                var landblockId = (ushort)(input.key >> 16);
+                ReGuidAndConvertLandblocks(results, links, landblockId);
+
                 return true;
             }
             catch
@@ -171,6 +175,34 @@ namespace ACE.Adapter.GDLE
                 results = null;
                 links = null;
                 return false;
+            }
+        }
+
+        private static void ReGuidAndConvertLandblocks(List<LandblockInstance> instances, List<LandblockInstanceLink> links, ushort landblockId)
+        {
+            var firstGuid = 0x70000000 | ((uint)landblockId << 12);
+            var lastGuid = firstGuid | 0xFFF;
+
+            var nextGuid = firstGuid;
+
+            var reguid = new Dictionary<uint, uint>();
+
+            foreach (var instance in instances)
+            {
+                if (instance.Guid < firstGuid || instance.Guid > lastGuid)
+                {
+                    reguid.Add(instance.Guid, nextGuid);
+                    instance.Guid = nextGuid++;
+                }
+            }
+
+            foreach (var link in links)
+            {
+                if (reguid.TryGetValue(link.ParentGuid, out var newParentGuid))
+                    link.ParentGuid = newParentGuid;
+
+                if (reguid.TryGetValue(link.ChildGuid, out var newChildGuid))
+                    link.ChildGuid = newChildGuid;
             }
         }
 
@@ -428,19 +460,19 @@ namespace ACE.Adapter.GDLE
                 result.FailAmount = input.FailAmount;
                 result.FailMessage = input.FailMessage;
 
-                result.SuccessConsumeTargetChance = (int)input.SuccessDestroyTargetChance;
+                result.SuccessConsumeTargetChance = input.SuccessDestroyTargetChance;
                 result.SuccessConsumeTargetAmount = input.SuccessDestroyTargetAmount;
                 result.SuccessConsumeTargetMessage = input.SuccessDestroyTargetMessage;
 
-                result.SuccessConsumeToolChance = (int)input.SuccessDestroySourceChance;
+                result.SuccessConsumeToolChance = input.SuccessDestroySourceChance;
                 result.SuccessConsumeToolAmount = input.SuccessDestroySourceAmount;
                 result.SuccessConsumeToolMessage = input.SuccessDestroySourceMessage;
 
-                result.FailureConsumeTargetChance = (int)input.FailDestroyTargetChance;
+                result.FailureConsumeTargetChance = input.FailDestroyTargetChance;
                 result.FailureConsumeTargetAmount = input.FailDestroyTargetAmount;
                 result.FailureConsumeTargetMessage = input.FailDestroyTargetMessage;
 
-                result.FailureConsumeToolChance = (int)input.FailDestroySourceChance;
+                result.FailureConsumeToolChance = input.FailDestroySourceChance;
                 result.FailureConsumeToolAmount = input.FailDestroySourceAmount;
                 result.FailureConsumeToolMessage = input.FailDestroySourceMessage;
 
@@ -612,7 +644,7 @@ namespace ACE.Adapter.GDLE
 
                     foreach (var didMod in recipeMod.RecipeModsDID)
                     {
-                        mod.DIDRquirements.Add(new Models.DIDRequirement
+                        mod.DIDRequirements.Add(new Models.DIDRequirement
                         {
                             Stat = didMod.Stat,
                             Value = didMod.Value,
@@ -866,9 +898,9 @@ namespace ACE.Adapter.GDLE
                         }
                     }
 
-                    if (value.DIDRquirements != null)
+                    if (value.DIDRequirements != null)
                     {
-                        foreach (var mod in value.DIDRquirements)
+                        foreach (var mod in value.DIDRequirements)
                         {
                             recipeMod.RecipeModsDID.Add(new RecipeModsDID
                             {

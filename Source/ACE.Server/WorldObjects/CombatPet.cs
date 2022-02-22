@@ -4,24 +4,14 @@ using System.Collections.Generic;
 using ACE.Entity;
 using ACE.Entity.Enum;
 using ACE.Entity.Models;
-using ACE.Server.Managers;
-using ACE.Server.Entity;
-
-using Biota = ACE.Database.Models.Shard.Biota;
 
 namespace ACE.Server.WorldObjects
 {
     /// <summary>
     /// Summonable monsters combat AI
     /// </summary>
-    public class CombatPet : Creature
+    public partial class CombatPet : Pet
     {
-        public DateTime ExpirationTime;
-
-        public DamageType DamageType;
-
-        public Player P_PetOwner;
-
         /// <summary>
         /// A new biota be created taking all of its values from weenie.
         /// </summary>
@@ -40,42 +30,18 @@ namespace ACE.Server.WorldObjects
 
         private void SetEphemeralValues()
         {
-            Ethereal = true;
-            RadarBehavior = ACE.Entity.Enum.RadarBehavior.ShowNever;
-            Usable = ACE.Entity.Enum.Usable.No;
-
-            if (!PropertyManager.GetBool("advanced_combat_pets").Item)
-                Biota.BiotaPropertiesSpellBook.Clear();
-
-            //Biota.BiotaPropertiesCreateList.Clear();
-            Biota.BiotaPropertiesEmote.Clear();
-            GeneratorProfiles.Clear();            
-
-            DeathTreasureType = null;
-            WieldedTreasureType = null;
-
-            if (Biota.WeenieType != (int)WeenieType.CombatPet) // Combat Pets are currently being made from real creatures
-                Biota.WeenieType = (int)WeenieType.CombatPet;
         }
 
-        public void Init(Player player, DamageType damageType, PetDevice petDevice)
+        public override bool? Init(Player player, PetDevice petDevice)
         {
-            SuppressGenerateEffect = true;
-            NoCorpse = true;
-            TreasureCorpse = false;
-            ExpirationTime = DateTime.UtcNow + TimeSpan.FromSeconds(45);
-            Location = player.Location.InFrontOf(5f);
-            Location.LandblockId = new LandblockId(Location.GetCell());
-            Name = player.Name + "'s " + Name;
-            P_PetOwner = player;
-            PetOwner = player.Guid.Full;
-            EnterWorld();
+            var success = base.Init(player, petDevice);
+
+            if (success == null || !success.Value)
+                return success;
+
             SetCombatMode(CombatMode.Melee);
-            DamageType = damageType;
-            Attackable = true;
             MonsterState = State.Awake;
             IsAwake = true;
-            player.CurrentActiveCombatPet = this;
 
             // copy ratings from pet device
             DamageRating = petDevice.GearDamage;
@@ -84,6 +50,16 @@ namespace ACE.Server.WorldObjects
             CritDamageResistRating = petDevice.GearCritDamageResist;
             CritRating = petDevice.GearCrit;
             CritResistRating = petDevice.GearCritResist;
+
+            // are CombatPets supposed to attack monsters that are in the same faction as the pet owner?
+            // if not, there are a couple of different approaches to this
+            // the easiest way for the code would be to simply set Faction1Bits for the CombatPet to match the pet owner's
+            // however, retail pcaps did not contain Faction1Bits for CombatPets
+
+            // doing this the easiest way for the code here, and just removing during appraisal
+            Faction1Bits = player.Faction1Bits;
+
+            return true;
         }
 
         public override void HandleFindTarget()
@@ -104,8 +80,9 @@ namespace ACE.Server.WorldObjects
             }
 
             // get nearest monster
-            var nearest = BuildTargetDistance(nearbyMonsters);
-            if (nearest[0].Distance > RadiusAwareness)
+            var nearest = BuildTargetDistance(nearbyMonsters, true);
+
+            if (nearest[0].Distance > VisualAwarenessRangeSq)
             {
                 //Console.WriteLine($"{Name}.FindNextTarget(): next object out-of-range (dist: {Math.Round(Math.Sqrt(nearest[0].Distance))})");
                 return false;
@@ -128,11 +105,20 @@ namespace ACE.Server.WorldObjects
             foreach (var creature in PhysicsObj.ObjMaint.GetVisibleTargetsValuesOfTypeCreature())
             {
                 // why does this need to be in here?
-                if (creature.IsDead)
+                if (creature.IsDead || !creature.Attackable || creature.Visibility)
                 {
                     //Console.WriteLine($"{Name}.GetNearbyMonsters(): refusing to add dead creature {creature.Name} ({creature.Guid})");
                     continue;
                 }
+
+                // combat pets do not aggro monsters belonging to the same faction as the pet owner?
+                if (SameFaction(creature))
+                {
+                    // unless the pet owner or the pet is being retaliated against?
+                    if (!creature.HasRetaliateTarget(P_PetOwner) && !creature.HasRetaliateTarget(this))
+                        continue;
+                }
+
                 monsters.Add(creature);
             }
 

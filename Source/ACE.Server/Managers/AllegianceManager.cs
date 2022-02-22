@@ -58,10 +58,19 @@ namespace ACE.Server.Managers
                 return Players[monarch.Guid].Allegiance;
 
             // try to load biota
-            var allegianceID = DatabaseManager.Shard.GetAllegianceID(monarch.Guid.Full);
-            var biota = allegianceID != null ? DatabaseManager.Shard.GetBiota(allegianceID.Value) : null;
+            var allegianceID = DatabaseManager.Shard.BaseDatabase.GetAllegianceID(monarch.Guid.Full);
+            var biota = allegianceID != null ? DatabaseManager.Shard.BaseDatabase.GetBiota(allegianceID.Value) : null;
 
-            var allegiance = biota != null ? new Allegiance(biota) : new Allegiance(monarch.Guid);
+            Allegiance allegiance;
+
+            if (biota != null)
+            {
+                var entityBiota = ACE.Database.Adapter.BiotaConverter.ConvertToEntityBiota(biota);
+
+                allegiance = new Allegiance(entityBiota);
+            }
+            else
+                allegiance = new Allegiance(monarch.Guid);
 
             if (allegiance.TotalMembers == 1)
                 return null;
@@ -180,7 +189,15 @@ namespace ACE.Server.Managers
         /// </summary>
         public static float GameCap = 720.0f;
 
+        // This function can be called from multi-threaded operations
+        // We must add thread safety to prevent AllegianceManager corruption
+        // We must also protect against cross-thread operations on vassal/patron (non-concurrent collections)
         public static void PassXP(AllegianceNode vassalNode, ulong amount, bool direct)
+        {
+            WorldManager.EnqueueAction(new ActionEventDelegate(() => DoPassXP(vassalNode, amount, direct)));
+        }
+
+        private static void DoPassXP(AllegianceNode vassalNode, ulong amount, bool direct)
         {
             // http://asheron.wikia.com/wiki/Allegiance_Experience
 
@@ -292,7 +309,7 @@ namespace ACE.Server.Managers
                     onlinePatron.AddAllegianceXP();
 
                 // call recursively
-                PassXP(patronNode, passupAmount, false);
+                DoPassXP(patronNode, passupAmount, false);
             }
         }
 
