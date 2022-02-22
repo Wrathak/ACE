@@ -205,7 +205,7 @@ namespace ACE.Server.Managers
             // thanks to Endy's Tinkering Calculator for this formula!
             var attemptMod = TinkeringDifficulty[tinkeredCount];
 
-                var difficulty = (int)Math.Floor(((salvageMod * 5.0f) + (itemWorkmanship * salvageMod * 2.0f) - (toolWorkmanship * workmanshipMod * salvageMod / 4.0f)) * attemptMod);
+            var difficulty = (int)Math.Floor(((salvageMod * 5.0f) + (itemWorkmanship * salvageMod * 2.0f) - (toolWorkmanship * workmanshipMod * salvageMod / 5.0f)) * attemptMod);
 
             var playerCurrentPlusLumAugSkilledCraft = skill.Current + (uint)player.LumAugSkilledCraft;
 
@@ -406,7 +406,7 @@ namespace ACE.Server.Managers
 
                  // mutations apparently didn't cap to 2.0 here, clamps are applied in damage calculations though
 
-                case 0x38000017:    // Alabaster
+                case 0x38000017:    // Alabaster    
                     //target.ArmorModVsPierce = Math.Min((target.ArmorModVsPierce ?? 0) + 0.2f, 2.0f);
                     target.ArmorModVsPierce += 0.2f;
                     break;
@@ -630,7 +630,7 @@ namespace ACE.Server.Managers
                 case 0x38000046:    // Fetish of the Dark Idols
 
                     // shouldn't exist on player items, but just recreating original script here
-                    if (target.ImbuedEffect >= ImbuedEffectType.IgnoreAllArmor)
+                    if (target.ImbuedEffect >= ImbuedEffectType.IgnoreAllArmor)  
                         target.ImbuedEffect = ImbuedEffectType.Undef;
 
                     target.ImbuedEffect |= ImbuedEffectType.IgnoreSomeMagicProjectileDamage;
@@ -1006,19 +1006,12 @@ namespace ACE.Server.Managers
                 return null;
             }
 
-            if (recipe.Skill > 0 || recipe.Difficulty > 0)
+            if (destroyTarget)
             {
-              player.EnqueueBroadcast(new GameMessageSystemChat($"You are crafting and the source will remain intact.", ChatMessageType.Craft), WorldObject.LocalBroadcastRange, ChatMessageType.Craft);
-            }
-            else
-            {
-              if (destroyTarget)
-              {
                 var destroyTargetAmount = success ? recipe.SuccessDestroyTargetAmount : recipe.FailDestroyTargetAmount;
                 var destroyTargetMessage = success ? recipe.SuccessDestroyTargetMessage : recipe.FailDestroyTargetMessage;
 
                 DestroyItem(player, recipe, target, destroyTargetAmount, destroyTargetMessage);
-              }
             }
 
             if (destroySource)

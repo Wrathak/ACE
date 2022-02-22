@@ -24,7 +24,7 @@
   </appender>
 
   <appender name="RollingFileAppender" type="log4net.Appender.RollingFileAppender">
-    <file value="ACE_Log.txt" />
+    <file value="C:\ACE\Logs\ACE_Log.txt" />
     <appendToFile value="true" />
     <rollingStyle value="Size" />
     <maxSizeRollBackups value="10" />

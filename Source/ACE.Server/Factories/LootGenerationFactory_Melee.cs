@@ -27,7 +27,7 @@ namespace ACE.Server.Factories
             if (weaponSkill == MeleeWeaponSkill.Undef)
                 weaponSkill = (MeleeWeaponSkill)ThreadSafeRandom.Next(1, 4);
 
-            switch (weaponSkill)
+            switch (weaponSkill)                
             {
                 case MeleeWeaponSkill.HeavyWeapons:
 
@@ -566,7 +566,7 @@ namespace ACE.Server.Factories
         private static double GetVariance(Skill category, LootWeaponType type)
         {
             double variance = 0;
-            int chance = ThreadSafeRandom.Next(50, 100);
+            int chance = ThreadSafeRandom.Next(0, 99);
 
             switch (category)
             {

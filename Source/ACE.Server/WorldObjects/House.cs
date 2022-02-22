@@ -290,8 +290,7 @@ namespace ACE.Server.WorldObjects
         /// </summary>
         public bool HasPermission(Player player, bool storage = false)
         {
-          return true;
-            /*if (HouseOwner == null)
+            if (HouseOwner == null)
                 return false;
 
             if (player.Guid.Full == HouseOwner.Value)
@@ -320,7 +319,7 @@ namespace ACE.Server.WorldObjects
             if (storage)
                 return StorageAccess.Contains(player.Guid);
             else
-                return Guests.ContainsKey(player.Guid);*/
+                return OpenToEveryone || Guests.ContainsKey(player.Guid);
         }
 
         public bool? HouseHooksVisible
@@ -519,7 +518,7 @@ namespace ACE.Server.WorldObjects
                     // do not cache, in case permissions have changed
                     return Load(RootGuid.Full);
                 }
-
+                   
                 var loaded = LandblockManager.GetLandblock(landblockId, false);
                 return loaded.GetObject(RootGuid) as House;
             }

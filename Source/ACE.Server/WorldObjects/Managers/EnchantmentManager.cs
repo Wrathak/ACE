@@ -175,11 +175,15 @@ namespace ACE.Server.WorldObjects.Managers
             }
             else
             {
-                var duration = spell.Duration / 1000;
-                if (caster is Player player && player.AugmentationIncreasedSpellDuration > 0 && spell.DotDuration == 0)
+                // for multiple void casters casting the same DoT,
+                // we might want to sort by StatModValue in GetEnchantments_TopLayer()
+
+                // for the same void caster re-casting the same DoT,
+                // should be update the StatModVal here?
+
+                var duration = spell.Duration;
+                if (caster is Player player && player.AugmentationIncreasedSpellDuration > 0 && !spell.IsDamageOverTime)
                     duration *= 1.0f + player.AugmentationIncreasedSpellDuration * 0.2f;
-                if (caster is Player && spell.DotDuration == 0)
-                    duration *= 5000.0f;
 
                 var timeRemaining = refreshSpell.Duration + refreshSpell.StartTime;
 
@@ -213,12 +217,10 @@ namespace ACE.Server.WorldObjects.Managers
 
             if (caster is Creature)
             {
-                entry.Duration = spell.Duration / 1000;
+                entry.Duration = spell.Duration;
 
                 if (caster is Player player && player.AugmentationIncreasedSpellDuration > 0 && !spell.IsDamageOverTime)
                     entry.Duration *= 1.0f + player.AugmentationIncreasedSpellDuration * 0.2f;
-                    if (caster is Player && spell.DotDuration == 0)
-                        entry.Duration *= 5000.0f;
             }
             else
             {
@@ -377,7 +379,6 @@ namespace ACE.Server.WorldObjects.Managers
             var maxPenalty = (level - 1) * 3;
             if (maxPenalty < 1)
                 maxPenalty = 1;
-            maxPenalty = 0;
 
             var globalMax = 100 - (uint)Math.Round(propVitae * 100);
             if (maxPenalty > globalMax)
@@ -573,7 +574,7 @@ namespace ACE.Server.WorldObjects.Managers
                 var minDispelNum = (int)Math.Round(dispelNum * (1.0f - numberVariance));
 
                 // factor in rng variance
-                dispelNum = 0; //ThreadSafeRandom.Next(minDispelNum, maxDispelNum);
+                dispelNum = ThreadSafeRandom.Next(minDispelNum, maxDispelNum);
             }
 
             // randomize the filtered spell list

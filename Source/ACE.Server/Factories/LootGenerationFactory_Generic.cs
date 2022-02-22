@@ -31,7 +31,7 @@ namespace ACE.Server.Factories
                     wo = CreateRandomScroll(profile);
                     break;
                 case var rate when (rate < 57):
-                    wo = CreateRandomScroll(tier);
+                    wo = CreateFood();
                     break;
                 default:
                     int genericLootMatrixIndex = profile.Tier - 1;

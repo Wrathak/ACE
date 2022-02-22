@@ -277,7 +277,7 @@ namespace ACE.Server.WorldObjects
         }
 
         /// <summary>
-        /// Returns the list of potential attack targets, sorted by closest distance
+        /// Returns the list of potential attack targets, sorted by closest distance 
         /// </summary>
         public List<TargetDistance> BuildTargetDistance(List<Creature> targets, bool distSq = false)
         {

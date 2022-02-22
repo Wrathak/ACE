@@ -56,7 +56,7 @@ namespace ACE.Server.WorldObjects
             }
         }
 
-        public virtual double Default_ChestResetInterval => 30;
+        public virtual double Default_ChestResetInterval => 120;
 
         /// <summary>
         /// A new biota be created taking all of its values from weenie.

@@ -276,7 +276,7 @@ namespace ACE.Server.WorldObjects
             // stamina check? On the Q&A board a dev posted that stamina directly effects the amount of damage you can heal
             // low stam = less vital healed. I don't have exact numbers for it. Working through forum archive.
 
-            // stamina cost: 1 stamina per 5 vital healed
+            // stamina cost: 1 stamina per 5 vital healed 
             staminaCost = (uint)Math.Round(healAmount / 5.0f);
             if (staminaCost > healer.Stamina.Current)
             {

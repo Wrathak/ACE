@@ -226,7 +226,7 @@ namespace ACE.Server.WorldObjects
         /// <summary>
         /// For monsters with AiUseHumanMagicAnimations = true,
         /// performs the windup gestures from the spell scarabs
-        ///
+        /// 
         /// <returns>The amount of time for the windup gestures to complete</returns>
         private float PreCastMotion_Human(WorldObject target)
         {
@@ -307,17 +307,7 @@ namespace ACE.Server.WorldObjects
 
                     HandleCastSpell(spell, target);
 
-                case MagicSchool.LifeMagic:
-
-                    // Ignore Vuln
-                    if (spell.IsHarmful && spell.IsResistable && spell.Duration > 0)
-                    {
-                        target.EnqueueBroadcast(new GameMessageSystemChat($"Negative Spell Ignored!", ChatMessageType.Craft), WorldObject.LocalBroadcastRange, ChatMessageType.Craft);
-                        break;
-                    }
-
-                    var targetDeath = LifeMagic(spell, out uint damage, out bool critical, out var msg, target);
-                    if (targetDeath && target is Creature targetCreature)
+                    if (spell.IsHarmful)
                     {
                         // handle target procs
                         if (targetCreature != null && targetCreature != this)
@@ -330,14 +320,7 @@ namespace ACE.Server.WorldObjects
                     TryCastItemEnchantment_WithRedirects(spell, target);
                     break;
 
-                    if (spell.IsHarmful && spell.IsResistable && spell.Duration > 0)
-                    {
-                        target.EnqueueBroadcast(new GameMessageSystemChat($"Negative Spell Ignored!", ChatMessageType.Craft), WorldObject.LocalBroadcastRange, ChatMessageType.Craft);
-                        break;
-                    }
-
-
-                    CreatureMagic(target, spell);
+                case MagicSchool.LifeMagic:
 
                     HandleCastSpell(spell, target, null, caster);
 

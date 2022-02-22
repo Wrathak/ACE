@@ -472,7 +472,7 @@ namespace ACE.Server.WorldObjects
             var numCoinsDropped = GetNumCoinsDropped();
 
             var level = Level ?? 1;
-            var canDropWielded = level >= 300;
+            var canDropWielded = level >= 35;
 
             // get all items in inventory
             var inventory = GetAllPossessions();
@@ -522,7 +522,7 @@ namespace ACE.Server.WorldObjects
                         dropItem.SetStackSize(1);
 
                         //Console.WriteLine("Dropping " + deathItem.WorldObject.Name + " (stack)");
-                        //dropItems.Add(dropItem);
+                        dropItems.Add(dropItem);
                     }
                     else
                     {
@@ -534,7 +534,7 @@ namespace ACE.Server.WorldObjects
                     if (TryRemoveFromInventoryWithNetworking(deathItem.WorldObject.Guid, out _, RemoveFromInventoryAction.ToCorpseOnDeath) || TryDequipObjectWithNetworking(deathItem.WorldObject.Guid, out _, DequipObjectAction.ToCorpseOnDeath))
                     {
                         //Console.WriteLine("Dropping " + deathItem.WorldObject.Name);
-                        //dropItems.Add(deathItem.WorldObject);
+                        dropItems.Add(deathItem.WorldObject);
                     }
                     else
                     {
@@ -544,13 +544,13 @@ namespace ACE.Server.WorldObjects
             }
 
             // handle items with BondedStatus.Slippery: always drop on death
-            /*var slipperyItems = GetSlipperyItems();
+            var slipperyItems = GetSlipperyItems();
 
             foreach (var item in slipperyItems)
             {
                 if (TryRemoveFromInventoryWithNetworking(item.Guid, out _, RemoveFromInventoryAction.ToCorpseOnDeath) || TryDequipObjectWithNetworking(item.Guid, out _, DequipObjectAction.ToCorpseOnDeath))
                     dropItems.Add(item);
-            }*/
+            }
 
             var destroyCoins = PropertyManager.GetBool("corpse_destroy_pyreals").Item;
 

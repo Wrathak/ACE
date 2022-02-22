@@ -371,7 +371,7 @@ namespace ACE.Server.Factories
             if (ThreadSafeRandom.Next(1, 4) > 1)
             {
                 // 1% chance for 1 Epic, 0.1% chance for 2 Epics,
-                // 0.01% chance for 3 Epics, 0.001% chance for 4 Epics
+                // 0.01% chance for 3 Epics, 0.001% chance for 4 Epics 
                 if (ThreadSafeRandom.Next(1, (int)(100 * dropRateMod * lootQualityMod)) == 1)
                     numEpics = 1;
                 if (ThreadSafeRandom.Next(1, (int)(1000 * dropRateMod * lootQualityMod)) == 1)

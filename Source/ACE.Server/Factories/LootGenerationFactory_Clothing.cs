@@ -860,7 +860,7 @@ namespace ACE.Server.Factories
             {
                 case 1:
                 case 2:
-                default:
+                default:                
                     cloakLevel = 1;
                     break;
                 case 3:

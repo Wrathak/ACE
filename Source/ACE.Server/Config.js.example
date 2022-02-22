@@ -1,6 +1,6 @@
 {
   "Server": {
-    "WorldName": "ACEmulator",
+    "WorldName": "Death",
 
     "Network": {
       // Host, default: "0.0.0.0"
@@ -27,7 +27,7 @@
 
     "Accounts": {
       "OverrideCharacterPermissions": true,
-      "DefaultAccessLevel": 0,
+      "DefaultAccessLevel": 5,
       "AllowAutoAccountCreation": true,
       "PasswordHashWorkFactor": 8,
       "ForceWorkFactorMigration": true
@@ -36,11 +36,11 @@
     // The folder that contains AC DAT files (client_cell_1.dat, client_portal.dat, client_highres.dat, client_local_English.dat)
     // Note that for servers running on Linux, the ~ home folder must be fully expanded, ie. /home/user/ace/, instead of ~/ace/
     // Note that for servers running on Windows, a path like c:\ace\ MUST be entered as c:\\ace\\, replacing the single backslashes (\) with double backslashes (\\)
-    "DatFilesDirectory": "c:\\ACE\\Dats\\",
+    "DatFilesDirectory": "C:\\Users\\Wrathak\\Documents\\GitHub\\ACE\\dats",
 
     // ShutdownInterval, default: 60
     // Default time it will take for a server to wait before shutting down after shutdown is called from console or in game admin.
-    "ShutdownInterval": "60",
+    "ShutdownInterval": "15",
 
     // ServerPerformanceMonitorAutoStart, default: false
     // Development recommendation: true
@@ -153,22 +153,22 @@
       "Host": "127.0.0.1",
       "Port": 3306,
       "Database": "ace_auth",
-      "Username": "root",
-      "Password": ""
+      "Username": "Wrathak",
+      "Password": "vlfgrjie"
     },
     "Shard": {
       "Host": "127.0.0.1",
       "Port": 3306,
       "Database": "ace_shard",
-      "Username": "root",
-      "Password": ""
+      "Username": "Wrathak",
+      "Password": "vlfgrjie"
     },
     "World": {
       "Host": "127.0.0.1",
       "Port": 3306,
       "Database": "ace_world",
-      "Username": "root",
-      "Password": ""
+      "Username": "Wrathak",
+      "Password": "vlfgrjie"
     }
   },
   // This section can trigger events that may happen before the world starts up, or after it shuts down
@@ -179,7 +179,7 @@
     "PurgeDeletedCharacters": false,
 
     // Number of days a character must have been deleted for before eligible for purging
-    "PurgeDeletedCharactersDays": 30,
+    "PurgeDeletedCharactersDays": 1,
 
     // This will purge biotas that are completely disconnected from the world
     // These may have been items that were never deleted properly, items that were given to the town crier before delete was implemented, etc...

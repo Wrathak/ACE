@@ -92,7 +92,6 @@ namespace ACE.Server.Factories
                 if (itemChance <= profile.ItemChance)
                 {
                     numItems = ThreadSafeRandom.Next(profile.ItemMinAmount, profile.ItemMaxAmount);
-                    numItems /= 2;
 
                     for (var i = 0; i < numItems; i++)
                     {
@@ -527,7 +526,7 @@ namespace ACE.Server.Factories
         }
 
         /// <summary>
-        /// Gets a randomized default material type for when a weenie does not have TsysMutationData
+        /// Gets a randomized default material type for when a weenie does not have TsysMutationData 
         /// </summary>
         private static MaterialType GetDefaultMaterialType(WorldObject wo)
         {
@@ -535,7 +534,7 @@ namespace ACE.Server.Factories
                 return MaterialType.Unknown;
 
             MaterialType material = MaterialType.Unknown;
-            int defaultMaterialEntry = ThreadSafeRandom.Next(0, 9);
+            int defaultMaterialEntry = ThreadSafeRandom.Next(0, 4);
 
             WeenieType weenieType = wo.WeenieType;
             switch (weenieType)
@@ -1281,7 +1280,7 @@ namespace ACE.Server.Factories
             wo.WieldDifficulty = wieldLevelReq;
 
             // as per retail pcaps, must be set to appear in client
-            wo.WieldSkillType = 1;
+            wo.WieldSkillType = 1;  
         }
-    }
+    }         
 }

@@ -24,7 +24,7 @@ namespace ACE.Server.Entity
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         /// <summary>
-        /// The id for the profile. This id will be either a GUID from Landblock_Instances or an incremental id based on profile order from biota entry.
+        /// The id for the profile. This id will be either a GUID from Landblock_Instances or an incremental id based on profile order from biota entry. 
         /// </summary>
         public uint Id;
 
@@ -555,7 +555,7 @@ namespace ACE.Server.Entity
                 log.Warn($"0x{Generator.Guid}:{Generator.Name}({Generator.WeenieClassId}).GeneratorProfile[{LinkId}].NotifyGenerator: RegenerationType = {eventType.ToString()}, WhenCreate = {whenCreate.ToString()}, Using {adjWhenCreate.ToString()} as WhenCreate instead");
 
             if (adjWhenCreate != adjEventType)
-                return;
+                return;            
 
             RemoveQueue.Enqueue((DateTime.UtcNow.AddSeconds(Delay), woi.Guid.Full));
         }

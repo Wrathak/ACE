@@ -180,7 +180,6 @@ namespace ACE.Server.WorldObjects
                     targetPlayer.HandleLifestoneProtection();
                     resisted = true;
                 }
-                resisted = true;
             }
 
             if (caster == target)

@@ -281,7 +281,7 @@ namespace ACE.Server.WorldObjects
 
             if (player != null)
                 player.LastHitSpellProjectile = Spell;
-
+            
             // ensure caster can damage target
             var sourceCreature = ProjectileSource as Creature;
             if (sourceCreature != null && !sourceCreature.CanDamage(creatureTarget))
@@ -465,7 +465,7 @@ namespace ACE.Server.WorldObjects
             // life magic projectiles: ie., martyr's hecatomb
             if (Spell.MetaSpellType == ACE.Entity.Enum.SpellType.LifeProjectile)
             {
-                var lifeMagicDamage = 0.5*(LifeProjectileDamage * Spell.DamageRatio);
+                lifeMagicDamage = LifeProjectileDamage * Spell.DamageRatio;
 
                 // could life magic projectiles crit?
                 // if so, did they use the same 1.5x formula as war magic, instead of 2.0x?
@@ -912,7 +912,7 @@ namespace ACE.Server.WorldObjects
                 info += $"CriticalDefended: {critDefended}\n";
 
             info += $"Overpower: {overpower}\n";
-
+        
             if (spell.MetaSpellType == ACE.Entity.Enum.SpellType.LifeProjectile)
             {
                 // life magic projectile

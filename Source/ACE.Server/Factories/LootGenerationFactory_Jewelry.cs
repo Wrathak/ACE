@@ -44,36 +44,8 @@ namespace ACE.Server.Factories
             if (materialType > 0)
                 wo.MaterialType = materialType;
 
-            // 35% chance ring, 35% chance bracelet, 30% chance necklace
-            int ringPercent = 40;
-            int braceletPercent = 40;
-            int necklacePercent = 20;
-
-            int jewelrySlot = ThreadSafeRandom.Next(0, ringPercent + braceletPercent + necklacePercent);
-            int jewelType;
-
-            switch (jewelrySlot)
-            {
-                case int n when (n <= ringPercent):
-                    jewelType = LootTables.ringItems[ThreadSafeRandom.Next(0, LootTables.ringItems.Length - 1)];
-                    break;
-                case int n when (n <= ringPercent + braceletPercent && n > ringPercent):
-                    jewelType = LootTables.braceletItems[ThreadSafeRandom.Next(0, LootTables.braceletItems.Length - 1)];
-                    break;
-                case int n when (n <= ringPercent + braceletPercent + necklacePercent && n > ringPercent + braceletPercent):
-                    jewelType = LootTables.necklaceItems[ThreadSafeRandom.Next(0, LootTables.necklaceItems.Length - 1)];
-                    break;
-                default:
-                    return null;
-            }
-
-            //int rank = 0;
-            //int skill_level_limit = 0;
-
-            WorldObject wo = WorldObjectFactory.CreateNewWorldObject((uint)jewelType);
-
-            if (wo == null)
-                return null;
+            // item color
+            MutateColor(wo);
 
             // gem count / gem material
             if (wo.GemCode != null)
