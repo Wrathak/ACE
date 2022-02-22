@@ -281,7 +281,7 @@ namespace ACE.Server.WorldObjects
 
             if (player != null)
                 player.LastHitSpellProjectile = Spell;
-            
+
             // ensure caster can damage target
             var sourceCreature = ProjectileSource as Creature;
             if (sourceCreature != null && !sourceCreature.CanDamage(creatureTarget))
@@ -465,10 +465,11 @@ namespace ACE.Server.WorldObjects
             // life magic projectiles: ie., martyr's hecatomb
             if (Spell.MetaSpellType == ACE.Entity.Enum.SpellType.LifeProjectile)
             {
-                lifeMagicDamage = LifeProjectileDamage * Spell.DamageRatio;
+                lifeMagicDamage = LifeProjectileDamage * Spell.DamageRatio * 0.5f;
 
                 // could life magic projectiles crit?
                 // if so, did they use the same 1.5x formula as war magic, instead of 2.0x?
+                /*
                 if (criticalHit)
                 {
                     // verify: CriticalMultiplier only applied to the additional crit damage,
@@ -477,7 +478,7 @@ namespace ACE.Server.WorldObjects
 
                     critDamageBonus = lifeMagicDamage * 0.5f * weaponCritDamageMod;
                 }
-
+                */
                 weaponResistanceMod = GetWeaponResistanceModifier(weapon, sourceCreature, attackSkill, Spell.DamageType);
 
                 // if attacker/weapon has IgnoreMagicResist directly, do not transfer to spell projectile
@@ -912,7 +913,7 @@ namespace ACE.Server.WorldObjects
                 info += $"CriticalDefended: {critDefended}\n";
 
             info += $"Overpower: {overpower}\n";
-        
+
             if (spell.MetaSpellType == ACE.Entity.Enum.SpellType.LifeProjectile)
             {
                 // life magic projectile

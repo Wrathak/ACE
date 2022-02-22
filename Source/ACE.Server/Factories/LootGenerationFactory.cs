@@ -92,6 +92,7 @@ namespace ACE.Server.Factories
                 if (itemChance <= profile.ItemChance)
                 {
                     numItems = ThreadSafeRandom.Next(profile.ItemMinAmount, profile.ItemMaxAmount);
+                    numItems = (int)Math.Round(numItems / 2.0);
 
                     for (var i = 0; i < numItems; i++)
                     {
@@ -110,6 +111,7 @@ namespace ACE.Server.Factories
                 if (itemChance <= profile.MagicItemChance)
                 {
                     numItems = ThreadSafeRandom.Next(profile.MagicItemMinAmount, profile.MagicItemMaxAmount);
+                    numItems = (int)Math.Round(numItems / 2.0);
 
                     for (var i = 0; i < numItems; i++)
                     {
@@ -140,6 +142,7 @@ namespace ACE.Server.Factories
                     }
 
                     numItems = ThreadSafeRandom.Next(profile.MundaneItemMinAmount, profile.MundaneItemMaxAmount);
+                    numItems = (int)Math.Round(numItems / 2.0);
 
                     for (var i = 0; i < numItems; i++)
                     {
@@ -176,6 +179,7 @@ namespace ACE.Server.Factories
                 if (itemChance <= profile.ItemChance)
                 {
                     numItems = ThreadSafeRandom.Next(profile.ItemMinAmount, profile.ItemMaxAmount);
+                    numItems = (int)Math.Round(numItems / 2.0);
 
                     for (var i = 0; i < numItems; i++)
                     {
@@ -190,6 +194,7 @@ namespace ACE.Server.Factories
                 if (itemChance <= profile.MagicItemChance)
                 {
                     numItems = ThreadSafeRandom.Next(profile.MagicItemMinAmount, profile.MagicItemMaxAmount);
+                    numItems = (int)Math.Round(numItems / 2.0);
 
                     for (var i = 0; i < numItems; i++)
                     {
@@ -204,6 +209,7 @@ namespace ACE.Server.Factories
                 if (itemChance <= profile.MundaneItemChance)
                 {
                     numItems = ThreadSafeRandom.Next(profile.MundaneItemMinAmount, profile.MundaneItemMaxAmount);
+                    numItems = (int)Math.Round(numItems / 2.0);
 
                     for (var i = 0; i < numItems; i++)
                     {
@@ -526,7 +532,7 @@ namespace ACE.Server.Factories
         }
 
         /// <summary>
-        /// Gets a randomized default material type for when a weenie does not have TsysMutationData 
+        /// Gets a randomized default material type for when a weenie does not have TsysMutationData
         /// </summary>
         private static MaterialType GetDefaultMaterialType(WorldObject wo)
         {
@@ -534,7 +540,7 @@ namespace ACE.Server.Factories
                 return MaterialType.Unknown;
 
             MaterialType material = MaterialType.Unknown;
-            int defaultMaterialEntry = ThreadSafeRandom.Next(0, 4);
+            int defaultMaterialEntry = ThreadSafeRandom.Next(0, 9);
 
             WeenieType weenieType = wo.WeenieType;
             switch (weenieType)
@@ -763,7 +769,7 @@ namespace ACE.Server.Factories
             var prevBurden = wo.EncumbranceVal.Value;
             wo.EncumbranceVal = (int)Math.Round(prevBurden * burdenMod);
 
-            if (wo.EncumbranceVal < 1)
+            //if (wo.EncumbranceVal < 1)
                 wo.EncumbranceVal = 1;
 
             //Console.WriteLine($"Modified burden from {prevBurden} to {wo.EncumbranceVal} for {wo.Name} ({wo.WeenieClassId})");
@@ -1280,7 +1286,7 @@ namespace ACE.Server.Factories
             wo.WieldDifficulty = wieldLevelReq;
 
             // as per retail pcaps, must be set to appear in client
-            wo.WieldSkillType = 1;  
+            wo.WieldSkillType = 1;
         }
-    }         
+    }
 }

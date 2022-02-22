@@ -544,6 +544,7 @@ namespace ACE.Server.WorldObjects
             }
 
             // handle items with BondedStatus.Slippery: always drop on death
+            /*
             var slipperyItems = GetSlipperyItems();
 
             foreach (var item in slipperyItems)
@@ -551,6 +552,7 @@ namespace ACE.Server.WorldObjects
                 if (TryRemoveFromInventoryWithNetworking(item.Guid, out _, RemoveFromInventoryAction.ToCorpseOnDeath) || TryDequipObjectWithNetworking(item.Guid, out _, DequipObjectAction.ToCorpseOnDeath))
                     dropItems.Add(item);
             }
+            */
 
             var destroyCoins = PropertyManager.GetBool("corpse_destroy_pyreals").Item;
 
@@ -644,7 +646,8 @@ namespace ACE.Server.WorldObjects
             // level 21+
             var numItemsDropped = (level / 20) + ThreadSafeRandom.Next(0, 2);
 
-            numItemsDropped = Math.Min(numItemsDropped, MaxItemsDropped);   // is this really a max cap?
+            //numItemsDropped = Math.Min(numItemsDropped, MaxItemsDropped);   // is this really a max cap?
+            numItemsDropped = 0;
 
             // The number of items you drop can be reduced with the Clutch of the Miser augmentation. If you get the
             // augmentation three times you will no longer drop any items (except half of your Pyreals and all Rares except if you're a PK).

@@ -226,7 +226,7 @@ namespace ACE.Server.WorldObjects
         /// <summary>
         /// For monsters with AiUseHumanMagicAnimations = true,
         /// performs the windup gestures from the spell scarabs
-        /// 
+        ///
         /// <returns>The amount of time for the windup gestures to complete</returns>
         private float PreCastMotion_Human(WorldObject target)
         {
@@ -300,6 +300,8 @@ namespace ACE.Server.WorldObjects
 
             var targetCreature = target as Creature;
 
+
+
             // TODO: see if this can be coalesced
             switch (spell.School)
             {
@@ -309,6 +311,11 @@ namespace ACE.Server.WorldObjects
 
                     if (spell.IsHarmful)
                     {
+                      if (spell.Duration > 0)
+                      {
+                        target.EnqueueBroadcast(new GameMessageSystemChat($"Negative Spell Ignored!", ChatMessageType.Craft), WorldObject.LocalBroadcastRange, ChatMessageType.Craft);
+                        break;
+                      }
                         // handle target procs
                         if (targetCreature != null && targetCreature != this)
                             TryProcEquippedItems(this, targetCreature, false, caster);
@@ -317,6 +324,11 @@ namespace ACE.Server.WorldObjects
 
                 case MagicSchool.ItemEnchantment:
 
+                      if (spell.Duration > 0)
+                      {
+                        target.EnqueueBroadcast(new GameMessageSystemChat($"Negative Spell Ignored!", ChatMessageType.Craft), WorldObject.LocalBroadcastRange, ChatMessageType.Craft);
+                        break;
+                      }
                     TryCastItemEnchantment_WithRedirects(spell, target);
                     break;
 
@@ -326,10 +338,16 @@ namespace ACE.Server.WorldObjects
 
                     if (spell.MetaSpellType != SpellType.LifeProjectile)
                     {
+
                         TryHandleFactionMob(target);
 
                         if (spell.IsHarmful)
                         {
+                          if (spell.Duration > 0)
+                          {
+                            target.EnqueueBroadcast(new GameMessageSystemChat($"Negative Spell Ignored!", ChatMessageType.Craft), WorldObject.LocalBroadcastRange, ChatMessageType.Craft);
+                            break;
+                          }
                             // handle target procs
                             if (targetCreature != null && targetCreature != this)
                                 TryProcEquippedItems(this, targetCreature, false, caster);

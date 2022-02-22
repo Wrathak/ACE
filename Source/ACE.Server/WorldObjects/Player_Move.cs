@@ -65,6 +65,7 @@ namespace ACE.Server.WorldObjects
             var withinUseRadius = CurrentLandblock.WithinUseRadius(this, target.Guid, out var targetValid, useRadius);
             if (withinUseRadius)
             {
+              /*
                 if (rotate)
                 {
                     // send TurnTo motion
@@ -83,9 +84,12 @@ namespace ACE.Server.WorldObjects
                     lastCompletedMove = thisMoveToChainNumber;
                     callback(true);
                 }
+                */
                 return;
             }
 
+            useRadius = 10.0f;
+            
             if (target.WeenieType == WeenieType.Portal)
                 MoveToPosition(target.Location);
             else

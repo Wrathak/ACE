@@ -116,8 +116,8 @@ namespace ACE.Server.WorldObjects
             if (!ContainerCapacity.HasValue)
                 ContainerCapacity = 0;
 
-            if (!UseRadius.HasValue)
-                UseRadius = 0.5f;
+            //if (!UseRadius.HasValue)
+                UseRadius = 10.0f;
 
             IsOpen = false;
         }

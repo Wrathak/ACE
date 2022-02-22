@@ -37,7 +37,7 @@ namespace ACE.Server.Factories
                 int casterType = ThreadSafeRandom.Next(1, 3);
 
                 // Determine element type: 0 - Slashing, 1 - Piercing, 2 - Blunt, 3 - Frost, 4 - Fire, 5 - Acid, 6 - Electric, 7 - Nether
-                element = forceWar ? ThreadSafeRandom.Next(0, 6) : ThreadSafeRandom.Next(0, 7);
+                element = forceWar ? ThreadSafeRandom.Next(0, 6) : ThreadSafeRandom.Next(0, 6);
                 casterWeenie = LootTables.CasterWeaponsMatrix[casterType][element];
             }
 

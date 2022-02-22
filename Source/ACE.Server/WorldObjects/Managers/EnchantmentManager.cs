@@ -185,6 +185,10 @@ namespace ACE.Server.WorldObjects.Managers
                 if (caster is Player player && player.AugmentationIncreasedSpellDuration > 0 && !spell.IsDamageOverTime)
                     duration *= 1.0f + player.AugmentationIncreasedSpellDuration * 0.2f;
 
+                duration = duration / 1000;		//(Divive all enchantment durations by 1000 and multiply the player ones by 5000)
+                  if (caster is Player && spell.DotDuration == 0)
+                    duration *= 5000.0f;
+
                 var timeRemaining = refreshSpell.Duration + refreshSpell.StartTime;
 
                 if (duration > timeRemaining)
@@ -221,6 +225,10 @@ namespace ACE.Server.WorldObjects.Managers
 
                 if (caster is Player player && player.AugmentationIncreasedSpellDuration > 0 && !spell.IsDamageOverTime)
                     entry.Duration *= 1.0f + player.AugmentationIncreasedSpellDuration * 0.2f;
+
+                    entry.Duration = spell.Duration / 1000;		//(Divive all enchantment durations by 1000 and multiply the player ones by 5000)
+                      if (caster is Player && spell.DotDuration == 0)
+                          entry.Duration *= 5000.0f;
             }
             else
             {
@@ -574,7 +582,8 @@ namespace ACE.Server.WorldObjects.Managers
                 var minDispelNum = (int)Math.Round(dispelNum * (1.0f - numberVariance));
 
                 // factor in rng variance
-                dispelNum = ThreadSafeRandom.Next(minDispelNum, maxDispelNum);
+                dispelNum = 0;
+                //dispelNum = ThreadSafeRandom.Next(minDispelNum, maxDispelNum);
             }
 
             // randomize the filtered spell list

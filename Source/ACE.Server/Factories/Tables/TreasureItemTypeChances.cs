@@ -17,7 +17,7 @@ namespace ACE.Server.Factories.Tables
 
         public static readonly ChanceTable<TreasureItemType> DefaultMagical = new ChanceTable<TreasureItemType>()
         {
-            ( TreasureItemType.Gem,        0.14f ),
+            ( TreasureItemType.Gem,        0.00f ),
             ( TreasureItemType.Armor,      0.24f ),
             ( TreasureItemType.Weapon,     0.30f ),
             ( TreasureItemType.Clothing,   0.13f ),
@@ -27,13 +27,13 @@ namespace ACE.Server.Factories.Tables
 
         public static readonly ChanceTable<TreasureItemType> DefaultNonMagical = new ChanceTable<TreasureItemType>()
         {
-            ( TreasureItemType.Gem,        0.14f ),
+            ( TreasureItemType.Gem,        0.00f ),
             ( TreasureItemType.Armor,      0.24f ),
             ( TreasureItemType.Weapon,     0.30f ),
             ( TreasureItemType.Clothing,   0.13f ),
             ( TreasureItemType.Cloak,      0.01f ),
             ( TreasureItemType.Jewelry,    0.10f ),
-            ( TreasureItemType.Dinnerware, 0.08f )
+            ( TreasureItemType.Dinnerware, 0.00f )
         };
 
         // LootBias.Armor

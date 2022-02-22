@@ -135,7 +135,7 @@ namespace ACE.Server.Network.Structure
             if ((rawState.Flags & RawMotionFlags.TurnCommand) != 0)
             {
                 interpState.TurnCommand = MotionCommand.TurnRight;
-                interpState.TurnSpeed = holdKey == HoldKey.Run ? 1.5f : 1.0f;
+                interpState.TurnSpeed = holdKey == HoldKey.Run ? 1.5f : 1.5f;
 
                 // mouselook
                 if (rawState.TurnSpeed != 0 && rawState.TurnSpeed <= 1.5f)

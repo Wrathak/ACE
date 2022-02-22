@@ -20,9 +20,9 @@ namespace ACE.Server.Factories.Tables
             ( TreasureWeaponType.Unarmed,  0.12f ),
             ( TreasureWeaponType.Staff,    0.12f ),
             ( TreasureWeaponType.Dagger,   0.12f ),
-            ( TreasureWeaponType.Bow,      0.04f ),
-            ( TreasureWeaponType.Crossbow, 0.04f ),
-            ( TreasureWeaponType.Atlatl,   0.04f ),
+            ( TreasureWeaponType.Bow,      0.12f ),
+            //( TreasureWeaponType.Crossbow, 0.04f ),
+            //( TreasureWeaponType.Atlatl,   0.04f ),
             ( TreasureWeaponType.Caster,   0.04f ),
         };
 
@@ -38,9 +38,9 @@ namespace ACE.Server.Factories.Tables
             ( TreasureWeaponType.Unarmed,  0.09f ),
             ( TreasureWeaponType.Staff,    0.09f ),
             ( TreasureWeaponType.Dagger,   0.09f ),
-            ( TreasureWeaponType.Bow,      0.09f ),
-            ( TreasureWeaponType.Crossbow, 0.09f ),
-            ( TreasureWeaponType.Atlatl,   0.09f ),
+            ( TreasureWeaponType.Bow,      0.27f ),
+            //( TreasureWeaponType.Crossbow, 0.09f ),
+            //( TreasureWeaponType.Atlatl,   0.09f ),
             ( TreasureWeaponType.Caster,   0.10f ),
         };
 
@@ -52,18 +52,18 @@ namespace ACE.Server.Factories.Tables
             // missile: 20%
             // two-handed: 10%
             // caster: 7%
-            ( TreasureWeaponType.Sword,           0.09f ),
-            ( TreasureWeaponType.Mace,            0.09f ),
-            ( TreasureWeaponType.Axe,             0.09f ),
-            ( TreasureWeaponType.Spear,           0.09f ),
-            ( TreasureWeaponType.Unarmed,         0.09f ),
-            ( TreasureWeaponType.Staff,           0.09f ),
-            ( TreasureWeaponType.Dagger,          0.09f ),
-            ( TreasureWeaponType.Bow,             0.07f ),
-            ( TreasureWeaponType.Crossbow,        0.07f ),
-            ( TreasureWeaponType.Atlatl,          0.06f ),
-            ( TreasureWeaponType.Caster,          0.07f ),
-            ( TreasureWeaponType.TwoHandedWeapon, 0.10f ),      // see TreasureWeaponType for an explanation of why this is here,
+            ( TreasureWeaponType.Sword,           0.10f ),
+            ( TreasureWeaponType.Mace,            0.10f ),
+            ( TreasureWeaponType.Axe,             0.10f ),
+            ( TreasureWeaponType.Spear,           0.10f ),
+            ( TreasureWeaponType.Unarmed,         0.10f ),
+            ( TreasureWeaponType.Staff,           0.10f ),
+            ( TreasureWeaponType.Dagger,          0.10f ),
+            ( TreasureWeaponType.Bow,             0.20f ),
+            //( TreasureWeaponType.Crossbow,        0.07f ),
+            //( TreasureWeaponType.Atlatl,          0.06f ),
+            ( TreasureWeaponType.Caster,          0.10f ),
+            //( TreasureWeaponType.TwoHandedWeapon, 0.10f ),      // see TreasureWeaponType for an explanation of why this is here,
                                                                 // and not deeper in WeaponWcids.cs
         };
 

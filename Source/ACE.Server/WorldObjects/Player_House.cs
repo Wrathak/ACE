@@ -448,7 +448,7 @@ namespace ACE.Server.WorldObjects
 
             return true;
         }
-        
+
         public void HandleActionAbandonHouse()
         {
             //Console.WriteLine($"\n{Name}.HandleActionAbandonHouse()");
@@ -620,7 +620,7 @@ namespace ACE.Server.WorldObjects
             house.HouseOwnerName = Name;
             house.OpenToEveryone = false;
             house.SaveBiotaToDatabase();
-            
+
             // relink
             house.UpdateLinks();
 
@@ -643,7 +643,7 @@ namespace ACE.Server.WorldObjects
             slumlord.ClearInventory();
 
             slumlord.SaveBiotaToDatabase();
-            
+
             SaveBiotaToDatabase();
 
             if (house.HouseType != HouseType.Apartment)
@@ -1847,7 +1847,7 @@ namespace ACE.Server.WorldObjects
         /// When house_15day_account is true (retail server default),
         /// new characters logging in on accounts less than 15 days old
         /// have their HousePurchaseTimestamp set to 15 days before account creation.
-        /// 
+        ///
         /// This is for the House panel to show the correct date the character may purchase a house,
         /// which the client automatically calculates as 30 days after HousePurchaseTimestamp
         /// </summary>
@@ -1870,7 +1870,7 @@ namespace ACE.Server.WorldObjects
             else if (HousePurchaseTimestamp == FifteenDaysBeforeAccountCreation)
             {
                 // account is now 15+ days old and still has not purchased a house, remove unneeded HousePurchaseTimestamp
-                // also if server admin sets house_15day_account to false, this corrects the next purchase time on the House panel 
+                // also if server admin sets house_15day_account to false, this corrects the next purchase time on the House panel
                 HousePurchaseTimestamp = null;
             }
         }

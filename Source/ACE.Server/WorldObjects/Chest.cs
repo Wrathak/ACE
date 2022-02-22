@@ -52,11 +52,12 @@ namespace ACE.Server.WorldObjects
                 if (chestResetInterval < 15)
                     chestResetInterval = Default_ChestResetInterval;
 
-                return chestResetInterval;
+                return 30;
+                //return chestResetInterval;
             }
         }
 
-        public virtual double Default_ChestResetInterval => 120;
+        public virtual double Default_ChestResetInterval => 30;
 
         /// <summary>
         /// A new biota be created taking all of its values from weenie.

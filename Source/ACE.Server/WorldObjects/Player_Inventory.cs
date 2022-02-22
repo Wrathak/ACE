@@ -47,7 +47,7 @@ namespace ACE.Server.WorldObjects
         {
             var strength = Attributes[PropertyAttribute.Strength].Current;
 
-            return (int)((150 * strength) + (AugmentationIncreasedCarryingCapacity * 30 * strength));
+            return (int)((1000 * strength) + (AugmentationIncreasedCarryingCapacity * 100 * strength));
         }
 
         public bool HasEnoughBurdenToAddToInventory(WorldObject worldObject)
@@ -625,16 +625,18 @@ namespace ACE.Server.WorldObjects
             ActionChain pickupChain = new ActionChain();
 
             // start picking up item animation
-            EnqueueBroadcast(new GameMessageUpdatePosition(this));
+            //EnqueueBroadcast(new GameMessageUpdatePosition(this));
 
-            var motion = new Motion(CurrentMotionState.Stance, MotionPickup);
+            //var motion = new Motion(CurrentMotionState.Stance, MotionPickup);
 
-            EnqueueBroadcastMotion(motion);
+            //EnqueueBroadcastMotion(motion);
 
             // Wait for animation to progress
             var motionTable = DatManager.PortalDat.ReadFromDat<MotionTable>(MotionTableId);
-            var pickupAnimationLength = motionTable.GetAnimationLength(CurrentMotionState.Stance, MotionPickup, MotionCommand.Ready);
-            pickupChain.AddDelaySeconds(pickupAnimationLength);
+            //var pickupAnimationLength = motionTable.GetAnimationLength(CurrentMotionState.Stance, MotionPickup, MotionCommand.Ready);
+            var pickupAnimationLength = 0;
+            //pickupChain.AddDelaySeconds(pickupAnimationLength);
+            pickupChain.AddDelaySeconds(0);
 
             return pickupChain;
         }
@@ -687,18 +689,20 @@ namespace ACE.Server.WorldObjects
                 return new ActionChain();
 
             // start picking up item animation
-            EnqueueBroadcast(new GameMessageUpdatePosition(this));
+            //EnqueueBroadcast(new GameMessageUpdatePosition(this));
 
-            var motion = new Motion(CurrentMotionState.Stance, pickupMotion);
+            //var motion = new Motion(CurrentMotionState.Stance, pickupMotion);
 
-            EnqueueBroadcastMotion(motion);
+            //EnqueueBroadcastMotion(motion);
 
             // Wait for animation to progress
             var motionTable = DatManager.PortalDat.ReadFromDat<MotionTable>(MotionTableId);
-            var pickupAnimationLength = motionTable.GetAnimationLength(CurrentMotionState.Stance, pickupMotion, MotionCommand.Ready);
+            //var pickupAnimationLength = motionTable.GetAnimationLength(CurrentMotionState.Stance, pickupMotion, MotionCommand.Ready);
+            var pickupAnimationLength = 0;
 
             var pickupChain = new ActionChain();
-            pickupChain.AddDelaySeconds(pickupAnimationLength);
+            //pickupChain.AddDelaySeconds(pickupAnimationLength);
+            pickupChain.AddDelaySeconds(0);
 
             return pickupChain;
         }
@@ -897,7 +901,7 @@ namespace ACE.Server.WorldObjects
         }
 
         // =========================================
-        // Game Action Handlers - Inventory Movement 
+        // Game Action Handlers - Inventory Movement
         // =========================================
 
         /// <summary>
@@ -1252,9 +1256,9 @@ namespace ACE.Server.WorldObjects
                 {
                     var landblockReturn = new ActionChain();
 
-                    landblockReturn.AddDelaySeconds(1);
+                    landblockReturn.AddDelaySeconds(0);
                     landblockReturn.AddAction(prevLandblock, () => RemoveTrackedObject(item, false));
-                    landblockReturn.AddDelaySeconds(1);
+                    landblockReturn.AddDelaySeconds(0);
                     landblockReturn.AddAction(prevLandblock, () =>
                     {
                         item.Location = new Position(prevLocation);
@@ -1762,7 +1766,7 @@ namespace ACE.Server.WorldObjects
 
         /// <summary>
         /// Client will automatically send any unequip (PutItemInContainer) message before the GetAndWield, but misses some instances and can be memory hacked to ignore others.
-        //  Let's just make sure our status is accurate before actually equipping an item! 
+        //  Let's just make sure our status is accurate before actually equipping an item!
         /// </summary>
         /// <param name="item">The weapon we are attempting to equip</param>
         /// <returns>True if the items were successfuly remove and the new item can attempt to be equipped, otherwise false</returns>
@@ -2115,7 +2119,7 @@ namespace ACE.Server.WorldObjects
 
 
         // =========================================
-        // Game Action Handlers - Inventory Stacking 
+        // Game Action Handlers - Inventory Stacking
         // =========================================
 
         /// <summary>
@@ -2803,7 +2807,7 @@ namespace ACE.Server.WorldObjects
 
 
         // =============================================
-        // Game Action Handlers - Inventory Give/Receive 
+        // Game Action Handlers - Inventory Give/Receive
         // =============================================
 
         /// <summary>
@@ -3070,7 +3074,7 @@ namespace ACE.Server.WorldObjects
             else
             {
                 if (item.WeenieType == WeenieType.Deed && target.AiAcceptEverything) // http://acpedia.org/wiki/Housing_FAQ#House_deeds
-                {                    
+                {
                     var stackSize = item.StackSize ?? 1;
 
                     var stackMsg = stackSize != 1 ? $"{stackSize} " : "";
@@ -3331,7 +3335,7 @@ namespace ACE.Server.WorldObjects
             Prev_PutItemInContainer[1] = Prev_PutItemInContainer[0];
             Prev_PutItemInContainer[0] = new PutItemInContainerEvent(itemGuid, containerGuid, placement);
         }
-        
+
         public void GiveFromEmote(WorldObject emoter, uint weenieClassId, int amount = 1, int palette = 0, float shade = 0)
         {
             if (emoter is null || weenieClassId == 0)

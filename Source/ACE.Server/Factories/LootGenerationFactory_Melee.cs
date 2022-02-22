@@ -25,9 +25,10 @@ namespace ACE.Server.Factories
             var eleType = ThreadSafeRandom.Next(0, 4);
 
             if (weaponSkill == MeleeWeaponSkill.Undef)
-                weaponSkill = (MeleeWeaponSkill)ThreadSafeRandom.Next(1, 4);
+                weaponSkill = (MeleeWeaponSkill)ThreadSafeRandom.Next(1, 1);
 
-            switch (weaponSkill)                
+
+            switch (weaponSkill)
             {
                 case MeleeWeaponSkill.HeavyWeapons:
 

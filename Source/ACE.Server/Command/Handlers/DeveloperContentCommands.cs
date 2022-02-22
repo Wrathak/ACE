@@ -63,7 +63,7 @@ namespace ACE.Server.Command.Handlers.Processors
             return FileType.Undefined;
         }
 
-        [CommandHandler("import-json", AccessLevel.Developer, CommandHandlerFlag.None, 1, "Imports json data from the Content folder", "<wcid>")]
+        [CommandHandler("import-json", AccessLevel.Player, CommandHandlerFlag.None, 1, "Imports json data from the Content folder", "<wcid>")]
         public static void HandleImportJson(Session session, params string[] parameters)
         {
             var param = parameters[0];
@@ -211,7 +211,7 @@ namespace ACE.Server.Command.Handlers.Processors
                 ImportJsonQuest(session, json_folder, file.Name);
         }
 
-        [CommandHandler("import-sql", AccessLevel.Developer, CommandHandlerFlag.None, 1, "Imports sql data from the Content folder", "<wcid>")]
+        [CommandHandler("import-sql", AccessLevel.Player, CommandHandlerFlag.None, 1, "Imports sql data from the Content folder", "<wcid>")]
         public static void HandleImportSQL(Session session, params string[] parameters)
         {
             var param = parameters[0];
@@ -221,11 +221,11 @@ namespace ACE.Server.Command.Handlers.Processors
             {
                 contentType = GetContentType(parameters, ref param);
 
-                if (contentType == FileType.Undefined)
-                {
-                    CommandHandlerHelper.WriteOutputInfo(session, $"Unknown content type '{parameters[1]}'");
-                    return;
-                }
+                //if (contentType == FileType.Undefined)
+                //{
+                //    CommandHandlerHelper.WriteOutputInfo(session, $"Unknown content type '{parameters[1]}'");
+                //    return;
+                //}
             }
             switch (contentType)
             {
@@ -1035,7 +1035,7 @@ namespace ACE.Server.Command.Handlers.Processors
 
         public static LandblockInstanceWriter LandblockInstanceWriter;
 
-        [CommandHandler("createinst", AccessLevel.Developer, CommandHandlerFlag.RequiresWorld, 1, "Spawns a new wcid or classname as a landblock instance", "<wcid or classname>")]
+        [CommandHandler("createinst", AccessLevel.Player, CommandHandlerFlag.RequiresWorld, 1, "Spawns a new wcid or classname as a landblock instance", "<wcid or classname>")]
         public static void HandleCreateInst(Session session, params string[] parameters)
         {
             var loc = new Position(session.Player.Location);
@@ -1339,7 +1339,7 @@ namespace ACE.Server.Command.Handlers.Processors
             return null;
         }
 
-        [CommandHandler("removeinst", AccessLevel.Developer, CommandHandlerFlag.RequiresWorld, "Removes the last appraised object from the current landblock instances")]
+        [CommandHandler("removeinst", AccessLevel.Player, CommandHandlerFlag.RequiresWorld, "Removes the last appraised object from the current landblock instances")]
         public static void HandleRemoveInst(Session session, params string[] parameters)
         {
             RemoveInstance(session);
@@ -1468,7 +1468,7 @@ namespace ACE.Server.Command.Handlers.Processors
 
         public static EncounterSQLWriter LandblockEncounterWriter;
 
-        [CommandHandler("addenc", AccessLevel.Developer, CommandHandlerFlag.RequiresWorld, 1, "Spawns a new wcid or classname in the current outdoor cell as an encounter", "<wcid or classname>")]
+        [CommandHandler("addenc", AccessLevel.Player, CommandHandlerFlag.RequiresWorld, 1, "Spawns a new wcid or classname in the current outdoor cell as an encounter", "<wcid or classname>")]
         public static void HandleAddEncounter(Session session, params string[] parameters)
         {
             var param = parameters[0];
@@ -1651,7 +1651,7 @@ namespace ACE.Server.Command.Handlers.Processors
             DatabaseManager.World.ClearCachedEncountersByLandblock(landblock);
         }
 
-        [CommandHandler("removeenc", AccessLevel.Developer, CommandHandlerFlag.RequiresWorld, "Removes the last appraised object from the encounters table")]
+        [CommandHandler("removeenc", AccessLevel.Player, CommandHandlerFlag.RequiresWorld, "Removes the last appraised object from the encounters table")]
         public static void HandleRemoveEnc(Session session, params string[] parameters)
         {
             var obj = CommandHandlerHelper.GetLastAppraisedObject(session);
@@ -1715,7 +1715,7 @@ namespace ACE.Server.Command.Handlers.Processors
             }
         }
 
-        [CommandHandler("export-json", AccessLevel.Developer, CommandHandlerFlag.None, 1, "Exports content from database to JSON file", "<wcid>")]
+        [CommandHandler("export-json", AccessLevel.Player, CommandHandlerFlag.None, 1, "Exports content from database to JSON file", "<wcid>")]
         public static void HandleExportJson(Session session, params string[] parameters)
         {
             var param = parameters[0];
@@ -1927,7 +1927,7 @@ namespace ACE.Server.Command.Handlers.Processors
             CommandHandlerHelper.WriteOutputInfo(session, $"Exported {json_folder}{json_filename}");
         }
 
-        [CommandHandler("export-sql", AccessLevel.Developer, CommandHandlerFlag.None, 1, "Exports content from database to SQL file", "<wcid>")]
+        [CommandHandler("export-sql", AccessLevel.Player, CommandHandlerFlag.None, 1, "Exports content from database to SQL file", "<wcid>")]
         public static void HandleExportSql(Session session, params string[] parameters)
         {
             var param = parameters[0];
@@ -2192,7 +2192,7 @@ namespace ACE.Server.Command.Handlers.Processors
             CommandHandlerHelper.WriteOutputInfo(session, $"Exported {sql_folder}{sql_filename}");
         }
 
-        [CommandHandler("clearcache", AccessLevel.Developer, CommandHandlerFlag.None, "Clears the various database caches. This enables live editing of the database information")]
+        [CommandHandler("clearcache", AccessLevel.Player, CommandHandlerFlag.None, "Clears the various database caches. This enables live editing of the database information")]
         public static void HandleClearCache(Session session, params string[] parameters)
         {
             var mode = CacheType.All;
@@ -2316,7 +2316,7 @@ namespace ACE.Server.Command.Handlers.Processors
             }
         }
 
-        [CommandHandler("nudge", AccessLevel.Developer, CommandHandlerFlag.None, 1, "Adjusts the spawn position of a landblock instance", "<dir> <amount>\nDirections: x, y, z, north, south, west, east, northwest, northeast, southwest, southeast, n, s, w, e, nw, ne, sw, se, up, down, here")]
+        [CommandHandler("nudge", AccessLevel.Player, CommandHandlerFlag.None, 1, "Adjusts the spawn position of a landblock instance", "<dir> <amount>\nDirections: x, y, z, north, south, west, east, northwest, northeast, southwest, southeast, n, s, w, e, nw, ne, sw, se, up, down, here")]
         public static void HandleNudge(Session session, params string[] parameters)
         {
             WorldObject obj = null;
@@ -2526,7 +2526,7 @@ namespace ACE.Server.Command.Handlers.Processors
                 return null;
         }
 
-        [CommandHandler("rotate", AccessLevel.Developer, CommandHandlerFlag.None, 1, "Adjusts the rotation of a landblock instance", "<dir>\nDirections: north, south, west, east, northwest, northeast, southwest, southeast, n, s, w, e, nw, ne, sw, se, -or-\n0-360, with 0 being north, and 90 being west")]
+        [CommandHandler("rotate", AccessLevel.Player, CommandHandlerFlag.None, 1, "Adjusts the rotation of a landblock instance", "<dir>\nDirections: north, south, west, east, northwest, northeast, southwest, southeast, n, s, w, e, nw, ne, sw, se, -or-\n0-360, with 0 being north, and 90 being west")]
         public static void HandleRotate(Session session, params string[] parameters)
         {
             WorldObject obj = null;
@@ -2639,7 +2639,7 @@ namespace ACE.Server.Command.Handlers.Processors
             obj.SendUpdatePosition(true);
         }
 
-        [CommandHandler("generate-classnames", AccessLevel.Developer, CommandHandlerFlag.None, "Generates WeenieClassName.cs from current world database")]
+        [CommandHandler("generate-classnames", AccessLevel.Player, CommandHandlerFlag.None, "Generates WeenieClassName.cs from current world database")]
         public static void HandleGenerateClassNames(Session session, params string[] parameters)
         {
             var lines = new List<string>();
@@ -2690,7 +2690,7 @@ namespace ACE.Server.Command.Handlers.Processors
             CommandHandlerHelper.WriteOutputInfo(session, $"Wrote {path}");
         }
 
-        [CommandHandler("vloc2loc", AccessLevel.Developer, CommandHandlerFlag.None, 1, "Output a set of LOCs for a given landblock found in the VLOCS dataset", "<LandblockID>\nExample: @vloc2loc 0x0007\n         @vloc2loc 0xCE95")]
+        [CommandHandler("vloc2loc", AccessLevel.Player, CommandHandlerFlag.None, 1, "Output a set of LOCs for a given landblock found in the VLOCS dataset", "<LandblockID>\nExample: @vloc2loc 0x0007\n         @vloc2loc 0xCE95")]
         public static void HandleVLOCtoLOC(Session session, params string[] parameters)
         {
             var hex = parameters[0];
@@ -2757,12 +2757,12 @@ namespace ACE.Server.Command.Handlers.Processors
                     {
                         CommandHandlerHelper.WriteOutputInfo(session, $"Unable to parse X ({strX}) value from line {i} in vlocDB: {vlocs[i]}");
                         continue;
-                    }    
+                    }
                     if (!float.TryParse(strY, out var y))
                     {
                         CommandHandlerHelper.WriteOutputInfo(session, $"Unable to parse Y ({strY}) value from line {i} in vlocDB: {vlocs[i]}");
                         continue;
-                    }    
+                    }
 
                     if ((objCellId >> 16) != lbid) continue;
 

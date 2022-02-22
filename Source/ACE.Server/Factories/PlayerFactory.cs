@@ -541,7 +541,17 @@ namespace ACE.Server.Factories
                 case HeritageGroup.Gharundim:
                 case HeritageGroup.Sho:
                 case HeritageGroup.Viamontian:
-                    player.AugmentationJackOfAllTrades = 1;
+                    //player.AugmentationJackOfAllTrades = 1;
+                    player.AugmentationIncreasedCarryingCapacity = 5;
+                    player.AugmentationInfusedLifeMagic = 1;
+                    player.AugmentationInfusedCreatureMagic = 1;
+                    player.AugmentationInfusedItemMagic = 1;
+                    player.AugmentationInfusedWarMagic = 1;
+                    player.AugmentationInfusedVoidMagic = 1;
+                    player.AugmentationInnateStrength = 10;
+                    player.AugmentationBonusImbueChance = 1;
+                    player.AugmentationLessDeathItemLoss = 3;
+                    player.AugmentationSpellsRemainPastDeath = 1;
                     break;
 
                 case HeritageGroup.Shadowbound:

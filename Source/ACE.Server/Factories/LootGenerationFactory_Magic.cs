@@ -232,13 +232,13 @@ namespace ACE.Server.Factories
                 numNonCantrips = 1;
             else if (nonCantripChance <= 73450)
                 numNonCantrips = 2;
-            else if (nonCantripChance <= 91300)
+            else if (nonCantripChance <= 90000)
                 numNonCantrips = 3;
-            else if (nonCantripChance <= 98175)
+            else if (nonCantripChance <= 97500)
                 numNonCantrips = 4;
-            else if (nonCantripChance <= 99700)
+            else if (nonCantripChance <= 99300)
                 numNonCantrips = 5;
-            else if (nonCantripChance <= 99935)
+            else if (nonCantripChance <= 99800)
                 numNonCantrips = 6;
             else
                 numNonCantrips = 7;
@@ -270,7 +270,7 @@ namespace ACE.Server.Factories
                 case 3:
                     if (ThreadSafeRandom.Next(1, (int)(50 * dropRateMod * lootQualityMod)) == 1)
                         numMinors = 1;
-                    if (ThreadSafeRandom.Next(1, (int)(250 * dropRateMod * lootQualityMod)) == 1)
+                    if (ThreadSafeRandom.Next(1, (int)(200 * dropRateMod * lootQualityMod)) == 1)
                         numMinors = 2;
                     break;
                 case 4:
@@ -279,7 +279,7 @@ namespace ACE.Server.Factories
                         numMinors = 1;
                     if (ThreadSafeRandom.Next(1, (int)(250 * dropRateMod * lootQualityMod)) == 1)
                         numMinors = 2;
-                    if (ThreadSafeRandom.Next(1, (int)(1000 * dropRateMod * lootQualityMod)) == 1)
+                    if (ThreadSafeRandom.Next(1, (int)(500 * dropRateMod * lootQualityMod)) == 1)
                         numMinors = 3;
                     break;
                 case 6:
@@ -291,7 +291,7 @@ namespace ACE.Server.Factories
                         numMinors = 2;
                     if (ThreadSafeRandom.Next(1, (int)(1000 * dropRateMod * lootQualityMod)) == 1)
                         numMinors = 3;
-                    if (ThreadSafeRandom.Next(1, (int)(5000 * dropRateMod * lootQualityMod)) == 1)
+                    if (ThreadSafeRandom.Next(1, (int)(2500 * dropRateMod * lootQualityMod)) == 1)
                         numMinors = 4;
                     break;
             }
@@ -325,7 +325,7 @@ namespace ACE.Server.Factories
                 case 3:
                     if (ThreadSafeRandom.Next(1, (int)(500 * dropRateMod * lootQualityMod)) == 1)
                         numMajors = 1;
-                    if (ThreadSafeRandom.Next(1, (int)(10000 * dropRateMod * lootQualityMod)) == 1)
+                    if (ThreadSafeRandom.Next(1, (int)(5000 * dropRateMod * lootQualityMod)) == 1)
                         numMajors = 2;
                     break;
                 case 4:
@@ -333,16 +333,16 @@ namespace ACE.Server.Factories
                 case 6:
                     if (ThreadSafeRandom.Next(1, (int)(500 * dropRateMod * lootQualityMod)) == 1)
                         numMajors = 1;
-                    if (ThreadSafeRandom.Next(1, (int)(5000 * dropRateMod * lootQualityMod)) == 1)
+                    if (ThreadSafeRandom.Next(1, (int)(2500 * dropRateMod * lootQualityMod)) == 1)
                         numMajors = 2;
                     break;
                 case 7:
                 default:
                     if (ThreadSafeRandom.Next(1, (int)(500 * dropRateMod * lootQualityMod)) == 1)
                         numMajors = 1;
-                    if (ThreadSafeRandom.Next(1, (int)(5000 * dropRateMod * lootQualityMod)) == 1)
+                    if (ThreadSafeRandom.Next(1, (int)(2500 * dropRateMod * lootQualityMod)) == 1)
                         numMajors = 2;
-                    if (ThreadSafeRandom.Next(1, (int)(15000 * dropRateMod * lootQualityMod)) == 1)
+                    if (ThreadSafeRandom.Next(1, (int)(7500 * dropRateMod * lootQualityMod)) == 1)
                         numMajors = 3;
                     break;
             }
@@ -371,14 +371,14 @@ namespace ACE.Server.Factories
             if (ThreadSafeRandom.Next(1, 4) > 1)
             {
                 // 1% chance for 1 Epic, 0.1% chance for 2 Epics,
-                // 0.01% chance for 3 Epics, 0.001% chance for 4 Epics 
+                // 0.01% chance for 3 Epics, 0.001% chance for 4 Epics
                 if (ThreadSafeRandom.Next(1, (int)(100 * dropRateMod * lootQualityMod)) == 1)
                     numEpics = 1;
-                if (ThreadSafeRandom.Next(1, (int)(1000 * dropRateMod * lootQualityMod)) == 1)
+                if (ThreadSafeRandom.Next(1, (int)(500 * dropRateMod * lootQualityMod)) == 1)
                     numEpics = 2;
-                if (ThreadSafeRandom.Next(1, (int)(10000 * dropRateMod * lootQualityMod)) == 1)
+                if (ThreadSafeRandom.Next(1, (int)(5000 * dropRateMod * lootQualityMod)) == 1)
                     numEpics = 3;
-                if (ThreadSafeRandom.Next(1, (int)(100000 * dropRateMod * lootQualityMod)) == 1)
+                if (ThreadSafeRandom.Next(1, (int)(25000 * dropRateMod * lootQualityMod)) == 1)
                     numEpics = 4;
             }
 
@@ -497,7 +497,8 @@ namespace ACE.Server.Factories
                         maxBaseMana = (int)spell.BaseMana;
                 }
             }
-            return maxBaseMana;
+            return 9999;
+            //return maxBaseMana;
         }
 
         // old table / method
@@ -570,7 +571,8 @@ namespace ACE.Server.Factories
                 maxBaseMana = 1;
 
             // verified with eor data
-            return -1.0f / (float)Math.Ceiling(1200.0f / maxBaseMana);
+            return -0.0f;
+            //return -1.0f / (float)Math.Ceiling(1200.0f / maxBaseMana);
         }
 
         // old method / based on item type
