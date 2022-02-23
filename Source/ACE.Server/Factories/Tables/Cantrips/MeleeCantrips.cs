@@ -75,8 +75,12 @@ namespace ACE.Server.Factories.Tables
             ( SpellId.CANTRIPBLOODTHIRST1,          0.10f ),
             ( SpellId.CANTRIPDEFENDER1,             0.10f ),
             ( SpellId.CANTRIPHEARTTHIRST1,          0.10f ),
-
             ( SpellId.CANTRIPSWIFTHUNTER1,          0.10f ),
+
+            ( SpellId.CantripDirtyFightingProwess1, 0.05f ),
+            ( SpellId.CantripRecklessnessProwess1,  0.05f ),
+            ( SpellId.CantripSneakAttackProwess1,   0.05f ),
+            
             //( SpellId.CANTRIPSTRENGTH1,             0.05f ),
             //( SpellId.CANTRIPENDURANCE1,            0.05f ),
             //( SpellId.CANTRIPCOORDINATION1,         0.05f ),
@@ -108,10 +112,9 @@ namespace ACE.Server.Factories.Tables
             //( SpellId.CANTRIPSPRINT1,               0.01f ),
             //( SpellId.CANTRIPWEAPONEXPERTISE1,      0.01f ),
 
-            ( SpellId.CantripDirtyFightingProwess1, 0.05f ),
-            ( SpellId.CantripRecklessnessProwess1,  0.05f ),
+
+
             //( SpellId.CantripSalvaging1,            0.01f ),
-            ( SpellId.CantripSneakAttackProwess1,   0.05f ),
 
             //( SpellId.CANTRIPACIDWARD1,             0.01f ),
             //( SpellId.CANTRIPBLUDGEONINGWARD1,      0.01f ),

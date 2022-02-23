@@ -123,6 +123,12 @@ namespace ACE.Server.Factories.Tables
             ( SpellId.CANTRIPSLASHINGWARD1,                0.075f ),
             ( SpellId.CANTRIPSTORMWARD1,                   0.075f ),
 
+            ( SpellId.CANTRIPLOCKPICKPROWESS1,             0.08f ),
+            ( SpellId.CANTRIPMAGICITEMEXPERTISE1,          0.08f ),
+            ( SpellId.CANTRIPWEAPONEXPERTISE1,             0.08f ),
+            ( SpellId.CANTRIPITEMEXPERTISE1,               0.08f ),
+            ( SpellId.CANTRIPARMOREXPERTISE1,              0.08f ),
+
             //( SpellId.CANTRIPHEAVYWEAPONSAPTITUDE1,        0.02f ),
             //( SpellId.CANTRIPLIGHTWEAPONSAPTITUDE1,        0.02f ),
             //( SpellId.CANTRIPFINESSEWEAPONSAPTITUDE1,      0.02f ),
@@ -141,22 +147,22 @@ namespace ACE.Server.Factories.Tables
 
             //( SpellId.CANTRIPALCHEMICALPROWESS1,           0.02f ),
             //( SpellId.CANTRIPARCANEPROWESS1,               0.02f ),
-            ( SpellId.CANTRIPARMOREXPERTISE1,              0.08f ),
+
             //( SpellId.CANTRIPCOOKINGPROWESS1,              0.02f ),
             //( SpellId.CANTRIPDECEPTIONPROWESS1,            0.02f ),
             //( SpellId.CANTRIPFEALTY1,                      0.02f ),
             //( SpellId.CANTRIPFLETCHINGPROWESS1,            0.02f ),
             //( SpellId.CANTRIPHEALINGPROWESS1,              0.02f ),
-            ( SpellId.CANTRIPITEMEXPERTISE1,               0.08f ),
+
             //( SpellId.CANTRIPJUMPINGPROWESS1,              0.02f ),
             //( SpellId.CANTRIPLEADERSHIP1,                  0.02f ),
-            ( SpellId.CANTRIPLOCKPICKPROWESS1,             0.08f ),
-            ( SpellId.CANTRIPMAGICITEMEXPERTISE1,          0.08f ),
+
+
             //( SpellId.CANTRIPMANACONVERSIONPROWESS1,       0.02f ),
             //( SpellId.CANTRIPMONSTERATTUNEMENT1,           0.02f ),
             //( SpellId.CANTRIPPERSONATTUNEMENT1,            0.02f ),
             //( SpellId.CANTRIPSPRINT1,                      0.02f ),
-            ( SpellId.CANTRIPWEAPONEXPERTISE1,             0.08f ),
+
 
             //( SpellId.CantripDirtyFightingProwess1,        0.02f ),
             //( SpellId.CantripDualWieldAptitude1,           0.02f ),

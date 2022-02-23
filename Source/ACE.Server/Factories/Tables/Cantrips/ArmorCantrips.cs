@@ -143,21 +143,9 @@ namespace ACE.Server.Factories.Tables
             ( SpellId.CANTRIPFOCUS1,                       0.04f ),
             ( SpellId.CANTRIPWILLPOWER1,                   0.04f ),
 
-            //( SpellId.CANTRIPHEAVYWEAPONSAPTITUDE1,        0.02f ),
-            //( SpellId.CANTRIPLIGHTWEAPONSAPTITUDE1,        0.02f ),
-            //( SpellId.CANTRIPFINESSEWEAPONSAPTITUDE1,      0.02f ),
-            //( SpellId.CANTRIPMISSILEWEAPONSAPTITUDE1,      0.02f ),
-            //( SpellId.CANTRIPTWOHANDEDAPTITUDE1,           0.02f ),
-
             ( SpellId.CANTRIPIMPREGNABILITY1,              0.03f ),
             ( SpellId.CANTRIPINVULNERABILITY1,             0.03f ),
             ( SpellId.CANTRIPMAGICRESISTANCE1,             0.03f ),
-
-            //( SpellId.CANTRIPCREATUREENCHANTMENTAPTITUDE1, 0.02f ),
-            //( SpellId.CANTRIPITEMENCHANTMENTAPTITUDE1,     0.02f ),
-            //( SpellId.CANTRIPLIFEMAGICAPTITUDE1,           0.02f ),
-            //( SpellId.CANTRIPWARMAGICAPTITUDE1,            0.02f ),
-            //( SpellId.CantripVoidMagicAptitude1,           0.02f ),
 
             ( SpellId.CANTRIPIMPENETRABILITY1,             0.03f ),
             ( SpellId.CANTRIPACIDBANE1,                    0.03f ),
@@ -177,23 +165,38 @@ namespace ACE.Server.Factories.Tables
             ( SpellId.CANTRIPSLASHINGWARD1,                0.03f ),
             ( SpellId.CANTRIPSTORMWARD1,                   0.03f ),
 
-            //( SpellId.CANTRIPALCHEMICALPROWESS1,           0.01f ),
+            ( SpellId.CantripSalvaging1,                   0.05f ),
+            ( SpellId.CANTRIPLOCKPICKPROWESS1,             0.05f ),
+            ( SpellId.CANTRIPHEALINGPROWESS1,              0.05f ),
             ( SpellId.CANTRIPARCANEPROWESS1,               0.04f ),
+
+            //( SpellId.CANTRIPHEAVYWEAPONSAPTITUDE1,        0.02f ),
+            //( SpellId.CANTRIPLIGHTWEAPONSAPTITUDE1,        0.02f ),
+            //( SpellId.CANTRIPFINESSEWEAPONSAPTITUDE1,      0.02f ),
+            //( SpellId.CANTRIPMISSILEWEAPONSAPTITUDE1,      0.02f ),
+            //( SpellId.CANTRIPTWOHANDEDAPTITUDE1,           0.02f ),
+
+            //( SpellId.CANTRIPCREATUREENCHANTMENTAPTITUDE1, 0.02f ),
+            //( SpellId.CANTRIPITEMENCHANTMENTAPTITUDE1,     0.02f ),
+            //( SpellId.CANTRIPLIFEMAGICAPTITUDE1,           0.02f ),
+            //( SpellId.CANTRIPWARMAGICAPTITUDE1,            0.02f ),
+            //( SpellId.CantripVoidMagicAptitude1,           0.02f ),
+
+            //( SpellId.CANTRIPALCHEMICALPROWESS1,           0.01f ),
             //( SpellId.CANTRIPARMOREXPERTISE1,              0.01f ),
             //( SpellId.CANTRIPCOOKINGPROWESS1,              0.01f ),
             //( SpellId.CANTRIPDECEPTIONPROWESS1,            0.01f ),
             //( SpellId.CANTRIPFEALTY1,                      0.01f ),
             //( SpellId.CANTRIPFLETCHINGPROWESS1,            0.01f ),
-            ( SpellId.CANTRIPHEALINGPROWESS1,              0.05f ),
+
             //( SpellId.CANTRIPITEMEXPERTISE1,               0.01f ),
             //( SpellId.CANTRIPJUMPINGPROWESS1,              0.01f ),
             //( SpellId.CANTRIPLEADERSHIP1,                  0.01f ),
-            ( SpellId.CANTRIPLOCKPICKPROWESS1,             0.05f ),
+
             //( SpellId.CANTRIPMAGICITEMEXPERTISE1,          0.01f ),
             //( SpellId.CANTRIPMANACONVERSIONPROWESS1,       0.01f ),
             //( SpellId.CANTRIPMONSTERATTUNEMENT1,           0.005f ),
             //( SpellId.CANTRIPPERSONATTUNEMENT1,            0.005f ),
-            ( SpellId.CantripSalvaging1,                   0.05f ),
             //( SpellId.CANTRIPSPRINT1,                      0.01f ),
             //( SpellId.CANTRIPWEAPONEXPERTISE1,             0.01f ),
 

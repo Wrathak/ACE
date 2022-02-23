@@ -89,8 +89,8 @@ namespace ACE.Server.Factories.Tables
             ( SpellId.CantripSpiritThirst1,                0.10f ),
 
             ( SpellId.CANTRIPMANACONVERSIONPROWESS1,       0.10f ),
-            //( SpellId.CANTRIPWILLPOWER1,                   0.05f ),
 
+            //( SpellId.CANTRIPWILLPOWER1,                   0.05f ),
             //( SpellId.CANTRIPSTRENGTH1,                    0.04f ),
             //( SpellId.CANTRIPENDURANCE1,                   0.04f ),
             //( SpellId.CANTRIPFOCUS1,                       0.04f ),

@@ -19,6 +19,8 @@ namespace ACE.Server.Factories.Tables
             //SpellId.CoordinationSelf1,
             //SpellId.QuicknessSelf1,     // added, according to spellSelectionGroup6
 
+            //SpellId.DualWieldMasterySelf1,
+
             SpellId.BloodDrinkerSelf1,
             SpellId.DefenderSelf1,
             SpellId.HeartSeekerSelf1,
@@ -27,7 +29,7 @@ namespace ACE.Server.Factories.Tables
             SpellId.HeavyWeaponsMasterySelf1,
             SpellId.ShieldMasterySelf1,
             SpellId.DirtyFightingMasterySelf1,
-            //SpellId.DualWieldMasterySelf1,
+
             SpellId.RecklessnessMasterySelf1,
             SpellId.SneakAttackMasterySelf1,
         };

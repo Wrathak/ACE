@@ -37,11 +37,11 @@ namespace ACE.Server.Factories.Tables
             //SpellId.VoidMagicMasterySelf1,
             //SpellId.SummoningMasterySelf1,
 
-            SpellId.ArcaneEnlightenmentSelf1,
+
             //SpellId.DeceptionMasterySelf1,
             //SpellId.HealingMasterySelf1,
             //SpellId.JumpingMasterySelf1,
-            SpellId.LockpickMasterySelf1,
+
             //SpellId.ManaMasterySelf1,
             //SpellId.SprintSelf1,
 
@@ -55,18 +55,18 @@ namespace ACE.Server.Factories.Tables
             //SpellId.AlchemyMasterySelf1,
             //SpellId.CookingMasterySelf1,
             //SpellId.FletchingMasterySelf1,
-
             //SpellId.LeadershipMasterySelf1,
             //SpellId.FealtySelf1,
-
             //SpellId.ArcanumSalvagingSelf1,
+            //SpellId.MonsterAttunementSelf1,
+            //SpellId.PersonAttunementSelf1,
+
+            SpellId.ArcaneEnlightenmentSelf1,
+            SpellId.LockpickMasterySelf1,
             SpellId.ArmorExpertiseSelf1,
             SpellId.ItemExpertiseSelf1,
             SpellId.MagicItemExpertiseSelf1,
             SpellId.WeaponExpertiseSelf1,
-
-            //SpellId.MonsterAttunementSelf1,
-            //SpellId.PersonAttunementSelf1,
 
             // life buffs
 
