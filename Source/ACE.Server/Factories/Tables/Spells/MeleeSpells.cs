@@ -14,18 +14,20 @@ namespace ACE.Server.Factories.Tables
 
         private static readonly List<SpellId> spells = new List<SpellId>()
         {
-            SpellId.StrengthSelf1,
-            SpellId.EnduranceSelf1,
-            SpellId.CoordinationSelf1,
-            SpellId.QuicknessSelf1,     // added, according to spellSelectionGroup6
+            //SpellId.StrengthSelf1,
+            //SpellId.EnduranceSelf1,
+            //SpellId.CoordinationSelf1,
+            //SpellId.QuicknessSelf1,     // added, according to spellSelectionGroup6
 
             SpellId.BloodDrinkerSelf1,
             SpellId.DefenderSelf1,
             SpellId.HeartSeekerSelf1,
             SpellId.SwiftKillerSelf1,
 
+            SpellId.HeavyWeaponsMasterySelf1,
+            SpellId.ShieldMasterySelf1,
             SpellId.DirtyFightingMasterySelf1,
-            SpellId.DualWieldMasterySelf1,
+            //SpellId.DualWieldMasterySelf1,
             SpellId.RecklessnessMasterySelf1,
             SpellId.SneakAttackMasterySelf1,
         };
