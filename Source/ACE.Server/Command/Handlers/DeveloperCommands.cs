@@ -467,7 +467,7 @@ namespace ACE.Server.Command.Handlers
         /// Debug command to saves the character from in-game.
         /// </summary>
         /// <remarks>Added a quick way to invoke the character save routine.</remarks>
-        [CommandHandler("save-now", AccessLevel.Developer, CommandHandlerFlag.RequiresWorld, "Saves your session.")]
+        [CommandHandler("save-now", AccessLevel.Player, CommandHandlerFlag.RequiresWorld, "Saves your session.")]
         public static void HandleSaveNow(Session session, params string[] parameters)
         {
             session.Player.SavePlayerToDatabase();
@@ -1098,7 +1098,7 @@ namespace ACE.Server.Command.Handlers
                 if (!item.Stuck)
                     session.Player.TryCreateInInventoryWithNetworking(item);
                 else
-                    stuck.Add(item);    
+                    stuck.Add(item);
             }
 
             if (stuck.Count != 0)

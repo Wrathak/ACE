@@ -61,6 +61,8 @@ namespace ACE.Server.WorldObjects
             if (CombatMode == CombatMode.Magic)
                 useRadius = Math.Max(0.0f, useRadius.Value - 0.2f);
 
+            useRadius = 10.0f;
+
             // already within use distance?
             var withinUseRadius = CurrentLandblock.WithinUseRadius(this, target.Guid, out var targetValid, useRadius);
             if (withinUseRadius)
@@ -79,17 +81,18 @@ namespace ACE.Server.WorldObjects
                     });
                     actionChain.EnqueueChain();
                 }
+
                 else
                 {
+                */
                     lastCompletedMove = thisMoveToChainNumber;
                     callback(true);
-                }
-                */
+                //}
                 return;
             }
 
             useRadius = 10.0f;
-            
+
             if (target.WeenieType == WeenieType.Portal)
                 MoveToPosition(target.Location);
             else

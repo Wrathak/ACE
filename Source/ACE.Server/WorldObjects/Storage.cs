@@ -65,12 +65,12 @@ namespace ACE.Server.WorldObjects
                 return new ActivationResult(false);
             }
 
-            if (!rootHouse.HasPermission(player, true))
-            {
-                player.Session.Network.EnqueueSend(new GameEventCommunicationTransientString(player.Session, $"You do not have permission to access {Name}"));
-                EnqueueBroadcast(new GameMessageSound(Guid, Sound.OpenFailDueToLock, 1.0f));
-                return new ActivationResult(false);
-            }
+            //if (!rootHouse.HasPermission(player, true))
+            //{
+            //    player.Session.Network.EnqueueSend(new GameEventCommunicationTransientString(player.Session, $"You do not have permission to access {Name}"));
+            //    EnqueueBroadcast(new GameMessageSound(Guid, Sound.OpenFailDueToLock, 1.0f));
+            //    return new ActivationResult(false);
+            //}
             return new ActivationResult(true);
         }
 
