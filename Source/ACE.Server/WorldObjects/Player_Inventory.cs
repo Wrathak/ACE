@@ -717,19 +717,22 @@ namespace ACE.Server.WorldObjects
             }
 
             stack.StackSize += amount;
+
             stack.EncumbranceVal = (stack.StackUnitEncumbrance ?? 0) * (stack.StackSize ?? 1);
             stack.Value = (stack.StackUnitValue ?? 0) * (stack.StackSize ?? 1);
 
             if (container != null)
             {
                 // We add to these values because amount will be negative if we're subtracting from a stack, so we want to add a negative number.
-                container.EncumbranceVal += (stack.StackUnitEncumbrance ?? 0) * amount;
+                //container.EncumbranceVal += (stack.StackUnitEncumbrance ?? 0) * amount;
+                container.EncumbranceVal = 0;
                 container.Value += (stack.StackUnitValue ?? 0) * amount;
             }
 
             if (rootContainer != null && rootContainer != container)
             {
-                rootContainer.EncumbranceVal += (stack.StackUnitEncumbrance ?? 0) * amount;
+                //rootContainer.EncumbranceVal += (stack.StackUnitEncumbrance ?? 0) * amount;
+                container.EncumbranceVal = 0;
                 rootContainer.Value += (stack.StackUnitValue ?? 0) * amount;
             }
 

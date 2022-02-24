@@ -18,8 +18,8 @@ namespace ACE.Server.Factories
 
             return chance switch
             {
-                var rate when (rate < 43) => CreateMeleeWeapon(profile, isMagical),
-                var rate when (rate > 42 && rate < 79) => CreateMissileWeapon(profile, isMagical),
+                var rate when (rate < 55) => CreateMeleeWeapon(profile, isMagical),
+                var rate when (rate > 54 && rate < 79) => CreateMissileWeapon(profile, isMagical),
                 _ => CreateCaster(profile, isMagical),
             };
         }

@@ -20,23 +20,23 @@ namespace ACE.Server.Factories.Tables
         private static ChanceTable<int> T1_SpellLevelChances = new ChanceTable<int>()
         {
             // 15/60/25?
-            ( 1, 0.25f ),
+            ( 1, 0.50f ),
             ( 2, 0.50f ),
-            ( 3, 0.25f ),
+            ( 3, 0.00f ),
         };
 
         private static ChanceTable<int> T2_SpellLevelChances = new ChanceTable<int>()
         {
-            ( 3, 0.25f ),
+            ( 3, 0.50f ),
             ( 4, 0.50f ),
-            ( 5, 0.25f ),
+            ( 5, 0.00f ),
         };
 
         private static ChanceTable<int> T3_SpellLevelChances = new ChanceTable<int>()
         {
-            ( 4, 0.25f ),
+            ( 4, 0.50f ),
             ( 5, 0.50f ),
-            ( 6, 0.25f ),
+            ( 6, 0.00f ),
         };
 
         private static ChanceTable<int> T4_SpellLevelChances = new ChanceTable<int>()
@@ -48,28 +48,28 @@ namespace ACE.Server.Factories.Tables
         private static ChanceTable<int> T5_SpellLevelChances = new ChanceTable<int>()
         {
             ( 5, 0.30f ),
-            ( 6, 0.50f ),
-            ( 7, 0.20f ),
+            ( 6, 0.55f ),
+            ( 7, 0.15f ),
         };
 
         private static ChanceTable<int> T6_SpellLevelChances = new ChanceTable<int>()
         {
-            ( 6, 0.60f ),
-            ( 7, 0.40f ),
+            ( 6, 0.75f ),
+            ( 7, 0.25f ),
         };
 
         private static ChanceTable<int> T7_SpellLevelChances = new ChanceTable<int>()
         {
             ( 6, 0.25f ),
-            ( 7, 0.50f ),
-            ( 8, 0.25f ),
+            ( 7, 0.60f ),
+            ( 8, 0.15f ),
         };
 
         private static ChanceTable<int> T8_SpellLevelChances = new ChanceTable<int>()
         {
-            ( 6, 0.15f ),
+            ( 6, 0.00f ),
             ( 7, 0.50f ),
-            ( 8, 0.35f ),
+            ( 8, 0.50f ),
         };
 
         private static readonly List<ChanceTable<int>> spellLevelChances = new List<ChanceTable<int>>()

@@ -47,16 +47,16 @@ namespace ACE.Server.Factories.Tables.Wcids
                     return RollBowWcid(treasureDeath);
 
                 case TreasureWeaponType.Crossbow:
-                    return RollCrossbowWcid(treasureDeath);
+                    return RollBowWcid(treasureDeath);
 
                 case TreasureWeaponType.Atlatl:
-                    return RollAtlatlWcid(treasureDeath);
+                    return RollBowWcid(treasureDeath);
 
                 case TreasureWeaponType.Caster:
                     return RollCaster(treasureDeath);
 
                 case TreasureWeaponType.TwoHandedWeapon:
-                    return RollTwoHandedWeaponWcid(ref weaponType);
+                    return RollMeleeWeapon(ref weaponType);
             }
             return WeenieClassName.undef;
         }

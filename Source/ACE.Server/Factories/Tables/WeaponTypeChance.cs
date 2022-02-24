@@ -21,8 +21,6 @@ namespace ACE.Server.Factories.Tables
             ( TreasureWeaponType.Staff,    0.12f ),
             ( TreasureWeaponType.Dagger,   0.12f ),
             ( TreasureWeaponType.Bow,      0.12f ),
-            //( TreasureWeaponType.Crossbow, 0.04f ),
-            //( TreasureWeaponType.Atlatl,   0.04f ),
             ( TreasureWeaponType.Caster,   0.04f ),
         };
 
@@ -39,8 +37,6 @@ namespace ACE.Server.Factories.Tables
             ( TreasureWeaponType.Staff,    0.09f ),
             ( TreasureWeaponType.Dagger,   0.09f ),
             ( TreasureWeaponType.Bow,      0.27f ),
-            //( TreasureWeaponType.Crossbow, 0.09f ),
-            //( TreasureWeaponType.Atlatl,   0.09f ),
             ( TreasureWeaponType.Caster,   0.10f ),
         };
 
@@ -60,8 +56,6 @@ namespace ACE.Server.Factories.Tables
             ( TreasureWeaponType.Staff,           0.10f ),
             ( TreasureWeaponType.Dagger,          0.10f ),
             ( TreasureWeaponType.Bow,             0.20f ),
-            //( TreasureWeaponType.Crossbow,        0.07f ),
-            //( TreasureWeaponType.Atlatl,          0.06f ),
             ( TreasureWeaponType.Caster,          0.10f ),
             //( TreasureWeaponType.TwoHandedWeapon, 0.10f ),      // see TreasureWeaponType for an explanation of why this is here,
                                                                 // and not deeper in WeaponWcids.cs

@@ -17,23 +17,22 @@ namespace ACE.Server.Factories.Tables
 
         public static readonly ChanceTable<TreasureItemType> DefaultMagical = new ChanceTable<TreasureItemType>()
         {
-            ( TreasureItemType.Gem,        0.00f ),
-            ( TreasureItemType.Armor,      0.24f ),
-            ( TreasureItemType.Weapon,     0.30f ),
-            ( TreasureItemType.Clothing,   0.13f ),
-            ( TreasureItemType.Cloak,      0.01f ),
+            ( TreasureItemType.Armor,      0.45f ),
+            ( TreasureItemType.Weapon,     0.20f ),
+            ( TreasureItemType.Clothing,   0.10f ),
+            ( TreasureItemType.Cloak,      0.02f ),
+            ( TreasureItemType.Gem,        0.05f ),    // 100% aetheria?
             ( TreasureItemType.Jewelry,    0.18f )
         };
 
         public static readonly ChanceTable<TreasureItemType> DefaultNonMagical = new ChanceTable<TreasureItemType>()
         {
-            ( TreasureItemType.Gem,        0.00f ),
-            ( TreasureItemType.Armor,      0.24f ),
-            ( TreasureItemType.Weapon,     0.30f ),
-            ( TreasureItemType.Clothing,   0.13f ),
-            ( TreasureItemType.Cloak,      0.01f ),
-            ( TreasureItemType.Jewelry,    0.10f ),
-            ( TreasureItemType.Dinnerware, 0.00f )
+          ( TreasureItemType.Armor,      0.45f ),
+          ( TreasureItemType.Weapon,     0.20f ),
+          ( TreasureItemType.Clothing,   0.10f ),
+          ( TreasureItemType.Cloak,      0.02f ),
+          ( TreasureItemType.Gem,        0.05f ),    // 100% aetheria?
+          ( TreasureItemType.Jewelry,    0.18f )
         };
 
         // LootBias.Armor
@@ -72,13 +71,12 @@ namespace ACE.Server.Factories.Tables
 
         public static readonly ChanceTable<TreasureItemType> MixedMagicEquipment = new ChanceTable<TreasureItemType>()
         {
-            ( TreasureItemType.Armor,      0.30f ),
-            ( TreasureItemType.Weapon,     0.35f ),
-            ( TreasureItemType.Jewelry,    0.20f ),
-            ( TreasureItemType.Clothing,   0.14f ),
-            //( TreasureItemType.Gem,        0.05f ),    // 100% aetheria
-            //( TreasureItemType.Dinnerware, 0.05f ),
-            ( TreasureItemType.Cloak,      0.01f ),
+          ( TreasureItemType.Armor,      0.45f ),
+          ( TreasureItemType.Weapon,     0.20f ),
+          ( TreasureItemType.Clothing,   0.10f ),
+          ( TreasureItemType.Cloak,      0.02f ),
+          ( TreasureItemType.Gem,        0.05f ),    // 100% aetheria
+          ( TreasureItemType.Jewelry,    0.18f )
         };
     }
 }

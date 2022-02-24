@@ -142,7 +142,6 @@ namespace ACE.Server.Factories
                     }
 
                     numItems = ThreadSafeRandom.Next(profile.MundaneItemMinAmount, profile.MundaneItemMaxAmount);
-                    numItems = (int)Math.Round(numItems / 2.0);
 
                     for (var i = 0; i < numItems; i++)
                     {
@@ -179,7 +178,6 @@ namespace ACE.Server.Factories
                 if (itemChance <= profile.ItemChance)
                 {
                     numItems = ThreadSafeRandom.Next(profile.ItemMinAmount, profile.ItemMaxAmount);
-                    numItems = (int)Math.Round(numItems / 2.0);
 
                     for (var i = 0; i < numItems; i++)
                     {
@@ -194,7 +192,6 @@ namespace ACE.Server.Factories
                 if (itemChance <= profile.MagicItemChance)
                 {
                     numItems = ThreadSafeRandom.Next(profile.MagicItemMinAmount, profile.MagicItemMaxAmount);
-                    numItems = (int)Math.Round(numItems / 2.0);
 
                     for (var i = 0; i < numItems; i++)
                     {
@@ -209,7 +206,6 @@ namespace ACE.Server.Factories
                 if (itemChance <= profile.MundaneItemChance)
                 {
                     numItems = ThreadSafeRandom.Next(profile.MundaneItemMinAmount, profile.MundaneItemMaxAmount);
-                    numItems = (int)Math.Round(numItems / 2.0);
 
                     for (var i = 0; i < numItems; i++)
                     {
