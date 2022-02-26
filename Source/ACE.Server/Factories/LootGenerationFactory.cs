@@ -762,7 +762,8 @@ namespace ACE.Server.Factories
             var burdenMod = 1.0f - (qualityInterval * maxBurdenMod);
 
             // modify burden
-            var prevBurden = wo.EncumbranceVal.Value;
+            //var prevBurden = wo.EncumbranceVal.Value;
+            var prevBurden = 1;
             wo.EncumbranceVal = (int)Math.Round(prevBurden * burdenMod);
 
             //if (wo.EncumbranceVal < 1)
@@ -811,7 +812,6 @@ namespace ACE.Server.Factories
 
             if (wo.Value == null)
                 wo.Value = 0;   // fixme: data
-
             //var weenieValue = wo.Value;
 
             if (!(wo is Gem))
@@ -873,8 +873,8 @@ namespace ACE.Server.Factories
 
         private static void MutateValue_Spells(WorldObject wo)
         {
-            if (wo.ItemMaxMana != null)
-                wo.Value += wo.ItemMaxMana * 2;
+            //if (wo.ItemMaxMana != null)
+            //    wo.Value += wo.ItemMaxMana * 2;
 
             int spellLevelSum = 0;
 
@@ -892,7 +892,7 @@ namespace ACE.Server.Factories
                     spellLevelSum += (int)spell.Level;
                 }
             }
-            wo.Value += spellLevelSum * 10;
+            wo.Value += spellLevelSum * 2;
         }
 
         private static readonly List<int> ItemValue_TierMod = new List<int>()

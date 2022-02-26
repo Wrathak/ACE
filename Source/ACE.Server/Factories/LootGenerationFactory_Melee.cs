@@ -38,20 +38,26 @@ namespace ACE.Server.Factories
 
                 case MeleeWeaponSkill.LightWeapons:
 
-                    weaponType = ThreadSafeRandom.Next(0, LootTables.LightWeaponsMatrix.Length - 1);
-                    wcid = LootTables.LightWeaponsMatrix[weaponType][eleType];
+                    //weaponType = ThreadSafeRandom.Next(0, LootTables.LightWeaponsMatrix.Length - 1);
+                    //wcid = LootTables.LightWeaponsMatrix[weaponType][eleType];
+                    weaponType = ThreadSafeRandom.Next(0, LootTables.HeavyWeaponsMatrix.Length - 1);
+                    wcid = LootTables.HeavyWeaponsMatrix[weaponType][eleType];
                     break;
 
                 case MeleeWeaponSkill.FinesseWeapons:
 
-                    weaponType = ThreadSafeRandom.Next(0, LootTables.FinesseWeaponsMatrix.Length - 1);
-                    wcid = LootTables.FinesseWeaponsMatrix[weaponType][eleType];
+                    //weaponType = ThreadSafeRandom.Next(0, LootTables.FinesseWeaponsMatrix.Length - 1);
+                    //wcid = LootTables.FinesseWeaponsMatrix[weaponType][eleType];
+                    weaponType = ThreadSafeRandom.Next(0, LootTables.HeavyWeaponsMatrix.Length - 1);
+                    wcid = LootTables.HeavyWeaponsMatrix[weaponType][eleType];
                     break;
 
                 case MeleeWeaponSkill.TwoHandedCombat:
 
-                    weaponType = ThreadSafeRandom.Next(0, LootTables.TwoHandedWeaponsMatrix.Length - 1);
-                    wcid = LootTables.TwoHandedWeaponsMatrix[weaponType][eleType];
+                    //weaponType = ThreadSafeRandom.Next(0, LootTables.TwoHandedWeaponsMatrix.Length - 1);
+                    //wcid = LootTables.TwoHandedWeaponsMatrix[weaponType][eleType];
+                    weaponType = ThreadSafeRandom.Next(0, LootTables.HeavyWeaponsMatrix.Length - 1);
+                    wcid = LootTables.HeavyWeaponsMatrix[weaponType][eleType];
                     break;
             }
 
@@ -93,7 +99,7 @@ namespace ACE.Server.Factories
 
                 var mutationFilter = MutationCache.GetMutation(scriptName);
 
-                mutationFilter.TryMutate(wo, profile.Tier);
+                //mutationFilter.TryMutate(wo, profile.Tier);
 
                 // mutate WeaponOffense / WeaponDefense
                 scriptName = GetOffenseDefenseScript(weaponSkill, roll.WeaponType);

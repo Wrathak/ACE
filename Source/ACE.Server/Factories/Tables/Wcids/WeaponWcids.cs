@@ -47,16 +47,16 @@ namespace ACE.Server.Factories.Tables.Wcids
                     return RollBowWcid(treasureDeath);
 
                 case TreasureWeaponType.Crossbow:
-                    return RollBowWcid(treasureDeath);
+                    return RollCrossbowWcid(treasureDeath);
 
                 case TreasureWeaponType.Atlatl:
-                    return RollBowWcid(treasureDeath);
+                    return RollAtlatlWcid(treasureDeath);
 
                 case TreasureWeaponType.Caster:
                     return RollCaster(treasureDeath);
 
                 case TreasureWeaponType.TwoHandedWeapon:
-                    return RollMeleeWeapon(ref weaponType);
+                    return RollTwoHandedWeaponWcid(ref weaponType);
             }
             return WeenieClassName.undef;
         }
@@ -88,10 +88,12 @@ namespace ACE.Server.Factories.Tables.Wcids
                     return HeavyWeaponWcids.Roll(out weaponType);
 
                 case MeleeWeaponSkill.LightWeapons:
-                    return LightWeaponWcids.Roll(out weaponType);
+                    return HeavyWeaponWcids.Roll(out weaponType);
+                    //return LightWeaponWcids.Roll(out weaponType);
 
                 case MeleeWeaponSkill.FinesseWeapons:
-                    return FinesseWeaponWcids.Roll(out weaponType);
+                    return HeavyWeaponWcids.Roll(out weaponType);
+                    //return FinesseWeaponWcids.Roll(out weaponType);
             }
             return WeenieClassName.undef;
         }

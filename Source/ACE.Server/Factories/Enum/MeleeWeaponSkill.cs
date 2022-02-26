@@ -20,11 +20,11 @@ namespace ACE.Server.Factories.Enum
                 case Skill.HeavyWeapons:
                     return MeleeWeaponSkill.HeavyWeapons;
                 case Skill.LightWeapons:
-                    return MeleeWeaponSkill.HeavyWeapons;
+                    return MeleeWeaponSkill.LightWeapons;
                 case Skill.FinesseWeapons:
-                    return MeleeWeaponSkill.HeavyWeapons;
+                    return MeleeWeaponSkill.FinesseWeapons;
                 case Skill.TwoHandedCombat:
-                    return MeleeWeaponSkill.HeavyWeapons;
+                    return MeleeWeaponSkill.TwoHandedCombat;
             }
             return MeleeWeaponSkill.Undef;
         }
@@ -36,11 +36,11 @@ namespace ACE.Server.Factories.Enum
                 case MeleeWeaponSkill.HeavyWeapons:
                     return "heavy";
                 case MeleeWeaponSkill.LightWeapons:
-                    return "heavy";
+                    return "light";
                 case MeleeWeaponSkill.FinesseWeapons:
-                    return "heavy";
+                    return "finesse";
                 case MeleeWeaponSkill.TwoHandedCombat:
-                    return "heavy";
+                    return "two_handed";
             }
             return null;
         }
@@ -53,9 +53,9 @@ namespace ACE.Server.Factories.Enum
                     return "heavy";
                 case MeleeWeaponSkill.LightWeapons:
                 case MeleeWeaponSkill.FinesseWeapons:
-                    return "heavy";
+                    return "finesse";
                 case MeleeWeaponSkill.TwoHandedCombat:
-                    return "heavy";
+                    return "";
             }
             return null;
         }

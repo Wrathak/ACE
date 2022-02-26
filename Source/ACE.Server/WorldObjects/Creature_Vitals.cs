@@ -179,7 +179,7 @@ namespace ACE.Server.WorldObjects
             // only applies for health?
             if (vital.Vital != PropertyAttribute2nd.MaxHealth) return 1.0f;
 
-            // The combination of strength and endurance (with endurance being more important) allows one to regenerate hit points 
+            // The combination of strength and endurance (with endurance being more important) allows one to regenerate hit points
             // at a faster rate the higher one's endurance is. This bonus is in addition to any regeneration spells one may have placed upon themselves.
             // This regeneration bonus caps at around 110%.
 
@@ -216,19 +216,19 @@ namespace ACE.Server.WorldObjects
 
             // combat mode / running
             if (CombatMode != CombatMode.NonCombat || forwardCommand == MotionCommand.RunForward)
-                return 0.5f;
+                return 10.0f;
 
             switch (forwardCommand)
             {
                 // TODO: verify multipliers
                 default:
-                    return 1.0f;
+                    return 10.0f;
                 case MotionCommand.Crouch:
-                    return 2.0f;
+                    return 10.0f;
                 case MotionCommand.Sitting:
-                    return 2.5f;
+                    return 10.0f;
                 case MotionCommand.Sleeping:
-                    return 3.0f;
+                    return 10.0f;
             }
         }
     }

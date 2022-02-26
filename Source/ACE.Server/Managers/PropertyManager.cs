@@ -656,8 +656,8 @@ namespace ACE.Server.Managers
                 ("trophy_drop_rate", new Property<double>(1.0, "Modifier for trophies dropped on creature death")),
                 ("unlocker_window", new Property<double>(10.0, "The number of seconds a player unlocking a chest has exclusive access to first opening the chest.")),
                 ("vendor_unique_rot_time", new Property<double>(300, "the number of seconds before unique items sold to vendors disappear")),
-                ("vitae_penalty", new Property<double>(0.00, "the amount of vitae penalty a player gets per death")),
-                ("vitae_penalty_max", new Property<double>(0.00, "the maximum vitae penalty a player can have")),
+                ("vitae_penalty", new Property<double>(0.001, "the amount of vitae penalty a player gets per death")),
+                ("vitae_penalty_max", new Property<double>(0.001, "the maximum vitae penalty a player can have")),
                 ("void_pvp_modifier", new Property<double>(0.5, "Scales the amount of damage players take from Void Magic. Defaults to 0.5, as per retail. For earlier content where DRR isn't as readily available, this can be adjusted for balance.")),
                 ("xp_modifier", new Property<double>(1.0, "scales the amount of xp received by players"))
                 );

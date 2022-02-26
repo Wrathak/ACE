@@ -505,14 +505,14 @@ namespace ACE.Server.Factories
 
         private static readonly List<(int min, int max)> itemMaxMana_RandomRange = new List<(int min, int max)>()
         {
-            (200,  400),    // T1
-            (400,  600),    // T2
-            (600,  800),    // T3
-            (800,  1000),   // T4
-            (1000, 1200),   // T5
-            (1200, 1400),   // T6
-            (1400, 1600),   // T7
-            (1600, 1800),   // T8
+            (9999,  9999),    // T1
+            (9999,  9999),    // T2
+            (9999,  9999),    // T3
+            (9999,  9999),   // T4
+            (9999, 9999),   // T5
+            (9999, 9999),   // T6
+            (9999, 9999),   // T7
+            (9999, 9999),   // T8
         };
 
         private static int RollItemMaxMana(int tier, int numSpells)

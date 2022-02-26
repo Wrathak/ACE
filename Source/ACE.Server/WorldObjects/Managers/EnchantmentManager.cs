@@ -397,6 +397,7 @@ namespace ACE.Server.WorldObjects.Managers
                 minVitae = (float)propVitae;
 
             return minVitae;
+            //return 0;
         }
 
         /// <summary>
@@ -431,9 +432,9 @@ namespace ACE.Server.WorldObjects.Managers
 
             var minVitae = GetMinVitae((uint)Player.Level);
 
-            if (vitae.StatModValue < minVitae)
-                vitae.StatModValue = minVitae;
-            if (vitae.StatModValue > 1.0f)
+            //if (vitae.StatModValue < minVitae)
+            //    vitae.StatModValue = minVitae;
+            //if (vitae.StatModValue > 1.0f)
                 vitae.StatModValue = 1.0f;
 
             return vitae.StatModValue;

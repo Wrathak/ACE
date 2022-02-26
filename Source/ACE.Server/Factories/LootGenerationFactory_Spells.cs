@@ -394,10 +394,10 @@ namespace ACE.Server.Factories
                 return SpellId.CANTRIPTWOHANDEDAPTITUDE1;
 
             // 10% chance to adjust to dual wielding
-            var rng = ThreadSafeRandom.Next(0.0f, 1.0f);
+            //var rng = ThreadSafeRandom.Next(0.0f, 1.0f);
 
-            if (rng < 0.1f)
-                return SpellId.CantripDualWieldAptitude1;
+            //if (rng < 0.1f)
+            //    return SpellId.CantripDualWieldAptitude1;
 
             // heavy/light/finesse weapons
             switch (wo.WeaponSkill)
@@ -405,9 +405,11 @@ namespace ACE.Server.Factories
                 case Skill.HeavyWeapons:
                     return SpellId.CANTRIPHEAVYWEAPONSAPTITUDE1;
                 case Skill.LightWeapons:
-                    return SpellId.CANTRIPLIGHTWEAPONSAPTITUDE1;
+                    return SpellId.CANTRIPHEAVYWEAPONSAPTITUDE1;
+                    //return SpellId.CANTRIPLIGHTWEAPONSAPTITUDE1;
                 case Skill.FinesseWeapons:
-                    return SpellId.CANTRIPFINESSEWEAPONSAPTITUDE1;
+                    return SpellId.CANTRIPHEAVYWEAPONSAPTITUDE1;
+                    //return SpellId.CANTRIPFINESSEWEAPONSAPTITUDE1;
             }
             return SpellId.Undef;
         }

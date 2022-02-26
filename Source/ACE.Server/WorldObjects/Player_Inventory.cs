@@ -625,11 +625,11 @@ namespace ACE.Server.WorldObjects
             ActionChain pickupChain = new ActionChain();
 
             // start picking up item animation
-            EnqueueBroadcast(new GameMessageUpdatePosition(this));
+            //EnqueueBroadcast(new GameMessageUpdatePosition(this));
 
-            var motion = new Motion(CurrentMotionState.Stance, MotionPickup);
+            //var motion = new Motion(CurrentMotionState.Stance, MotionPickup);
 
-            EnqueueBroadcastMotion(motion);
+            //EnqueueBroadcastMotion(motion);
 
             // Wait for animation to progress
             var motionTable = DatManager.PortalDat.ReadFromDat<MotionTable>(MotionTableId);
@@ -688,11 +688,11 @@ namespace ACE.Server.WorldObjects
                 return new ActionChain();
 
             // start picking up item animation
-            EnqueueBroadcast(new GameMessageUpdatePosition(this));
+            //EnqueueBroadcast(new GameMessageUpdatePosition(this));
 
-            var motion = new Motion(CurrentMotionState.Stance, pickupMotion);
+            //var motion = new Motion(CurrentMotionState.Stance, pickupMotion);
 
-            EnqueueBroadcastMotion(motion);
+            //EnqueueBroadcastMotion(motion);
 
             // Wait for animation to progress
             var motionTable = DatManager.PortalDat.ReadFromDat<MotionTable>(MotionTableId);
