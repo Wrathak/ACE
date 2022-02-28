@@ -30,6 +30,11 @@ namespace ACE.Server.Factories.Tables
             SpellId.CANTRIPDEFENDER1,
             SpellId.CantripHermeticLink1,
             SpellId.CantripSpiritThirst1,
+
+          SpellId.CANTRIPARMOREXPERTISE1,
+          SpellId.CANTRIPITEMEXPERTISE1,
+          SpellId.CANTRIPMAGICITEMEXPERTISE1,
+          SpellId.CANTRIPWEAPONEXPERTISE1,
         };
 
         private static readonly int NumLevels = 4;
@@ -79,16 +84,21 @@ namespace ACE.Server.Factories.Tables
 
         private static ChanceTable<SpellId> casterCantrips = new ChanceTable<SpellId>()
         {
-            ( SpellId.CANTRIPCREATUREENCHANTMENTAPTITUDE1, 0.15f ),
-            ( SpellId.CANTRIPITEMENCHANTMENTAPTITUDE1,     0.15f ),
-            ( SpellId.CANTRIPLIFEMAGICAPTITUDE1,           0.15f ),
-            ( SpellId.CANTRIPWARMAGICAPTITUDE1,            0.15f ),     // gets mutated properly into VoidMagicAptitude for nether casters
+            //( SpellId.CANTRIPCREATUREENCHANTMENTAPTITUDE1, 0.15f ),
+            ( SpellId.CANTRIPITEMENCHANTMENTAPTITUDE1,     0.10f ),
+            ( SpellId.CANTRIPLIFEMAGICAPTITUDE1,           0.10f ),
+            ( SpellId.CANTRIPWARMAGICAPTITUDE1,            0.10f ),     // gets mutated properly into VoidMagicAptitude for nether casters
 
             ( SpellId.CANTRIPDEFENDER1,                    0.10f ),
             ( SpellId.CantripHermeticLink1,                0.10f ),
             ( SpellId.CantripSpiritThirst1,                0.10f ),
 
             ( SpellId.CANTRIPMANACONVERSIONPROWESS1,       0.10f ),
+
+            ( SpellId.CANTRIPARMOREXPERTISE1,              0.075f ),
+            ( SpellId.CANTRIPITEMEXPERTISE1,               0.075f ),
+            ( SpellId.CANTRIPMAGICITEMEXPERTISE1,          0.075f ),
+            ( SpellId.CANTRIPWEAPONEXPERTISE1,             0.075f ),
 
             //( SpellId.CANTRIPWILLPOWER1,                   0.05f ),
             //( SpellId.CANTRIPSTRENGTH1,                    0.04f ),

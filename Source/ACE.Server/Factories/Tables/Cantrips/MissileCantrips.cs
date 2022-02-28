@@ -26,6 +26,10 @@ namespace ACE.Server.Factories.Tables
             SpellId.CantripDirtyFightingProwess1,
             SpellId.CantripRecklessnessProwess1,
             SpellId.CantripSneakAttackProwess1,
+
+            SpellId.CANTRIPMISSILEWEAPONSAPTITUDE1,
+            SpellId.CANTRIPFLETCHINGPROWESS1,
+            SpellId.CANTRIPALCHEMICALPROWESS1,
         };
 
         private static readonly int NumLevels = 4;
@@ -69,17 +73,18 @@ namespace ACE.Server.Factories.Tables
 
         private static ChanceTable<SpellId> missileCantrips = new ChanceTable<SpellId>()
         {
-            ( SpellId.CANTRIPMISSILEWEAPONSAPTITUDE1, 0.40f ),
+            ( SpellId.CANTRIPMISSILEWEAPONSAPTITUDE1, 0.125f ),
 
-            ( SpellId.CANTRIPDEFENDER1,               0.15f ),
-            ( SpellId.CANTRIPBLOODTHIRST1,            0.15f ),
-            ( SpellId.CANTRIPSWIFTHUNTER1,            0.15f ),
+            ( SpellId.CANTRIPDEFENDER1,               0.125f ),
+            ( SpellId.CANTRIPBLOODTHIRST1,            0.125f ),
+            ( SpellId.CANTRIPSWIFTHUNTER1,            0.125f ),
 
-            ( SpellId.CANTRIPALCHEMICALPROWESS1,      0.03f ),
-            ( SpellId.CANTRIPFLETCHINGPROWESS1,       0.03f ),
-            ( SpellId.CantripDirtyFightingProwess1,   0.03f ),
-            ( SpellId.CantripRecklessnessProwess1,    0.03f ),
-            ( SpellId.CantripSneakAttackProwess1,     0.03f ),
+            ( SpellId.CANTRIPALCHEMICALPROWESS1,      0.10f ),
+            ( SpellId.CANTRIPFLETCHINGPROWESS1,       0.10f ),
+
+            ( SpellId.CantripDirtyFightingProwess1,   0.10f ),
+            ( SpellId.CantripRecklessnessProwess1,    0.10f ),
+            ( SpellId.CantripSneakAttackProwess1,     0.10f ),
 
             //( SpellId.CANTRIPSTRENGTH1,               0.07f ),
             //( SpellId.CANTRIPCOORDINATION1,           0.07f ),

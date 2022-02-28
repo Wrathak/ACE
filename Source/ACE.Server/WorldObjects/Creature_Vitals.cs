@@ -211,6 +211,7 @@ namespace ACE.Server.WorldObjects
 
             // does not apply for mana?
             if (vital.Vital == PropertyAttribute2nd.MaxMana) return 1.0f;
+            if (vital.Vital == PropertyAttribute2nd.MaxHealth) return 1.0f;
 
             var forwardCommand = CurrentMovementData.MovementType == MovementType.Invalid && CurrentMovementData.Invalid != null ? CurrentMovementData.Invalid.State.ForwardCommand : MotionCommand.Invalid;
 

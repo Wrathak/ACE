@@ -172,14 +172,29 @@ namespace ACE.Server.Factories.Tables
 
         private static readonly List<(SpellId spellId, float chance)> armorSpells = new List<(SpellId, float)>()
         {
-            ( SpellId.PiercingBane1,    0.15f ),
-            ( SpellId.FlameBane1,       0.15f ),
-            ( SpellId.FrostBane1,       0.15f ),
-            ( SpellId.Impenetrability1, 1.00f ),
-            ( SpellId.AcidBane1,        0.15f ),
-            ( SpellId.BladeBane1,       0.15f ),
-            ( SpellId.LightningBane1,   0.15f ),
-            ( SpellId.BludgeonBane1,    0.15f ),
+            //( SpellId.PiercingBane1,    0.01f ),
+            //( SpellId.FlameBane1,       0.01f ),
+            //( SpellId.FrostBane1,       0.01f ),
+            //( SpellId.Impenetrability1, 0.01f ),
+            //( SpellId.AcidBane1,        0.01f ),
+            //( SpellId.BladeBane1,       0.01f ),
+            //( SpellId.LightningBane1,   0.01f ),
+            //( SpellId.BludgeonBane1,    0.01f ),
+
+            ( SpellId.StrengthSelf1,             0.09f ),
+            ( SpellId.EnduranceSelf1,            0.09f ),
+            ( SpellId.CoordinationSelf1,         0.09f ),
+            ( SpellId.QuicknessSelf1,            0.09f ),
+            ( SpellId.FocusSelf1,                0.09f ),
+            ( SpellId.WillpowerSelf1,            0.09f ),
+
+            ( SpellId.MagicResistanceSelf1,      0.08f ),
+            ( SpellId.ImpregnabilitySelf1,       0.08f ),
+            ( SpellId.InvulnerabilitySelf1,      0.08f ),
+
+            ( SpellId.HealingMasterySelf1,       0.07f ),
+            ( SpellId.SprintSelf1,               0.08f ),
+            ( SpellId.ArcanumSalvagingSelf1,     0.07f ),
         };
 
         public static List<SpellId> Roll(TreasureDeath treasureDeath)

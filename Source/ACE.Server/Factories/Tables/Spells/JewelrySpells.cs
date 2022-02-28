@@ -75,7 +75,6 @@ namespace ACE.Server.Factories.Tables
             SpellId.ManaRenewalSelf1,
 
             SpellId.ArmorSelf1,
-
             SpellId.BladeProtectionSelf1,
             SpellId.PiercingProtectionSelf1,
             SpellId.BludgeonProtectionSelf1,

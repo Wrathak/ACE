@@ -193,7 +193,7 @@ namespace ACE.Server.WorldObjects
                 var totalXP = (XpOverride ?? 0) * damagePercent;
 
                 if (playerDamager.Level < 10)
-                  totalXP *= 0.1f;
+                  totalXP *= 0.15f;
                 if (playerDamager.Level > 9 && playerDamager.Level < 16)
                   totalXP *= 0.2f;
                 if (playerDamager.Level > 15 && playerDamager.Level < 25)

@@ -13,20 +13,29 @@ namespace ACE.Server.Factories.Tables
 
         private static readonly List<SpellId> spells = new List<SpellId>()
         {
-            SpellId.CANTRIPSTRENGTH1,
-            SpellId.CANTRIPENDURANCE1,
-            SpellId.CANTRIPCOORDINATION1,
-            SpellId.CANTRIPQUICKNESS1,      // added, according to spellSelectionGroup6
+            //SpellId.CANTRIPSTRENGTH1,
+            //SpellId.CANTRIPENDURANCE1,
+            //SpellId.CANTRIPCOORDINATION1,
+            //SpellId.CANTRIPQUICKNESS1,      // added, according to spellSelectionGroup6
+
+            SpellId.CANTRIPHEAVYWEAPONSAPTITUDE1,       // gets mutated into weapon skill aptitude,
+                                                        // with a 10% chance to mutate into dual wield aptitude for heavy/light/finesse
+            SpellId.CantripShieldAptitude1,
 
             SpellId.CANTRIPBLOODTHIRST1,
             SpellId.CANTRIPHEARTTHIRST1,
             SpellId.CANTRIPDEFENDER1,
             SpellId.CANTRIPSWIFTHUNTER1,
 
-            SpellId.CantripDualWieldAptitude1,
+            //SpellId.CantripDualWieldAptitude1,
             SpellId.CantripDirtyFightingProwess1,
             SpellId.CantripRecklessnessProwess1,
             SpellId.CantripSneakAttackProwess1,
+
+            SpellId.CANTRIPARMOREXPERTISE1,
+            SpellId.CANTRIPITEMEXPERTISE1,
+            SpellId.CANTRIPMAGICITEMEXPERTISE1,
+            SpellId.CANTRIPWEAPONEXPERTISE1,
         };
 
         private static readonly int NumLevels = 4;
@@ -70,17 +79,24 @@ namespace ACE.Server.Factories.Tables
 
         private static ChanceTable<SpellId> meleeCantrips = new ChanceTable<SpellId>()
         {
-            ( SpellId.CANTRIPLIGHTWEAPONSAPTITUDE1, 0.45f ),        // gets mutated into weapon skill aptitude,
+            ( SpellId.CANTRIPHEAVYWEAPONSAPTITUDE1, 0.09f ),        // gets mutated into weapon skill aptitude,
                                                                     // with a 10% chance to mutate into dual wield aptitude for heavy/light/finesse
-            ( SpellId.CANTRIPBLOODTHIRST1,          0.10f ),
-            ( SpellId.CANTRIPDEFENDER1,             0.10f ),
-            ( SpellId.CANTRIPHEARTTHIRST1,          0.10f ),
-            ( SpellId.CANTRIPSWIFTHUNTER1,          0.10f ),
+            ( SpellId.CantripShieldAptitude1,       0.09f ),
 
-            ( SpellId.CantripDirtyFightingProwess1, 0.05f ),
-            ( SpellId.CantripRecklessnessProwess1,  0.05f ),
-            ( SpellId.CantripSneakAttackProwess1,   0.05f ),
-            
+            ( SpellId.CANTRIPBLOODTHIRST1,          0.08f ),
+            ( SpellId.CANTRIPDEFENDER1,             0.08f ),
+            ( SpellId.CANTRIPHEARTTHIRST1,          0.08f ),
+            ( SpellId.CANTRIPSWIFTHUNTER1,          0.08f ),
+
+            ( SpellId.CantripDirtyFightingProwess1, 0.07f ),
+            ( SpellId.CantripRecklessnessProwess1,  0.08f ),
+            ( SpellId.CantripSneakAttackProwess1,   0.07f ),
+
+            ( SpellId.CANTRIPARMOREXPERTISE1,       0.07f ),
+            ( SpellId.CANTRIPITEMEXPERTISE1,        0.07f ),
+            ( SpellId.CANTRIPMAGICITEMEXPERTISE1,   0.07f ),
+            ( SpellId.CANTRIPWEAPONEXPERTISE1,      0.07f ),
+
             //( SpellId.CANTRIPSTRENGTH1,             0.05f ),
             //( SpellId.CANTRIPENDURANCE1,            0.05f ),
             //( SpellId.CANTRIPCOORDINATION1,         0.05f ),

@@ -20,6 +20,12 @@ namespace ACE.Server.Factories.Tables
 
             SpellId.LifeMagicMasterySelf1,
             SpellId.WarMagicMasterySelf1,
+            SpellId.ItemEnchantmentMasterySelf1,
+
+            SpellId.ArmorExpertiseSelf1,
+            SpellId.ItemExpertiseSelf1,
+            SpellId.MagicItemExpertiseSelf1,
+            SpellId.WeaponExpertiseSelf1,
 
             SpellId.DefenderSelf1,
             SpellId.HermeticLinkSelf1,
@@ -96,10 +102,21 @@ namespace ACE.Server.Factories.Tables
 
         private static readonly List<(SpellId spellId, float chance)> wandSpells = new List<(SpellId, float)>()
         {
-            ( SpellId.DefenderSelf1,      0.25f ),
-            ( SpellId.HermeticLinkSelf1,  1.0f ),
-            ( SpellId.SpiritDrinkerSelf1, 0.25f ),      // retail appears to have had a flat 25% chance for Spirit Drinker for all casters,
+            //( SpellId.DefenderSelf1,      0.25f ),
+            //( SpellId.HermeticLinkSelf1,  1.0f ),
+            //( SpellId.SpiritDrinkerSelf1, 0.25f ),      // retail appears to have had a flat 25% chance for Spirit Drinker for all casters,
                                                         // regardless if they had a DamageType
+
+            ( SpellId.ManaMasterySelf1,                0.15f ),
+
+            ( SpellId.LifeMagicMasterySelf1,           0.15f ),
+            ( SpellId.WarMagicMasterySelf1,            0.15f ),
+            ( SpellId.ItemEnchantmentMasterySelf1,     0.15f ),
+
+            ( SpellId.ItemExpertiseSelf1,        0.10f ),
+            ( SpellId.ArmorExpertiseSelf1,       0.10f ),
+            ( SpellId.MagicItemExpertiseSelf1,   0.10f ),
+            ( SpellId.WeaponExpertiseSelf1,      0.10f ),
         };
 
         public static List<SpellId> Roll(WorldObject wo, TreasureDeath treasureDeath)

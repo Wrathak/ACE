@@ -21,6 +21,11 @@ namespace ACE.Server.Factories.Tables
 
             //SpellId.DualWieldMasterySelf1,
 
+            SpellId.ArmorExpertiseSelf1,
+            SpellId.ItemExpertiseSelf1,
+            SpellId.MagicItemExpertiseSelf1,
+            SpellId.WeaponExpertiseSelf1,
+
             SpellId.BloodDrinkerSelf1,
             SpellId.DefenderSelf1,
             SpellId.HeartSeekerSelf1,
@@ -28,8 +33,8 @@ namespace ACE.Server.Factories.Tables
 
             SpellId.HeavyWeaponsMasterySelf1,
             SpellId.ShieldMasterySelf1,
-            SpellId.DirtyFightingMasterySelf1,
 
+            SpellId.DirtyFightingMasterySelf1,
             SpellId.RecklessnessMasterySelf1,
             SpellId.SneakAttackMasterySelf1,
         };
@@ -92,10 +97,22 @@ namespace ACE.Server.Factories.Tables
 
         private static readonly List<(SpellId spellId, float chance)> weaponMeleeSpells = new List<(SpellId, float)>()
         {
-            ( SpellId.DefenderSelf1,     0.25f ),
-            ( SpellId.BloodDrinkerSelf1, 1.00f ),
-            ( SpellId.SwiftKillerSelf1,  0.30f ),
-            ( SpellId.HeartSeekerSelf1,  0.25f ),
+            //( SpellId.DefenderSelf1,     0.01f ),
+            //( SpellId.BloodDrinkerSelf1, 0.01f ),
+            //( SpellId.SwiftKillerSelf1,  0.01f ),
+            //( SpellId.HeartSeekerSelf1,  0.01f ),
+
+            ( SpellId.HeavyWeaponsMasterySelf1,  0.15f ),
+            ( SpellId.ShieldMasterySelf1,        0.15f ),
+
+            ( SpellId.DirtyFightingMasterySelf1, 0.10f ),
+            ( SpellId.RecklessnessMasterySelf1,  0.10f ),
+            ( SpellId.SneakAttackMasterySelf1,   0.10f ),
+
+            ( SpellId.ItemExpertiseSelf1,        0.10f ),
+            ( SpellId.ArmorExpertiseSelf1,       0.10f ),
+            ( SpellId.MagicItemExpertiseSelf1,   0.10f ),
+            ( SpellId.WeaponExpertiseSelf1,      0.10f ),
         };
 
         public static List<SpellId> Roll(TreasureDeath treasureDeath)
