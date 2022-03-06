@@ -121,7 +121,7 @@ namespace ACE.Server.WorldObjects
             // fix hermetic void?
             if (!spell.IsResistable && spell.Category != SpellCategory.ManaConversionModLowering || spell.IsSelfTargeted)
             //if (!spell.IsResistable || spell.IsSelfTargeted)
-                return true;
+                return false;
 
             if (spell.MetaSpellType == SpellType.Dispel && spell.Align == DispelType.Negative && !PropertyManager.GetBool("allow_negative_dispel_resist").Item)
                 return false;

@@ -40,7 +40,7 @@ namespace ACE.Server.WorldObjects
 
             targetDir.Z = 0.0f;
             targetDir = Vector3.Normalize(targetDir);
-            
+
             // get the 2D angle between these vectors
             return GetAngle(currentDir, targetDir);
         }
@@ -188,7 +188,7 @@ namespace ACE.Server.WorldObjects
             var turnSpeed = MotionTable.GetTurnSpeed(MotionTableId);
             if (turnSpeed == 0.0f) return 0.0f;
 
-            var rotateTime = Math.PI / turnSpeed / 180.0f * angle;
+            var rotateTime = (Math.PI / turnSpeed / 180.0f * angle) / 4;
             return (float)rotateTime;
         }
 

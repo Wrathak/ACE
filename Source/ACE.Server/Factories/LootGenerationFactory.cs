@@ -92,7 +92,7 @@ namespace ACE.Server.Factories
                 if (itemChance <= profile.ItemChance)
                 {
                     numItems = ThreadSafeRandom.Next(profile.ItemMinAmount, profile.ItemMaxAmount);
-                    numItems = (int)Math.Round(numItems / 2.0);
+                    numItems = (int)Math.Round(numItems / 3.0);
 
                     for (var i = 0; i < numItems; i++)
                     {
@@ -111,7 +111,7 @@ namespace ACE.Server.Factories
                 if (itemChance <= profile.MagicItemChance)
                 {
                     numItems = ThreadSafeRandom.Next(profile.MagicItemMinAmount, profile.MagicItemMaxAmount);
-                    numItems = (int)Math.Round(numItems / 2.0);
+                    numItems = (int)Math.Round(numItems / 3.0);
 
                     for (var i = 0; i < numItems; i++)
                     {
@@ -486,6 +486,8 @@ namespace ACE.Server.Factories
                 return GetDefaultMaterialType(wo);
             }
 
+            return GetDefaultMaterialType(wo);
+
             int materialCode = (int)wo.TsysMutationData & 0xFF;
 
             // Enforce some bounds
@@ -538,28 +540,28 @@ namespace ACE.Server.Factories
             MaterialType material = MaterialType.Unknown;
             int defaultMaterialEntry = ThreadSafeRandom.Next(0, 9);
 
-            WeenieType weenieType = wo.WeenieType;
+            WeenieType weenieType = wo.WeenieType;  // Armor = 45% / Weapons = 20% (Bows=20%,Wands=20%) / Jewelry = 18% / Clothes = 10%
             switch (weenieType)
             {
                 case WeenieType.Caster:
-                    material = (MaterialType)LootTables.DefaultMaterial[3][defaultMaterialEntry];
+                    material = (MaterialType)LootTables.DefaultMaterial[5][defaultMaterialEntry];
                     break;
                 case WeenieType.Clothing:
                     if (wo.ItemType == ItemType.Armor)
                         material = (MaterialType)LootTables.DefaultMaterial[0][defaultMaterialEntry];
                     if (wo.ItemType == ItemType.Clothing)
-                        material = (MaterialType)LootTables.DefaultMaterial[5][defaultMaterialEntry];
+                        material = (MaterialType)LootTables.DefaultMaterial[3][defaultMaterialEntry];
                     break;
                 case WeenieType.MissileLauncher:
                 case WeenieType.Missile:
-                    material = (MaterialType)LootTables.DefaultMaterial[1][defaultMaterialEntry];
+                    material = (MaterialType)LootTables.DefaultMaterial[4][defaultMaterialEntry];
                     break;
                 case WeenieType.MeleeWeapon:
-                    material = (MaterialType)LootTables.DefaultMaterial[2][defaultMaterialEntry];
+                    material = (MaterialType)LootTables.DefaultMaterial[1][defaultMaterialEntry];
                     break;
                 case WeenieType.Generic:
                     if (wo.ItemType == ItemType.Jewelry)
-                        material = (MaterialType)LootTables.DefaultMaterial[3][defaultMaterialEntry];
+                        material = (MaterialType)LootTables.DefaultMaterial[2][defaultMaterialEntry];
                     if (wo.ItemType == ItemType.MissileWeapon)
                         material = (MaterialType)LootTables.DefaultMaterial[4][defaultMaterialEntry];
                     break;
@@ -892,7 +894,7 @@ namespace ACE.Server.Factories
                     spellLevelSum += (int)spell.Level;
                 }
             }
-            wo.Value += spellLevelSum * 2;
+            wo.Value += spellLevelSum * 3;
         }
 
         private static readonly List<int> ItemValue_TierMod = new List<int>()
@@ -949,7 +951,7 @@ namespace ACE.Server.Factories
             {
                 case TreasureItemType_Orig.Pyreal:
 
-                    treasureRoll.Wcid = WeenieClassName.coinstack;
+                    //treasureRoll.Wcid = WeenieClassName.coinstack;
                     break;
 
                 case TreasureItemType_Orig.Gem:
@@ -967,7 +969,7 @@ namespace ACE.Server.Factories
 
                 case TreasureItemType_Orig.ArtObject:
 
-                    treasureRoll.Wcid = GenericWcids.Roll(treasureDeath.Tier);
+                    //treasureRoll.Wcid = GenericWcids.Roll(treasureDeath.Tier);
                     break;
 
                 case TreasureItemType_Orig.Weapon:
@@ -989,7 +991,7 @@ namespace ACE.Server.Factories
 
                 case TreasureItemType_Orig.Scroll:
 
-                    treasureRoll.Wcid = ScrollWcids.Roll();
+                    //treasureRoll.Wcid = ScrollWcids.Roll();
                     break;
 
                 case TreasureItemType_Orig.Caster:
@@ -1001,12 +1003,12 @@ namespace ACE.Server.Factories
 
                 case TreasureItemType_Orig.ManaStone:
 
-                    treasureRoll.Wcid = ManaStoneWcids.Roll(treasureDeath);
+                    //treasureRoll.Wcid = ManaStoneWcids.Roll(treasureDeath);
                     break;
 
                 case TreasureItemType_Orig.Consumable:
 
-                    treasureRoll.Wcid = ConsumeWcids.Roll(treasureDeath);
+                    //treasureRoll.Wcid = ConsumeWcids.Roll(treasureDeath);
                     break;
 
                 case TreasureItemType_Orig.HealKit:
@@ -1016,12 +1018,15 @@ namespace ACE.Server.Factories
 
                 case TreasureItemType_Orig.Lockpick:
 
-                    treasureRoll.Wcid = LockpickWcids.Roll(treasureDeath);
+                    //treasureRoll.Wcid = LockpickWcids.Roll(treasureDeath);
                     break;
 
                 case TreasureItemType_Orig.SpellComponent:
 
+                    if (treasureDeath.Tier >= 7)
+                    {
                     treasureRoll.Wcid = SpellComponentWcids.Roll(treasureDeath);
+                    }
                     break;
 
                 case TreasureItemType_Orig.SocietyArmor:

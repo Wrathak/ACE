@@ -298,6 +298,8 @@ namespace ACE.Server.WorldObjects
             var salvageAmount = CalcNumUnits((int)salvageSkill, workmanship, AugmentationBonusSalvage) * stackSize;
             var tinkeringAmount = CalcNumUnits((int)highestTrainedTinkeringSkill, workmanship, 0);
 
+            salvageAmount *= 4;
+
             // cap tinkeringAmount to item workmanship
             tinkeringAmount = Math.Min(tinkeringAmount, (int)Math.Round(salvageItem.Workmanship ?? 1.0f)) * stackSize;
 
