@@ -217,10 +217,10 @@ namespace ACE.Server.Factories
 
             if (rng >= chance)
                 return 1;
-            else if (profile.Tier < 6)
+            else if (profile.Tier < 5)
                 return 2;
 
-            // tier 6+ has a chance for 3 enchantments
+            // tier 5+ has a chance for 3 enchantments
             rng = ThreadSafeRandom.NextInterval(profile.LootQualityMod * 0.1f);
 
             if (rng >= chance * 0.5f)

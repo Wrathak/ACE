@@ -952,15 +952,17 @@ namespace ACE.Server.Factories
                 case TreasureItemType_Orig.Pyreal:
 
                     //treasureRoll.Wcid = WeenieClassName.coinstack;
-                    break;
+                    return null;
+                    //break;
 
                 case TreasureItemType_Orig.Gem:
 
-                    var gemClass = GemClassChance.Roll(treasureDeath.Tier);
-                    var gemResult = GemMaterialChance.Roll(gemClass);
+                    //var gemClass = GemClassChance.Roll(treasureDeath.Tier);
+                    //var gemResult = GemMaterialChance.Roll(gemClass);
 
-                    treasureRoll.Wcid = gemResult.ClassName;
-                    break;
+                    //treasureRoll.Wcid = gemResult.ClassName;
+                    return null;
+                    //break;
 
                 case TreasureItemType_Orig.Jewelry:
 
@@ -970,7 +972,8 @@ namespace ACE.Server.Factories
                 case TreasureItemType_Orig.ArtObject:
 
                     //treasureRoll.Wcid = GenericWcids.Roll(treasureDeath.Tier);
-                    break;
+                    return null;
+                    //break;
 
                 case TreasureItemType_Orig.Weapon:
 
@@ -992,7 +995,8 @@ namespace ACE.Server.Factories
                 case TreasureItemType_Orig.Scroll:
 
                     //treasureRoll.Wcid = ScrollWcids.Roll();
-                    break;
+                    return null;
+                  //  break;
 
                 case TreasureItemType_Orig.Caster:
 
@@ -1004,12 +1008,14 @@ namespace ACE.Server.Factories
                 case TreasureItemType_Orig.ManaStone:
 
                     //treasureRoll.Wcid = ManaStoneWcids.Roll(treasureDeath);
-                    break;
+                    return null;
+                    //break;
 
                 case TreasureItemType_Orig.Consumable:
 
                     //treasureRoll.Wcid = ConsumeWcids.Roll(treasureDeath);
-                    break;
+                    return null;
+                    //break;
 
                 case TreasureItemType_Orig.HealKit:
 
@@ -1019,15 +1025,17 @@ namespace ACE.Server.Factories
                 case TreasureItemType_Orig.Lockpick:
 
                     //treasureRoll.Wcid = LockpickWcids.Roll(treasureDeath);
-                    break;
+                    return null;
+                    //break;
 
                 case TreasureItemType_Orig.SpellComponent:
 
                     if (treasureDeath.Tier >= 7)
                     {
                     treasureRoll.Wcid = SpellComponentWcids.Roll(treasureDeath);
-                    }
                     break;
+                    }
+                    return null;
 
                 case TreasureItemType_Orig.SocietyArmor:
                 case TreasureItemType_Orig.SocietyBreastplate:
@@ -1053,13 +1061,15 @@ namespace ACE.Server.Factories
 
                 case TreasureItemType_Orig.PetDevice:
 
-                    treasureRoll.Wcid = PetDeviceWcids.Roll(treasureDeath);
-                    break;
+                    //treasureRoll.Wcid = PetDeviceWcids.Roll(treasureDeath);
+                    return null;
+                    //break;
 
                 case TreasureItemType_Orig.EncapsulatedSpirit:
 
-                    treasureRoll.Wcid = WeenieClassName.ace49485_encapsulatedspirit;
-                    break;
+                    //treasureRoll.Wcid = WeenieClassName.ace49485_encapsulatedspirit;
+                    return null;
+                    //break;
             }
             return treasureRoll;
         }

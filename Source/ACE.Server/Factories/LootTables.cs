@@ -1853,13 +1853,9 @@ namespace ACE.Server.Factories
         public static readonly int[][] DefaultMaterial =
         // (Needs 10 per category below. No more, no less.)
         // From WeaponTypeChances.cs and TreasureItemTypeChances.cs
-        // Armor = 45% / Melee Weapons = 11% / Jewelry = 18% / Clothes = 9% / Missile = 4.8% / Caster = 4.3%
-        // Steel = 12.1% / Armors Tinker = 4.5% / Weapons Tinker = 2.9% / Jewelry Tinkers = 1.3% (Bloodstone = 1.1%)
+        // Armor = 50% / Melee Weapons = 11% / Jewelry = 18% / Clothes = 9% / Missile = 4.8% / Caster = 4.3%
+        // Steel = 12.6% / Armors Tinker = 5.0% / Weapons Tinker = 2.9% / Jewelry Tinkers = 1.3% (Bloodstone = 1.1%)
         // Rending/Crits = 0.43%
-
-        // Too much Brass, Wool, Rending
-        // Not enough Zircon/Steel/Peridot/Marble/Ceramic/Alabaster
-
         {
           new int[] { (int)MaterialType.Steel, (int)MaterialType.Alabaster, (int)MaterialType.Bronze, (int)MaterialType.Ceramic, (int)MaterialType.Marble, (int)MaterialType.Peridot, (int)MaterialType.Zircon, (int)MaterialType.Wool, (int)MaterialType.ReedSharkHide, (int)MaterialType.ArmoredilloHide },
           new int[] { (int)MaterialType.Steel, (int)MaterialType.Brass, (int)MaterialType.Iron, (int)MaterialType.Velvet, (int)MaterialType.Mahogany, (int)MaterialType.Granite, (int)MaterialType.GreenGarnet, (int)MaterialType.Opal, (int)MaterialType.Steel, (int)MaterialType.Bloodstone },
