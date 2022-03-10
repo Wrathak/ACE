@@ -92,9 +92,10 @@ namespace ACE.Server.Factories
                 if (itemChance <= profile.ItemChance)
                 {
                     numItems = ThreadSafeRandom.Next(profile.ItemMinAmount, profile.ItemMaxAmount);
-                    numItems = (int)Math.Round(numItems / 3.0);
+                    //numItems = (int)Math.Round(numItems / 4.0);
 
-                    for (var i = 0; i < numItems; i++)
+                    //for (var i = 0; i < numItems; i++)
+                    for (var i = 0; i < 1; i++)
                     {
                         // verify this works as intended. this will also be true for MixedEquipment...
                         if (lootBias == LootBias.MagicEquipment)
@@ -111,9 +112,10 @@ namespace ACE.Server.Factories
                 if (itemChance <= profile.MagicItemChance)
                 {
                     numItems = ThreadSafeRandom.Next(profile.MagicItemMinAmount, profile.MagicItemMaxAmount);
-                    numItems = (int)Math.Round(numItems / 3.0);
+                    //numItems = (int)Math.Round(numItems / 4.0);
 
-                    for (var i = 0; i < numItems; i++)
+                    //for (var i = 0; i < numItems; i++)
+                    for (var i = 0; i < 1; i++)
                     {
                         lootWorldObject = CreateRandomLootObjects(profile, true, lootBias);
                         if (lootWorldObject != null)
@@ -179,7 +181,8 @@ namespace ACE.Server.Factories
                 {
                     numItems = ThreadSafeRandom.Next(profile.ItemMinAmount, profile.ItemMaxAmount);
 
-                    for (var i = 0; i < numItems; i++)
+                    //for (var i = 0; i < numItems; i++)
+                    for (var i = 0; i < 1; i++)
                     {
                         lootWorldObject = CreateRandomLootObjects_New(profile, TreasureItemCategory.Item);
 
@@ -193,7 +196,8 @@ namespace ACE.Server.Factories
                 {
                     numItems = ThreadSafeRandom.Next(profile.MagicItemMinAmount, profile.MagicItemMaxAmount);
 
-                    for (var i = 0; i < numItems; i++)
+                    //for (var i = 0; i < numItems; i++)
+                    for (var i = 0; i < 1; i++)
                     {
                         lootWorldObject = CreateRandomLootObjects_New(profile, TreasureItemCategory.MagicItem);
 

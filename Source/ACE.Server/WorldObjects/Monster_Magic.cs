@@ -20,7 +20,7 @@ namespace ACE.Server.WorldObjects
     {
         private bool AiUsesMana
         {
-            get => GetProperty(PropertyBool.AiUsesMana) ?? true;    // default true?
+            get => GetProperty(PropertyBool.AiUsesMana) ?? false;    // default true?
             set { if (!value) RemoveProperty(PropertyBool.AiUsesMana); else SetProperty(PropertyBool.AiUsesMana, value); }
         }
 
