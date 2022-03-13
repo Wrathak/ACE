@@ -274,6 +274,11 @@ namespace ACE.Server.WorldObjects
                 }
             }
 
+            if (spell.MetaSpellType == SpellType.Dispel)
+            {
+              return false;
+            }
+
             switch (spell.MetaSpellType)
             {
                 case SpellType.Enchantment:

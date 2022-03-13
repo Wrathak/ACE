@@ -542,7 +542,7 @@ namespace ACE.Server.Factories
                 return MaterialType.Unknown;
 
             MaterialType material = MaterialType.Unknown;
-            int defaultMaterialEntry = ThreadSafeRandom.Next(0, 9);
+            int defaultMaterialEntry = ThreadSafeRandom.Next(0, 26);
 
             WeenieType weenieType = wo.WeenieType;  // Armor = 45% / Weapons = 20% (Bows=20%,Wands=20%) / Jewelry = 18% / Clothes = 10%
             switch (weenieType)

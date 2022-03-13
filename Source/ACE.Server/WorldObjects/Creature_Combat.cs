@@ -656,7 +656,7 @@ namespace ACE.Server.WorldObjects
 
             // is monster in front of player,
             // within shield effectiveness area?
-            var effectiveAngle = 200.0f;
+            var effectiveAngle = 240.0f;
             var angle = GetAngle(attacker);
             if (Math.Abs(angle) > effectiveAngle / 2.0f)
                 return 1.0f;
@@ -702,8 +702,11 @@ namespace ACE.Server.WorldObjects
             // SL cap is applied *after* item enchantments
             var shieldSkill = GetCreatureSkill(Skill.Shield);
             var shieldCap = shieldSkill.Current;
-            if (shieldSkill.AdvancementClass != SkillAdvancementClass.Specialized)
-                shieldCap = (uint)Math.Round(shieldCap / 2.0f);
+            //if (shieldSkill.AdvancementClass != SkillAdvancementClass.Specialized)
+                //shieldCap = (uint)Math.Round(shieldCap / 2.0f);
+                shieldCap = (uint)Math.Round(shieldCap / 8.0f);     // Shields are only 25% as useful as before! Still useful though.
+
+
 
             effectiveLevel = Math.Min(effectiveLevel, shieldCap);
 

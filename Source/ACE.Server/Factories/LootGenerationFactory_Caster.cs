@@ -79,9 +79,9 @@ namespace ACE.Server.Factories
                     elementalDamageMod = RollElementalDamageMod(wieldDifficulty.Value);
 
                     if (wo.W_DamageType == DamageType.Nether)
-                        wieldSkillType = Skill.VoidMagic;
+                        wieldSkillType = Skill.ItemEnchantment;
                     else
-                        wieldSkillType = Skill.WarMagic;
+                        wieldSkillType = Skill.ItemEnchantment; 
                 }
 
                 // ManaConversionMod

@@ -32,7 +32,7 @@ namespace ACE.Server.Factories.Tables
             SpellId.SwiftKillerSelf1,
 
             SpellId.HeavyWeaponsMasterySelf1,
-            SpellId.ShieldMasterySelf1,
+            //SpellId.ShieldMasterySelf1,
 
             SpellId.DirtyFightingMasterySelf1,
             SpellId.RecklessnessMasterySelf1,
@@ -102,8 +102,8 @@ namespace ACE.Server.Factories.Tables
             //( SpellId.SwiftKillerSelf1,  0.01f ),
             //( SpellId.HeartSeekerSelf1,  0.01f ),
 
-            ( SpellId.HeavyWeaponsMasterySelf1,  0.15f ),
-            ( SpellId.ShieldMasterySelf1,        0.15f ),
+            ( SpellId.HeavyWeaponsMasterySelf1,  0.30f ),
+            //( SpellId.ShieldMasterySelf1,        0.15f ),
 
             ( SpellId.DirtyFightingMasterySelf1, 0.10f ),
             ( SpellId.RecklessnessMasterySelf1,  0.10f ),

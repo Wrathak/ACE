@@ -20,7 +20,7 @@ namespace ACE.Server.Factories.Tables
 
             SpellId.CANTRIPHEAVYWEAPONSAPTITUDE1,       // gets mutated into weapon skill aptitude,
                                                         // with a 10% chance to mutate into dual wield aptitude for heavy/light/finesse
-            SpellId.CantripShieldAptitude1,
+            //SpellId.CantripShieldAptitude1,
 
             SpellId.CANTRIPBLOODTHIRST1,
             SpellId.CANTRIPHEARTTHIRST1,
@@ -79,9 +79,9 @@ namespace ACE.Server.Factories.Tables
 
         private static ChanceTable<SpellId> meleeCantrips = new ChanceTable<SpellId>()
         {
-            ( SpellId.CANTRIPHEAVYWEAPONSAPTITUDE1, 0.09f ),        // gets mutated into weapon skill aptitude,
+            ( SpellId.CANTRIPHEAVYWEAPONSAPTITUDE1, 0.18f ),        // gets mutated into weapon skill aptitude,
                                                                     // with a 10% chance to mutate into dual wield aptitude for heavy/light/finesse
-            ( SpellId.CantripShieldAptitude1,       0.09f ),
+            //( SpellId.CantripShieldAptitude1,       0.09f ),
 
             ( SpellId.CANTRIPBLOODTHIRST1,          0.08f ),
             ( SpellId.CANTRIPDEFENDER1,             0.08f ),

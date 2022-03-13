@@ -118,8 +118,8 @@ namespace ACE.Server.Factories.Tables
         // one-handed melee weapons
         private static ChanceTable<SpellId> spellSelectionGroup6 = new ChanceTable<SpellId>()
         {
-            ( SpellId.HeavyWeaponsMasterySelf1,  0.15f ),
-            ( SpellId.ShieldMasterySelf1,        0.15f ),
+            ( SpellId.HeavyWeaponsMasterySelf1,  0.30f ),
+            //( SpellId.ShieldMasterySelf1,        0.15f ),
 
             ( SpellId.DirtyFightingMasterySelf1, 0.10f ),
             ( SpellId.RecklessnessMasterySelf1,  0.10f ),
@@ -153,8 +153,8 @@ namespace ACE.Server.Factories.Tables
         // shields
         private static ChanceTable<SpellId> spellSelectionGroup8 = new ChanceTable<SpellId>()
         {
-          ( SpellId.HeavyWeaponsMasterySelf1,  0.15f ),
-          ( SpellId.ShieldMasterySelf1,        0.15f ),
+          //( SpellId.HeavyWeaponsMasterySelf1,  0.15f ),
+          ( SpellId.ShieldMasterySelf1,        0.30f ),
 
           ( SpellId.DirtyFightingMasterySelf1, 0.10f ),
           ( SpellId.RecklessnessMasterySelf1,  0.10f ),

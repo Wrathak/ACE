@@ -217,7 +217,7 @@ namespace ACE.Server.Factories
 
             if (rng >= chance)
                 return 1;
-            else if (profile.Tier < 5)
+            else if (profile.Tier < 3)
                 return 2;
 
             // tier 5+ has a chance for 3 enchantments

@@ -621,7 +621,7 @@ namespace ACE.Server.Managers
                 ("pk_timer", new Property<long>(20, "the number of seconds where a player cannot perform certain actions (ie. teleporting) after becoming involved in a PK battle")),
                 ("player_save_interval", new Property<long>(60, "the number of seconds between automatic player saves")),
                 ("rares_max_days_between", new Property<long>(2, "for rares_real_time_v2: the maximum number of days a player can go before a rare is generated on rare eligible creature kills")),
-                ("rares_max_seconds_between", new Property<long>(525600, "for rares_real_time: the maximum number of seconds a player can go before a second chance at a rare is allowed on rare eligible creature kills that did not generate a rare")),
+                ("rares_max_seconds_between", new Property<long>(1800, "for rares_real_time: the maximum number of seconds a player can go before a second chance at a rare is allowed on rare eligible creature kills that did not generate a rare")),
                 ("summoning_killtask_multicredit_cap", new Property<long>(2, "if allow_summoning_killtask_multicredit is enabled, the maximum # of killtask credits a player can receive from 1 kill")),
                 ("teleport_visibility_fix", new Property<long>(0, "Fixes some possible issues with invisible players and mobs. 0 = default / disabled, 1 = players only, 2 = creatures, 3 = all world objects"))
                 );
@@ -629,7 +629,7 @@ namespace ACE.Server.Managers
         public static readonly ReadOnlyDictionary<string, Property<double>> DefaultDoubleProperties =
             DictOf(
 
-                ("cantrip_drop_rate", new Property<double>(2.0, "Scales the chance for cantrips to drop in each tier. Defaults to 1.0, as per end of retail")),
+                ("cantrip_drop_rate", new Property<double>(1.5, "Scales the chance for cantrips to drop in each tier. Defaults to 1.0, as per end of retail")),
 
                 ("minor_cantrip_drop_rate", new Property<double>(1.0, "Scales the chance for minor cantrips to drop, relative to other cantrip levels in the tier. Defaults to 1.0, as per end of retail")),
                 ("major_cantrip_drop_rate", new Property<double>(1.0, "Scales the chance for major cantrips to drop, relative to other cantrip levels in the tier. Defaults to 1.0, as per end of retail")),
@@ -637,7 +637,7 @@ namespace ACE.Server.Managers
                 ("legendary_cantrip_drop_rate", new Property<double>(1.0, "Scales the chance for legendary cantrips to drop, relative to other cantrip levels in the tier. Defaults to 1.0, as per end of retail")),
 
                 ("advocate_fane_auto_bestow_level", new Property<double>(1, "the level that advocates are automatically bestowed by Advocate Fane if advocate_fane_auto_bestow is true")),
-                ("aetheria_drop_rate", new Property<double>(2.0, "Modifier for Aetheria drop rate, 1 being normal")),
+                ("aetheria_drop_rate", new Property<double>(8.0, "Modifier for Aetheria drop rate, 1 being normal")),
                 ("chess_ai_start_time", new Property<double>(-1.0, "the number of seconds for the chess ai to start. defaults to -1 (disabled)")),
                 ("encounter_delay", new Property<double>(1200, "the number of seconds a generator profile for regions is delayed from returning to free slots")),
                 ("encounter_regen_interval", new Property<double>(1200, "the number of seconds a generator for regions at which spawns its next set of objects")),
@@ -650,8 +650,8 @@ namespace ACE.Server.Managers
                 ("mob_awareness_range", new Property<double>(0.8, "Scales the distance the monsters become alerted and aggro the players")),
                 ("pk_new_character_grace_period", new Property<double>(300, "the number of seconds, in addition to pk_respite_timer, that a player killer is set to non-player killer status after first exiting training academy")),
                 ("pk_respite_timer", new Property<double>(300, "the number of seconds that a player killer is set to non-player killer status after dying to another player killer")),
-                ("quest_mindelta_rate", new Property<double>(0.05, "scales all quest min delta time between solves, 1 being normal")),
-                ("rare_drop_rate_percent", new Property<double>(0.04, "Adjust the chance of a rare to spawn as a percentage. Default is 0.04, or 1 in 2,500. Max is 100, or every eligible drop.")),
+                ("quest_mindelta_rate", new Property<double>(0.1, "scales all quest min delta time between solves, 1 being normal")),
+                ("rare_drop_rate_percent", new Property<double>(0.4, "Adjust the chance of a rare to spawn as a percentage. Default is 0.04, or 1 in 2,500. Max is 100, or every eligible drop.")),
                 ("spellcast_max_angle", new Property<double>(20.0, "for advanced player spell casting, the maximum angle to target release a spell projectile. retail seemed to default to value of around 20, although some players seem to prefer a higher 45 degree angle")),
                 ("trophy_drop_rate", new Property<double>(1.0, "Modifier for trophies dropped on creature death")),
                 ("unlocker_window", new Property<double>(10.0, "The number of seconds a player unlocking a chest has exclusive access to first opening the chest.")),
