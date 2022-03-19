@@ -274,9 +274,16 @@ namespace ACE.Server.WorldObjects
                 }
             }
 
-            if (spell.MetaSpellType == SpellType.Dispel)
+            if (target is Player targetPlayer)
             {
-              return false;
+              if (spell.IsHarmful && spell.School == MagicSchool.LifeMagic)
+              {
+                return false;
+              }
+              if (spell.MetaSpellType == SpellType.Dispel)
+              {
+                return false;
+              }
             }
 
             switch (spell.MetaSpellType)
@@ -2060,6 +2067,7 @@ namespace ACE.Server.WorldObjects
             // if negative item spell, can be resisted by the wielder
             if (spell.IsHarmful)
             {
+
                 var targetResist = targetCreature;
 
                 if (targetResist == null && target?.WielderId != null)

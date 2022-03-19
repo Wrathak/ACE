@@ -79,10 +79,12 @@ namespace ACE.Server.Factories
                     elementalDamageMod = RollElementalDamageMod(wieldDifficulty.Value);
 
                     if (wo.W_DamageType == DamageType.Nether)
-                        wieldSkillType = Skill.ItemEnchantment;
+                        wieldSkillType = Skill.VoidMagic;
                     else
-                        wieldSkillType = Skill.ItemEnchantment; 
+                        wieldSkillType = Skill.WarMagic;
                 }
+
+
 
                 // ManaConversionMod
                 var manaConversionMod = RollManaConversionMod(profile.Tier);
@@ -106,6 +108,8 @@ namespace ACE.Server.Factories
                     wo.WieldSkillType = null;
                     wo.WieldDifficulty = null;
                 }
+
+                wo.WieldSkillType = null;
 
                 // WeaponDefense
                 wo.WeaponDefense = RollWeaponDefense(wieldDifficulty.Value, profile);
@@ -133,6 +137,8 @@ namespace ACE.Server.Factories
                     else
                         wo.WieldSkillType = (int)Skill.WarMagic;
                 }
+
+                wo.WieldSkillType = null;
 
                 // mutate WeaponDefense
                 mutationFilter = MutationCache.GetMutation("Casters.weapon_defense.txt");

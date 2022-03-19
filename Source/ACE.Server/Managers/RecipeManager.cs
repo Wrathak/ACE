@@ -996,6 +996,16 @@ namespace ACE.Server.Managers
             var destroyTarget = ThreadSafeRandom.Next(0.0f, 1.0f) < destroyTargetChance;
             var destroySource = ThreadSafeRandom.Next(0.0f, 1.0f) < destroySourceChance;
 
+            var createItem = success ? recipe.SuccessWCID : recipe.FailWCID;
+            var createAmount = success ? recipe.SuccessAmount : recipe.FailAmount;
+
+            if (createItem > 0 && DatabaseManager.World.GetCachedWeenie(createItem) == null)
+            {
+                log.Error($"RecipeManager.CreateDestroyItems: Recipe.Id({recipe.Id}) couldn't find {(success ? "Success" : "Fail")}WCID {createItem} in database.");
+                player.Session.Network.EnqueueSend(new GameEventWeenieError(player.Session, WeenieError.CraftGeneralErrorUiMsg));
+                return null;
+            }
+
             if (recipe.Skill > 0 || recipe.Difficulty > 0)
             {
               player.EnqueueBroadcast(new GameMessageSystemChat($"You are crafting and the source will remain intact.", ChatMessageType.Craft), WorldObject.LocalBroadcastRange, ChatMessageType.Craft);
@@ -1010,24 +1020,14 @@ namespace ACE.Server.Managers
                 DestroyItem(player, recipe, target, destroyTargetAmount, destroyTargetMessage);
               }
             }
-            
-            var createItem = success ? recipe.SuccessWCID : recipe.FailWCID;
-            var createAmount = success ? recipe.SuccessAmount : recipe.FailAmount;
 
-            if (createItem > 0 && DatabaseManager.World.GetCachedWeenie(createItem) == null)
-            {
-                log.Error($"RecipeManager.CreateDestroyItems: Recipe.Id({recipe.Id}) couldn't find {(success ? "Success" : "Fail")}WCID {createItem} in database.");
-                player.Session.Network.EnqueueSend(new GameEventWeenieError(player.Session, WeenieError.CraftGeneralErrorUiMsg));
-                return null;
-            }
+            //if (destroyTarget)
+            //{
+            //    var destroyTargetAmount = success ? recipe.SuccessDestroyTargetAmount : recipe.FailDestroyTargetAmount;
+            //    var destroyTargetMessage = success ? recipe.SuccessDestroyTargetMessage : recipe.FailDestroyTargetMessage;
 
-            if (destroyTarget)
-            {
-                var destroyTargetAmount = success ? recipe.SuccessDestroyTargetAmount : recipe.FailDestroyTargetAmount;
-                var destroyTargetMessage = success ? recipe.SuccessDestroyTargetMessage : recipe.FailDestroyTargetMessage;
-
-                DestroyItem(player, recipe, target, destroyTargetAmount, destroyTargetMessage);
-            }
+            //    DestroyItem(player, recipe, target, destroyTargetAmount, destroyTargetMessage);
+            //}
 
             if (destroySource)
             {
