@@ -29,7 +29,7 @@ namespace ACE.Server.Factories.Tables
 
         private static ChanceTable<int> T5_ItemMaxLevel = new ChanceTable<int>()
         {
-            ( 1, 0.30f ),
+            ( 1, 0.40f ),
             ( 2, 0.30f ),
             ( 3, 0.29f ),
             ( 4, 0.01f ),

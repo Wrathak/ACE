@@ -193,7 +193,7 @@ namespace ACE.Server.Factories
 
         public static readonly int[][] HeavyWeaponsMatrix =
         {
-            new int[] { 301, 3750, 3751, 3752, 3753 },       //  0 - Battle Axe
+            /*new int[] { 301, 3750, 3751, 3752, 3753 },       //  0 - Battle Axe
             new int[] { 344, 3865, 3866, 3867, 3868 },       //  1 - Silifi
             new int[] { 31769, 31770, 31771, 31772, 31768 }, //  2 - War Axe
             new int[] { 31764, 31765, 31766, 31767, 31763 }, //  3 - Lugian Hammer
@@ -214,7 +214,7 @@ namespace ACE.Server.Factories
             new int[] { 351, 3881, 3882, 3883, 3884 },       // 18 - Long Sword
             new int[] { 353, 3889, 3890, 3891, 3892 },       // 19 - Tachi
             new int[] { 354, 3893, 3894, 3895, 3896 },       // 20 - Takuba
-            new int[] { 45108, 45109, 45110, 45111, 45112 }, // 21 - Schlager (MS)
+            new int[] { 45108, 45109, 45110, 45111, 45112 }, // 21 - Schlager (MS)*/
             new int[] { 4190, 4191, 4192, 4193, 4194 },      // 22 - Cestus
             new int[] { 4195, 4196, 4197, 4198, 4199 },      // 23 - Nekode
         };
@@ -1857,7 +1857,7 @@ namespace ACE.Server.Factories
         // Steel = 12.6% / Armors Tinker = 5.0% / Weapons Tinker = 2.9% / Jewelry Tinkers = 1.3% (Bloodstone = 1.1%)
         // Rending/Crits = 0.43%
         {
-          new int[] { (int)MaterialType.Steel, (int)MaterialType.Alabaster, (int)MaterialType.Bronze, (int)MaterialType.Ceramic, (int)MaterialType.Marble, (int)MaterialType.Peridot, (int)MaterialType.Zircon, (int)MaterialType.Wool, (int)MaterialType.ReedSharkHide, (int)MaterialType.ArmoredilloHide, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst,  (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst,  (int)MaterialType.Amethyst, (int)MaterialType.Amethyst },
+          new int[] { (int)MaterialType.Steel, (int)MaterialType.Alabaster, (int)MaterialType.Bronze, (int)MaterialType.Ceramic, (int)MaterialType.Marble, (int)MaterialType.Peridot, (int)MaterialType.Zircon, (int)MaterialType.Wool, (int)MaterialType.ReedSharkHide, (int)MaterialType.ArmoredilloHide, (int)MaterialType.Amethyst, (int)MaterialType.Iron, (int)MaterialType.Iron, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst,  (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst,  (int)MaterialType.Amethyst, (int)MaterialType.Amethyst },
           new int[] { (int)MaterialType.Steel, (int)MaterialType.Brass, (int)MaterialType.Iron, (int)MaterialType.Velvet, (int)MaterialType.Mahogany, (int)MaterialType.Granite, (int)MaterialType.GreenGarnet, (int)MaterialType.Opal, (int)MaterialType.Steel, (int)MaterialType.Bloodstone, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst,  (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst,  (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst,  (int)MaterialType.Amethyst, (int)MaterialType.Amethyst },
           new int[] { (int)MaterialType.Steel, (int)MaterialType.Brass, (int)MaterialType.Iron, (int)MaterialType.Velvet, (int)MaterialType.Mahogany, (int)MaterialType.Granite, (int)MaterialType.GreenGarnet, (int)MaterialType.Opal, (int)MaterialType.Steel, (int)MaterialType.Steel, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst,  (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst,  (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst,  (int)MaterialType.Amethyst, (int)MaterialType.Amethyst },
           new int[] { (int)MaterialType.Azurite, (int)MaterialType.Malachite, (int)MaterialType.Agate, (int)MaterialType.Carnelian, (int)MaterialType.SmokeyQuartz, (int)MaterialType.LapisLazuli, (int)MaterialType.LavenderJade, (int)MaterialType.Citrine, (int)MaterialType.Hematite, (int)MaterialType.RoseQuartz, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst,  (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst,  (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst, (int)MaterialType.Amethyst,  (int)MaterialType.Amethyst, (int)MaterialType.Amethyst },
