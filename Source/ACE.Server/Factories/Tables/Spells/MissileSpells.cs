@@ -96,22 +96,9 @@ namespace ACE.Server.Factories.Tables
 
         private static readonly List<(SpellId spellId, float chance)> weaponMissileSpells = new List<(SpellId, float)>()
         {
-            //( SpellId.SwiftKillerSelf1,  0.30f ),
-            //( SpellId.DefenderSelf1,     0.25f ),
-            //( SpellId.BloodDrinkerSelf1, 1.00f ),
-
-            ( SpellId.MissileWeaponsMasterySelf1, 0.15f ),
-            ( SpellId.FletchingMasterySelf1,     0.125f ),
-            ( SpellId.AlchemyMasterySelf1,       0.125f ),
-
-            ( SpellId.DirtyFightingMasterySelf1, 0.10f ),
-            ( SpellId.RecklessnessMasterySelf1,  0.10f ),
-            ( SpellId.SneakAttackMasterySelf1,   0.10f ),
-
-            ( SpellId.ItemExpertiseSelf1,        0.0750f ),
-            ( SpellId.ArmorExpertiseSelf1,       0.0750f ),
-            ( SpellId.MagicItemExpertiseSelf1,   0.0750f ),
-            ( SpellId.WeaponExpertiseSelf1,      0.0750f ),
+            ( SpellId.SwiftKillerSelf1,  0.30f ),
+            ( SpellId.DefenderSelf1,     0.25f ),
+            ( SpellId.BloodDrinkerSelf1, 1.00f ),
         };
 
         public static List<SpellId> Roll(TreasureDeath treasureDeath)

@@ -203,6 +203,12 @@ namespace ACE.Server.Factories
 
             var rng = ThreadSafeRandom.NextInterval(profile.LootQualityMod);
 
+            //if (rng < chance * 0.05f) // 5% Chance of 4 Spells on Armor/Weapons
+            //    return 4;
+            if (rng < chance * 0.10f) // 10% Chance of 3 Spells on Armor/Weapons
+                return 3;
+            if (rng < chance * 0.50f)  // 40% Chance of 2 Spells on Armor/Weapons
+                return 2;
             if (rng < chance)
                 return 1;
             else
@@ -211,22 +217,21 @@ namespace ACE.Server.Factories
 
         private static int RollNumEnchantments_Clothing_Jewelry_Dinnerware(WorldObject wo, TreasureDeath profile, TreasureRoll roll)
         {
-            var chance = 0.1f;
+            var chance = 0.5f;
 
             var rng = ThreadSafeRandom.NextInterval(profile.LootQualityMod);
 
-            if (rng >= chance)
+            if (rng >= chance)    // 50% Chance of 1 Spell
                 return 1;
-            else if (profile.Tier < 3)
-                return 2;
 
-            // tier 5+ has a chance for 3 enchantments
-            rng = ThreadSafeRandom.NextInterval(profile.LootQualityMod * 0.1f);
+            rng = ThreadSafeRandom.NextInterval(profile.LootQualityMod);
 
-            if (rng >= chance * 0.5f)
+            chance = 0.15f;
+
+            if (rng >= chance)  // 85% Chance of 2 Spells
                 return 2;
             else
-                return 3;
+                return 3;       // 15% Chance of 3 Spells
         }
 
         private static float RollEnchantmentDifficulty(List<SpellId> spellIds)

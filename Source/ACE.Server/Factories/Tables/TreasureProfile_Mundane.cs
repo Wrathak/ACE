@@ -44,9 +44,9 @@ namespace ACE.Server.Factories.Tables
         /// </summary>
         private static ChanceTable<TreasureItemType_Orig> mundaneProfile7 = new ChanceTable<TreasureItemType_Orig>()
         {
-            ( TreasureItemType_Orig.Pyreal,         0.17f ),
+            ( TreasureItemType_Orig.Pyreal,         0.25f ),
             ( TreasureItemType_Orig.Consumable,     0.17f ),
-            ( TreasureItemType_Orig.HealKit,        0.16f ),
+            ( TreasureItemType_Orig.HealKit,        0.08f ),
             ( TreasureItemType_Orig.Lockpick,       0.16f ),
             ( TreasureItemType_Orig.SpellComponent, 0.17f ),
             ( TreasureItemType_Orig.ManaStone,      0.17f ),

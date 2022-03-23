@@ -62,7 +62,7 @@ namespace ACE.Server.Factories.Tables
             //SpellId.PersonAttunementSelf1,
 
             SpellId.ArcaneEnlightenmentSelf1,
-            SpellId.LockpickMasterySelf1,
+            //SpellId.LockpickMasterySelf1,
             SpellId.ArmorExpertiseSelf1,
             SpellId.ItemExpertiseSelf1,
             SpellId.MagicItemExpertiseSelf1,

@@ -123,12 +123,11 @@ namespace ACE.Server.Factories.Tables
             ( SpellId.CANTRIPSLASHINGWARD1,                0.08f ),
             ( SpellId.CANTRIPSTORMWARD1,                   0.08f ),
 
-            ( SpellId.CANTRIPLOCKPICKPROWESS1,             0.06f ),
-            ( SpellId.CANTRIPARCANEPROWESS1,               0.06f ),
-            ( SpellId.CANTRIPMAGICITEMEXPERTISE1,          0.06f ),
-            ( SpellId.CANTRIPWEAPONEXPERTISE1,             0.06f ),
-            ( SpellId.CANTRIPITEMEXPERTISE1,               0.06f ),
-            ( SpellId.CANTRIPARMOREXPERTISE1,              0.06f ),
+            ( SpellId.CANTRIPARCANEPROWESS1,               0.08f ),
+            ( SpellId.CANTRIPMAGICITEMEXPERTISE1,          0.07f ),
+            ( SpellId.CANTRIPWEAPONEXPERTISE1,             0.07f ),
+            ( SpellId.CANTRIPITEMEXPERTISE1,               0.07f ),
+            ( SpellId.CANTRIPARMOREXPERTISE1,              0.07f ),
 
             //( SpellId.CANTRIPHEAVYWEAPONSAPTITUDE1,        0.02f ),
             //( SpellId.CANTRIPLIGHTWEAPONSAPTITUDE1,        0.02f ),

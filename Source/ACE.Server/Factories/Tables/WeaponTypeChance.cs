@@ -10,55 +10,31 @@ namespace ACE.Server.Factories.Tables
     {
         private static ChanceTable<TreasureWeaponType> T1_T4_Chances = new ChanceTable<TreasureWeaponType>()
         {
-            // melee: 84%
-            // missile: 12%
-            // caster: 4%
-            ( TreasureWeaponType.Sword,           0.09f ),
-            ( TreasureWeaponType.Mace,            0.09f ),
-            ( TreasureWeaponType.Axe,             0.08f ),
-            ( TreasureWeaponType.Spear,           0.08f ),
-            ( TreasureWeaponType.Unarmed,         0.08f ),
-            ( TreasureWeaponType.Staff,           0.09f ),
-            ( TreasureWeaponType.Dagger,          0.09f ),
+            //( TreasureWeaponType.Sword,           0.09f ),
+            //( TreasureWeaponType.Mace,            0.09f ),
+            //( TreasureWeaponType.Axe,             0.08f ),
+            //( TreasureWeaponType.Spear,           0.08f ),
+            //( TreasureWeaponType.Staff,           0.09f ),
+            //( TreasureWeaponType.Dagger,          0.09f ),
+            ( TreasureWeaponType.Unarmed,         0.60f ),
             ( TreasureWeaponType.Bow,             0.20f ),
             ( TreasureWeaponType.Caster,          0.20f ),
         };
 
         private static ChanceTable<TreasureWeaponType> T5_T6_Chances = new ChanceTable<TreasureWeaponType>()
         {
-            // melee: 63%
-            // missile: 27%
-            // caster: 10%
-            ( TreasureWeaponType.Sword,           0.09f ),
-            ( TreasureWeaponType.Mace,            0.09f ),
-            ( TreasureWeaponType.Axe,             0.08f ),
-            ( TreasureWeaponType.Spear,           0.08f ),
-            ( TreasureWeaponType.Unarmed,         0.08f ),
-            ( TreasureWeaponType.Staff,           0.09f ),
-            ( TreasureWeaponType.Dagger,          0.09f ),
-            ( TreasureWeaponType.Bow,             0.20f ),
-            ( TreasureWeaponType.Caster,          0.20f ),
+          ( TreasureWeaponType.Unarmed,         0.60f ),
+          ( TreasureWeaponType.Bow,             0.20f ),
+          ( TreasureWeaponType.Caster,          0.20f ),
         };
 
         // from magloot corpse logs
         // it appears they might have gotten rid of the tier chances
         private static ChanceTable<TreasureWeaponType> RetailChances = new ChanceTable<TreasureWeaponType>()
         {
-            // melee: 63%
-            // missile: 20%
-            // two-handed: 10%
-            // caster: 7%
-            ( TreasureWeaponType.Sword,           0.09f ),
-            ( TreasureWeaponType.Mace,            0.09f ),
-            ( TreasureWeaponType.Axe,             0.08f ),
-            ( TreasureWeaponType.Spear,           0.08f ),
-            ( TreasureWeaponType.Unarmed,         0.08f ),
-            ( TreasureWeaponType.Staff,           0.09f ),
-            ( TreasureWeaponType.Dagger,          0.09f ),
-            ( TreasureWeaponType.Bow,             0.20f ),
-            ( TreasureWeaponType.Caster,          0.20f ),
-            //( TreasureWeaponType.TwoHandedWeapon, 0.10f ),      // see TreasureWeaponType for an explanation of why this is here,
-                                                                // and not deeper in WeaponWcids.cs
+          ( TreasureWeaponType.Unarmed,         0.60f ),
+          ( TreasureWeaponType.Bow,             0.20f ),
+          ( TreasureWeaponType.Caster,          0.20f ),
         };
 
         private static readonly List<ChanceTable<TreasureWeaponType>> weaponTiers = new List<ChanceTable<TreasureWeaponType>>()

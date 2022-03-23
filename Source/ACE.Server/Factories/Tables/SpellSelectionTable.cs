@@ -38,20 +38,19 @@ namespace ACE.Server.Factories.Tables
         private static ChanceTable<SpellId> spellSelectionGroup2 = new ChanceTable<SpellId>()
         {
             ( SpellId.ArmorSelf1,               0.10f ),
-            ( SpellId.AcidProtectionSelf1,      0.06f ),
-            ( SpellId.BludgeonProtectionSelf1,  0.06f ),
-            ( SpellId.ColdProtectionSelf1,      0.06f ),
-            ( SpellId.LightningProtectionSelf1, 0.06f ),
-            ( SpellId.FireProtectionSelf1,      0.06f ),
-            ( SpellId.BladeProtectionSelf1,     0.06f ),
-            ( SpellId.PiercingProtectionSelf1,  0.06f ),
+            ( SpellId.AcidProtectionSelf1,      0.07f ),
+            ( SpellId.BludgeonProtectionSelf1,  0.07f ),
+            ( SpellId.ColdProtectionSelf1,      0.07f ),
+            ( SpellId.LightningProtectionSelf1, 0.07f ),
+            ( SpellId.FireProtectionSelf1,      0.07f ),
+            ( SpellId.BladeProtectionSelf1,     0.07f ),
+            ( SpellId.PiercingProtectionSelf1,  0.07f ),
 
             ( SpellId.ManaRenewalSelf1,         0.06f ),
-            ( SpellId.RegenerationSelf1,        0.06f ),
-            ( SpellId.RejuvenationSelf1,        0.06f ),
+            ( SpellId.RegenerationSelf1,        0.05f ),
+            ( SpellId.RejuvenationSelf1,        0.05f ),
 
             ( SpellId.ArcaneEnlightenmentSelf1, 0.05f ),
-            ( SpellId.LockpickMasterySelf1,     0.05f ),
 
             ( SpellId.ItemExpertiseSelf1,       0.05f ),
             ( SpellId.ArmorExpertiseSelf1,      0.05f ),
@@ -118,17 +117,16 @@ namespace ACE.Server.Factories.Tables
         // one-handed melee weapons
         private static ChanceTable<SpellId> spellSelectionGroup6 = new ChanceTable<SpellId>()
         {
-            ( SpellId.HeavyWeaponsMasterySelf1,  0.30f ),
-            //( SpellId.ShieldMasterySelf1,        0.15f ),
+            ( SpellId.HeavyWeaponsMasterySelf1,  0.25f ),
 
-            ( SpellId.DirtyFightingMasterySelf1, 0.10f ),
-            ( SpellId.RecklessnessMasterySelf1,  0.10f ),
-            ( SpellId.SneakAttackMasterySelf1,   0.10f ),
+            ( SpellId.DirtyFightingMasterySelf1, 0.15f ),
+            ( SpellId.RecklessnessMasterySelf1,  0.15f ),
+            ( SpellId.SneakAttackMasterySelf1,   0.15f ),
 
-            ( SpellId.ItemExpertiseSelf1,        0.10f ),
-            ( SpellId.ArmorExpertiseSelf1,       0.10f ),
-            ( SpellId.MagicItemExpertiseSelf1,   0.10f ),
-            ( SpellId.WeaponExpertiseSelf1,      0.10f ),
+            ( SpellId.ItemExpertiseSelf1,        0.075f ),
+            ( SpellId.ArmorExpertiseSelf1,       0.075f ),
+            ( SpellId.MagicItemExpertiseSelf1,   0.075f ),
+            ( SpellId.WeaponExpertiseSelf1,      0.075f ),
         };
 
         // bracers, breastplates, coats, cuirasses, girths, hauberks, pauldrons, chest armor, sleeves
@@ -153,17 +151,16 @@ namespace ACE.Server.Factories.Tables
         // shields
         private static ChanceTable<SpellId> spellSelectionGroup8 = new ChanceTable<SpellId>()
         {
-          //( SpellId.HeavyWeaponsMasterySelf1,  0.15f ),
-          ( SpellId.ShieldMasterySelf1,        0.30f ),
+          ( SpellId.ShieldMasterySelf1,        0.25f ),
 
-          ( SpellId.DirtyFightingMasterySelf1, 0.10f ),
-          ( SpellId.RecklessnessMasterySelf1,  0.10f ),
-          ( SpellId.SneakAttackMasterySelf1,   0.10f ),
+          ( SpellId.DirtyFightingMasterySelf1, 0.15f ),
+          ( SpellId.RecklessnessMasterySelf1,  0.15f ),
+          ( SpellId.SneakAttackMasterySelf1,   0.15f ),
 
-          ( SpellId.ItemExpertiseSelf1,        0.10f ),
-          ( SpellId.ArmorExpertiseSelf1,       0.10f ),
-          ( SpellId.MagicItemExpertiseSelf1,   0.10f ),
-          ( SpellId.WeaponExpertiseSelf1,      0.10f ),
+          ( SpellId.ItemExpertiseSelf1,        0.075f ),
+          ( SpellId.ArmorExpertiseSelf1,       0.075f ),
+          ( SpellId.MagicItemExpertiseSelf1,   0.075f ),
+          ( SpellId.WeaponExpertiseSelf1,      0.075f ),
         };
 
         // gauntlets
@@ -227,20 +224,19 @@ namespace ACE.Server.Factories.Tables
         private static ChanceTable<SpellId> spellSelectionGroup12 = new ChanceTable<SpellId>()
         {
           ( SpellId.ArmorSelf1,               0.10f ),
-          ( SpellId.AcidProtectionSelf1,      0.06f ),
-          ( SpellId.BludgeonProtectionSelf1,  0.06f ),
-          ( SpellId.ColdProtectionSelf1,      0.06f ),
-          ( SpellId.LightningProtectionSelf1, 0.06f ),
-          ( SpellId.FireProtectionSelf1,      0.06f ),
-          ( SpellId.BladeProtectionSelf1,     0.06f ),
-          ( SpellId.PiercingProtectionSelf1,  0.06f ),
+          ( SpellId.AcidProtectionSelf1,      0.07f ),
+          ( SpellId.BludgeonProtectionSelf1,  0.07f ),
+          ( SpellId.ColdProtectionSelf1,      0.07f ),
+          ( SpellId.LightningProtectionSelf1, 0.07f ),
+          ( SpellId.FireProtectionSelf1,      0.07f ),
+          ( SpellId.BladeProtectionSelf1,     0.07f ),
+          ( SpellId.PiercingProtectionSelf1,  0.07f ),
 
           ( SpellId.ManaRenewalSelf1,         0.06f ),
-          ( SpellId.RegenerationSelf1,        0.06f ),
-          ( SpellId.RejuvenationSelf1,        0.06f ),
+          ( SpellId.RegenerationSelf1,        0.05f ),
+          ( SpellId.RejuvenationSelf1,        0.05f ),
 
           ( SpellId.ArcaneEnlightenmentSelf1, 0.05f ),
-          ( SpellId.LockpickMasterySelf1,     0.05f ),
 
           ( SpellId.ItemExpertiseSelf1,       0.05f ),
           ( SpellId.ArmorExpertiseSelf1,      0.05f ),
@@ -251,22 +247,20 @@ namespace ACE.Server.Factories.Tables
         // caps, qafiyas, turbans, fezs, berets
         private static ChanceTable<SpellId> spellSelectionGroup13 = new ChanceTable<SpellId>()
         {
-          ( SpellId.StrengthSelf1,             0.07f ),
-          ( SpellId.EnduranceSelf1,            0.07f ),
-          ( SpellId.CoordinationSelf1,         0.07f ),
-          ( SpellId.QuicknessSelf1,            0.07f ),
-          ( SpellId.FocusSelf1,                0.07f ),
-          ( SpellId.WillpowerSelf1,            0.07f ),
+          ( SpellId.StrengthSelf1,             0.08f ),
+          ( SpellId.EnduranceSelf1,            0.08f ),
+          ( SpellId.CoordinationSelf1,         0.08f ),
+          ( SpellId.QuicknessSelf1,            0.08f ),
+          ( SpellId.FocusSelf1,                0.08f ),
+          ( SpellId.WillpowerSelf1,            0.08f ),
 
-          ( SpellId.MagicResistanceSelf1,      0.07f ),
+          ( SpellId.MagicResistanceSelf1,      0.08f ),
           ( SpellId.ImpregnabilitySelf1,       0.08f ),
-          ( SpellId.InvulnerabilitySelf1,      0.08f ),
+          ( SpellId.InvulnerabilitySelf1,      0.09f ),
 
-          ( SpellId.ArcaneEnlightenmentSelf1,  0.07f ),
-          ( SpellId.HealingMasterySelf1,       0.07f ),
-          ( SpellId.LockpickMasterySelf1,      0.07f ),
-          ( SpellId.SprintSelf1,               0.07f ),
-          ( SpellId.ArcanumSalvagingSelf1,     0.07f ),
+          ( SpellId.HealingMasterySelf1,       0.09f ),
+          ( SpellId.SprintSelf1,               0.09f ),
+          ( SpellId.ArcanumSalvagingSelf1,     0.09f ),
         };
 
         // cloth gloves (1 entry?)
@@ -332,7 +326,7 @@ namespace ACE.Server.Factories.Tables
         // missile weapons, two-handed weapons
         private static ChanceTable<SpellId> spellSelectionGroup17 = new ChanceTable<SpellId>()
         {
-            ( SpellId.MissileWeaponsMasterySelf1, 0.15f ),
+            ( SpellId.MissileWeaponsMasterySelf1, 0.25f ),
             ( SpellId.FletchingMasterySelf1,     0.125f ),
             ( SpellId.AlchemyMasterySelf1,       0.125f ),
 
@@ -340,10 +334,10 @@ namespace ACE.Server.Factories.Tables
             ( SpellId.RecklessnessMasterySelf1,  0.10f ),
             ( SpellId.SneakAttackMasterySelf1,   0.10f ),
 
-            ( SpellId.ItemExpertiseSelf1,        0.0750f ),
-            ( SpellId.ArmorExpertiseSelf1,       0.0750f ),
-            ( SpellId.MagicItemExpertiseSelf1,   0.0750f ),
-            ( SpellId.WeaponExpertiseSelf1,      0.0750f ),
+            ( SpellId.ItemExpertiseSelf1,        0.05f ),
+            ( SpellId.ArmorExpertiseSelf1,       0.05f ),
+            ( SpellId.MagicItemExpertiseSelf1,   0.05f ),
+            ( SpellId.WeaponExpertiseSelf1,      0.05f ),
         };
 
         // shoes, loafers, slippers, sandals

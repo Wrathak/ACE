@@ -66,7 +66,7 @@ namespace ACE.Server.Factories
 
             var rng = ThreadSafeRandom.Next(1, 7);
 
-            if (rng > 4)
+            if (rng > 3)
             {
                 if (rng > 6)
                     wo.ItemMaxLevel = 3;

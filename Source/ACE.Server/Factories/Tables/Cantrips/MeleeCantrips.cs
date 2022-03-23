@@ -79,23 +79,16 @@ namespace ACE.Server.Factories.Tables
 
         private static ChanceTable<SpellId> meleeCantrips = new ChanceTable<SpellId>()
         {
-            ( SpellId.CANTRIPHEAVYWEAPONSAPTITUDE1, 0.18f ),        // gets mutated into weapon skill aptitude,
-                                                                    // with a 10% chance to mutate into dual wield aptitude for heavy/light/finesse
-            //( SpellId.CantripShieldAptitude1,       0.09f ),
+            ( SpellId.CANTRIPHEAVYWEAPONSAPTITUDE1, 0.30f ),
 
-            ( SpellId.CANTRIPBLOODTHIRST1,          0.08f ),
-            ( SpellId.CANTRIPDEFENDER1,             0.08f ),
-            ( SpellId.CANTRIPHEARTTHIRST1,          0.08f ),
-            ( SpellId.CANTRIPSWIFTHUNTER1,          0.08f ),
+            ( SpellId.CANTRIPBLOODTHIRST1,          0.1f ),
+            ( SpellId.CANTRIPDEFENDER1,             0.1f ),
+            ( SpellId.CANTRIPHEARTTHIRST1,          0.1f ),
+            ( SpellId.CANTRIPSWIFTHUNTER1,          0.1f ),
 
-            ( SpellId.CantripDirtyFightingProwess1, 0.07f ),
-            ( SpellId.CantripRecklessnessProwess1,  0.08f ),
-            ( SpellId.CantripSneakAttackProwess1,   0.07f ),
-
-            ( SpellId.CANTRIPARMOREXPERTISE1,       0.07f ),
-            ( SpellId.CANTRIPITEMEXPERTISE1,        0.07f ),
-            ( SpellId.CANTRIPMAGICITEMEXPERTISE1,   0.07f ),
-            ( SpellId.CANTRIPWEAPONEXPERTISE1,      0.07f ),
+            ( SpellId.CantripDirtyFightingProwess1, 0.1f ),
+            ( SpellId.CantripRecklessnessProwess1,  0.1f ),
+            ( SpellId.CantripSneakAttackProwess1,   0.1f ),
 
             //( SpellId.CANTRIPSTRENGTH1,             0.05f ),
             //( SpellId.CANTRIPENDURANCE1,            0.05f ),

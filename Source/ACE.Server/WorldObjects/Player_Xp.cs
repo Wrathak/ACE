@@ -43,7 +43,9 @@ namespace ACE.Server.WorldObjects
             m_amount = (long)Math.Round(amount * 0.4);
             if (xpType == XpType.Quest && Level > 89 && Level < 100)
             m_amount = (long)Math.Round(amount * 0.6);
-            if (xpType == XpType.Quest && Level > 99)
+            if (xpType == XpType.Quest && Level > 99 && Level < 120)
+            m_amount = (long)Math.Round(amount * 0.7);
+            if (xpType == XpType.Quest && Level > 119)
             m_amount = (long)Math.Round(amount * 1.0);
 
             if (m_amount < 0)
@@ -464,7 +466,9 @@ namespace ACE.Server.WorldObjects
             scaledXP = (long)Math.Round(nextLevelXP * 0.4);
             if (Level > 49 && Level < 100)
             scaledXP = (long)Math.Round(nextLevelXP * 0.5);
-            if (Level > 99)
+            if (Level > 99 && Level < 120)
+            scaledXP = (long)Math.Round(nextLevelXP * 0.7);
+            if (Level > 119)
             scaledXP = (long)Math.Round(nextLevelXP * 1.0);
 
             if (max > 0)

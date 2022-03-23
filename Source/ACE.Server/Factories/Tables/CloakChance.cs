@@ -16,39 +16,39 @@ namespace ACE.Server.Factories.Tables
 
         private static ChanceTable<int> T2_ItemMaxLevel = new ChanceTable<int>()
         {
-            ( 1, 0.99f ),
-            ( 2, 0.01f ),
+            ( 1, 0.90f ),
+            ( 2, 0.10f ),
         };
 
         private static ChanceTable<int> T3_T4_ItemMaxLevel = new ChanceTable<int>()
         {
-            ( 1, 0.44f ),
-            ( 2, 0.54f ),
-            ( 3, 0.02f ),
+            ( 1, 0.45f ),
+            ( 2, 0.45f ),
+            ( 3, 0.10f ),
         };
 
         private static ChanceTable<int> T5_ItemMaxLevel = new ChanceTable<int>()
         {
-            ( 1, 0.04f ),
-            ( 2, 0.40f ),
-            ( 3, 0.54f ),
-            ( 4, 0.02f ),
+            ( 1, 0.30f ),
+            ( 2, 0.30f ),
+            ( 3, 0.29f ),
+            ( 4, 0.01f ),
         };
 
         private static ChanceTable<int> T6_ItemMaxLevel = new ChanceTable<int>()
         {
-            ( 1, 0.04f ),
+            ( 1, 0.30f ),
             ( 2, 0.30f ),
-            ( 3, 0.64f ),
-            ( 4, 0.02f ),
+            ( 3, 0.30f ),
+            ( 4, 0.10f ),
         };
 
         private static ChanceTable<int> T7_T8_ItemMaxLevel = new ChanceTable<int>()
         {
-            ( 2, 0.45f ),
-            ( 3, 0.45f ),
-            ( 4, 0.08f ),
-            ( 5, 0.02f ),
+            ( 2, 0.30f ),
+            ( 3, 0.30f ),
+            ( 4, 0.30f ),
+            ( 5, 0.10f ),
         };
 
         private static List<ChanceTable<int>> cloakLevels = new List<ChanceTable<int>>()
