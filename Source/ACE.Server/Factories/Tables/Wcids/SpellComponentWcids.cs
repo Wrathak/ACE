@@ -87,88 +87,88 @@ namespace ACE.Server.Factories.Tables.Wcids
 
         private static ChanceTable<WeenieClassName> Quills = new ChanceTable<WeenieClassName>()
         {
-            ( WeenieClassName.ace37363_quillofinfliction,    0.50f ),   // war/debuff (other)
-            ( WeenieClassName.ace37364_quillofintrospection, 0.35f ),   // beneficial (self)
-            ( WeenieClassName.ace37365_quillofbenevolence,   0.10f ),   // beneficial (other)
-            ( WeenieClassName.ace37362_quillofextraction,    0.05f ),   // drain (other)
+            ( WeenieClassName.ace37363_quillofinfliction,    0.51f ),   // war/debuff (other) (31 Spells Need it)
+            ( WeenieClassName.ace37364_quillofintrospection, 0.32f ),   // beneficial (self) (19 Spells Need it)
+            ( WeenieClassName.ace37365_quillofbenevolence,   0.13f ),   // beneficial (other) (8 Spells Need it)
+            ( WeenieClassName.ace37362_quillofextraction,    0.04f ),   // drain (other) (3 Spells Need it)
         };
 
         private static ChanceTable<WeenieClassName> Inks = new ChanceTable<WeenieClassName>()
         {
-            ( WeenieClassName.ace37353_inkofformation,       0.40f ),   // self (can only be used with introspection quills)
-            ( WeenieClassName.ace37360_inkofconveyance,      0.25f ),   // other (can only be used with benevolence, infliction, and extraction quills)
-            ( WeenieClassName.ace37355_inkofobjectification, 0.15f ),   // item spells
+            ( WeenieClassName.ace37353_inkofformation,       0.23f ),   // self (13 Spells Need it)
+            ( WeenieClassName.ace37360_inkofconveyance,      0.27f ),   // other (15 Spells Need it)
+            ( WeenieClassName.ace37355_inkofobjectification, 0.25f ),   // item spells (14 Spells Need it)
             ( WeenieClassName.ace37354_inkofnullification,   0.00f ),   // nullify (can only be used with introspection or benevolence quills)
             // war spells
-            ( WeenieClassName.ace37356_parabolicink,         0.10f ),   // arc
+            ( WeenieClassName.ace37356_parabolicink,         0.125f ), // arc (7 Spells Need it)
+            ( WeenieClassName.ace37361_inkofdirection,       0.125f ), // bolt (7 Spells Need it)
             ( WeenieClassName.ace37357_inkofpartition,       0.00f ),   // blast
             ( WeenieClassName.ace37358_inkofseparation,      0.00f ),   // volley
             ( WeenieClassName.ace37359_alacritousink,        0.00f ),   // streak
-            ( WeenieClassName.ace37361_inkofdirection,       0.10f ),   // bolt
         };
 
         private static readonly List<WeenieClassName> Glyphs = new List<WeenieClassName>()
         {
-            WeenieClassName.ace37343_glyphofalchemy,
-            WeenieClassName.ace37344_glyphofarcanelore,
             WeenieClassName.ace37345_glyphofarmor,
-            WeenieClassName.ace37346_glyphofarmortinkering,
             WeenieClassName.ace37347_glyphofbludgeoning,
-            //WeenieClassName.ace37349_glyphofcooking,
             WeenieClassName.ace37350_glyphofcoordination,
             WeenieClassName.ace37342_glyphofcorrosion,
-            WeenieClassName.ace37351_glyphofcreatureenchantment,
-            WeenieClassName.ace43379_glyphofdamage,
-            //WeenieClassName.ace37352_glyphofdeception,
-            WeenieClassName.ace45370_glyphofdirtyfighting,
-            //WeenieClassName.ace45371_glyphofdualwield,
             WeenieClassName.ace37300_glyphofendurance,
-            //WeenieClassName.ace37373_glyphoffinesseweapons,
             WeenieClassName.ace37301_glyphofflame,
-            WeenieClassName.ace37302_glyphoffletching,
             WeenieClassName.ace37303_glyphoffocus,
             WeenieClassName.ace37348_glyphoffrost,
             WeenieClassName.ace37304_glyphofhealing,
             WeenieClassName.ace37305_glyphofhealth,
-            WeenieClassName.ace37369_glyphofheavyweapons,
-            WeenieClassName.ace37309_glyphofitemenchantment,
-            //WeenieClassName.ace37310_glyphofitemtinkering,
-            //WeenieClassName.ace37311_glyphofjump,
-            //WeenieClassName.ace37312_glyphofleadership,
-            WeenieClassName.ace37313_glyphoflifemagic,
-            //WeenieClassName.ace37339_glyphoflightweapons,
             WeenieClassName.ace37314_glyphoflightning,
-            //WeenieClassName.ace37315_glyphoflockpick,
-            //WeenieClassName.ace37316_glyphofloyalty,
-            WeenieClassName.ace37317_glyphofmagicdefense,
-            WeenieClassName.ace38760_glyphofmagicitemtinkering,
             WeenieClassName.ace37318_glyphofmana,
             WeenieClassName.ace37319_glyphofmanaconversion,
             WeenieClassName.ace37321_glyphofmanaregeneration,
             WeenieClassName.ace37323_glyphofmeleedefense,
-            WeenieClassName.ace37324_glyphofmissiledefense,
-            WeenieClassName.ace37338_glyphofmissileweapons,
-            //WeenieClassName.ace37325_glyphofmonsterappraisal,
-            WeenieClassName.ace43387_glyphofnether,
-            //WeenieClassName.ace37326_glyphofpersonappraisal,
             WeenieClassName.ace37327_glyphofpiercing,
             WeenieClassName.ace37328_glyphofquickness,
-            WeenieClassName.ace45372_glyphofrecklessness,
             WeenieClassName.ace37307_glyphofregeneration,
-            WeenieClassName.ace37329_glyphofrun,
-            WeenieClassName.ace37330_glyphofsalvaging,
             WeenieClassName.ace37331_glyphofself,
-            WeenieClassName.ace45373_glyphofshield,
             WeenieClassName.ace37332_glyphofslashing,
-            WeenieClassName.ace45374_glyphofsneakattack,
             WeenieClassName.ace37333_glyphofstamina,
             WeenieClassName.ace37336_glyphofstaminaregeneration,
             WeenieClassName.ace37337_glyphofstrength,
+            //WeenieClassName.ace37343_glyphofalchemy,
+            //WeenieClassName.ace37344_glyphofarcanelore,
+            //WeenieClassName.ace37346_glyphofarmortinkering,
+            //WeenieClassName.ace37349_glyphofcooking,
+            //WeenieClassName.ace37351_glyphofcreatureenchantment,
+            //WeenieClassName.ace43379_glyphofdamage,
+            //WeenieClassName.ace37352_glyphofdeception,
+            //WeenieClassName.ace45370_glyphofdirtyfighting,
+            //WeenieClassName.ace45371_glyphofdualwield,
+            //WeenieClassName.ace37373_glyphoffinesseweapons,
+            //WeenieClassName.ace37302_glyphoffletching,
+            //WeenieClassName.ace37369_glyphofheavyweapons,
+            //WeenieClassName.ace37309_glyphofitemenchantment,
+            //WeenieClassName.ace37310_glyphofitemtinkering,
+            //WeenieClassName.ace37311_glyphofjump,
+            //WeenieClassName.ace37312_glyphofleadership,
+            //WeenieClassName.ace37313_glyphoflifemagic,
+            //WeenieClassName.ace37339_glyphoflightweapons,
+            //WeenieClassName.ace37315_glyphoflockpick,
+            //WeenieClassName.ace37316_glyphofloyalty,
+            //WeenieClassName.ace37317_glyphofmagicdefense,
+            //WeenieClassName.ace38760_glyphofmagicitemtinkering,
+            //WeenieClassName.ace37324_glyphofmissiledefense,
+            //WeenieClassName.ace37338_glyphofmissileweapons,
+            //WeenieClassName.ace37325_glyphofmonsterappraisal,
+            //WeenieClassName.ace43387_glyphofnether,
+            //WeenieClassName.ace37326_glyphofpersonappraisal,
+            //WeenieClassName.ace45372_glyphofrecklessness,
+            //WeenieClassName.ace37329_glyphofrun,
+            //WeenieClassName.ace37330_glyphofsalvaging,
+            //WeenieClassName.ace45373_glyphofshield,
+            //WeenieClassName.ace45374_glyphofsneakattack,
             //WeenieClassName.ace49455_glyphofsummoning,
             //WeenieClassName.ace41747_glyphoftwohandedcombat,
-            WeenieClassName.ace43380_glyphofvoidmagic,
-            WeenieClassName.ace37340_glyphofwarmagic,
-            WeenieClassName.ace37341_glyphofweapontinkering,
+            //WeenieClassName.ace43380_glyphofvoidmagic,
+            //WeenieClassName.ace37340_glyphofwarmagic,
+            //WeenieClassName.ace37341_glyphofweapontinkering,
         };
 
         private static WeenieClassName Roll_Level8SpellComponent(TreasureDeath profile)
