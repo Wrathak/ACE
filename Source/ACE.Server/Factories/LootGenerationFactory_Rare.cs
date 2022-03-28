@@ -11,12 +11,12 @@ namespace ACE.Server.Factories
     {
         public static Dictionary<int, int> RareChances = new Dictionary<int, int>()
         {
-            { 1, 250 },
-            { 2, 500 },
-            { 3, 2000 },
-            { 4, 8000 },
-            { 5, 24000 },
-            { 6, 96000 }
+            { 1, 100 },
+            { 2, 200 },
+            { 3, 600 },
+            { 4, 3000 },
+            { 5, 9000 },
+            { 6, 36000 }
         };
 
         public static Dictionary<int, HashSet<int>> RareWCIDs;
@@ -63,11 +63,11 @@ namespace ACE.Server.Factories
                 {
                     tier = 2;
                 }
-                if (ThreadSafeRandom.Next(1, 4) == 1)     // 1 in 2000 chance
+                if (ThreadSafeRandom.Next(1, 3) == 1)     // 1 in 2000 chance
                 {
                     tier = 3;
                 }
-                if (ThreadSafeRandom.Next(1, 4) == 1)    // 1 in 8000 chance
+                if (ThreadSafeRandom.Next(1, 5) == 1)    // 1 in 8000 chance
                 {
                     tier = 4;
                 }
