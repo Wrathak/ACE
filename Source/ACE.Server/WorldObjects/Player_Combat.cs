@@ -178,13 +178,13 @@ namespace ACE.Server.WorldObjects
                 // handle Dirty Fighting
                 if (GetCreatureSkill(Skill.DirtyFighting).AdvancementClass >= SkillAdvancementClass.Trained)
                     FightDirty(target, damageEvent.Weapon);
-                
+
                 target.EmoteManager.OnDamage(this);
 
                 if (damageEvent.IsCritical)
                     target.EmoteManager.OnReceiveCritical(this);
             }
-            
+
             if (targetPlayer == null)
                 OnAttackMonster(target);
 
@@ -450,7 +450,7 @@ namespace ACE.Server.WorldObjects
                 // since damage over time is possibly combined from multiple sources,
                 // sending a message to the last damager here could be tricky..
 
-                // TODO: get last damager from dot stack instead? 
+                // TODO: get last damager from dot stack instead?
                 OnDeath(DamageHistory.LastDamager, damageType, false);
                 Die();
 
@@ -672,8 +672,8 @@ namespace ACE.Server.WorldObjects
             // client attack bar range seems to indicate this might have been updated, between 10% and 90%?
             var powerAccuracyBar = GetPowerAccuracyBar();
             //if (powerAccuracyBar < 0.2f || powerAccuracyBar > 0.8f)
-            if (powerAccuracyBar < 0.1f || powerAccuracyBar > 0.9f)
-                return 1.0f;
+            //if (powerAccuracyBar < 0.1f || powerAccuracyBar > 0.9f)
+            //    return 1.0f;
 
             // recklessness only applies to non-critical hits,
             // which is handled outside of this method.
@@ -760,7 +760,7 @@ namespace ACE.Server.WorldObjects
             }
 
             LastCombatMode = newCombatMode;
-            
+
             if (DateTime.UtcNow >= NextUseTime.AddSeconds(UseTimeEpsilon))
                 HandleActionChangeCombatMode_Inner(newCombatMode, forceHandCombat, callback);
             else
@@ -985,7 +985,7 @@ namespace ACE.Server.WorldObjects
         /// <summary>
         /// Called when a successful attack is landed in PVP
         /// The timestamp for both PKs are updated
-        /// 
+        ///
         /// If a physical attack is evaded, or a magic spell is resisted,
         /// this function should NOT be called.
         /// </summary>

@@ -107,7 +107,7 @@ namespace ACE.Server.WorldObjects
                 TimeToRot = EmptyDecayTime;
             else
                 // a player corpse decays after 5 mins * playerLevel with a minimum of 1 hour
-                TimeToRot = Math.Max(3600, (player.Level ?? 1) * 300);
+                TimeToRot = Math.Max(3600, (player.Level ?? 1) * 1200);
 
             var dtTimeToRot = DateTime.UtcNow.AddSeconds(TimeToRot ?? 0);
             var tsDecay = dtTimeToRot - DateTime.UtcNow;
@@ -397,7 +397,7 @@ namespace ACE.Server.WorldObjects
         }
 
         /// <summary>
-        /// A list of landblocks the player cannot drop items on corpse on death 
+        /// A list of landblocks the player cannot drop items on corpse on death
         /// </summary>
         public static HashSet<ushort> NoDrop_Landblocks = new HashSet<ushort>()
         {
