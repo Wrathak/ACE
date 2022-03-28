@@ -85,7 +85,7 @@ namespace ACE.Server.WorldObjects
 
                 var attr = AugTypeHelper.GetAttribute(type);
                 var playerAttr = player.Attributes[attr];
-                playerAttr.StartingValue += 5;
+                playerAttr.StartingValue += 10;
                 player.Session.Network.EnqueueSend(new GameMessagePrivateUpdateAttribute(player, playerAttr));
             }
             else if (AugTypeHelper.IsResist(type))
@@ -159,13 +159,13 @@ namespace ACE.Server.WorldObjects
             // per-type checks
             if (AugTypeHelper.IsAttribute(type))
             {
+
                 // innate attributes shared cap
                 //if (player.AugmentationInnateFamily >= MaxAugs[type])
-                if (player.AugmentationInnateFamily >= 6)
-                {
-                    player.SendWeenieError(WeenieError.AugmentationTypeUsedTooManyTimes);
-                    return false;
-                }
+                //{
+                //    player.SendWeenieError(WeenieError.AugmentationTypeUsedTooManyTimes);
+                //    return false;
+                //}
 
                 var playerAttribute = player.Attributes[AugTypeHelper.GetAttribute(type)];
 
@@ -190,11 +190,11 @@ namespace ACE.Server.WorldObjects
             {
                 // resistance shared cap
                 //if (player.AugmentationResistanceFamily >= MaxAugs[type])
-                if (player.AugmentationResistanceFamily >= 7)
-                {
-                    player.SendWeenieError(WeenieError.AugmentationTypeUsedTooManyTimes);
-                    return false;
-                }
+                //if (player.AugmentationResistanceFamily >= 7)
+                //{
+                //    player.SendWeenieError(WeenieError.AugmentationTypeUsedTooManyTimes);
+                //    return false;
+                //}
             }
 
             // common checks
@@ -211,12 +211,12 @@ namespace ACE.Server.WorldObjects
 
         public static Dictionary<AugmentationType, int> MaxAugs = new Dictionary<AugmentationType, int>()
         {
-            { AugmentationType.Strength, 20 },          // attributes in shared group
-            { AugmentationType.Endurance, 20 },
-            { AugmentationType.Coordination, 20 },
-            { AugmentationType.Quickness, 20 },
-            { AugmentationType.Focus, 20 },
-            { AugmentationType.Self, 20 },
+            { AugmentationType.Strength, 9 },          // attributes in shared group
+            { AugmentationType.Endurance, 9 },
+            { AugmentationType.Coordination, 9 },
+            { AugmentationType.Quickness, 9 },
+            { AugmentationType.Focus, 9 },
+            { AugmentationType.Self, 9 },
             { AugmentationType.Salvage, 1 },
             { AugmentationType.ItemTinkering, 1 },
             { AugmentationType.ArmorTinkering, 1 },

@@ -205,11 +205,11 @@ namespace ACE.Server.Factories
 
             //if (rng < chance * 0.05f) // 5% Chance of 4 Spells on Armor/Weapons
             //    return 4;
-            if (rng < chance * 0.10f) // 10% Chance of 3 Spells on Armor/Weapons
+            if (rng < chance * 0.15f)  // 15% Chance of 3 Spells on Armor/Weapons
                 return 3;
-            if (rng < chance * 0.50f)  // 40% Chance of 2 Spells on Armor/Weapons
+            if (rng < chance * 0.55f)  // 40% Chance of 2 Spells on Armor/Weapons
                 return 2;
-            if (rng < chance)
+            if (rng < chance)          // 45% Chance of 1 Spells on Armor/Weapons
                 return 1;
             else
                 return 0;
@@ -226,12 +226,12 @@ namespace ACE.Server.Factories
 
             rng = ThreadSafeRandom.NextInterval(profile.LootQualityMod);
 
-            chance = 0.15f;
+            chance = 0.2f;
 
-            if (rng >= chance)  // 85% Chance of 2 Spells
+            if (rng >= chance)  // 80% Chance of 2 Spells
                 return 2;
             else
-                return 3;       // 15% Chance of 3 Spells
+                return 3;       // 20% Chance of 3 Spells
         }
 
         private static float RollEnchantmentDifficulty(List<SpellId> spellIds)
