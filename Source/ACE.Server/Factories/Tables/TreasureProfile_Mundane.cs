@@ -16,7 +16,7 @@ namespace ACE.Server.Factories.Tables
 
         private static ChanceTable<TreasureItemType_Orig> mundaneProfile2 = new ChanceTable<TreasureItemType_Orig>()
         {
-            ( TreasureItemType_Orig.HealKit,        0.0f ),
+            ( TreasureItemType_Orig.HealKit,        1.0f ),
         };
 
         private static ChanceTable<TreasureItemType_Orig> mundaneProfile3 = new ChanceTable<TreasureItemType_Orig>()
@@ -36,7 +36,7 @@ namespace ACE.Server.Factories.Tables
 
         private static ChanceTable<TreasureItemType_Orig> mundaneProfile6 = new ChanceTable<TreasureItemType_Orig>()
         {
-            ( TreasureItemType_Orig.Pyreal,         0.0f ),
+            ( TreasureItemType_Orig.Pyreal,         1.0f ),
         };
 
         /// <summary>
