@@ -109,7 +109,7 @@ namespace ACE.Server.Factories
                     wo.WieldDifficulty = null;
                 }
 
-                wo.WieldSkillType = null;
+                wo.WieldSkillType = (int)Skill.ItemEnchantment;
 
                 // WeaponDefense
                 wo.WeaponDefense = RollWeaponDefense(wieldDifficulty.Value, profile);
@@ -138,7 +138,8 @@ namespace ACE.Server.Factories
                         wo.WieldSkillType = (int)Skill.WarMagic;
                 }
 
-                wo.WieldSkillType = null;
+                //wo.WieldSkillType = null;
+                wo.WieldSkillType = (int)Skill.ItemEnchantment;
 
                 // mutate WeaponDefense
                 mutationFilter = MutationCache.GetMutation("Casters.weapon_defense.txt");
