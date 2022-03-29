@@ -551,6 +551,7 @@ namespace ACE.Server.Factories
                     player.AugmentationBonusImbueChance = 1;
                     player.AugmentationLessDeathItemLoss = 3;
                     player.AugmentationSpellsRemainPastDeath = 1;
+                    player.AugmentationExtraPackSlot = 1;
                     break;
 
                 case HeritageGroup.Shadowbound:
