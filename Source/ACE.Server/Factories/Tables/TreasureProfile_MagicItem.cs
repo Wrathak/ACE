@@ -50,9 +50,9 @@ namespace ACE.Server.Factories.Tables
         private static ChanceTable<TreasureItemType_Orig> magicItemProfile8 = new ChanceTable<TreasureItemType_Orig>()
         {
             ( TreasureItemType_Orig.Armor,              0.50f ),
-            ( TreasureItemType_Orig.Weapon,             0.20f ),
-            ( TreasureItemType_Orig.Jewelry,            0.18f ),
-            ( TreasureItemType_Orig.Clothing,           0.10f ),
+            ( TreasureItemType_Orig.Weapon,             0.18f ),
+            ( TreasureItemType_Orig.Jewelry,            0.21f ),
+            ( TreasureItemType_Orig.Clothing,           0.09f ),
             ( TreasureItemType_Orig.Gem,                0.01f ),
             ( TreasureItemType_Orig.Cloak,              0.01f  ),
             //( TreasureItemType_Orig.Scroll,             0.14f ),
@@ -66,9 +66,9 @@ namespace ACE.Server.Factories.Tables
         private static ChanceTable<TreasureItemType_Orig> magicItemProfile9 = new ChanceTable<TreasureItemType_Orig>()
         {
           ( TreasureItemType_Orig.Armor,              0.50f ),
-          ( TreasureItemType_Orig.Weapon,             0.20f ),
-          ( TreasureItemType_Orig.Jewelry,            0.18f ),
-          ( TreasureItemType_Orig.Clothing,           0.10f ),
+          ( TreasureItemType_Orig.Weapon,             0.18f ),
+          ( TreasureItemType_Orig.Jewelry,            0.21f ),
+          ( TreasureItemType_Orig.Clothing,           0.09f ),
           ( TreasureItemType_Orig.Gem,                0.01f ),
           ( TreasureItemType_Orig.Cloak,              0.01f  ),
         };
@@ -76,9 +76,9 @@ namespace ACE.Server.Factories.Tables
         private static ChanceTable<TreasureItemType_Orig> magicItemProfile10 = new ChanceTable<TreasureItemType_Orig>()
         {
           ( TreasureItemType_Orig.Armor,              0.50f ),
-          ( TreasureItemType_Orig.Weapon,             0.20f ),
-          ( TreasureItemType_Orig.Jewelry,            0.18f ),
-          ( TreasureItemType_Orig.Clothing,           0.10f ),
+          ( TreasureItemType_Orig.Weapon,             0.18f ),
+          ( TreasureItemType_Orig.Jewelry,            0.21f ),
+          ( TreasureItemType_Orig.Clothing,           0.09f ),
           ( TreasureItemType_Orig.Gem,                0.01f ),
           ( TreasureItemType_Orig.Cloak,              0.01f  ),
         };
@@ -86,9 +86,9 @@ namespace ACE.Server.Factories.Tables
         private static ChanceTable<TreasureItemType_Orig> magicItemProfile11 = new ChanceTable<TreasureItemType_Orig>()
         {
           ( TreasureItemType_Orig.Armor,              0.50f ),
-          ( TreasureItemType_Orig.Weapon,             0.20f ),
-          ( TreasureItemType_Orig.Jewelry,            0.18f ),
-          ( TreasureItemType_Orig.Clothing,           0.10f ),
+          ( TreasureItemType_Orig.Weapon,             0.18f ),
+          ( TreasureItemType_Orig.Jewelry,            0.21f ),
+          ( TreasureItemType_Orig.Clothing,           0.09f ),
           ( TreasureItemType_Orig.Gem,                0.01f ),
           ( TreasureItemType_Orig.Cloak,              0.01f  ),
         };
@@ -96,9 +96,9 @@ namespace ACE.Server.Factories.Tables
         private static ChanceTable<TreasureItemType_Orig> magicItemProfile12 = new ChanceTable<TreasureItemType_Orig>()
         {
           ( TreasureItemType_Orig.Armor,              0.50f ),
-          ( TreasureItemType_Orig.Weapon,             0.20f ),
-          ( TreasureItemType_Orig.Jewelry,            0.18f ),
-          ( TreasureItemType_Orig.Clothing,           0.10f ),
+          ( TreasureItemType_Orig.Weapon,             0.18f ),
+          ( TreasureItemType_Orig.Jewelry,            0.21f ),
+          ( TreasureItemType_Orig.Clothing,           0.09f ),
           ( TreasureItemType_Orig.Gem,                0.01f ),
           ( TreasureItemType_Orig.Cloak,              0.01f  ),
         };

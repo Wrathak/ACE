@@ -226,12 +226,12 @@ namespace ACE.Server.Factories
 
             rng = ThreadSafeRandom.NextInterval(profile.LootQualityMod);
 
-            chance = 0.2f;
+            chance = 0.3f;
 
-            if (rng >= chance)  // 80% Chance of 2 Spells
+            if (rng >= chance)  // 70% Chance of 2 Spells
                 return 2;
             else
-                return 3;       // 20% Chance of 3 Spells
+                return 3;       // 30% Chance of 3 Spells
         }
 
         private static float RollEnchantmentDifficulty(List<SpellId> spellIds)

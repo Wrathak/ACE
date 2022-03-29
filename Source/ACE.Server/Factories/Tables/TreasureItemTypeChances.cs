@@ -18,9 +18,9 @@ namespace ACE.Server.Factories.Tables
         public static readonly ChanceTable<TreasureItemType> DefaultMagical = new ChanceTable<TreasureItemType>()
         {
             ( TreasureItemType.Armor,      0.50f ),
-            ( TreasureItemType.Weapon,     0.20f ),
-            ( TreasureItemType.Clothing,   0.10f ),
-            ( TreasureItemType.Jewelry,    0.18f ),
+            ( TreasureItemType.Weapon,     0.18f ),
+            ( TreasureItemType.Jewelry,    0.21f ),
+            ( TreasureItemType.Clothing,   0.09f ),
             ( TreasureItemType.Cloak,      0.01f ),
             ( TreasureItemType.Gem,        0.01f )    // 100% aetheria?
         };
@@ -28,9 +28,9 @@ namespace ACE.Server.Factories.Tables
         public static readonly ChanceTable<TreasureItemType> DefaultNonMagical = new ChanceTable<TreasureItemType>()
         {
           ( TreasureItemType.Armor,      0.50f ),
-          ( TreasureItemType.Weapon,     0.20f ),
-          ( TreasureItemType.Clothing,   0.10f ),
-          ( TreasureItemType.Jewelry,    0.18f ),
+          ( TreasureItemType.Weapon,     0.18f ),
+          ( TreasureItemType.Jewelry,    0.21f ),
+          ( TreasureItemType.Clothing,   0.09f ),
           ( TreasureItemType.Cloak,      0.01f ),
           ( TreasureItemType.Gem,        0.01f )    // 100% aetheria?
         };
@@ -72,9 +72,9 @@ namespace ACE.Server.Factories.Tables
         public static readonly ChanceTable<TreasureItemType> MixedMagicEquipment = new ChanceTable<TreasureItemType>()
         {
           ( TreasureItemType.Armor,      0.50f ),
-          ( TreasureItemType.Weapon,     0.20f ),
-          ( TreasureItemType.Clothing,   0.10f ),
-          ( TreasureItemType.Jewelry,    0.18f ),
+          ( TreasureItemType.Weapon,     0.18f ),
+          ( TreasureItemType.Jewelry,    0.21f ),
+          ( TreasureItemType.Clothing,   0.09f ),
           ( TreasureItemType.Cloak,      0.01f ),
           ( TreasureItemType.Gem,        0.01f )    // 100% aetheria?
         };

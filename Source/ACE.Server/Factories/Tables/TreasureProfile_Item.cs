@@ -49,10 +49,10 @@ namespace ACE.Server.Factories.Tables
         /// </summary>
         private static ChanceTable<TreasureItemType_Orig> itemProfile8 = new ChanceTable<TreasureItemType_Orig>()
         {
-            ( TreasureItemType_Orig.Weapon,    0.20f ),
             ( TreasureItemType_Orig.Armor,     0.50f ),
-            ( TreasureItemType_Orig.Clothing,  0.10f ),
-            ( TreasureItemType_Orig.Jewelry,   0.18f ),
+            ( TreasureItemType_Orig.Weapon,    0.18f ),
+            ( TreasureItemType_Orig.Jewelry,   0.21f ),
+            ( TreasureItemType_Orig.Clothing,  0.08f ),
             ( TreasureItemType_Orig.Gem,       0.02f ),
             //( TreasureItemType_Orig.ArtObject, 0.125f ),
             //( TreasureItemType_Orig.PetDevice, 0.125f ),
@@ -64,10 +64,10 @@ namespace ACE.Server.Factories.Tables
         /// </summary>
         private static ChanceTable<TreasureItemType_Orig> itemProfile9 = new ChanceTable<TreasureItemType_Orig>()
         {
-          ( TreasureItemType_Orig.Weapon,    0.20f ),
           ( TreasureItemType_Orig.Armor,     0.50f ),
-          ( TreasureItemType_Orig.Clothing,  0.10f ),
-          ( TreasureItemType_Orig.Jewelry,   0.18f ),
+          ( TreasureItemType_Orig.Weapon,    0.18f ),
+          ( TreasureItemType_Orig.Jewelry,   0.21f ),
+          ( TreasureItemType_Orig.Clothing,  0.08f ),
           ( TreasureItemType_Orig.Gem,       0.02f ),
           //( TreasureItemType_Orig.ArtObject, 0.125f ),
           //( TreasureItemType_Orig.PetDevice, 0.125f ),
@@ -76,10 +76,10 @@ namespace ACE.Server.Factories.Tables
 
         private static ChanceTable<TreasureItemType_Orig> itemProfile10 = new ChanceTable<TreasureItemType_Orig>()
         {
-          ( TreasureItemType_Orig.Weapon,    0.20f ),
           ( TreasureItemType_Orig.Armor,     0.50f ),
-          ( TreasureItemType_Orig.Clothing,  0.10f ),
-          ( TreasureItemType_Orig.Jewelry,   0.18f ),
+          ( TreasureItemType_Orig.Weapon,    0.18f ),
+          ( TreasureItemType_Orig.Jewelry,   0.21f ),
+          ( TreasureItemType_Orig.Clothing,  0.08f ),
           ( TreasureItemType_Orig.Gem,       0.02f ),
           //( TreasureItemType_Orig.ArtObject, 0.125f ),
           //( TreasureItemType_Orig.PetDevice, 0.125f ),
@@ -88,10 +88,10 @@ namespace ACE.Server.Factories.Tables
 
         private static ChanceTable<TreasureItemType_Orig> itemProfile11 = new ChanceTable<TreasureItemType_Orig>()
         {
-          ( TreasureItemType_Orig.Weapon,    0.20f ),
           ( TreasureItemType_Orig.Armor,     0.50f ),
-          ( TreasureItemType_Orig.Clothing,  0.10f ),
-          ( TreasureItemType_Orig.Jewelry,   0.18f ),
+          ( TreasureItemType_Orig.Weapon,    0.18f ),
+          ( TreasureItemType_Orig.Jewelry,   0.21f ),
+          ( TreasureItemType_Orig.Clothing,  0.08f ),
           ( TreasureItemType_Orig.Gem,       0.02f ),
           //( TreasureItemType_Orig.ArtObject, 0.125f ),
           //( TreasureItemType_Orig.PetDevice, 0.125f ),

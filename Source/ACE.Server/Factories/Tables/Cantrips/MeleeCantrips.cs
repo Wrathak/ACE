@@ -79,7 +79,7 @@ namespace ACE.Server.Factories.Tables
 
         private static ChanceTable<SpellId> meleeCantrips = new ChanceTable<SpellId>()
         {
-            ( SpellId.CANTRIPHEAVYWEAPONSAPTITUDE1, 0.30f ),
+            ( SpellId.CANTRIPHEAVYWEAPONSAPTITUDE1, 0.3f ),
 
             ( SpellId.CANTRIPBLOODTHIRST1,          0.1f ),
             ( SpellId.CANTRIPDEFENDER1,             0.1f ),
