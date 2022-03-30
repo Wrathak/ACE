@@ -63,8 +63,8 @@ namespace ACE.Server.Factories.Tables.Wcids
         // level 8 spell components have a chance of dropping in t7 / t8
         private static ChanceTable<bool> level8SpellComponentChance = new ChanceTable<bool>()
         {
-            ( false, 0.6f ),
-            ( true,  0.4f ),
+            ( false, 0.0f ),
+            ( true,  1.0f ),
         };
 
         public static WeenieClassName Roll(TreasureDeath profile)
