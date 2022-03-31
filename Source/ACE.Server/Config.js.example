@@ -196,7 +196,7 @@
     "PruneDeletedCharactersFromSquelchLists": false,
 
     // Automatically apply new updates to databases upon startup if they haven't yet been applied
-    "AutoApplyDatabaseUpdates": true,
+    "AutoApplyDatabaseUpdates": false,
 
     // Automatically check for and update to latest available world database
     "AutoUpdateWorldDatabase": false,
