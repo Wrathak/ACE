@@ -3075,13 +3075,8 @@ namespace ACE.Server.WorldObjects
             }
             else
             {
-<<<<<<< HEAD
-                if (item.WeenieType == WeenieType.Deed && target.AiAcceptEverything) // http://acpedia.org/wiki/Housing_FAQ#House_deeds
-                {
-=======
                 if (item.WeenieType == WeenieType.Deed && target.AllowGive && target.AiAcceptEverything) // http://acpedia.org/wiki/Housing_FAQ#House_deeds
-                {                    
->>>>>>> upstream/master
+                {       
                     var stackSize = item.StackSize ?? 1;
 
                     var stackMsg = stackSize != 1 ? $"{stackSize} " : "";

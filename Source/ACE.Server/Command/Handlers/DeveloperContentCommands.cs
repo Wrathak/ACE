@@ -1722,9 +1722,6 @@ namespace ACE.Server.Command.Handlers.Processors
             }
         }
 
-<<<<<<< HEAD
-        [CommandHandler("export-json", AccessLevel.Player, CommandHandlerFlag.None, 1, "Exports content from database to JSON file", "<wcid>")]
-=======
         [CommandHandler("export-json-folders", AccessLevel.Developer, CommandHandlerFlag.None, 1, "Exports content from database to JSON file in a WeenieType/ItemType folder structure", "<wcid>")]
         public static void HandleExportJsonFolder(Session session, params string[] parameters)
         {
@@ -1733,7 +1730,7 @@ namespace ACE.Server.Command.Handlers.Processors
         }
 
         [CommandHandler("export-json", AccessLevel.Developer, CommandHandlerFlag.None, 1, "Exports content from database to JSON file", "<wcid>")]
->>>>>>> upstream/master
+
         public static void HandleExportJson(Session session, params string[] parameters)
         {
             var param = parameters[0];
@@ -1826,7 +1823,7 @@ namespace ACE.Server.Command.Handlers.Processors
             {
                 json_folder = $"{di.FullName}{sep}json{sep}weenies{sep}";
             }
-            
+
             di = new DirectoryInfo(json_folder);
 
             if (!di.Exists)
@@ -1976,9 +1973,6 @@ namespace ACE.Server.Command.Handlers.Processors
             CommandHandlerHelper.WriteOutputInfo(session, $"Exported {json_folder}{json_filename}");
         }
 
-<<<<<<< HEAD
-        [CommandHandler("export-sql", AccessLevel.Player, CommandHandlerFlag.None, 1, "Exports content from database to SQL file", "<wcid>")]
-=======
         [CommandHandler("export-sql-folders", AccessLevel.Developer, CommandHandlerFlag.None, 1, "Exports weenie content from database to an SQL file in a WeenieType/ItemType folder structure", "<wcid>")]
         public static void HandleExportSqlFolder(Session session, params string[] parameters)
         {
@@ -1987,7 +1981,7 @@ namespace ACE.Server.Command.Handlers.Processors
         }
 
         [CommandHandler("export-sql", AccessLevel.Developer, CommandHandlerFlag.None, 1, "Exports content from database to SQL file", "<wcid> [content-type]")]
->>>>>>> upstream/master
+
         public static void HandleExportSql(Session session, params string[] parameters)
         {
             var param = parameters[0];

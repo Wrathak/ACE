@@ -2617,11 +2617,8 @@ namespace ACE.Server.Command.Handlers
         }
 
         // de_n name, text
-<<<<<<< HEAD
-        [CommandHandler("de_n", AccessLevel.Player, CommandHandlerFlag.RequiresWorld, 2, "Sends text to named player, formatted exactly as entered.", "<name> <text>")]
-=======
         [CommandHandler("de_n", AccessLevel.Player, CommandHandlerFlag.RequiresWorld, 2, "Sends text to named player, formatted exactly as entered.", "<name>, <text>")]
->>>>>>> upstream/master
+
         public static void Handlede_n(Session session, params string[] parameters)
         {
             // usage: @de_n name, text
@@ -2633,11 +2630,9 @@ namespace ACE.Server.Command.Handlers
         }
 
         // direct_emote_name name, text
-<<<<<<< HEAD
-        [CommandHandler("direct_emote_name", AccessLevel.Player, CommandHandlerFlag.RequiresWorld, 2, "Sends text to named player, formatted exactly as entered.", "<name> <text>")]
-=======
+
         [CommandHandler("direct_emote_name", AccessLevel.Developer, CommandHandlerFlag.RequiresWorld, 2, "Sends text to named player, formatted exactly as entered.", "<name>, <text>")]
->>>>>>> upstream/master
+
         public static void Handledirect_emote_name(Session session, params string[] parameters)
         {
             // usage: @de_n name, text
