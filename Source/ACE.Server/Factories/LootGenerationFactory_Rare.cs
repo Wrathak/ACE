@@ -48,7 +48,8 @@ namespace ACE.Server.Factories
 
             // Check to make sure there *IS* a chance. Less than/equal to 0 would mean zero chance, so we can stop here
             if (rare_drop_rate_percent <= 0)
-                return null;
+                rare_drop_rate_percent = 1;
+                //return null;
 
             rare_drop_rate_percent = Math.Min(rare_drop_rate_percent/100, 1);
             int t1_chance = (int)Math.Round(1 / rare_drop_rate_percent); // Default PropertyManager value results in a 1 in 2,500 chance
@@ -56,26 +57,26 @@ namespace ACE.Server.Factories
 
             int tier = 0;
 
-            if (ThreadSafeRandom.Next(1, t1_chance) == 1)   // 1 in 250 chance
+            if (ThreadSafeRandom.Next(1, t1_chance) == 1)   // 1 in 100 chance
             {
                 tier = 1;
-                if (ThreadSafeRandom.Next(1, 2) == 1)      // 1 in 500 chance
+                if (ThreadSafeRandom.Next(1, 200) == 1)      // 1 in 200 chance
                 {
                     tier = 2;
                 }
-                if (ThreadSafeRandom.Next(1, 3) == 1)     // 1 in 2000 chance
+                if (ThreadSafeRandom.Next(1, 3) == 1)     // 1 in 600 chance
                 {
                     tier = 3;
                 }
-                if (ThreadSafeRandom.Next(1, 5) == 1)    // 1 in 8000 chance
+                if (ThreadSafeRandom.Next(1, 5) == 1)    // 1 in 3000 chance
                 {
                     tier = 4;
                 }
-                if (ThreadSafeRandom.Next(1, 3) == 1)    // 1 in 24,000
+                if (ThreadSafeRandom.Next(1, 3) == 1)    // 1 in 9000 chance
                 {
                     tier = 5;
                 }
-                if (ThreadSafeRandom.Next(1, 4) == 1)    // 1 in 96,000 chance
+                if (ThreadSafeRandom.Next(1, 4) == 1)    // 1 in 36000 chance
                 {
                     tier = 6;
                 }

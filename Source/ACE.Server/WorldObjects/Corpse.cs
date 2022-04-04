@@ -279,6 +279,7 @@ namespace ACE.Server.WorldObjects
 
             var realTimeRares = PropertyManager.GetBool("rares_real_time").Item;
             var realTimeRaresAlt = PropertyManager.GetBool("rares_real_time_v2").Item;
+            /*
             if (realTimeRares && killerPlayer != null)
             {
                 if (killerPlayer.RaresLoginTimestamp.HasValue)
@@ -323,15 +324,15 @@ namespace ACE.Server.WorldObjects
                 }
                 else
                     killerPlayer.RaresLoginTimestamp = timestamp;
-            }
+            } */
 
             var wo = LootGenerationFactory.TryCreateRare(luck);
 
-            if (secondChanceGranted && wo == null)
-            {
-                luck = 2490;
-                wo = LootGenerationFactory.TryCreateRare(luck);
-            }
+            //if (secondChanceGranted && wo == null)
+            //{
+            //    luck = 2490;
+            //    wo = LootGenerationFactory.TryCreateRare(luck);
+            //}
 
             if (wo == null)
                 return;
