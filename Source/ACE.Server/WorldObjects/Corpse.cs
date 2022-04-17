@@ -356,10 +356,10 @@ namespace ACE.Server.WorldObjects
 
                 if (killerPlayer != null)
                 {
-                    if (realTimeRares)
-                        killerPlayer.RaresLoginTimestamp = (int)Time.GetFutureUnixTime(ThreadSafeRandom.Next(1, (int)PropertyManager.GetLong("rares_max_seconds_between").Item));
-                    else
-                        killerPlayer.RaresLoginTimestamp = timestamp;
+                    //if (realTimeRares)
+                    //    killerPlayer.RaresLoginTimestamp = (int)Time.GetFutureUnixTime(ThreadSafeRandom.Next(1, (int)PropertyManager.GetLong("rares_max_seconds_between").Item));
+                    //else
+                    //    killerPlayer.RaresLoginTimestamp = timestamp;
                     switch (tier)
                     {
                         case 1:

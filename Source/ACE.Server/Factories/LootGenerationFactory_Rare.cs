@@ -11,12 +11,12 @@ namespace ACE.Server.Factories
     {
         public static Dictionary<int, int> RareChances = new Dictionary<int, int>()
         {
-            { 1, 100 },
-            { 2, 200 },
-            { 3, 600 },
-            { 4, 3000 },
-            { 5, 9000 },
-            { 6, 36000 }
+            { 1, 200 },
+            { 2, 400 },
+            { 3, 1200 },
+            { 4, 4800 },
+            { 5, 14400 },
+            { 6, 43200 }
         };
 
         public static Dictionary<int, HashSet<int>> RareWCIDs;
@@ -25,8 +25,8 @@ namespace ACE.Server.Factories
         {
             RareWCIDs = new Dictionary<int, HashSet<int>>();
 
-            var tier1Rares = new HashSet<int>() { 30183, 30186, 30194, 30196, 30202, 30205, 30206, 30215, 30224, 30225, 30228, 30229, 30232, 30234, 30240, 30242, 30246, 45366, 45368, 45369 };
-            var tier2Rares = new HashSet<int>() { 30182, 30185, 30191, 30193, 30201, 30203, 30208, 30210, 30211, 30213, 30220, 30227, 30231, 30235, 30237, 30239 };
+            var tier1Rares = new HashSet<int>() { 30183, 30186, 30194, 30196, 30202, 30205, 30206, 30224, 30228, 30229, 30234, 30240, 30242, 30246, 45369 };
+            var tier2Rares = new HashSet<int>() { 30182, 30185, 30191, 30193, 30201, 30203, 30208, 30210, 30211, 30213, 30220, 30227, 30231, 30235, 30237 };
             var tier3Rares = new HashSet<int>() { 30258, 52034 };
 
             var tier4Rares = new HashSet<int>() { 30511, 30514, 30515, 30517, 30519, 30522, 30524, 30526, 30529, 30372, 30373, 30354, 30353, 30361 };
@@ -58,26 +58,26 @@ namespace ACE.Server.Factories
             int tier = 0;
 
             //if (ThreadSafeRandom.Next(1, t1_chance) == 1)   // 1 in 100 chance
-            if (ThreadSafeRandom.Next(1, 100) == 1)   // 1 in 100 chance
+            if (ThreadSafeRandom.Next(1, 200) == 1)   // 1 in 200 chance
             {
                 tier = 1;
-                if (ThreadSafeRandom.Next(1, 200) == 1)      // 1 in 200 chance
+                if (ThreadSafeRandom.Next(1, 2) == 1)      // 1 in 400 chance
                 {
                     tier = 2;
                 }
-                if (ThreadSafeRandom.Next(1, 3) == 1)     // 1 in 600 chance
+                if (ThreadSafeRandom.Next(1, 3) == 1)     // 1 in 1200 chance
                 {
                     tier = 3;
                 }
-                if (ThreadSafeRandom.Next(1, 5) == 1)    // 1 in 3000 chance
+                if (ThreadSafeRandom.Next(1, 4) == 1)    // 1 in 4800 chance
                 {
                     tier = 4;
                 }
-                if (ThreadSafeRandom.Next(1, 3) == 1)    // 1 in 9000 chance
+                if (ThreadSafeRandom.Next(1, 3) == 1)    // 1 in 14400 chance
                 {
                     tier = 5;
                 }
-                if (ThreadSafeRandom.Next(1, 4) == 1)    // 1 in 36000 chance
+                if (ThreadSafeRandom.Next(1, 3) == 1)    // 1 in 43200 chance
                 {
                     tier = 6;
                 }
