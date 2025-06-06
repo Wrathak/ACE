@@ -203,13 +203,13 @@ namespace ACE.Server.Factories
 
             var rng = ThreadSafeRandom.NextInterval(profile.LootQualityMod);
 
-            //if (rng < chance * 0.05f) // 5% Chance of 4 Spells on Armor/Weapons
-            //    return 4;
-            if (rng < chance * 0.15f)  // 15% Chance of 3 Spells on Armor/Weapons
+            if (rng < chance * 0.05f)  // 5% Chance of 4 Spells on Armor/Weapons
+                return 4;
+            if (rng < chance * 0.15f)  // 10% Chance of 3 Spells on Armor/Weapons
                 return 3;
-            if (rng < chance * 0.55f)  // 40% Chance of 2 Spells on Armor/Weapons
+            if (rng < chance * 0.50f)  // 35% Chance of 2 Spells on Armor/Weapons
                 return 2;
-            if (rng < chance)          // 45% Chance of 1 Spells on Armor/Weapons
+            if (rng < chance)          // 50% Chance of 1 Spells on Armor/Weapons
                 return 1;
             else
                 return 0;

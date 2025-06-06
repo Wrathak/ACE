@@ -1,0 +1,818 @@
+2024-05-17 12:01:55,791 [1] INFO  (ACE.Server.Program) Starting ACEmulator...
+2024-05-17 12:05:17,578 [1] INFO  (ACE.Server.Program) Initializing ConfigManager...
+2024-05-17 12:05:17,579 [1] INFO  (ACE.Server.Program) Initializing ModManager...
+2024-05-17 12:05:17,580 [1] INFO  (ACE.Server.Mods.ModManager) Created mod folder at:
+c:\ACE\Mods\
+2024-05-17 12:05:17,581 [1] INFO  (ACE.Server.Program) Pruning invalid friends from all friend lists...
+2024-05-17 12:05:18,244 [1] INFO  (ACE.Server.Program) Pruned 0 invalid friends found on friend lists.
+2024-05-17 12:05:18,244 [1] INFO  (ACE.Server.Program) Automatic Server version check started...
+2024-05-17 12:05:18,355 [1] INFO  (ACE.Server.Program) Current Server Binary: 1.60.4528.20240423152428-master-aeae3ef
+2024-05-17 12:05:18,555 [1] INFO  (ACE.Server.Program) Latest Server Version is v1.60.4528 -- No Update Required!
+2024-05-17 12:05:18,555 [1] INFO  (ACE.Server.Program) Automatic World Database Update started...
+2024-05-17 12:05:18,581 [1] INFO  (ACE.Server.Program) Current World Database version: Base - v0.8.7 | Patch - v0.9.279
+2024-05-17 12:05:18,742 [1] INFO  (ACE.Server.Program) Latest patch version is v0.9.279 -- No Update Required!
+2024-05-17 12:05:18,742 [1] INFO  (ACE.Server.Program) Automatic World Database Update complete.
+2024-05-17 12:05:18,750 [1] INFO  (ACE.Server.Program) Automatic Database Patching started...
+2024-05-17 12:05:20,764 [1] INFO  (ACE.Server.Program) Automatic Database Patching complete.
+2024-05-17 12:05:20,777 [1] INFO  (ACE.Server.Program) Initializing ServerManager...
+2024-05-17 12:05:20,777 [1] INFO  (ACE.Server.Program) Initializing DatManager...
+2024-05-17 12:05:20,947 [1] INFO  (ACE.DatLoader.DatManager) Successfully opened C:\Users\Wrath\Documents\GitHub\ACE\Dats\client_cell_1.dat file, containing 805348 records, iteration 982
+2024-05-17 12:05:20,995 [1] INFO  (ACE.DatLoader.DatManager) Successfully opened C:\Users\Wrath\Documents\GitHub\ACE\Dats\client_portal.dat file, containing 79694 records, iteration 2072
+2024-05-17 12:05:20,999 [1] INFO  (ACE.DatLoader.DatManager) Successfully opened C:\Users\Wrath\Documents\GitHub\ACE\Dats\client_local_English.dat file, containing 118 records, iteration 994
+2024-05-17 12:05:20,999 [1] INFO  (ACE.Server.Program) DAT Patching Disabled...
+2024-05-17 12:05:20,999 [1] INFO  (ACE.Server.Program) Initializing DatabaseManager...
+2024-05-17 12:05:21,014 [1] DEBUG (ACE.Database.AuthenticationDatabase) Successfully connected to ace_auth database on 127.0.0.1:3306.
+2024-05-17 12:05:21,036 [1] WARN  (ACE.Database.DatabaseManager) Authentication Database does not contain any admin accounts. The next account to be created will automatically be promoted to an Admin account.
+2024-05-17 12:05:21,038 [1] DEBUG (ACE.Database.WorldDatabase) [DATABASE] Successfully connected to ace_world database on 127.0.0.1:3306.
+2024-05-17 12:05:21,155 [1] DEBUG (ACE.Database.ShardDatabase) [DATABASE] Successfully connected to ace_shard database on 127.0.0.1:3306.
+2024-05-17 12:05:21,155 [1] INFO  (ACE.Server.Program) Starting DatabaseManager...
+2024-05-17 12:05:21,155 [1] INFO  (ACE.Server.Program) Starting PropertyManager...
+2024-05-17 12:05:21,181 [1] INFO  (ACE.Server.Program) Initializing GuidManager...
+2024-05-17 12:05:21,185 [1] DEBUG (ACE.Server.Managers.GuidManager) player GUID Allocator current is now 50000001 of 5FFFFFFF
+2024-05-17 12:05:21,187 [1] DEBUG (ACE.Server.Managers.GuidManager) dynamic GUID Allocator current is now 80000000 of FFFFFFFE
+2024-05-17 12:05:21,190 [32] DEBUG (ACE.Server.Managers.GuidManager) dynamic GUID Sequence gaps initialized with total availableIDs of 0
+2024-05-17 12:05:21,190 [1] INFO  (ACE.Server.Program) Precaching World Database Disabled...
+2024-05-17 12:05:21,190 [1] INFO  (ACE.Server.Program) Initializing PlayerManager...
+2024-05-17 12:05:21,194 [1] INFO  (ACE.Server.Program) Initializing HouseManager...
+2024-05-17 12:05:21,496 [1] INFO  (ACE.Server.Program) Initializing InboundMessageManager...
+2024-05-17 12:05:21,535 [1] INFO  (ACE.Server.Program) Initializing SocketManager...
+2024-05-17 12:05:21,537 [1] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener ctor, host 0.0.0.0 port 9000
+2024-05-17 12:05:21,537 [1] INFO  (ACE.Server.Network.Managers.SocketManager) Binding ConnectionListener to 0.0.0.0:9000
+2024-05-17 12:05:21,537 [1] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener ctor, host 0.0.0.0 port 9001
+2024-05-17 12:05:21,537 [1] INFO  (ACE.Server.Network.Managers.SocketManager) Binding ConnectionListener to 0.0.0.0:9001
+2024-05-17 12:05:21,537 [1] DEBUG (ACE.Server.Network.ConnectionListener) Starting ConnectionListener, host 0.0.0.0 port 9001
+2024-05-17 12:05:21,538 [1] DEBUG (ACE.Server.Network.ConnectionListener) Starting ConnectionListener, host 0.0.0.0 port 9000
+2024-05-17 12:05:21,538 [1] INFO  (ACE.Server.Program) Initializing WorldManager...
+2024-05-17 12:05:21,541 [World Manager] INFO  (ACE.Server.Managers.LandblockManager) Preloading Landblocks...
+2024-05-17 12:05:21,541 [World Manager] INFO  (ACE.Server.Managers.LandblockManager) Found 6 landblock entries in PreloadedLandblocks configuration, 1 are set to preload.
+2024-05-17 12:05:21,541 [1] DEBUG (ACE.Server.Managers.WorldManager) ServerTime initialized to Date: Coldeve 15, 93 P.Y.  Time: Warmtide-and-Half
+2024-05-17 12:05:21,541 [1] DEBUG (ACE.Server.Managers.WorldManager) Current maximum allowed sessions: 128
+2024-05-17 12:05:21,541 [1] INFO  (ACE.Server.Managers.WorldManager) World started and is currently Closed and will open automatically when server startup is complete.
+2024-05-17 12:05:21,541 [1] INFO  (ACE.Server.Managers.WorldManager) To open world to players, use command: world open
+2024-05-17 12:05:21,541 [1] INFO  (ACE.Server.Program) Initializing EventManager...
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: DryreachPrisonQuest, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventDefaultON, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventKivikLirMorgluukAlive, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventMorgluukGuruk, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventMorgluukShaman, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventMorgluukTough, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventMorgluukWarrior, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventPortalOswaldA, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EvisSprayerAlwaysOn, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: MenhirDrummerN, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: MenhirIntactN, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: MenhirIntactNE, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: MenhirIntactNW, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: MenhirIntactSE, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: MenhirIntactSW, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: NorthEastPeace, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: NorthPeace, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: NorthWestPeace, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: SluiceGolemGen, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: SouthEastPeace, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: SouthWestPeace, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: TumerokLeaderPeace, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: UrsuinRugAliveRug1, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: UrsuinRugAliveRug2, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: AmeliaLostToys, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: AzaxisWave1, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: BloodAugRunBooter, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: bloodstonestockpilealive, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: CHGauntletArenaOneBooter, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: CHGauntletArenaTwoBooter, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ClaudeBoot1, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ClaudeBoot2, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ClaudeBoot3, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ClaudeBoot4, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ColoArenaFiveInActive, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ColoArenaFourInActive, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ColoArenaOneInActive, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ColoArenaThreeInActive, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ColoArenaTwoInActive, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: DemonSwarmMatronWave1, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: DiemosBossStart, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventClutchBroodu, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventClutchBrowerk, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventClutchKeerik, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventClutchKiree, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventClutchReeshan, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventClutchRehir, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventHeadMorgluukLinvak, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventRoadsEnd, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EWGauntletArenaOneBooter, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EWGauntletArenaTwoBooter, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: HandAugRunBooter, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: KeepFreebooterBlight, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: KeepFreebooterCourtyardBlight, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: KeepFreebooterSpireBlight, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: KeepFreebooterTowerBlight, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: KeepNorthwatchBlight, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: KeepNorthwatchCourtyardBlight, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: KeepNorthwatchSpireBlight, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: KeepNorthwatchTowerBlight, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: KillagurgWave1, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: MGHGroupSix, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: Monouga120HugeGenEvent, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: Monouga150GiantGenEvent, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: Monouga80LargeGenEvent, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ParadoxPeace, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ProdigalShadowNPCEvent, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ProdigalShadowWaveEvent, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: PumpkinKingBossStart, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: RBGauntletArenaOneBooter, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: RBGauntletArenaTwoBooter, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: RenegadeContact1, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: RenegadeContact2, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: RenegadeContact3, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: RenegadeContact4, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: RenegadeContact5, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: RenegadeGenerals, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: RynthidGenesisWave1, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: SavingAsheronsManaBarrierUpEvent, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: SavingAsheronsStartEvent, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: StoneFistsWave1, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: TheMasterBossStart, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ThunderChickenWave1, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: TormentWard1Up, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: TormentWard2Up, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: TormentWard3Up, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: TormentWard4Up, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: TormentWave1, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: VeryMadCowWave1, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: WebAugRunBooter, which is the default state for this event.
+2024-05-17 12:05:21,548 [1] DEBUG (ACE.Server.Managers.EventManager) EventManager Initalized.
+2024-05-17 12:05:21,548 [1] INFO  (ACE.Server.Program) Forcing .net garbage collection...
+2024-05-17 12:05:21,848 [1] INFO  (ACE.Server.Program) Initializing CommandManager...
+2024-05-17 12:05:21,871 [1] INFO  (ACE.Server.Program) Registering ModManager commands...
+2024-05-17 12:05:21,872 [1] INFO  (ACE.Server.Mods.ModManager) No mods to display.
+
+2024-05-17 12:05:21,873 [1] INFO  (ACE.Server.Managers.PlayerManager) [CHAT][AUDIT] [SYSTEM] says on the Audit channel, "World is now open"
+2024-05-17 12:05:21,902 [World Manager] DEBUG (ACE.Server.Managers.LandblockManager) Landblock E74E, (Hebian-To (Global Events)) preloaded. IncludeAdjacents = False, Permaload = True
+2024-05-17 12:05:21,902 [World Manager] DEBUG (ACE.Server.Managers.LandblockManager) Landblock A9B4FFFF specified but not enabled in config, skipping
+2024-05-17 12:05:21,902 [World Manager] DEBUG (ACE.Server.Managers.LandblockManager) Landblock DA55FFFF specified but not enabled in config, skipping
+2024-05-17 12:05:21,902 [World Manager] DEBUG (ACE.Server.Managers.LandblockManager) Landblock 7D64FFFF specified but not enabled in config, skipping
+2024-05-17 12:05:21,902 [World Manager] DEBUG (ACE.Server.Managers.LandblockManager) Landblock 0007FFFF specified but not enabled in config, skipping
+2024-05-17 12:05:21,902 [World Manager] DEBUG (ACE.Server.Managers.LandblockManager) Landblock 00000000 specified but not enabled in config, skipping
+2024-05-17 12:05:21,903 [World Manager] DEBUG (ACE.Server.Managers.WorldManager) Starting UpdateWorld thread
+2024-05-17 12:05:22,010 [32] DEBUG (ACE.Server.Managers.GuidManager) dynamic GUID Sequence gaps exhausted. Any new, non-recycled GUID will be current + 1. current is now 80000000
+2024-05-17 12:05:22,814 [World Manager] DEBUG (ACE.Server.Managers.EventManager) [EVENT] Viridian Type 1 Stopgap (0x800000B7|70820) started an event: viridian1statue4
+2024-05-17 12:05:22,819 [World Manager] DEBUG (ACE.Server.Managers.EventManager) [EVENT] Viridian Type 2 Stopgap (0x800000B8|70832) started an event: viridian2statue3
+2024-05-17 12:05:24,826 [World Manager] DEBUG (ACE.Server.Managers.EventManager) [EVENT] Royal Wedding Anniversary Stopgap! (0x800000B9|80229) started an event: ReceptionGames
+2024-05-17 12:09:00,056 [2] WARN  (ACE.Server.Program) Unsafe server shutdown detected! Data loss is possible!
+2024-05-17 12:09:20,892 [1] INFO  (ACE.Server.Program) Starting ACEmulator...
+2024-05-17 12:09:20,899 [1] INFO  (ACE.Server.Program) Initializing ConfigManager...
+2024-05-17 12:09:20,938 [1] INFO  (ACE.Server.Program) Initializing ModManager...
+2024-05-17 12:09:20,940 [1] INFO  (ACE.Server.Program) Pruning invalid friends from all friend lists...
+2024-05-17 12:09:21,596 [1] INFO  (ACE.Server.Program) Pruned 0 invalid friends found on friend lists.
+2024-05-17 12:09:21,596 [1] INFO  (ACE.Server.Program) Automatic Server version check started...
+2024-05-17 12:09:21,710 [1] INFO  (ACE.Server.Program) Current Server Binary: 1.60.4528.20240423152428-master-aeae3ef
+2024-05-17 12:09:21,942 [1] INFO  (ACE.Server.Program) Latest Server Version is v1.60.4528 -- No Update Required!
+2024-05-17 12:09:21,943 [1] INFO  (ACE.Server.Program) Automatic World Database Update started...
+2024-05-17 12:09:21,969 [1] INFO  (ACE.Server.Program) Current World Database version: Base - v0.8.7 | Patch - v0.9.279
+2024-05-17 12:09:22,131 [1] INFO  (ACE.Server.Program) Latest patch version is v0.9.279 -- No Update Required!
+2024-05-17 12:09:22,131 [1] INFO  (ACE.Server.Program) Automatic World Database Update complete.
+2024-05-17 12:09:22,137 [1] INFO  (ACE.Server.Program) Automatic Database Patching started...
+2024-05-17 12:09:24,143 [1] INFO  (ACE.Server.Program) Automatic Database Patching complete.
+2024-05-17 12:09:24,153 [1] INFO  (ACE.Server.Program) Initializing ServerManager...
+2024-05-17 12:09:24,153 [1] INFO  (ACE.Server.Program) Initializing DatManager...
+2024-05-17 12:09:24,325 [1] INFO  (ACE.DatLoader.DatManager) Successfully opened C:\Users\Wrath\Documents\GitHub\ACE\Dats\client_cell_1.dat file, containing 805348 records, iteration 982
+2024-05-17 12:09:24,371 [1] INFO  (ACE.DatLoader.DatManager) Successfully opened C:\Users\Wrath\Documents\GitHub\ACE\Dats\client_portal.dat file, containing 79694 records, iteration 2072
+2024-05-17 12:09:24,372 [1] INFO  (ACE.DatLoader.DatManager) Successfully opened C:\Users\Wrath\Documents\GitHub\ACE\Dats\client_local_English.dat file, containing 118 records, iteration 994
+2024-05-17 12:09:24,372 [1] INFO  (ACE.Server.Program) DAT Patching Disabled...
+2024-05-17 12:09:24,372 [1] INFO  (ACE.Server.Program) Initializing DatabaseManager...
+2024-05-17 12:09:24,388 [1] DEBUG (ACE.Database.AuthenticationDatabase) Successfully connected to ace_auth database on 127.0.0.1:3306.
+2024-05-17 12:09:24,407 [1] WARN  (ACE.Database.DatabaseManager) Authentication Database does not contain any admin accounts. The next account to be created will automatically be promoted to an Admin account.
+2024-05-17 12:09:24,409 [1] DEBUG (ACE.Database.WorldDatabase) [DATABASE] Successfully connected to ace_world database on 127.0.0.1:3306.
+2024-05-17 12:09:24,513 [1] DEBUG (ACE.Database.ShardDatabase) [DATABASE] Successfully connected to ace_shard database on 127.0.0.1:3306.
+2024-05-17 12:09:24,513 [1] INFO  (ACE.Server.Program) Starting DatabaseManager...
+2024-05-17 12:09:24,513 [1] INFO  (ACE.Server.Program) Starting PropertyManager...
+2024-05-17 12:09:24,539 [1] INFO  (ACE.Server.Program) Initializing GuidManager...
+2024-05-17 12:09:24,543 [1] DEBUG (ACE.Server.Managers.GuidManager) player GUID Allocator current is now 50000001 of 5FFFFFFF
+2024-05-17 12:09:24,544 [1] DEBUG (ACE.Server.Managers.GuidManager) dynamic GUID Allocator current is now 80000000 of FFFFFFFE
+2024-05-17 12:09:24,548 [11] DEBUG (ACE.Server.Managers.GuidManager) dynamic GUID Sequence gaps initialized with total availableIDs of 0
+2024-05-17 12:09:24,548 [1] INFO  (ACE.Server.Program) Precaching World Database Disabled...
+2024-05-17 12:09:24,548 [1] INFO  (ACE.Server.Program) Initializing PlayerManager...
+2024-05-17 12:09:24,552 [1] INFO  (ACE.Server.Program) Initializing HouseManager...
+2024-05-17 12:09:24,856 [1] INFO  (ACE.Server.Program) Initializing InboundMessageManager...
+2024-05-17 12:09:24,944 [1] INFO  (ACE.Server.Program) Initializing SocketManager...
+2024-05-17 12:09:24,946 [1] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener ctor, host 0.0.0.0 port 9000
+2024-05-17 12:09:24,946 [1] INFO  (ACE.Server.Network.Managers.SocketManager) Binding ConnectionListener to 0.0.0.0:9000
+2024-05-17 12:09:24,946 [1] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener ctor, host 0.0.0.0 port 9001
+2024-05-17 12:09:24,946 [1] INFO  (ACE.Server.Network.Managers.SocketManager) Binding ConnectionListener to 0.0.0.0:9001
+2024-05-17 12:09:24,946 [1] DEBUG (ACE.Server.Network.ConnectionListener) Starting ConnectionListener, host 0.0.0.0 port 9001
+2024-05-17 12:09:24,947 [1] DEBUG (ACE.Server.Network.ConnectionListener) Starting ConnectionListener, host 0.0.0.0 port 9000
+2024-05-17 12:09:24,947 [1] INFO  (ACE.Server.Program) Initializing WorldManager...
+2024-05-17 12:09:24,949 [World Manager] INFO  (ACE.Server.Managers.LandblockManager) Preloading Landblocks...
+2024-05-17 12:09:24,949 [World Manager] INFO  (ACE.Server.Managers.LandblockManager) Found 6 landblock entries in PreloadedLandblocks configuration, 1 are set to preload.
+2024-05-17 12:09:24,949 [1] DEBUG (ACE.Server.Managers.WorldManager) ServerTime initialized to Date: Coldeve 15, 93 P.Y.  Time: Warmtide-and-Half
+2024-05-17 12:09:24,949 [1] DEBUG (ACE.Server.Managers.WorldManager) Current maximum allowed sessions: 128
+2024-05-17 12:09:24,950 [1] INFO  (ACE.Server.Managers.WorldManager) World started and is currently Closed and will open automatically when server startup is complete.
+2024-05-17 12:09:24,950 [1] INFO  (ACE.Server.Managers.WorldManager) To open world to players, use command: world open
+2024-05-17 12:09:24,950 [1] INFO  (ACE.Server.Program) Initializing EventManager...
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: DryreachPrisonQuest, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventDefaultON, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventKivikLirMorgluukAlive, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventMorgluukGuruk, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventMorgluukShaman, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventMorgluukTough, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventMorgluukWarrior, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventPortalOswaldA, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EvisSprayerAlwaysOn, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: MenhirDrummerN, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: MenhirIntactN, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: MenhirIntactNE, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: MenhirIntactNW, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: MenhirIntactSE, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: MenhirIntactSW, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: NorthEastPeace, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: NorthPeace, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: NorthWestPeace, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: SluiceGolemGen, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: SouthEastPeace, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: SouthWestPeace, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: TumerokLeaderPeace, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: UrsuinRugAliveRug1, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: UrsuinRugAliveRug2, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: AmeliaLostToys, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: AzaxisWave1, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: BloodAugRunBooter, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: bloodstonestockpilealive, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: CHGauntletArenaOneBooter, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: CHGauntletArenaTwoBooter, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ClaudeBoot1, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ClaudeBoot2, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ClaudeBoot3, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ClaudeBoot4, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ColoArenaFiveInActive, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ColoArenaFourInActive, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ColoArenaOneInActive, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ColoArenaThreeInActive, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ColoArenaTwoInActive, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: DemonSwarmMatronWave1, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: DiemosBossStart, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventClutchBroodu, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventClutchBrowerk, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventClutchKeerik, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventClutchKiree, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventClutchReeshan, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventClutchRehir, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventHeadMorgluukLinvak, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventRoadsEnd, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EWGauntletArenaOneBooter, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EWGauntletArenaTwoBooter, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: HandAugRunBooter, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: KeepFreebooterBlight, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: KeepFreebooterCourtyardBlight, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: KeepFreebooterSpireBlight, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: KeepFreebooterTowerBlight, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: KeepNorthwatchBlight, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: KeepNorthwatchCourtyardBlight, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: KeepNorthwatchSpireBlight, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: KeepNorthwatchTowerBlight, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: KillagurgWave1, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: MGHGroupSix, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: Monouga120HugeGenEvent, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: Monouga150GiantGenEvent, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: Monouga80LargeGenEvent, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ParadoxPeace, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ProdigalShadowNPCEvent, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ProdigalShadowWaveEvent, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: PumpkinKingBossStart, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: RBGauntletArenaOneBooter, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: RBGauntletArenaTwoBooter, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: RenegadeContact1, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: RenegadeContact2, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: RenegadeContact3, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: RenegadeContact4, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: RenegadeContact5, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: RenegadeGenerals, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: RynthidGenesisWave1, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: SavingAsheronsManaBarrierUpEvent, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: SavingAsheronsStartEvent, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: StoneFistsWave1, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: TheMasterBossStart, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ThunderChickenWave1, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: TormentWard1Up, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: TormentWard2Up, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: TormentWard3Up, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: TormentWard4Up, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: TormentWave1, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: VeryMadCowWave1, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: WebAugRunBooter, which is the default state for this event.
+2024-05-17 12:09:24,955 [1] DEBUG (ACE.Server.Managers.EventManager) EventManager Initalized.
+2024-05-17 12:09:24,955 [1] INFO  (ACE.Server.Program) Forcing .net garbage collection...
+2024-05-17 12:09:25,177 [1] INFO  (ACE.Server.Program) Initializing CommandManager...
+2024-05-17 12:09:25,198 [1] INFO  (ACE.Server.Program) Registering ModManager commands...
+2024-05-17 12:09:25,199 [1] INFO  (ACE.Server.Mods.ModManager) No mods to display.
+
+2024-05-17 12:09:25,201 [1] INFO  (ACE.Server.Managers.PlayerManager) [CHAT][AUDIT] [SYSTEM] says on the Audit channel, "World is now open"
+2024-05-17 12:09:25,232 [World Manager] DEBUG (ACE.Server.Managers.LandblockManager) Landblock E74E, (Hebian-To (Global Events)) preloaded. IncludeAdjacents = False, Permaload = True
+2024-05-17 12:09:25,232 [World Manager] DEBUG (ACE.Server.Managers.LandblockManager) Landblock A9B4FFFF specified but not enabled in config, skipping
+2024-05-17 12:09:25,232 [World Manager] DEBUG (ACE.Server.Managers.LandblockManager) Landblock DA55FFFF specified but not enabled in config, skipping
+2024-05-17 12:09:25,232 [World Manager] DEBUG (ACE.Server.Managers.LandblockManager) Landblock 7D64FFFF specified but not enabled in config, skipping
+2024-05-17 12:09:25,232 [World Manager] DEBUG (ACE.Server.Managers.LandblockManager) Landblock 0007FFFF specified but not enabled in config, skipping
+2024-05-17 12:09:25,232 [World Manager] DEBUG (ACE.Server.Managers.LandblockManager) Landblock 00000000 specified but not enabled in config, skipping
+2024-05-17 12:09:25,232 [World Manager] DEBUG (ACE.Server.Managers.WorldManager) Starting UpdateWorld thread
+2024-05-17 12:09:25,340 [11] DEBUG (ACE.Server.Managers.GuidManager) dynamic GUID Sequence gaps exhausted. Any new, non-recycled GUID will be current + 1. current is now 80000000
+2024-05-17 12:09:26,185 [World Manager] DEBUG (ACE.Server.Managers.EventManager) [EVENT] Viridian Type 1 Stopgap (0x800000B7|70820) started an event: viridian1statue2
+2024-05-17 12:09:26,190 [World Manager] DEBUG (ACE.Server.Managers.EventManager) [EVENT] Viridian Type 2 Stopgap (0x800000B8|70832) started an event: viridian2statue4
+2024-05-17 12:09:28,207 [World Manager] DEBUG (ACE.Server.Managers.EventManager) [EVENT] Royal Wedding Anniversary Stopgap! (0x800000B9|80229) started an event: ReceptionGames
+2024-05-17 12:10:53,236 [5] DEBUG (ACE.Server.Network.Managers.NetworkManager) Login Request from 127.0.0.1:61424
+2024-05-17 12:10:53,237 [5] DEBUG (ACE.Server.Network.Managers.NetworkManager) Creating new session for 127.0.0.1:61424 with id 0
+2024-05-17 12:10:53,246 [37] DEBUG (ACE.Server.Network.Handlers.AuthenticationHandler) new client connected: acservertracker:jj9h26hcsggc. setting session properties
+2024-05-17 12:10:53,252 [5] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9000).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:10:55,239 [5] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9000).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:10:55,249 [World Manager] DEBUG (ACE.Server.Network.Managers.NetworkManager) Removing session for 127.0.0.1:61424 with id 0
+2024-05-17 12:11:06,302 [5] DEBUG (ACE.Server.Network.Managers.NetworkManager) Login Request from 127.0.0.1:58839
+2024-05-17 12:11:06,302 [5] DEBUG (ACE.Server.Network.Managers.NetworkManager) Creating new session for 127.0.0.1:58839 with id 0
+2024-05-17 12:11:06,303 [36] INFO  (ACE.Server.Network.Handlers.AuthenticationHandler) Auto creating account for: wrathak
+2024-05-17 12:11:06,303 [36] WARN  (ACE.Server.Network.Handlers.AuthenticationHandler) Automatically setting account AccessLevel to Admin for account "wrathak" because there are no admin accounts in the current database.
+2024-05-17 12:11:06,508 [36] DEBUG (ACE.Server.Network.Handlers.AuthenticationHandler) new client connected: wrathak. setting session properties
+2024-05-17 12:11:06,522 [36] INFO  (ACE.Server.Network.Handlers.AuthenticationHandler) client wrathak connected with verified password
+2024-05-17 12:11:06,862 [World Manager] INFO  (ACE.Server.Network.Handlers.DDDHandler) [DDD] client wrathak responded to Interrogation:
+ client_portal.dat: 2072 | client_cell_1.dat: 982 | client_Local_English.dat: 994 | no update required
+2024-05-17 12:11:14,308 [5] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:11:16,309 [5] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:11:18,310 [5] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:11:20,311 [5] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:11:21,670 [5] DEBUG (ACE.Server.Network.Managers.NetworkManager) Login Request from 127.0.0.1:50992
+2024-05-17 12:11:21,670 [5] DEBUG (ACE.Server.Network.Managers.NetworkManager) Creating new session for 127.0.0.1:50992 with id 1
+2024-05-17 12:11:21,672 [12] DEBUG (ACE.Server.Network.Handlers.AuthenticationHandler) new client connected: wrathak. setting session properties
+2024-05-17 12:11:21,686 [5] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:11:22,313 [5] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:11:23,686 [World Manager] INFO  (ACE.Server.Network.Session) Session 0\127.0.0.1:58839 dropped. Account: wrathak, Player: , Reason: Account was logged in, booting currently connected account in favor of new connection
+2024-05-17 12:11:23,686 [World Manager] DEBUG (ACE.Server.Network.Managers.NetworkManager) Removing session for 127.0.0.1:58839 with id 0
+2024-05-17 12:11:23,686 [World Manager] INFO  (ACE.Server.Network.Session) Session 1\127.0.0.1:50992 dropped. Account: , Player: , Reason: Account In Use: Found another session already logged in for this account
+2024-05-17 12:11:23,686 [World Manager] DEBUG (ACE.Server.Network.Managers.NetworkManager) Removing session for 127.0.0.1:50992 with id 1
+2024-05-17 12:11:25,670 [5] DEBUG (ACE.Server.Network.Managers.NetworkManager) Unsolicited Packet from 127.0.0.1:50992 with Id 1
+2024-05-17 12:11:26,479 [41] DEBUG (ACE.Server.Network.Managers.NetworkManager) Unsolicited Packet from 127.0.0.1:50992 with Id 1
+2024-05-17 12:11:41,470 [41] DEBUG (ACE.Server.Network.Managers.NetworkManager) Login Request from 127.0.0.1:55942
+2024-05-17 12:11:41,470 [41] DEBUG (ACE.Server.Network.Managers.NetworkManager) Creating new session for 127.0.0.1:55942 with id 0
+2024-05-17 12:11:41,471 [43] DEBUG (ACE.Server.Network.Handlers.AuthenticationHandler) new client connected: wrathak. setting session properties
+2024-05-17 12:11:41,484 [43] INFO  (ACE.Server.Network.Handlers.AuthenticationHandler) client wrathak connected with verified password
+2024-05-17 12:11:41,813 [World Manager] INFO  (ACE.Server.Network.Handlers.DDDHandler) [DDD] client wrathak responded to Interrogation:
+ client_portal.dat: 2072 | client_cell_1.dat: 982 | client_Local_English.dat: 994 | no update required
+2024-05-17 12:12:11,485 [16] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:12:13,486 [16] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:12:13,643 [16] DEBUG (ACE.Server.Network.Managers.NetworkManager) Login Request from 127.0.0.1:64518
+2024-05-17 12:12:13,643 [16] DEBUG (ACE.Server.Network.Managers.NetworkManager) Creating new session for 127.0.0.1:64518 with id 1
+2024-05-17 12:12:13,644 [43] DEBUG (ACE.Server.Network.Handlers.AuthenticationHandler) new client connected: wrathak. setting session properties
+2024-05-17 12:12:13,658 [16] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:12:15,487 [16] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:12:15,658 [World Manager] INFO  (ACE.Server.Network.Session) Session 0\127.0.0.1:55942 dropped. Account: wrathak, Player: , Reason: Account was logged in, booting currently connected account in favor of new connection
+2024-05-17 12:12:15,658 [World Manager] DEBUG (ACE.Server.Network.Managers.NetworkManager) Removing session for 127.0.0.1:55942 with id 0
+2024-05-17 12:12:15,658 [World Manager] INFO  (ACE.Server.Network.Session) Session 1\127.0.0.1:64518 dropped. Account: , Player: , Reason: Account In Use: Found another session already logged in for this account
+2024-05-17 12:12:15,658 [World Manager] DEBUG (ACE.Server.Network.Managers.NetworkManager) Removing session for 127.0.0.1:64518 with id 1
+2024-05-17 12:12:17,429 [16] DEBUG (ACE.Server.Network.Managers.NetworkManager) Unsolicited Packet from 127.0.0.1:64518 with Id 1
+2024-05-17 12:12:33,610 [16] DEBUG (ACE.Server.Network.Managers.NetworkManager) Login Request from 127.0.0.1:59120
+2024-05-17 12:12:33,610 [16] DEBUG (ACE.Server.Network.Managers.NetworkManager) Creating new session for 127.0.0.1:59120 with id 0
+2024-05-17 12:12:33,611 [7] DEBUG (ACE.Server.Network.Handlers.AuthenticationHandler) new client connected: wrathak. setting session properties
+2024-05-17 12:12:33,623 [7] INFO  (ACE.Server.Network.Handlers.AuthenticationHandler) client wrathak connected with verified password
+2024-05-17 12:12:33,976 [World Manager] INFO  (ACE.Server.Network.Handlers.DDDHandler) [DDD] client wrathak responded to Interrogation:
+ client_portal.dat: 2072 | client_cell_1.dat: 982 | client_Local_English.dat: 994 | no update required
+2024-05-17 12:13:29,749 [47] DEBUG (ACE.Server.Managers.WorldManager) GetPossessedBiotasInParallel for Gm took 6 ms
+2024-05-17 12:13:29,834 [World Manager] DEBUG (ACE.Server.WorldObjects.Player) [LOGIN] Account wrathak entered the world with character +Gm (0x50000001) at 05/17/2024 12:13:29.
+2024-05-17 12:14:03,644 [45] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:14:04,897 [45] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:14:05,644 [45] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:14:07,644 [45] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:14:09,646 [45] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:14:11,040 [45] DEBUG (ACE.Server.Network.Managers.NetworkManager) Login Request from 127.0.0.1:56132
+2024-05-17 12:14:11,040 [45] DEBUG (ACE.Server.Network.Managers.NetworkManager) Creating new session for 127.0.0.1:56132 with id 1
+2024-05-17 12:14:11,041 [39] DEBUG (ACE.Server.Network.Handlers.AuthenticationHandler) new client connected: wrathak. setting session properties
+2024-05-17 12:14:11,054 [45] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:14:11,647 [45] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:14:11,905 [45] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:14:13,055 [World Manager] INFO  (ACE.Server.Network.Session) Session 0\127.0.0.1:59120 dropped. Account: wrathak, Player: +Gm, Reason: Account was logged in, booting currently connected account in favor of new connection
+2024-05-17 12:14:13,061 [World Manager] DEBUG (ACE.Server.Network.Managers.NetworkManager) Removing session for 127.0.0.1:59120 with id 0
+2024-05-17 12:14:13,061 [World Manager] INFO  (ACE.Server.Network.Session) Session 1\127.0.0.1:56132 dropped. Account: , Player: , Reason: Account In Use: Found another session already logged in for this account
+2024-05-17 12:14:13,061 [World Manager] DEBUG (ACE.Server.Network.Managers.NetworkManager) Removing session for 127.0.0.1:56132 with id 1
+2024-05-17 12:14:15,040 [45] DEBUG (ACE.Server.Network.Managers.NetworkManager) Unsolicited Packet from 127.0.0.1:56132 with Id 1
+2024-05-17 12:14:15,473 [45] DEBUG (ACE.Server.Network.Managers.NetworkManager) Unsolicited Packet from 127.0.0.1:56132 with Id 1
+2024-05-17 12:14:18,738 [World Manager] DEBUG (ACE.Server.WorldObjects.Player) [LOGOUT] Account wrathak exited the world with character +Gm (0x50000001) at 05/17/2024 12:14:18.
+2024-05-17 12:14:18,773 [47] DEBUG (ACE.Server.WorldObjects.Player) +Gm has been saved. It took 38 ms to process the request.
+2024-05-17 12:14:27,434 [40] DEBUG (ACE.Server.Managers.PropertyManager) PropertyManager DoWork took 2,892 ms
+2024-05-17 12:15:37,735 [45] DEBUG (ACE.Server.Network.Managers.NetworkManager) Login Request from 127.0.0.1:64794
+2024-05-17 12:15:37,735 [45] DEBUG (ACE.Server.Network.Managers.NetworkManager) Creating new session for 127.0.0.1:64794 with id 0
+2024-05-17 12:15:37,736 [40] DEBUG (ACE.Server.Network.Handlers.AuthenticationHandler) new client connected: acservertracker:jj9h26hcsggc. setting session properties
+2024-05-17 12:15:39,736 [World Manager] DEBUG (ACE.Server.Network.Managers.NetworkManager) Removing session for 127.0.0.1:64794 with id 0
+2024-05-17 12:15:39,736 [45] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9000).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:15:40,801 [45] DEBUG (ACE.Server.Network.Managers.NetworkManager) Login Request from 127.0.0.1:57211
+2024-05-17 12:15:40,801 [45] DEBUG (ACE.Server.Network.Managers.NetworkManager) Creating new session for 127.0.0.1:57211 with id 0
+2024-05-17 12:15:40,802 [40] DEBUG (ACE.Server.Network.Handlers.AuthenticationHandler) new client connected: wrathak. setting session properties
+2024-05-17 12:15:40,814 [40] INFO  (ACE.Server.Network.Handlers.AuthenticationHandler) client wrathak connected with verified password
+2024-05-17 12:15:41,164 [World Manager] INFO  (ACE.Server.Network.Handlers.DDDHandler) [DDD] client wrathak responded to Interrogation:
+ client_portal.dat: 2072 | client_cell_1.dat: 982 | client_Local_English.dat: 994 | no update required
+2024-05-17 12:15:46,045 [11] DEBUG (ACE.Server.Managers.WorldManager) GetPossessedBiotasInParallel for Gm took 1 ms
+2024-05-17 12:15:46,048 [World Manager] DEBUG (ACE.Server.WorldObjects.Player) [LOGIN] Account wrathak entered the world with character +Gm (0x50000001) at 05/17/2024 12:15:46.
+2024-05-17 12:16:34,825 [57] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:16:35,097 [57] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:16:36,697 [World Manager] INFO  (ACE.Server.Network.Session) Session 0\127.0.0.1:57211 dropped. Account: wrathak, Player: +Gm, Reason: PacketHeader Disconnect
+2024-05-17 12:16:36,697 [World Manager] DEBUG (ACE.Server.Network.Managers.NetworkManager) Removing session for 127.0.0.1:57211 with id 0
+2024-05-17 12:16:42,387 [World Manager] DEBUG (ACE.Server.WorldObjects.Player) [LOGOUT] Account wrathak exited the world with character +Gm (0x50000001) at 05/17/2024 12:16:42.
+2024-05-17 12:16:42,417 [3] DEBUG (ACE.Server.WorldObjects.Player) +Gm has been saved. It took 32 ms to process the request.
+2024-05-17 12:19:24,549 [11] DEBUG (ACE.Server.Managers.PropertyManager) PropertyManager DoWork took 2 ms
+2024-05-17 12:24:24,551 [11] DEBUG (ACE.Server.Managers.PropertyManager) PropertyManager DoWork took 3 ms
+2024-05-17 12:24:26,039 [World Manager] DEBUG (ACE.Server.Managers.EventManager) [EVENT] Viridian Type 1 Stopgap (0x800000B7|70820) stopped an event: viridian1statue2
+2024-05-17 12:24:26,039 [World Manager] DEBUG (ACE.Server.Managers.EventManager) [EVENT] Viridian Type 1 Stopgap (0x800000B7|70820) started an event: viridian1statue2
+2024-05-17 12:24:26,039 [World Manager] DEBUG (ACE.Server.Managers.EventManager) [EVENT] Viridian Type 2 Stopgap (0x800000B8|70832) stopped an event: viridian2statue4
+2024-05-17 12:24:26,039 [World Manager] DEBUG (ACE.Server.Managers.EventManager) [EVENT] Viridian Type 2 Stopgap (0x800000B8|70832) started an event: viridian2statue3
+2024-05-17 12:28:36,821 [2] WARN  (ACE.Server.Program) Unsafe server shutdown detected! Data loss is possible!
+2024-05-17 12:33:06,030 [1] INFO  (ACE.Server.Program) Starting ACEmulator...
+2024-05-17 12:33:06,037 [1] INFO  (ACE.Server.Program) Initializing ConfigManager...
+2024-05-17 12:33:06,076 [1] INFO  (ACE.Server.Program) Initializing ModManager...
+2024-05-17 12:33:06,078 [1] INFO  (ACE.Server.Program) Pruning invalid friends from all friend lists...
+2024-05-17 12:33:06,734 [1] INFO  (ACE.Server.Program) Pruned 0 invalid friends found on friend lists.
+2024-05-17 12:33:06,734 [1] INFO  (ACE.Server.Program) Automatic Server version check started...
+2024-05-17 12:33:06,844 [1] INFO  (ACE.Server.Program) Current Server Binary: 1.60.4528.20240423152428-master-aeae3ef
+2024-05-17 12:33:07,053 [1] INFO  (ACE.Server.Program) Latest Server Version is v1.60.4528 -- No Update Required!
+2024-05-17 12:33:07,054 [1] INFO  (ACE.Server.Program) Automatic World Database Update started...
+2024-05-17 12:33:07,080 [1] INFO  (ACE.Server.Program) Current World Database version: Base - v0.8.7 | Patch - v0.9.279
+2024-05-17 12:33:07,241 [1] INFO  (ACE.Server.Program) Latest patch version is v0.9.279 -- No Update Required!
+2024-05-17 12:33:07,241 [1] INFO  (ACE.Server.Program) Automatic World Database Update complete.
+2024-05-17 12:33:07,246 [1] INFO  (ACE.Server.Program) Automatic Database Patching started...
+2024-05-17 12:33:09,253 [1] INFO  (ACE.Server.Program) Automatic Database Patching complete.
+2024-05-17 12:33:09,263 [1] INFO  (ACE.Server.Program) Initializing ServerManager...
+2024-05-17 12:33:09,263 [1] INFO  (ACE.Server.Program) Initializing DatManager...
+2024-05-17 12:33:09,433 [1] INFO  (ACE.DatLoader.DatManager) Successfully opened C:\Users\Wrath\Documents\GitHub\ACE\Dats\client_cell_1.dat file, containing 805348 records, iteration 982
+2024-05-17 12:33:09,478 [1] INFO  (ACE.DatLoader.DatManager) Successfully opened C:\Users\Wrath\Documents\GitHub\ACE\Dats\client_portal.dat file, containing 79694 records, iteration 2072
+2024-05-17 12:33:09,480 [1] INFO  (ACE.DatLoader.DatManager) Successfully opened C:\Users\Wrath\Documents\GitHub\ACE\Dats\client_local_English.dat file, containing 118 records, iteration 994
+2024-05-17 12:33:09,480 [1] INFO  (ACE.Server.Program) DAT Patching Disabled...
+2024-05-17 12:33:09,480 [1] INFO  (ACE.Server.Program) Initializing DatabaseManager...
+2024-05-17 12:33:09,496 [1] DEBUG (ACE.Database.AuthenticationDatabase) Successfully connected to ace_auth database on 127.0.0.1:3306.
+2024-05-17 12:33:09,517 [1] DEBUG (ACE.Database.WorldDatabase) [DATABASE] Successfully connected to ace_world database on 127.0.0.1:3306.
+2024-05-17 12:33:09,626 [1] DEBUG (ACE.Database.ShardDatabase) [DATABASE] Successfully connected to ace_shard database on 127.0.0.1:3306.
+2024-05-17 12:33:09,626 [1] INFO  (ACE.Server.Program) Starting DatabaseManager...
+2024-05-17 12:33:09,627 [1] INFO  (ACE.Server.Program) Starting PropertyManager...
+2024-05-17 12:33:09,653 [1] INFO  (ACE.Server.Program) Initializing GuidManager...
+2024-05-17 12:33:09,657 [1] DEBUG (ACE.Server.Managers.GuidManager) player GUID Allocator current is now 50000002 of 5FFFFFFF
+2024-05-17 12:33:09,659 [1] DEBUG (ACE.Server.Managers.GuidManager) dynamic GUID Allocator current is now 800000C5 of FFFFFFFE
+2024-05-17 12:33:09,662 [11] DEBUG (ACE.Server.Managers.GuidManager) dynamic GUID Sequence gaps initialized with total availableIDs of 0
+2024-05-17 12:33:09,662 [1] INFO  (ACE.Server.Program) Precaching World Database Disabled...
+2024-05-17 12:33:09,662 [1] INFO  (ACE.Server.Program) Initializing PlayerManager...
+2024-05-17 12:33:09,885 [1] INFO  (ACE.Server.Program) Initializing HouseManager...
+2024-05-17 12:33:10,213 [1] INFO  (ACE.Server.Program) Initializing InboundMessageManager...
+2024-05-17 12:33:10,252 [1] INFO  (ACE.Server.Program) Initializing SocketManager...
+2024-05-17 12:33:10,254 [1] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener ctor, host 0.0.0.0 port 9000
+2024-05-17 12:33:10,254 [1] INFO  (ACE.Server.Network.Managers.SocketManager) Binding ConnectionListener to 0.0.0.0:9000
+2024-05-17 12:33:10,254 [1] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener ctor, host 0.0.0.0 port 9001
+2024-05-17 12:33:10,254 [1] INFO  (ACE.Server.Network.Managers.SocketManager) Binding ConnectionListener to 0.0.0.0:9001
+2024-05-17 12:33:10,254 [1] DEBUG (ACE.Server.Network.ConnectionListener) Starting ConnectionListener, host 0.0.0.0 port 9001
+2024-05-17 12:33:10,255 [1] DEBUG (ACE.Server.Network.ConnectionListener) Starting ConnectionListener, host 0.0.0.0 port 9000
+2024-05-17 12:33:10,255 [1] INFO  (ACE.Server.Program) Initializing WorldManager...
+2024-05-17 12:33:10,257 [World Manager] INFO  (ACE.Server.Managers.LandblockManager) Preloading Landblocks...
+2024-05-17 12:33:10,257 [World Manager] INFO  (ACE.Server.Managers.LandblockManager) Found 6 landblock entries in PreloadedLandblocks configuration, 1 are set to preload.
+2024-05-17 12:33:10,257 [1] DEBUG (ACE.Server.Managers.WorldManager) ServerTime initialized to Date: Coldeve 15, 93 P.Y.  Time: Gloaming
+2024-05-17 12:33:10,257 [1] DEBUG (ACE.Server.Managers.WorldManager) Current maximum allowed sessions: 128
+2024-05-17 12:33:10,257 [1] INFO  (ACE.Server.Managers.WorldManager) World started and is currently Closed and will open automatically when server startup is complete.
+2024-05-17 12:33:10,257 [1] INFO  (ACE.Server.Managers.WorldManager) To open world to players, use command: world open
+2024-05-17 12:33:10,257 [1] INFO  (ACE.Server.Program) Initializing EventManager...
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: DryreachPrisonQuest, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventDefaultON, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventKivikLirMorgluukAlive, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventMorgluukGuruk, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventMorgluukShaman, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventMorgluukTough, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventMorgluukWarrior, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventPortalOswaldA, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EvisSprayerAlwaysOn, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: MenhirDrummerN, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: MenhirIntactN, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: MenhirIntactNE, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: MenhirIntactNW, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: MenhirIntactSE, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: MenhirIntactSW, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: NorthEastPeace, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: NorthPeace, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: NorthWestPeace, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: SluiceGolemGen, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: SouthEastPeace, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: SouthWestPeace, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: TumerokLeaderPeace, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: UrsuinRugAliveRug1, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: UrsuinRugAliveRug2, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: AmeliaLostToys, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: AzaxisWave1, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: BloodAugRunBooter, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: bloodstonestockpilealive, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: CHGauntletArenaOneBooter, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: CHGauntletArenaTwoBooter, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ClaudeBoot1, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ClaudeBoot2, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ClaudeBoot3, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ClaudeBoot4, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ColoArenaFiveInActive, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ColoArenaFourInActive, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ColoArenaOneInActive, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ColoArenaThreeInActive, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ColoArenaTwoInActive, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: DemonSwarmMatronWave1, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: DiemosBossStart, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventClutchBroodu, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventClutchBrowerk, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventClutchKeerik, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventClutchKiree, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventClutchReeshan, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventClutchRehir, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventHeadMorgluukLinvak, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EventRoadsEnd, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EWGauntletArenaOneBooter, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: EWGauntletArenaTwoBooter, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: HandAugRunBooter, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: KeepFreebooterBlight, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: KeepFreebooterCourtyardBlight, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: KeepFreebooterSpireBlight, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: KeepFreebooterTowerBlight, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: KeepNorthwatchBlight, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: KeepNorthwatchCourtyardBlight, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: KeepNorthwatchSpireBlight, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: KeepNorthwatchTowerBlight, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: KillagurgWave1, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: MGHGroupSix, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: Monouga120HugeGenEvent, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: Monouga150GiantGenEvent, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: Monouga80LargeGenEvent, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ParadoxPeace, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ProdigalShadowNPCEvent, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ProdigalShadowWaveEvent, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: PumpkinKingBossStart, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: RBGauntletArenaOneBooter, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: RBGauntletArenaTwoBooter, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: RenegadeContact1, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: RenegadeContact2, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: RenegadeContact3, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: RenegadeContact4, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: RenegadeContact5, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: RenegadeGenerals, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: RynthidGenesisWave1, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: SavingAsheronsManaBarrierUpEvent, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: SavingAsheronsStartEvent, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: StoneFistsWave1, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: TheMasterBossStart, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: ThunderChickenWave1, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: TormentWard1Up, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: TormentWard2Up, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: TormentWard3Up, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: TormentWard4Up, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: TormentWave1, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: VeryMadCowWave1, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) [EVENT] SYSTEM started an event: WebAugRunBooter, which is the default state for this event.
+2024-05-17 12:33:10,262 [1] DEBUG (ACE.Server.Managers.EventManager) EventManager Initalized.
+2024-05-17 12:33:10,262 [1] INFO  (ACE.Server.Program) Forcing .net garbage collection...
+2024-05-17 12:33:10,491 [1] INFO  (ACE.Server.Program) Initializing CommandManager...
+2024-05-17 12:33:10,509 [1] INFO  (ACE.Server.Program) Registering ModManager commands...
+2024-05-17 12:33:10,510 [1] INFO  (ACE.Server.Mods.ModManager) No mods to display.
+
+2024-05-17 12:33:10,511 [1] INFO  (ACE.Server.Managers.PlayerManager) [CHAT][AUDIT] [SYSTEM] says on the Audit channel, "World is now open"
+2024-05-17 12:33:10,545 [World Manager] DEBUG (ACE.Server.Managers.LandblockManager) Landblock E74E, (Hebian-To (Global Events)) preloaded. IncludeAdjacents = False, Permaload = True
+2024-05-17 12:33:10,545 [World Manager] DEBUG (ACE.Server.Managers.LandblockManager) Landblock A9B4FFFF specified but not enabled in config, skipping
+2024-05-17 12:33:10,545 [World Manager] DEBUG (ACE.Server.Managers.LandblockManager) Landblock DA55FFFF specified but not enabled in config, skipping
+2024-05-17 12:33:10,545 [World Manager] DEBUG (ACE.Server.Managers.LandblockManager) Landblock 7D64FFFF specified but not enabled in config, skipping
+2024-05-17 12:33:10,545 [World Manager] DEBUG (ACE.Server.Managers.LandblockManager) Landblock 0007FFFF specified but not enabled in config, skipping
+2024-05-17 12:33:10,545 [World Manager] DEBUG (ACE.Server.Managers.LandblockManager) Landblock 00000000 specified but not enabled in config, skipping
+2024-05-17 12:33:10,545 [World Manager] DEBUG (ACE.Server.Managers.WorldManager) Starting UpdateWorld thread
+2024-05-17 12:33:10,652 [7] DEBUG (ACE.Server.Managers.GuidManager) dynamic GUID Sequence gaps exhausted. Any new, non-recycled GUID will be current + 1. current is now 800000C5
+2024-05-17 12:33:11,500 [World Manager] DEBUG (ACE.Server.Managers.EventManager) [EVENT] Viridian Type 1 Stopgap (0x8000017C|70820) started an event: viridian1statue3
+2024-05-17 12:33:11,505 [World Manager] DEBUG (ACE.Server.Managers.EventManager) [EVENT] Viridian Type 2 Stopgap (0x8000017D|70832) started an event: viridian2statue2
+2024-05-17 12:33:13,523 [World Manager] DEBUG (ACE.Server.Managers.EventManager) [EVENT] Royal Wedding Anniversary Stopgap! (0x8000017E|80229) started an event: ReceptionGames
+2024-05-17 12:33:20,359 [5] DEBUG (ACE.Server.Network.Managers.NetworkManager) Login Request from 127.0.0.1:55687
+2024-05-17 12:33:20,359 [5] DEBUG (ACE.Server.Network.Managers.NetworkManager) Creating new session for 127.0.0.1:55687 with id 0
+2024-05-17 12:33:20,368 [36] DEBUG (ACE.Server.Network.Handlers.AuthenticationHandler) new client connected: acservertracker:jj9h26hcsggc. setting session properties
+2024-05-17 12:33:20,375 [5] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9000).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:33:22,362 [5] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9000).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:33:22,372 [World Manager] DEBUG (ACE.Server.Network.Managers.NetworkManager) Removing session for 127.0.0.1:55687 with id 0
+2024-05-17 12:33:22,968 [5] DEBUG (ACE.Server.Network.Managers.NetworkManager) Login Request from 127.0.0.1:53331
+2024-05-17 12:33:22,968 [5] DEBUG (ACE.Server.Network.Managers.NetworkManager) Creating new session for 127.0.0.1:53331 with id 0
+2024-05-17 12:33:22,969 [38] DEBUG (ACE.Server.Network.Handlers.AuthenticationHandler) new client connected: wrathak. setting session properties
+2024-05-17 12:33:22,986 [38] INFO  (ACE.Server.Network.Handlers.AuthenticationHandler) client wrathak connected with verified password
+2024-05-17 12:33:23,384 [World Manager] INFO  (ACE.Server.Network.Handlers.DDDHandler) [DDD] client wrathak responded to Interrogation:
+ client_portal.dat: 2072 | client_cell_1.dat: 982 | client_Local_English.dat: 994 | no update required
+2024-05-17 12:33:26,952 [37] DEBUG (ACE.Server.Managers.WorldManager) GetPossessedBiotasInParallel for Gm took 22 ms
+2024-05-17 12:33:27,084 [World Manager] DEBUG (ACE.Server.WorldObjects.Player) [LOGIN] Account wrathak entered the world with character +Gm (0x50000001) at 05/17/2024 12:33:27.
+2024-05-17 12:33:48,154 [15] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:33:49,138 [15] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:33:49,383 [World Manager] INFO  (ACE.Server.Network.Session) Session 0\127.0.0.1:53331 dropped. Account: wrathak, Player: +Gm, Reason: PacketHeader Disconnect
+2024-05-17 12:33:49,385 [World Manager] DEBUG (ACE.Server.Network.Managers.NetworkManager) Removing session for 127.0.0.1:53331 with id 0
+2024-05-17 12:33:50,396 [15] DEBUG (ACE.Server.Network.Managers.NetworkManager) Login Request from 127.0.0.1:63560
+2024-05-17 12:33:50,396 [15] DEBUG (ACE.Server.Network.Managers.NetworkManager) Creating new session for 127.0.0.1:63560 with id 0
+2024-05-17 12:33:50,397 [7] DEBUG (ACE.Server.Network.Handlers.AuthenticationHandler) new client connected: acservertracker:jj9h26hcsggc. setting session properties
+2024-05-17 12:33:52,396 [15] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9000).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:33:52,398 [World Manager] DEBUG (ACE.Server.Network.Managers.NetworkManager) Removing session for 127.0.0.1:63560 with id 0
+2024-05-17 12:33:55,085 [World Manager] DEBUG (ACE.Server.WorldObjects.Player) [LOGOUT] Account wrathak exited the world with character +Gm (0x50000001) at 05/17/2024 12:33:55.
+2024-05-17 12:33:55,143 [11] DEBUG (ACE.Server.WorldObjects.Player) +Gm has been saved. It took 60 ms to process the request.
+2024-05-17 12:34:32,158 [15] DEBUG (ACE.Server.Network.Managers.NetworkManager) Login Request from 127.0.0.1:54390
+2024-05-17 12:34:32,158 [15] DEBUG (ACE.Server.Network.Managers.NetworkManager) Creating new session for 127.0.0.1:54390 with id 0
+2024-05-17 12:34:32,160 [39] DEBUG (ACE.Server.Network.Handlers.AuthenticationHandler) new client connected: wrathak. setting session properties
+2024-05-17 12:34:32,172 [39] INFO  (ACE.Server.Network.Handlers.AuthenticationHandler) client wrathak connected with verified password
+2024-05-17 12:34:32,520 [World Manager] INFO  (ACE.Server.Network.Handlers.DDDHandler) [DDD] client wrathak responded to Interrogation:
+ client_portal.dat: 2072 | client_cell_1.dat: 982 | client_Local_English.dat: 994 | no update required
+2024-05-17 12:34:35,668 [43] DEBUG (ACE.Server.Managers.WorldManager) GetPossessedBiotasInParallel for Gm took 2 ms
+2024-05-17 12:34:35,673 [World Manager] DEBUG (ACE.Server.WorldObjects.Player) [LOGIN] Account wrathak entered the world with character +Gm (0x50000001) at 05/17/2024 12:34:35.
+2024-05-17 12:34:44,165 [45] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:34:46,116 [World Manager] INFO  (ACE.Server.Network.Session) Session 0\127.0.0.1:54390 dropped. Account: wrathak, Player: +Gm, Reason: PacketHeader Disconnect
+2024-05-17 12:34:46,116 [World Manager] DEBUG (ACE.Server.Network.Managers.NetworkManager) Removing session for 127.0.0.1:54390 with id 0
+2024-05-17 12:34:51,806 [World Manager] DEBUG (ACE.Server.WorldObjects.Player) [LOGOUT] Account wrathak exited the world with character +Gm (0x50000001) at 05/17/2024 12:34:51.
+2024-05-17 12:34:51,810 [13] DEBUG (ACE.Server.WorldObjects.Player) +Gm has been saved. It took 5 ms to process the request.
+2024-05-17 12:35:37,785 [45] DEBUG (ACE.Server.Network.Managers.NetworkManager) Login Request from 127.0.0.1:61118
+2024-05-17 12:35:37,785 [45] DEBUG (ACE.Server.Network.Managers.NetworkManager) Creating new session for 127.0.0.1:61118 with id 0
+2024-05-17 12:35:37,786 [11] DEBUG (ACE.Server.Network.Handlers.AuthenticationHandler) new client connected: acservertracker:jj9h26hcsggc. setting session properties
+2024-05-17 12:35:39,786 [World Manager] DEBUG (ACE.Server.Network.Managers.NetworkManager) Removing session for 127.0.0.1:61118 with id 0
+2024-05-17 12:35:39,786 [14] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9000).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:36:04,875 [14] DEBUG (ACE.Server.Network.Managers.NetworkManager) Login Request from 127.0.0.1:65456
+2024-05-17 12:36:04,875 [14] DEBUG (ACE.Server.Network.Managers.NetworkManager) Creating new session for 127.0.0.1:65456 with id 0
+2024-05-17 12:36:04,876 [3] DEBUG (ACE.Server.Network.Handlers.AuthenticationHandler) new client connected: acservertracker:jj9h26hcsggc. setting session properties
+2024-05-17 12:36:06,876 [World Manager] DEBUG (ACE.Server.Network.Managers.NetworkManager) Removing session for 127.0.0.1:65456 with id 0
+2024-05-17 12:36:06,876 [46] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9000).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:38:09,671 [3] DEBUG (ACE.Server.Managers.PropertyManager) PropertyManager DoWork took 6 ms
+2024-05-17 12:38:17,597 [46] DEBUG (ACE.Server.Network.Managers.NetworkManager) Login Request from 127.0.0.1:55243
+2024-05-17 12:38:17,597 [46] DEBUG (ACE.Server.Network.Managers.NetworkManager) Creating new session for 127.0.0.1:55243 with id 0
+2024-05-17 12:38:17,598 [48] DEBUG (ACE.Server.Network.Handlers.AuthenticationHandler) new client connected: acservertracker:jj9h26hcsggc. setting session properties
+2024-05-17 12:38:19,598 [World Manager] DEBUG (ACE.Server.Network.Managers.NetworkManager) Removing session for 127.0.0.1:55243 with id 0
+2024-05-17 12:38:19,599 [46] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9000).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:40:40,457 [46] DEBUG (ACE.Server.Network.Managers.NetworkManager) Login Request from 127.0.0.1:56578
+2024-05-17 12:40:40,457 [46] DEBUG (ACE.Server.Network.Managers.NetworkManager) Creating new session for 127.0.0.1:56578 with id 0
+2024-05-17 12:40:40,458 [35] DEBUG (ACE.Server.Network.Handlers.AuthenticationHandler) new client connected: acservertracker:jj9h26hcsggc. setting session properties
+2024-05-17 12:40:42,457 [46] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9000).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:40:42,459 [World Manager] DEBUG (ACE.Server.Network.Managers.NetworkManager) Removing session for 127.0.0.1:56578 with id 0
+2024-05-17 12:41:32,047 [46] DEBUG (ACE.Server.Network.Managers.NetworkManager) Login Request from 127.0.0.1:60957
+2024-05-17 12:41:32,047 [46] DEBUG (ACE.Server.Network.Managers.NetworkManager) Creating new session for 127.0.0.1:60957 with id 0
+2024-05-17 12:41:32,048 [7] DEBUG (ACE.Server.Network.Handlers.AuthenticationHandler) new client connected: acservertracker:jj9h26hcsggc. setting session properties
+2024-05-17 12:41:34,049 [World Manager] DEBUG (ACE.Server.Network.Managers.NetworkManager) Removing session for 127.0.0.1:60957 with id 0
+2024-05-17 12:41:34,049 [46] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9000).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:41:40,276 [46] DEBUG (ACE.Server.Network.Managers.NetworkManager) Login Request from 127.0.0.1:60756
+2024-05-17 12:41:40,276 [46] DEBUG (ACE.Server.Network.Managers.NetworkManager) Creating new session for 127.0.0.1:60756 with id 0
+2024-05-17 12:41:40,277 [44] DEBUG (ACE.Server.Network.Handlers.AuthenticationHandler) new client connected: wrathak. setting session properties
+2024-05-17 12:41:40,289 [44] INFO  (ACE.Server.Network.Handlers.AuthenticationHandler) client wrathak connected with verified password
+2024-05-17 12:41:40,638 [World Manager] INFO  (ACE.Server.Network.Handlers.DDDHandler) [DDD] client wrathak responded to Interrogation:
+ client_portal.dat: 2072 | client_cell_1.dat: 982 | client_Local_English.dat: 994 | no update required
+2024-05-17 12:41:43,097 [7] DEBUG (ACE.Server.Managers.WorldManager) GetPossessedBiotasInParallel for Gm took 1 ms
+2024-05-17 12:41:43,099 [World Manager] DEBUG (ACE.Server.WorldObjects.Player) [LOGIN] Account wrathak entered the world with character +Gm (0x50000001) at 05/17/2024 12:41:43.
+2024-05-17 12:41:52,282 [56] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:41:52,583 [World Manager] INFO  (ACE.Server.Network.Session) Session 0\127.0.0.1:60756 dropped. Account: wrathak, Player: +Gm, Reason: PacketHeader Disconnect
+2024-05-17 12:41:52,583 [World Manager] DEBUG (ACE.Server.Network.Managers.NetworkManager) Removing session for 127.0.0.1:60756 with id 0
+2024-05-17 12:41:58,271 [World Manager] DEBUG (ACE.Server.WorldObjects.Player) [LOGOUT] Account wrathak exited the world with character +Gm (0x50000001) at 05/17/2024 12:41:58.
+2024-05-17 12:41:58,301 [57] DEBUG (ACE.Server.WorldObjects.Player) +Gm has been saved. It took 32 ms to process the request.
+2024-05-17 12:43:09,668 [35] DEBUG (ACE.Server.Managers.PropertyManager) PropertyManager DoWork took 2 ms
+2024-05-17 12:43:43,126 [56] DEBUG (ACE.Server.Network.Managers.NetworkManager) Login Request from 127.0.0.1:54623
+2024-05-17 12:43:43,126 [56] DEBUG (ACE.Server.Network.Managers.NetworkManager) Creating new session for 127.0.0.1:54623 with id 0
+2024-05-17 12:43:43,127 [58] DEBUG (ACE.Server.Network.Handlers.AuthenticationHandler) new client connected: acservertracker:jj9h26hcsggc. setting session properties
+2024-05-17 12:43:45,127 [World Manager] DEBUG (ACE.Server.Network.Managers.NetworkManager) Removing session for 127.0.0.1:54623 with id 0
+2024-05-17 12:43:45,127 [56] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9000).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:43:45,707 [56] DEBUG (ACE.Server.Network.Managers.NetworkManager) Login Request from 127.0.0.1:54624
+2024-05-17 12:43:45,707 [56] DEBUG (ACE.Server.Network.Managers.NetworkManager) Creating new session for 127.0.0.1:54624 with id 0
+2024-05-17 12:43:45,708 [39] DEBUG (ACE.Server.Network.Handlers.AuthenticationHandler) new client connected: wrathak. setting session properties
+2024-05-17 12:43:45,720 [39] INFO  (ACE.Server.Network.Handlers.AuthenticationHandler) client wrathak connected with verified password
+2024-05-17 12:43:45,918 [World Manager] INFO  (ACE.Server.Network.Handlers.DDDHandler) [DDD] client wrathak responded to Interrogation:
+ client_portal.dat: 2072 | client_cell_1.dat: 982 | client_Local_English.dat: 994 | no update required
+2024-05-17 12:43:50,506 [44] DEBUG (ACE.Server.Managers.WorldManager) GetPossessedBiotasInParallel for Gm took 1 ms
+2024-05-17 12:43:50,508 [World Manager] DEBUG (ACE.Server.WorldObjects.Player) [LOGIN] Account wrathak entered the world with character +Gm (0x50000001) at 05/17/2024 12:43:50.
+2024-05-17 12:47:54,623 [World Manager] DEBUG (ACE.Server.WorldObjects.Player) [LOGOUT] Account wrathak exited the world with character +Gm (0x50000001) at 05/17/2024 12:47:54.
+2024-05-17 12:47:54,636 [52] DEBUG (ACE.Server.WorldObjects.Player) +Gm has been saved. It took 16 ms to process the request.
+2024-05-17 12:47:56,940 [39] DEBUG (ACE.Server.Managers.WorldManager) GetPossessedBiotasInParallel for Gm took 1 ms
+2024-05-17 12:47:56,942 [World Manager] DEBUG (ACE.Server.WorldObjects.Player) [LOGIN] Account wrathak entered the world with character +Gm (0x50000001) at 05/17/2024 12:47:56.
+2024-05-17 12:48:09,666 [52] DEBUG (ACE.Server.Managers.PropertyManager) PropertyManager DoWork took 2 ms
+2024-05-17 12:48:11,361 [World Manager] DEBUG (ACE.Server.Managers.EventManager) [EVENT] Viridian Type 1 Stopgap (0x8000017C|70820) stopped an event: viridian1statue3
+2024-05-17 12:48:11,361 [World Manager] DEBUG (ACE.Server.Managers.EventManager) [EVENT] Viridian Type 1 Stopgap (0x8000017C|70820) started an event: viridian1statue3
+2024-05-17 12:48:11,361 [World Manager] DEBUG (ACE.Server.Managers.EventManager) [EVENT] Viridian Type 2 Stopgap (0x8000017D|70832) stopped an event: viridian2statue2
+2024-05-17 12:48:11,361 [World Manager] DEBUG (ACE.Server.Managers.EventManager) [EVENT] Viridian Type 2 Stopgap (0x8000017D|70832) started an event: viridian2statue2
+2024-05-17 12:50:45,789 [72] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:50:45,911 [72] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:50:47,413 [World Manager] INFO  (ACE.Server.Network.Session) Session 0\127.0.0.1:54624 dropped. Account: wrathak, Player: +Gm, Reason: PacketHeader Disconnect
+2024-05-17 12:50:47,413 [World Manager] DEBUG (ACE.Server.Network.Managers.NetworkManager) Removing session for 127.0.0.1:54624 with id 0
+2024-05-17 12:50:53,120 [World Manager] DEBUG (ACE.Server.WorldObjects.Player) [LOGOUT] Account wrathak exited the world with character +Gm (0x50000001) at 05/17/2024 12:50:53.
+2024-05-17 12:50:53,127 [70] DEBUG (ACE.Server.WorldObjects.Player) +Gm has been saved. It took 8 ms to process the request.
+2024-05-17 12:50:59,177 [72] DEBUG (ACE.Server.Network.Managers.NetworkManager) Login Request from 127.0.0.1:55297
+2024-05-17 12:50:59,177 [72] DEBUG (ACE.Server.Network.Managers.NetworkManager) Creating new session for 127.0.0.1:55297 with id 0
+2024-05-17 12:50:59,178 [65] DEBUG (ACE.Server.Network.Handlers.AuthenticationHandler) new client connected: acservertracker:jj9h26hcsggc. setting session properties
+2024-05-17 12:51:01,177 [69] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9000).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:51:01,179 [World Manager] DEBUG (ACE.Server.Network.Managers.NetworkManager) Removing session for 127.0.0.1:55297 with id 0
+2024-05-17 12:51:02,354 [69] DEBUG (ACE.Server.Network.Managers.NetworkManager) Login Request from 127.0.0.1:52770
+2024-05-17 12:51:02,354 [69] DEBUG (ACE.Server.Network.Managers.NetworkManager) Creating new session for 127.0.0.1:52770 with id 0
+2024-05-17 12:51:02,355 [65] DEBUG (ACE.Server.Network.Handlers.AuthenticationHandler) new client connected: wrathak. setting session properties
+2024-05-17 12:51:02,367 [65] INFO  (ACE.Server.Network.Handlers.AuthenticationHandler) client wrathak connected with verified password
+2024-05-17 12:51:02,522 [World Manager] INFO  (ACE.Server.Network.Handlers.DDDHandler) [DDD] client wrathak responded to Interrogation:
+ client_portal.dat: 2072 | client_cell_1.dat: 982 | client_Local_English.dat: 994 | no update required
+2024-05-17 12:51:06,752 [41] DEBUG (ACE.Server.Managers.WorldManager) GetPossessedBiotasInParallel for Gm took 1 ms
+2024-05-17 12:51:06,754 [World Manager] DEBUG (ACE.Server.WorldObjects.Player) [LOGIN] Account wrathak entered the world with character +Gm (0x50000001) at 05/17/2024 12:51:06.
+2024-05-17 12:53:09,668 [37] DEBUG (ACE.Server.Managers.PropertyManager) PropertyManager DoWork took 2 ms
+2024-05-17 12:54:06,446 [60] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:54:07,329 [World Manager] INFO  (ACE.Server.Network.Session) Session 0\127.0.0.1:52770 dropped. Account: wrathak, Player: +Gm, Reason: PacketHeader Disconnect
+2024-05-17 12:54:07,329 [World Manager] DEBUG (ACE.Server.Network.Managers.NetworkManager) Removing session for 127.0.0.1:52770 with id 0
+2024-05-17 12:54:10,221 [60] DEBUG (ACE.Server.Network.Managers.NetworkManager) Login Request from 127.0.0.1:49453
+2024-05-17 12:54:10,221 [60] DEBUG (ACE.Server.Network.Managers.NetworkManager) Creating new session for 127.0.0.1:49453 with id 0
+2024-05-17 12:54:10,222 [66] DEBUG (ACE.Server.Network.Handlers.AuthenticationHandler) new client connected: wrathak. setting session properties
+2024-05-17 12:54:10,234 [66] INFO  (ACE.Server.Network.Handlers.AuthenticationHandler) client wrathak connected with verified password
+2024-05-17 12:54:10,400 [World Manager] INFO  (ACE.Server.Network.Handlers.DDDHandler) [DDD] client wrathak responded to Interrogation:
+ client_portal.dat: 2072 | client_cell_1.dat: 982 | client_Local_English.dat: 994 | no update required
+2024-05-17 12:54:13,012 [World Manager] DEBUG (ACE.Server.WorldObjects.Player) [LOGOUT] Account wrathak exited the world with character +Gm (0x50000001) at 05/17/2024 12:54:13.
+2024-05-17 12:54:13,027 [37] DEBUG (ACE.Server.WorldObjects.Player) +Gm has been saved. It took 17 ms to process the request.
+2024-05-17 12:54:14,232 [65] DEBUG (ACE.Server.Managers.WorldManager) GetPossessedBiotasInParallel for Gm took 1 ms
+2024-05-17 12:54:14,234 [World Manager] DEBUG (ACE.Server.WorldObjects.Player) [LOGIN] Account wrathak entered the world with character +Gm (0x50000001) at 05/17/2024 12:54:14.
+2024-05-17 12:55:16,255 [48] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:55:17,311 [48] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:55:17,492 [World Manager] INFO  (ACE.Server.Network.Session) Session 0\127.0.0.1:49453 dropped. Account: wrathak, Player: +Gm, Reason: PacketHeader Disconnect
+2024-05-17 12:55:17,492 [World Manager] DEBUG (ACE.Server.Network.Managers.NetworkManager) Removing session for 127.0.0.1:49453 with id 0
+2024-05-17 12:55:23,117 [48] DEBUG (ACE.Server.Network.Managers.NetworkManager) Login Request from 127.0.0.1:52412
+2024-05-17 12:55:23,117 [48] DEBUG (ACE.Server.Network.Managers.NetworkManager) Creating new session for 127.0.0.1:52412 with id 0
+2024-05-17 12:55:23,118 [62] DEBUG (ACE.Server.Network.Handlers.AuthenticationHandler) new client connected: wrathak. setting session properties
+2024-05-17 12:55:23,130 [62] INFO  (ACE.Server.Network.Handlers.AuthenticationHandler) client wrathak connected with verified password
+2024-05-17 12:55:23,164 [World Manager] DEBUG (ACE.Server.WorldObjects.Player) [LOGOUT] Account wrathak exited the world with character +Gm (0x50000001) at 05/17/2024 12:55:23.
+2024-05-17 12:55:23,173 [75] DEBUG (ACE.Server.WorldObjects.Player) +Gm has been saved. It took 10 ms to process the request.
+2024-05-17 12:55:23,583 [World Manager] INFO  (ACE.Server.Network.Handlers.DDDHandler) [DDD] client wrathak responded to Interrogation:
+ client_portal.dat: 2072 | client_cell_1.dat: 982 | client_Local_English.dat: 994 | no update required
+2024-05-17 12:55:26,569 [64] DEBUG (ACE.Server.Managers.WorldManager) GetPossessedBiotasInParallel for Gm took 1 ms
+2024-05-17 12:55:26,571 [World Manager] DEBUG (ACE.Server.WorldObjects.Player) [LOGIN] Account wrathak entered the world with character +Gm (0x50000001) at 05/17/2024 12:55:26.
+2024-05-17 12:55:31,007 [World Manager] WARN  (ACE.Server.Network.GameAction.Actions.GameActionSetCharacterOptions) +Gm sent GameAction 0x1A1 - SetCharacterOptions before FirstEnterWorldDone, ignoring...
+2024-05-17 12:55:59,367 [49] DEBUG (ACE.Server.Network.Managers.NetworkManager) Login Request from 127.0.0.1:62990
+2024-05-17 12:55:59,367 [49] DEBUG (ACE.Server.Network.Managers.NetworkManager) Creating new session for 127.0.0.1:62990 with id 1
+2024-05-17 12:55:59,368 [61] DEBUG (ACE.Server.Network.Handlers.AuthenticationHandler) new client connected: acservertracker:jj9h26hcsggc. setting session properties
+2024-05-17 12:56:01,368 [49] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9000).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:56:01,370 [World Manager] DEBUG (ACE.Server.Network.Managers.NetworkManager) Removing session for 127.0.0.1:62990 with id 1
+2024-05-17 12:57:27,180 [76] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 12:57:28,346 [World Manager] INFO  (ACE.Server.Network.Session) Session 0\127.0.0.1:52412 dropped. Account: wrathak, Player: +Gm, Reason: PacketHeader Disconnect
+2024-05-17 12:57:28,346 [World Manager] DEBUG (ACE.Server.Network.Managers.NetworkManager) Removing session for 127.0.0.1:52412 with id 0
+2024-05-17 12:57:33,037 [76] DEBUG (ACE.Server.Network.Managers.NetworkManager) Login Request from 127.0.0.1:63291
+2024-05-17 12:57:33,037 [76] DEBUG (ACE.Server.Network.Managers.NetworkManager) Creating new session for 127.0.0.1:63291 with id 0
+2024-05-17 12:57:33,038 [71] DEBUG (ACE.Server.Network.Handlers.AuthenticationHandler) new client connected: wrathak. setting session properties
+2024-05-17 12:57:33,050 [71] INFO  (ACE.Server.Network.Handlers.AuthenticationHandler) client wrathak connected with verified password
+2024-05-17 12:57:33,531 [World Manager] INFO  (ACE.Server.Network.Handlers.DDDHandler) [DDD] client wrathak responded to Interrogation:
+ client_portal.dat: 2072 | client_cell_1.dat: 982 | client_Local_English.dat: 994 | no update required
+2024-05-17 12:57:34,030 [World Manager] DEBUG (ACE.Server.WorldObjects.Player) [LOGOUT] Account wrathak exited the world with character +Gm (0x50000001) at 05/17/2024 12:57:34.
+2024-05-17 12:57:34,041 [62] DEBUG (ACE.Server.WorldObjects.Player) +Gm has been saved. It took 13 ms to process the request.
+2024-05-17 12:57:36,692 [61] DEBUG (ACE.Server.Managers.WorldManager) GetPossessedBiotasInParallel for Gm took 1 ms
+2024-05-17 12:57:36,694 [World Manager] DEBUG (ACE.Server.WorldObjects.Player) [LOGIN] Account wrathak entered the world with character +Gm (0x50000001) at 05/17/2024 12:57:36.
+2024-05-17 12:58:09,663 [61] DEBUG (ACE.Server.Managers.PropertyManager) PropertyManager DoWork took 3 ms
+2024-05-17 12:59:59,445 [World Manager] DEBUG (ACE.Server.WorldObjects.Player) [LOGOUT] Account wrathak exited the world with character +Gm (0x50000001) at 05/17/2024 12:59:59.
+2024-05-17 12:59:59,475 [67] DEBUG (ACE.Server.WorldObjects.Player) +Gm has been saved. It took 32 ms to process the request.
+2024-05-17 13:00:06,920 [53] DEBUG (ACE.Server.Managers.WorldManager) GetPossessedBiotasInParallel for Gm took 1 ms
+2024-05-17 13:00:06,922 [World Manager] DEBUG (ACE.Server.WorldObjects.Player) [LOGIN] Account wrathak entered the world with character +Gm (0x50000001) at 05/17/2024 13:00:06.
+2024-05-17 13:00:23,114 [35] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 13:00:23,391 [World Manager] INFO  (ACE.Server.Network.Session) Session 0\127.0.0.1:63291 dropped. Account: wrathak, Player: +Gm, Reason: PacketHeader Disconnect
+2024-05-17 13:00:23,391 [World Manager] DEBUG (ACE.Server.Network.Managers.NetworkManager) Removing session for 127.0.0.1:63291 with id 0
+2024-05-17 13:00:29,031 [35] DEBUG (ACE.Server.Network.Managers.NetworkManager) Login Request from 127.0.0.1:52027
+2024-05-17 13:00:29,031 [35] DEBUG (ACE.Server.Network.Managers.NetworkManager) Creating new session for 127.0.0.1:52027 with id 0
+2024-05-17 13:00:29,031 [67] DEBUG (ACE.Server.Network.Handlers.AuthenticationHandler) new client connected: acservertracker:jj9h26hcsggc. setting session properties
+2024-05-17 13:00:29,072 [World Manager] DEBUG (ACE.Server.WorldObjects.Player) [LOGOUT] Account wrathak exited the world with character +Gm (0x50000001) at 05/17/2024 13:00:29.
+2024-05-17 13:00:29,092 [50] DEBUG (ACE.Server.WorldObjects.Player) +Gm has been saved. It took 21 ms to process the request.
+2024-05-17 13:00:31,032 [World Manager] DEBUG (ACE.Server.Network.Managers.NetworkManager) Removing session for 127.0.0.1:52027 with id 0
+2024-05-17 13:00:31,032 [11] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9000).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 13:00:33,859 [11] DEBUG (ACE.Server.Network.Managers.NetworkManager) Login Request from 127.0.0.1:64379
+2024-05-17 13:00:33,859 [11] DEBUG (ACE.Server.Network.Managers.NetworkManager) Creating new session for 127.0.0.1:64379 with id 0
+2024-05-17 13:00:33,860 [49] DEBUG (ACE.Server.Network.Handlers.AuthenticationHandler) new client connected: wrathak. setting session properties
+2024-05-17 13:00:33,872 [49] INFO  (ACE.Server.Network.Handlers.AuthenticationHandler) client wrathak connected with verified password
+2024-05-17 13:00:34,027 [World Manager] INFO  (ACE.Server.Network.Handlers.DDDHandler) [DDD] client wrathak responded to Interrogation:
+ client_portal.dat: 2072 | client_cell_1.dat: 982 | client_Local_English.dat: 994 | no update required
+2024-05-17 13:00:36,930 [40] DEBUG (ACE.Server.Managers.WorldManager) GetPossessedBiotasInParallel for Gm took 1 ms
+2024-05-17 13:00:36,933 [World Manager] DEBUG (ACE.Server.WorldObjects.Player) [LOGIN] Account wrathak entered the world with character +Gm (0x50000001) at 05/17/2024 13:00:36.
+2024-05-17 13:02:38,130 [69] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 13:02:38,651 [World Manager] INFO  (ACE.Server.Network.Session) Session 0\127.0.0.1:64379 dropped. Account: wrathak, Player: +Gm, Reason: PacketHeader Disconnect
+2024-05-17 13:02:38,652 [World Manager] DEBUG (ACE.Server.Network.Managers.NetworkManager) Removing session for 127.0.0.1:64379 with id 0
+2024-05-17 13:02:44,352 [World Manager] DEBUG (ACE.Server.WorldObjects.Player) [LOGOUT] Account wrathak exited the world with character +Gm (0x50000001) at 05/17/2024 13:02:44.
+2024-05-17 13:02:44,385 [15] DEBUG (ACE.Server.WorldObjects.Player) +Gm has been saved. It took 35 ms to process the request.
+2024-05-17 13:02:52,439 [69] DEBUG (ACE.Server.Network.Managers.NetworkManager) Login Request from 127.0.0.1:50556
+2024-05-17 13:02:52,439 [69] DEBUG (ACE.Server.Network.Managers.NetworkManager) Creating new session for 127.0.0.1:50556 with id 0
+2024-05-17 13:02:52,441 [58] DEBUG (ACE.Server.Network.Handlers.AuthenticationHandler) new client connected: acservertracker:jj9h26hcsggc. setting session properties
+2024-05-17 13:02:54,440 [69] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9000).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 13:02:54,442 [World Manager] DEBUG (ACE.Server.Network.Managers.NetworkManager) Removing session for 127.0.0.1:50556 with id 0
+2024-05-17 13:02:54,960 [69] DEBUG (ACE.Server.Network.Managers.NetworkManager) Login Request from 127.0.0.1:58819
+2024-05-17 13:02:54,960 [69] DEBUG (ACE.Server.Network.Managers.NetworkManager) Creating new session for 127.0.0.1:58819 with id 0
+2024-05-17 13:02:54,961 [61] DEBUG (ACE.Server.Network.Handlers.AuthenticationHandler) new client connected: wrathak. setting session properties
+2024-05-17 13:02:54,973 [61] INFO  (ACE.Server.Network.Handlers.AuthenticationHandler) client wrathak connected with verified password
+2024-05-17 13:02:55,129 [World Manager] INFO  (ACE.Server.Network.Handlers.DDDHandler) [DDD] client wrathak responded to Interrogation:
+ client_portal.dat: 2072 | client_cell_1.dat: 982 | client_Local_English.dat: 994 | no update required
+2024-05-17 13:02:58,566 [36] DEBUG (ACE.Server.Managers.WorldManager) GetPossessedBiotasInParallel for Gm took 2 ms
+2024-05-17 13:02:58,570 [World Manager] DEBUG (ACE.Server.WorldObjects.Player) [LOGIN] Account wrathak entered the world with character +Gm (0x50000001) at 05/17/2024 13:02:58.
+2024-05-17 13:03:09,665 [42] DEBUG (ACE.Server.Managers.PropertyManager) PropertyManager DoWork took 3 ms
+2024-05-17 13:03:11,387 [World Manager] DEBUG (ACE.Server.Managers.EventManager) [EVENT] Viridian Type 1 Stopgap (0x8000017C|70820) stopped an event: viridian1statue3
+2024-05-17 13:03:11,387 [World Manager] DEBUG (ACE.Server.Managers.EventManager) [EVENT] Viridian Type 1 Stopgap (0x8000017C|70820) started an event: viridian1statue2
+2024-05-17 13:03:11,387 [World Manager] DEBUG (ACE.Server.Managers.EventManager) [EVENT] Viridian Type 2 Stopgap (0x8000017D|70832) stopped an event: viridian2statue2
+2024-05-17 13:03:11,387 [World Manager] DEBUG (ACE.Server.Managers.EventManager) [EVENT] Viridian Type 2 Stopgap (0x8000017D|70832) started an event: viridian2statue1
+2024-05-17 13:03:20,971 [72] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 13:03:21,860 [72] DEBUG (ACE.Server.Network.ConnectionListener) ConnectionListener(0.0.0.0, 9001).OnDataReceieve() has thrown ConnectionReset: An existing connection was forcibly closed by the remote host. from client 0.0.0.0:0
+2024-05-17 13:03:22,077 [World Manager] INFO  (ACE.Server.Network.Session) Session 0\127.0.0.1:58819 dropped. Account: wrathak, Player: +Gm, Reason: PacketHeader Disconnect
+2024-05-17 13:03:22,077 [World Manager] DEBUG (ACE.Server.Network.Managers.NetworkManager) Removing session for 127.0.0.1:58819 with id 0
+2024-05-17 13:03:27,777 [World Manager] DEBUG (ACE.Server.WorldObjects.Player) [LOGOUT] Account wrathak exited the world with character +Gm (0x50000001) at 05/17/2024 13:03:27.
+2024-05-17 13:03:27,799 [46] DEBUG (ACE.Server.WorldObjects.Player) +Gm has been saved. It took 23 ms to process the request.
+2024-05-17 13:04:20,494 [Command Manager] INFO  (ACE.Server.Command.Handlers.CommandHandlerHelper) Couldn't find content folder: C:\Users\Wrath\Documents\GitHub\ACE\server\Content
+2024-05-17 13:04:20,494 [Command Manager] INFO  (ACE.Server.Command.Handlers.CommandHandlerHelper) To set your content folder, /modifystring content_folder <path>
+2024-05-17 13:05:08,680 [2] WARN  (ACE.Server.Program) Unsafe server shutdown detected! Data loss is possible!
+2024-05-17 13:05:12,290 [1] INFO  (ACE.Server.Program) Starting ACEmulator...
+2024-05-17 13:05:12,296 [1] INFO  (ACE.Server.Program) Initializing ConfigManager...
+2024-05-17 13:05:12,336 [1] INFO  (ACE.Server.Program) Initializing ModManager...
+2024-05-17 13:05:12,338 [1] INFO  (ACE.Server.Program) Pruning invalid friends from all friend lists...
+2024-05-17 13:05:12,996 [1] INFO  (ACE.Server.Program) Pruned 0 invalid friends found on friend lists.
+2024-05-17 13:05:12,996 [1] INFO  (ACE.Server.Program) Automatic Server version check started...
+2024-05-17 13:05:13,106 [1] INFO  (ACE.Server.Program) Current Server Binary: 1.60.4528.20240423152428-master-aeae3ef
+2024-05-17 13:05:13,333 [1] INFO  (ACE.Server.Program) Latest Server Version is v1.60.4528 -- No Update Required!
+2024-05-17 13:05:13,335 [1] INFO  (ACE.Server.Program) Automatic World Database Update started...
+2024-05-17 13:05:13,360 [1] INFO  (ACE.Server.Program) Current World Database version: Base - v0.8.7 | Patch - v0.9.279
+2024-05-17 13:05:13,530 [1] INFO  (ACE.Server.Program) Latest patch version is v0.9.279 -- No Update Required!
+2024-05-17 13:05:13,530 [1] INFO  (ACE.Server.Program) Automatic World Database Update complete.
+2024-05-17 13:09:58,873 [1] ERROR (ACE.Server.Program) System.InvalidOperationException: CommandText must be specified
+   at MySqlConnector.MySqlCommand.ExecuteNonQueryAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 309
+   at MySqlConnector.MySqlCommand.ExecuteNonQuery() in /_/src/MySqlConnector/MySqlCommand.cs:line 108
+   at ACE.Server.Program.ExecuteScript(MySqlCommand scriptCommand) in C:\projects\ace\Source\ACE.Server\Program_Setup.cs:line 557
+   at ACE.Server.Program.<>c__DisplayClass11_0.<AutoApplyWorldCustomizations>b__0(String path) in C:\projects\ace\Source\ACE.Server\Program_DbUpdates.cs:line 206
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at ACE.Server.Program.AutoApplyWorldCustomizations() in C:\projects\ace\Source\ACE.Server\Program_DbUpdates.cs:line 188
+   at ACE.Server.Program.Main(String[] args) in C:\projects\ace\Source\ACE.Server\Program.cs:line 210

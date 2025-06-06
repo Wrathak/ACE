@@ -35,11 +35,11 @@ namespace ACE.Server.Command.Handlers
         [CommandHandler("myquests", AccessLevel.Player, CommandHandlerFlag.RequiresWorld, "Shows your quest log")]
         public static void HandleQuests(Session session, params string[] parameters)
         {
-            if (!PropertyManager.GetBool("quest_info_enabled").Item)
-            {
-                session.Network.EnqueueSend(new GameMessageSystemChat("The command \"myquests\" is not currently enabled on this server.", ChatMessageType.Broadcast));
-                return;
-            }
+            //if (!PropertyManager.GetBool("quest_info_enabled").Item)
+            //{
+            //    session.Network.EnqueueSend(new GameMessageSystemChat("The command \"myquests\" is not currently enabled on this server.", ChatMessageType.Broadcast));
+            //    return;
+            //}
 
             var quests = session.Player.QuestManager.GetQuests();
 

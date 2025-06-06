@@ -94,7 +94,7 @@ namespace ACE.Server.Factories.Tables
             //EquipmentSet.CloakMagicItemTinkering,
             //EquipmentSet.CloakManaConversion,
             EquipmentSet.CloakMeleeDefense,
-            EquipmentSet.CloakMissileDefense,
+            //EquipmentSet.CloakMissileDefense,
             EquipmentSet.CloakSalvaging,
             EquipmentSet.CloakHeavyWeapons,
             //EquipmentSet.CloakTwoHandedCombat,
@@ -106,7 +106,7 @@ namespace ACE.Server.Factories.Tables
             //EquipmentSet.CloakDualWield,
             EquipmentSet.CloakRecklessness,
             EquipmentSet.CloakShield,
-            EquipmentSet.CloakSneakAttack,
+            //EquipmentSet.CloakSneakAttack,
             //EquipmentSet.CloakSummoning,
         };
 
@@ -120,14 +120,14 @@ namespace ACE.Server.Factories.Tables
 
         private static readonly List<SpellId> surgeSpells = new List<SpellId>()
         {
-            SpellId.AcidRing,           // Searing Disc
-            SpellId.BladeRing,          // Horizon's Blades
-            SpellId.FlameRing,          // Cassius' Ring of Fire
-            SpellId.ForceRing,          // Nuhmudira's Spines
-            SpellId.FrostRing,          // Halo of Frost
-            SpellId.LightningRing,      // Eye of the Storm
-            SpellId.ShockwaveRing,      // Tectonic Rifts
-            SpellId.NetherRing,         // Clouded Soul
+            //SpellId.AcidRing,           // Searing Disc
+            //SpellId.BladeRing,          // Horizon's Blades
+            //SpellId.FlameRing,          // Cassius' Ring of Fire
+            //SpellId.ForceRing,          // Nuhmudira's Spines
+            //SpellId.FrostRing,          // Halo of Frost
+            //SpellId.LightningRing,      // Eye of the Storm
+            //SpellId.ShockwaveRing,      // Tectonic Rifts
+            //SpellId.NetherRing,         // Clouded Soul
 
             SpellId.CloakAllSkill,      // Cloaked in Skill
 

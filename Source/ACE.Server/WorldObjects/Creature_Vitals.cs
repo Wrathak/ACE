@@ -215,6 +215,10 @@ namespace ACE.Server.WorldObjects
 
             var forwardCommand = CurrentMovementData.MovementType == MovementType.Invalid && CurrentMovementData.Invalid != null ? CurrentMovementData.Invalid.State.ForwardCommand : MotionCommand.Invalid;
 
+            var WarMagicSkill = GetCreatureSkill(Skill.WarMagic);
+              if (WarMagicSkill.AdvancementClass == SkillAdvancementClass.Specialized)
+              return 1.0f;
+
             // combat mode / running
             if (CombatMode != CombatMode.NonCombat || forwardCommand == MotionCommand.RunForward)
                 return 10.0f;

@@ -417,7 +417,7 @@ namespace ACE.Server.Factories
             switch (tier)
             {
                 case 1:
-                    lowSpellTier = 1;
+                    lowSpellTier = 2;
                     break;
                 case 2:
                     lowSpellTier = 3;
@@ -774,6 +774,8 @@ namespace ACE.Server.Factories
 
             if (fArcane < 0)
                 fArcane = 0;
+            if (fArcane > 450)
+                fArcane = 450;
 
             return (int)Math.Floor(fArcane + roll.ItemDifficulty);
         }

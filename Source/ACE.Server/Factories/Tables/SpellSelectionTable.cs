@@ -101,16 +101,16 @@ namespace ACE.Server.Factories.Tables
         // wands, staffs, sceptres, batons
         private static ChanceTable<SpellId> spellSelectionGroup5 = new ChanceTable<SpellId>()
         {
-          ( SpellId.ManaMasterySelf1,                0.15f ),
-
-          ( SpellId.LifeMagicMasterySelf1,           0.15f ),
-          ( SpellId.WarMagicMasterySelf1,            0.15f ),
+          ( SpellId.LifeMagicMasterySelf1,           0.25f ),
+          ( SpellId.WarMagicMasterySelf1,            0.25f ),
           ( SpellId.ItemEnchantmentMasterySelf1,     0.15f ),
 
-          ( SpellId.ItemExpertiseSelf1,        0.10f ),
-          ( SpellId.ArmorExpertiseSelf1,       0.10f ),
-          ( SpellId.MagicItemExpertiseSelf1,   0.10f ),
-          ( SpellId.WeaponExpertiseSelf1,      0.10f ),
+          ( SpellId.ManaMasterySelf1,                0.15f ),
+
+          ( SpellId.ItemExpertiseSelf1,        0.05f ),
+          ( SpellId.ArmorExpertiseSelf1,       0.05f ),
+          ( SpellId.MagicItemExpertiseSelf1,   0.05f ),
+          ( SpellId.WeaponExpertiseSelf1,      0.05f ),
         };
 
         // one-handed melee weapons

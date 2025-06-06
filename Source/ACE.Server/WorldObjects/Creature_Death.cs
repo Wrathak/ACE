@@ -218,11 +218,11 @@ namespace ACE.Server.WorldObjects
                   totalXP *= 5.0f;
                 if (playerDamager.Level > 169 && playerDamager.Level < 190)
                   totalXP *= 6.0f;
-                if (playerDamager.Level > 189 && playerDamager.Level < 220)
+                if (playerDamager.Level > 189 && playerDamager.Level < 210)
                   totalXP *= 7.5f;
-                if (playerDamager.Level > 219 && playerDamager.Level < 240)
+                if (playerDamager.Level > 209 && playerDamager.Level < 250)
                   totalXP *= 9.0f;
-                if (playerDamager.Level > 239)
+                if (playerDamager.Level > 249)
                   totalXP *= 10.0f;
 
                 playerDamager.EarnXP((long)Math.Round(totalXP), XpType.Kill);

@@ -745,7 +745,8 @@ namespace ACE.Server.WorldObjects
         public void StartPickup()
         {
             PickupState = PickupState.Start;
-            IsBusy = true;
+            //IsBusy = true;
+            IsBusy = false;
         }
 
         public void EnqueuePickupDone(MotionCommand pickupMotion)
@@ -758,7 +759,9 @@ namespace ACE.Server.WorldObjects
             var animTime = DatManager.PortalDat.ReadFromDat<MotionTable>(MotionTableId).GetAnimationLength(pickupMotion);
 
             var actionChain = new ActionChain();
-            actionChain.AddDelaySeconds(animTime);
+            //actionChain.AddDelaySeconds(animTime);
+            actionChain.AddDelaySeconds(0);
+
             actionChain.AddAction(this, () =>
             {
                 PickupState = PickupState.None;
@@ -789,6 +792,7 @@ namespace ACE.Server.WorldObjects
                 return false;
             }
 
+/*
             if (IsBusy)
             {
                 if (PickupState != PickupState.Return || NextPickup != null)
@@ -801,6 +805,7 @@ namespace ACE.Server.WorldObjects
 
                 return false;
             }
+*/
 
             //OnPutItemInContainer(itemGuid, containerGuid, placement);
 
@@ -3076,7 +3081,7 @@ namespace ACE.Server.WorldObjects
             else
             {
                 if (item.WeenieType == WeenieType.Deed && target.AllowGive && target.AiAcceptEverything) // http://acpedia.org/wiki/Housing_FAQ#House_deeds
-                {       
+                {
                     var stackSize = item.StackSize ?? 1;
 
                     var stackMsg = stackSize != 1 ? $"{stackSize} " : "";

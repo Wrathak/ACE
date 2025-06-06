@@ -3,7 +3,7 @@ Shield Mutation #0:
 Tier chances: 1, 1, 1, 1, 1, 1, 1, 1
 
     - Chance: 100%:
-        ArmorLevel = 70
+        ArmorLevel = 100
 
 Shield Mutation #1:
 

@@ -275,7 +275,7 @@ namespace ACE.Server.WorldObjects
             var killerPlayer = killer.TryGetAttacker() as Player;
             var timestamp = (int)Time.GetUnixTime();
             var luck = 0;
-            var secondChanceGranted = false;
+            //var secondChanceGranted = false;
 
             var realTimeRares = PropertyManager.GetBool("rares_real_time").Item;
             var realTimeRaresAlt = PropertyManager.GetBool("rares_real_time_v2").Item;
