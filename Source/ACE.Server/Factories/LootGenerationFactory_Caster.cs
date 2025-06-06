@@ -5,21 +5,19 @@ using ACE.Server.Entity.Mutations;
 using ACE.Server.Factories.Entity;
 using ACE.Server.Factories.Enum;
 using ACE.Server.Factories.Tables;
+using ACE.Server.Factories.Tables.Wcids;
 using ACE.Server.WorldObjects;
 
 namespace ACE.Server.Factories
 {
     public static partial class LootGenerationFactory
     {
-        /// <summary>
-        /// Creates Caster (Wand, Staff, Orb)
-        /// </summary>
-        public static WorldObject CreateCaster(TreasureDeath profile, bool isMagical, int wield = -1, bool forceWar = false, bool mutate = true)
+        public static WorldObject CreateCaster(TreasureDeath profile, bool isMagical)
         {
-            // Refactored 11/20/19  - HarliQ
-            int casterWeenie = 0;
-            int subType = 0;
-            int element = 0;
+            // this function is only used by test methods, and is not part of regular lootgen
+            var treasureRoll = new TreasureRoll(TreasureItemType.Caster);
+            treasureRoll.WeaponType = TreasureWeaponType.Caster;
+            treasureRoll.Wcid = CasterWcids.Roll(profile.Tier);
 
             if (wield == -1)
                 wield = RollWieldDifficulty(profile.Tier, TreasureWeaponType.Caster);
@@ -49,31 +47,24 @@ namespace ACE.Server.Factories
             return wo;
         }
 
-        private static void MutateCaster(WorldObject wo, TreasureDeath profile, bool isMagical, int? wieldDifficulty = null, TreasureRoll roll = null)
+        private static void MutateCaster(WorldObject wo, TreasureDeath profile, bool isMagical, TreasureRoll roll)
         {
-            if (wieldDifficulty != null)
+            // mutate ManaConversionMod
+            var mutationFilter = MutationCache.GetMutation("Casters.caster.txt");
+            mutationFilter.TryMutate(wo, profile.Tier);
+
+            // mutate ElementalDamageMod / WieldRequirements
+            var isElemental = wo.W_DamageType != DamageType.Undef;
+            var scriptName = GetCasterScript(isElemental);
+
+            mutationFilter = MutationCache.GetMutation(scriptName);
+            mutationFilter.TryMutate(wo, profile.Tier);
+
+            // this part was not handled by mutation filter
+            if (wo.WieldRequirements == WieldRequirement.RawSkill)
             {
-                // previous method
-
-                var wieldRequirement = WieldRequirement.RawSkill;
-                var wieldSkillType = Skill.None;
-
-                double elementalDamageMod = 0;
-
-                if (wieldDifficulty == 0)
-                {
-                    if (profile.Tier > 6)
-                    {
-                        wieldRequirement = WieldRequirement.Level;
-                        wieldSkillType = Skill.Axe;  // Set by examples from PCAP data
-
-                        wieldDifficulty = profile.Tier switch
-                        {
-                            7 => 150, // In this instance, used for indicating player level, rather than skill level
-                            _ => 180, // In this instance, used for indicating player level, rather than skill level
-                        };
-                    }
-                }
+                if (wo.W_DamageType == DamageType.Nether)
+                    wo.WieldSkillType = (int)Skill.VoidMagic;
                 else
                 {
                     elementalDamageMod = RollElementalDamageMod(wieldDifficulty.Value);
@@ -114,9 +105,6 @@ namespace ACE.Server.Factories
                 // WeaponDefense
                 wo.WeaponDefense = RollWeaponDefense(wieldDifficulty.Value, profile);
             }
-            else
-            {
-                // new method - mutation scripts
 
                 // mutate ManaConversionMod
                 var mutationFilter = MutationCache.GetMutation("Casters.caster.txt");
@@ -232,210 +220,6 @@ namespace ACE.Server.Factories
             var elementalStr = isElemental ? "elemental" : "non_elemental";
 
             return $"Casters.caster_{elementalStr}.txt";
-        }
-
-        private static bool GetMutateCasterData(uint wcid)
-        {
-            for (var i = 0; i < LootTables.CasterWeaponsMatrix.Length; i++)
-            {
-                var table = LootTables.CasterWeaponsMatrix[i];
-
-                for (var element = 0; element < table.Length; element++)
-                {
-                    if (wcid == table[element])
-                        return true;
-                }
-            }
-            return false;
-        }
-
-        /// <summary>
-        /// Rolls for the ManaConversionMod for casters
-        /// </summary>
-        private static double RollManaConversionMod(int tier)
-        {
-            int magicMod = 0;
-
-            int chance = 0;
-            switch (tier)
-            {
-                case 1:
-                case 2:
-                    magicMod = 0;
-                    break;
-                case 3:
-                    chance = ThreadSafeRandom.Next(1, 1000);
-                    if (chance > 900)
-                        magicMod = 5;
-                    else if (chance > 800)
-                        magicMod = 4;
-                    else if (chance > 700)
-                        magicMod = 3;
-                    else if (chance > 600)
-                        magicMod = 2;
-                    else if (chance > 500)
-                        magicMod = 1;
-                    break;
-                case 4:
-                    chance = ThreadSafeRandom.Next(1, 1000);
-                    if (chance > 900)
-                        magicMod = 10;
-                    else if (chance > 800)
-                        magicMod = 9;
-                    else if (chance > 700)
-                        magicMod = 8;
-                    else if (chance > 600)
-                        magicMod = 7;
-                    else if (chance > 500)
-                        magicMod = 6;
-                    else
-                        magicMod = 5;
-                    break;
-                case 5:
-                    chance = ThreadSafeRandom.Next(1, 1000);
-                    if (chance > 900)
-                        magicMod = 10;
-                    else if (chance > 800)
-                        magicMod = 9;
-                    else if (chance > 700)
-                        magicMod = 8;
-                    else if (chance > 600)
-                        magicMod = 7;
-                    else if (chance > 500)
-                        magicMod = 6;
-                    else
-                        magicMod = 5;
-                    break;
-                case 6:
-                    chance = ThreadSafeRandom.Next(1, 1000);
-                    if (chance > 900)
-                        magicMod = 10;
-                    else if (chance > 800)
-                        magicMod = 9;
-                    else if (chance > 700)
-                        magicMod = 8;
-                    else if (chance > 600)
-                        magicMod = 7;
-                    else if (chance > 500)
-                        magicMod = 6;
-                    else
-                        magicMod = 5;
-                    break;
-                case 7:
-                    chance = ThreadSafeRandom.Next(1, 1000);
-                    if (chance > 900)
-                        magicMod = 10;
-                    else if (chance > 800)
-                        magicMod = 9;
-                    else if (chance > 700)
-                        magicMod = 8;
-                    else if (chance > 600)
-                        magicMod = 7;
-                    else if (chance > 500)
-                        magicMod = 6;
-                    else
-                        magicMod = 5;
-                    break;
-                default:
-                    chance = ThreadSafeRandom.Next(1, 1000);
-                    if (chance > 900)
-                        magicMod = 10;
-                    else if (chance > 800)
-                        magicMod = 9;
-                    else if (chance > 700)
-                        magicMod = 8;
-                    else if (chance > 600)
-                        magicMod = 7;
-                    else if (chance > 500)
-                        magicMod = 6;
-                    else
-                        magicMod = 5;
-                    break;
-            }
-
-            double manaDMod = magicMod / 100.0;
-
-            return manaDMod;
-        }
-
-        /// <summary>
-        /// Rolls for ElementalDamageMod for caster weapons
-        /// </summary>
-        private static double RollElementalDamageMod(int wield)
-        {
-            double elementBonus = 0;
-
-            int chance = ThreadSafeRandom.Next(1, 100);
-            switch (wield)
-            {
-                case 290:
-                    if (chance > 95)
-                        elementBonus = 0.03;
-                    else if (chance > 65)
-                        elementBonus = 0.02;
-                    else
-                        elementBonus = 0.01;
-                    break;
-                case 310:
-                    if (chance > 95)
-                        elementBonus = 0.06;
-                    else if (chance > 65)
-                        elementBonus = 0.05;
-                    else
-                        elementBonus = 0.04;
-                    break;
-
-                case 330:
-                    if (chance > 95)
-                        elementBonus = 0.09;
-                    else if (chance > 65)
-                        elementBonus = 0.08;
-                    else
-                        elementBonus = 0.07;
-                    break;
-
-                case 355:
-                    if (chance > 95)
-                        elementBonus = 0.13;
-                    else if (chance > 80)
-                        elementBonus = 0.12;
-                    else if (chance > 55)
-                        elementBonus = 0.11;
-                    else if (chance > 20)
-                        elementBonus = 0.10;
-                    else
-                        elementBonus = 0.09;
-                    break;
-
-                case 375:
-                    if (chance > 95)
-                        elementBonus = 0.16;
-                    else if (chance > 85)
-                        elementBonus = 0.15;
-                    else if (chance > 60)
-                        elementBonus = 0.14;
-                    else if (chance > 30)
-                        elementBonus = 0.13;
-                    else if (chance > 10)
-                        elementBonus = 0.12;
-                    else
-                        elementBonus = 0.11;
-                    break;
-
-                default:
-                    // 385
-                    if (chance > 95)
-                        elementBonus = 0.18;
-                    else if (chance > 65)
-                        elementBonus = 0.17;
-                    else
-                        elementBonus = 0.16;
-                    break;
-            }
-
-            elementBonus += 1;
-
-            return elementBonus;
         }
     }
 }

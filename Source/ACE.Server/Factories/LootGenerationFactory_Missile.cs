@@ -1,27 +1,25 @@
-using System.Linq;
-
 using ACE.Common;
 using ACE.Database.Models.World;
 using ACE.Entity.Enum;
-using ACE.Server.Entity;
 using ACE.Server.Entity.Mutations;
 using ACE.Server.Factories.Entity;
 using ACE.Server.Factories.Enum;
 using ACE.Server.Factories.Tables;
+using ACE.Server.Factories.Tables.Wcids;
 using ACE.Server.WorldObjects;
 
 namespace ACE.Server.Factories
 {
     public static partial class LootGenerationFactory
     {
-        /// <summary>
-        /// Creates and optionally mutates a new MissileWeapon
-        /// </summary>
         public static WorldObject CreateMissileWeapon(TreasureDeath profile, bool isMagical, bool mutate = true)
         {
-            int weaponWeenie;
+            // this function is only used by test methods, and is not part of regular lootgen
+            var treasureRoll = new TreasureRoll(TreasureItemType.Weapon);
+            treasureRoll.WeaponType = WeaponTypeChance.MissileChances.Roll();
+            treasureRoll.Wcid = WeaponWcids.Roll(profile, ref treasureRoll.WeaponType);
 
-            int wieldDifficulty = RollWieldDifficulty(profile.Tier, TreasureWeaponType.MissileWeapon);
+            var wo = WorldObjectFactory.CreateNewWorldObject((uint)treasureRoll.Wcid);
 
             // Changing based on wield, not tier. Refactored, less code, best results.  HarliQ 11/18/19
             if (wieldDifficulty < 315)
@@ -37,59 +35,22 @@ namespace ACE.Server.Factories
             return wo;
         }
 
-        private static void MutateMissileWeapon(WorldObject wo, TreasureDeath profile, bool isMagical, int? wieldDifficulty = null, TreasureRoll roll = null)
+        private static void MutateMissileWeapon(WorldObject wo, TreasureDeath profile, bool isMagical, TreasureRoll roll)
         {
-            if (roll == null)
-            {
-                // previous method
+            // new method / mutation scripts
+            var isElemental = wo.W_DamageType != DamageType.Undef;
 
-                // DamageMod
-                wo.DamageMod = GetMissileDamageMod(wieldDifficulty.Value, wo.W_WeaponType);
+            var scriptName = GetMissileScript(roll.WeaponType, isElemental);
 
-                // ElementalDamageBonus
-                if (wo.W_DamageType != DamageType.Undef)
-                {
-                    int elementalBonus = GetElementalDamageBonus(wieldDifficulty.Value);
-                    if (elementalBonus > 0)
-                        wo.ElementalDamageBonus = elementalBonus;
-                }
+            // mutate DamageMod / ElementalDamageBonus / WieldRequirements
+            var mutationFilter = MutationCache.GetMutation(scriptName);
 
-                // Wield Requirements
-                if (wieldDifficulty > 0)
-                {
-                    wo.WieldDifficulty = wieldDifficulty;
-                    wo.WieldRequirements = WieldRequirement.RawSkill;
-                    wo.WieldSkillType = (int)Skill.MissileWeapons;
-                }
-                else
-                {
-                    wo.WieldDifficulty = null;
-                    wo.WieldRequirements = WieldRequirement.Invalid;
-                    wo.WieldSkillType = null;
-                }
+            mutationFilter.TryMutate(wo, profile.Tier);
 
-                // WeaponDefense
-                var meleeDMod = RollWeaponDefense(wieldDifficulty.Value, profile);
-                if (meleeDMod > 0.0f)
-                    wo.WeaponDefense = meleeDMod;
-            }
-            else
-            {
-                // new method / mutation scripts
-                var isElemental = wo.W_DamageType != DamageType.Undef;
+            // mutate WeaponDefense
+            mutationFilter = MutationCache.GetMutation("MissileWeapons.weapon_defense.txt");
 
-                var scriptName = GetMissileScript(roll.WeaponType, isElemental);
-
-                // mutate DamageMod / ElementalDamageBonus / WieldRequirements
-                var mutationFilter = MutationCache.GetMutation(scriptName);
-
-                mutationFilter.TryMutate(wo, profile.Tier);
-
-                // mutate WeaponDefense
-                mutationFilter = MutationCache.GetMutation("MissileWeapons.weapon_defense.txt");
-
-                mutationFilter.TryMutate(wo, profile.Tier);
-            }
+            mutationFilter.TryMutate(wo, profile.Tier);
 
             // weapon speed
             if (wo.WeaponTime != null)

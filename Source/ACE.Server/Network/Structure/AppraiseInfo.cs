@@ -18,7 +18,7 @@ namespace ACE.Server.Network.Structure
     /// </summary>
     public class AppraiseInfo
     {
-        private static readonly uint EnchantmentMask = 0x80000000;
+        private const uint EnchantmentMask = 0x80000000;
 
         public IdentifyResponseFlags Flags;
 
@@ -115,6 +115,19 @@ namespace ACE.Server.Network.Structure
             if (wo.Damage != null && !(wo is Clothing) || wo is MeleeWeapon || wo is Missile || wo is MissileLauncher || wo is Ammunition || wo is Caster)
                 BuildWeapon(wo);
 
+            // TODO: Resolve this issue a better way?
+            // Because of the way ACE handles default base values in recipe system (or rather the lack thereof)
+            // we need to check the following weapon properties to see if they're below expected minimum and adjust accordingly
+            // The issue is that the recipe system likely added 0.005 to 0 instead of 1, which is what *should* have happened.
+            if (wo.WeaponMagicDefense.HasValue && wo.WeaponMagicDefense.Value > 0 && wo.WeaponMagicDefense.Value < 1 && ((wo.GetProperty(PropertyInt.ImbueStackingBits) ?? 0) & 1) != 0)
+                PropertiesFloat[PropertyFloat.WeaponMagicDefense] += 1;
+            if (wo.WeaponMissileDefense.HasValue && wo.WeaponMissileDefense.Value > 0 && wo.WeaponMissileDefense.Value < 1 && ((wo.GetProperty(PropertyInt.ImbueStackingBits) ?? 0) & 1) != 0)
+                PropertiesFloat[PropertyFloat.WeaponMissileDefense] += 1;
+
+            // Mask real value of AbsorbMagicDamage and/or Add AbsorbMagicDamage for ImbuedEffectType.IgnoreSomeMagicProjectileDamage
+            if (PropertiesFloat.ContainsKey(PropertyFloat.AbsorbMagicDamage) || wo.HasImbuedEffect(ImbuedEffectType.IgnoreSomeMagicProjectileDamage))
+                PropertiesFloat[PropertyFloat.AbsorbMagicDamage] = 1;
+
             if (wo is Door || wo is Chest)
             {
                 // If wo is not locked, do not send ResistLockpick value. If ResistLockpick is sent for unlocked objects, id panel shows bonus to Lockpick skill
@@ -209,6 +222,12 @@ namespace ACE.Server.Network.Structure
                 PropertiesString.Add(PropertyString.LongDesc, longDesc);
             }
 
+            if (wo is Container)
+            {
+                if (PropertiesInt.ContainsKey(PropertyInt.Value))
+                    PropertiesInt[PropertyInt.Value] = DatabaseManager.World.GetCachedWeenie(wo.WeenieClassId).GetValue() ?? 0; // Value is masked to base value of Weenie
+            }
+
             if (wo is Storage)
             {
                 var longDesc = "";
@@ -221,9 +240,6 @@ namespace ACE.Server.Network.Structure
                     PropertiesString.Remove(key);
 
                 PropertiesString.Add(PropertyString.LongDesc, longDesc);
-
-                if (PropertiesInt.ContainsKey(PropertyInt.Value))
-                    PropertiesInt[PropertyInt.Value] = wo.Biota.GetProperty(PropertyInt.Value, wo.BiotaDatabaseLock) ?? 200; // Value is masked to base value of Storage
             }
 
             if (wo is Hook)
@@ -325,13 +341,13 @@ namespace ACE.Server.Network.Structure
 
         private void BuildProperties(WorldObject wo)
         {
-            PropertiesInt = wo.GetAllPropertyInt().Where(x => ClientProperties.PropertiesInt.Contains((ushort)x.Key)).ToDictionary(x => x.Key, x => x.Value);
-            PropertiesInt64 = wo.GetAllPropertyInt64().Where(x => ClientProperties.PropertiesInt64.Contains((ushort)x.Key)).ToDictionary(x => x.Key, x => x.Value);
-            PropertiesBool = wo.GetAllPropertyBools().Where(x => ClientProperties.PropertiesBool.Contains((ushort)x.Key)).ToDictionary(x => x.Key, x => x.Value);
-            PropertiesFloat = wo.GetAllPropertyFloat().Where(x => ClientProperties.PropertiesDouble.Contains((ushort)x.Key)).ToDictionary(x => x.Key, x => x.Value);
-            PropertiesString = wo.GetAllPropertyString().Where(x => ClientProperties.PropertiesString.Contains((ushort)x.Key)).ToDictionary(x => x.Key, x => x.Value);
-            PropertiesDID = wo.GetAllPropertyDataId().Where(x => ClientProperties.PropertiesDataId.Contains((ushort)x.Key)).ToDictionary(x => x.Key, x => x.Value);
-            PropertiesIID = wo.GetAllPropertyInstanceId().Where(x => ClientProperties.PropertiesInstanceId.Contains((ushort)x.Key)).ToDictionary(x => x.Key, x => x.Value);
+            PropertiesInt = wo.GetAllPropertyIntWhere(AssessmentProperties.PropertiesInt);
+            PropertiesInt64 = wo.GetAllPropertyInt64Where(AssessmentProperties.PropertiesInt64);
+            PropertiesBool = wo.GetAllPropertyBoolsWhere(AssessmentProperties.PropertiesBool);
+            PropertiesFloat = wo.GetAllPropertyFloatWhere(AssessmentProperties.PropertiesDouble);
+            PropertiesString = wo.GetAllPropertyStringWhere(AssessmentProperties.PropertiesString);
+            PropertiesDID = wo.GetAllPropertyDataIdWhere(AssessmentProperties.PropertiesDataId);
+            PropertiesIID = wo.GetAllPropertyInstanceIdWhere(AssessmentProperties.PropertiesInstanceId);
 
             if (wo is Player player)
             {
@@ -388,7 +404,7 @@ namespace ACE.Server.Network.Structure
             else
                 PropertiesInt.Remove(PropertyInt.AppraisalItemSkill);
 
-            if (PropertiesFloat.ContainsKey(PropertyFloat.WeaponDefense) && !(wo is Missile) && !(wo is Ammunition))
+            if (PropertiesFloat.ContainsKey(PropertyFloat.WeaponDefense) && !(wo is Ammunition))
             {
                 var defenseMod = wo.EnchantmentManager.GetDefenseMod();
                 var auraDefenseMod = wo.Wielder != null && wo.IsEnchantable ? wo.Wielder.EnchantmentManager.GetDefenseMod() : 0.0f;

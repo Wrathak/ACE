@@ -4,6 +4,7 @@ using System.Linq;
 
 using log4net;
 
+using ACE.Common.Extensions;
 using ACE.Database;
 using ACE.Entity;
 using ACE.Entity.Enum;
@@ -281,7 +282,10 @@ namespace ACE.Server.Factories
                 var weenie = DatabaseManager.World.GetCachedWeenie(instance.WeenieClassId);
 
                 if (weenie == null)
+                {
+                    log.Warn($"CreateNewWorldObjects: Database does not contain weenie {instance.WeenieClassId} for instance 0x{instance.Guid:X8} at {new Position(instance.ObjCellId, instance.OriginX, instance.OriginY, instance.OriginZ, instance.AnglesX, instance.AnglesY, instance.AnglesZ, instance.AnglesW).ToLOCString()}");
                     continue;
+                }
 
                 if (restrict_wcid != null && restrict_wcid.Value != instance.WeenieClassId)
                     continue;
@@ -303,7 +307,7 @@ namespace ACE.Server.Factories
 
                     if (worldObject.Location == null)
                     {
-                        log.Warn($"CreateNewWorldObjects: {worldObject.Name} (0x{worldObject.Guid}) Location was null. CreationTimestamp = {worldObject.CreationTimestamp} ({Common.Time.GetDateTimeFromTimestamp(worldObject.CreationTimestamp ?? 0).ToLocalTime()}) | Location restored from world db instance.");
+                        log.Warn($"CreateNewWorldObjects: {worldObject.Name} (0x{worldObject.Guid}) Location was null. CreationTimestamp = {worldObject.CreationTimestamp} ({Common.Time.GetDateTimeFromTimestamp(worldObject.CreationTimestamp ?? 0).ToLocalTime().ToCommonString()}) | Location restored from world db instance.");
                         worldObject.Location = new Position(instance.ObjCellId, instance.OriginX, instance.OriginY, instance.OriginZ, instance.AnglesX, instance.AnglesY, instance.AnglesZ, instance.AnglesW);
                     }
                 }

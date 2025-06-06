@@ -84,7 +84,7 @@ namespace ACE.Server.Factories.Tables
             SpellId.LightningProtectionSelf1,
         };
 
-        private static readonly int NumTiers = 8;
+        private const int NumTiers = 8;
 
         // original api
         public static readonly SpellId[][] Table = new SpellId[spells.Count][];

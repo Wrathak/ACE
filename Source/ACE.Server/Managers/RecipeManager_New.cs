@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
-
-using Newtonsoft.Json;
+using System.Text.Json;
 
 using ACE.Database;
 using ACE.Database.Models.World;
@@ -21,7 +20,7 @@ namespace ACE.Server.Managers
             // read recipeprecursors.json
             // tool -> target -> recipe
             var json = File.ReadAllText(@"json\recipeprecursors.json");
-            var precursors = JsonConvert.DeserializeObject<List<RecipePrecursor>>(json);
+            var precursors = JsonSerializer.Deserialize<List<RecipePrecursor>>(json);
             Precursors = new Dictionary<uint, Dictionary<uint, uint>>();
 
             foreach (var precursor in precursors)
@@ -476,6 +475,26 @@ namespace ACE.Server.Managers
                 case WeenieClassName.W_LUMINOUSAMBEROFTHE49THTIERPARAGON_CLASS:
                 case WeenieClassName.W_LUMINOUSAMBEROFTHE50THTIERPARAGON_CLASS:
                     recipe = DatabaseManager.World.GetCachedRecipe(SourceToRecipe[(WeenieClassName)source.WeenieClassId]);
+                    break;
+
+                case WeenieClassName.W_UNINSCRIPTIONSTONE_CLASS:
+
+                    /* Skip this for check in favor of second version which is closer to intent of stone i think.
+                    // ensure workmanship and weenie type                    
+                    if (target.Workmanship == null
+                        || target.WeenieType != WeenieType.MeleeWeapon || target.WeenieType != WeenieType.MissileLauncher || target.WeenieType != WeenieType.Caster
+                        || target.WeenieType != WeenieType.Clothing)
+                    */
+
+                    // check for base weenie for an inscription, if it exists, you cannot uninscribe the item.
+                    string inscription = "";
+                    var baseWeenie = DatabaseManager.World.GetCachedWeenie(target.WeenieClassId)?.PropertiesString?.TryGetValue(PropertyString.Inscription, out inscription);
+
+                    if (baseWeenie == null || !string.IsNullOrWhiteSpace(inscription))
+                        return null;
+
+                    recipe = DatabaseManager.World.GetCachedRecipe(9133);
+
                     break;
             }
 

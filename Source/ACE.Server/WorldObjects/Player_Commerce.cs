@@ -47,7 +47,7 @@ namespace ACE.Server.WorldObjects
             SendUseDoneEvent();
         }
 
-        private static readonly uint coinStackWcid = (uint)ACE.Entity.Enum.WeenieClassName.W_COINSTACK_CLASS;
+        private const uint coinStackWcid = (uint)ACE.Entity.Enum.WeenieClassName.W_COINSTACK_CLASS;
 
         /// <summary>
         /// Vendor has validated the transactions and sent a list of items for processing.
@@ -277,6 +277,13 @@ namespace ACE.Server.WorldObjects
                 {
                     var itemName = (wo.StackSize ?? 1) > 1 ? wo.GetPluralName() : wo.Name;
                     Session.Network.EnqueueSend(new GameEventCommunicationTransientString(Session, $"You cannot sell that! The {itemName} is currently being traded.")); // custom message?
+                    continue;
+                }
+
+                if (wo is Container container && container.Inventory.Count > 0)
+                {
+                    var itemName = (wo.StackSize ?? 1) > 1 ? wo.GetPluralName() : wo.Name;
+                    Session.Network.EnqueueSend(new GameEventCommunicationTransientString(Session, $"You cannot sell that! The {itemName} must be empty.")); // custom message?
                     continue;
                 }
 

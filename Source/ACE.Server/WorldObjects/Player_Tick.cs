@@ -35,6 +35,34 @@ namespace ACE.Server.WorldObjects
 
         public void Player_Tick(double currentUnixTime)
         {
+            if (CharacterSaveFailed)
+            {
+                // Boot the player as their Character object is not saving properly
+                if (!IsLoggingOut)
+                {
+                    log.Error($"{Session.Player.Name} | 0x{Guid} | Account: {Account.AccountName} - disconnected for CharacterSaveFailed");
+                    //Session.SendCharacterError(CharacterError.AccountLogin); // forces client to error screen
+                    Session.Terminate(SessionTerminationReason.CharacterSaveFailed, new GameMessageCharacterError(CharacterError.AccountLogin));
+                    //Session.LogOffPlayer(true);
+                    CharacterSaveFailed = false;
+                }
+                return;
+            }
+
+            if (BiotaSaveFailed)
+            {
+                // Boot the player as their Biota object is not saving properly
+                if (!IsLoggingOut)
+                {
+                    log.Error($"{Session.Player.Name} | 0x{Guid} | Account: {Account.AccountName} - disconnected for BiotaSaveFailed");
+                    //Session.SendCharacterError(CharacterError.AccountLogin); // forces client to error screen
+                    Session.Terminate(SessionTerminationReason.BiotaSaveFailed, new GameMessageCharacterError(CharacterError.AccountLogin));
+                    //Session.LogOffPlayer(true);
+                    BiotaSaveFailed = false;
+                }
+                return;
+            }
+
             actionQueue.RunActions();
 
             if (nextAgeUpdateTime <= currentUnixTime)
@@ -297,7 +325,7 @@ namespace ACE.Server.WorldObjects
                 if (elapsedSeconds >= 1) // Yea, that ain't good....
                     log.Warn($"[PERFORMANCE][PHYSICS] {Guid}:{Name} took {(elapsedSeconds * 1000):N1} ms to process UpdateObjectPhysics() at loc: {Location}");
                 else if (elapsedSeconds >= 0.010)
-                    log.Debug($"[PERFORMANCE][PHYSICS] {Guid}:{Name} took {(elapsedSeconds * 1000):N1} ms to process UpdateObjectPhysics() at loc: {Location}");
+                    log.DebugFormat("[PERFORMANCE][PHYSICS] {0}:{1} took {2:N1} ms to process UpdateObjectPhysics() at loc: {3}", Guid, Name, (elapsedSeconds * 1000), Location);
             }
         }
 
@@ -501,7 +529,7 @@ namespace ACE.Server.WorldObjects
                     if (elapsedSeconds >= 0.100) // Yea, that ain't good....
                         log.Warn($"[PERFORMANCE][PHYSICS] {Guid}:{Name} took {(elapsedSeconds * 1000):N1} ms to process UpdatePlayerPosition() at loc: {Location}");
                     else if (elapsedSeconds >= 0.010)
-                        log.Debug($"[PERFORMANCE][PHYSICS] {Guid}:{Name} took {(elapsedSeconds * 1000):N1} ms to process UpdatePlayerPosition() at loc: {Location}");
+                        log.DebugFormat("[PERFORMANCE][PHYSICS] {0}:{1} took {2:N1} ms to process UpdatePlayerPosition() at loc: {3}", Guid, Name, (elapsedSeconds * 1000), Location);
                 }
             }
         }

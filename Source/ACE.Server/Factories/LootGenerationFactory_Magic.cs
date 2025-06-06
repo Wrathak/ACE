@@ -1,14 +1,10 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
 using ACE.Common;
 using ACE.Database.Models.World;
 using ACE.Entity.Enum;
-using ACE.Entity.Models;
 using ACE.Server.Factories.Entity;
 using ACE.Server.Factories.Tables;
-using ACE.Server.Managers;
 using ACE.Server.WorldObjects;
 
 namespace ACE.Server.Factories
@@ -17,22 +13,7 @@ namespace ACE.Server.Factories
     {
         private static void AssignMagic(WorldObject wo, TreasureDeath profile, TreasureRoll roll, bool isArmor = false)
         {
-            int numSpells = 0;
-            int numEpics = 0;
-            int numLegendaries = 0;
-
-            if (roll == null)
-            {
-                // previous method
-                if (!AssignMagic_Spells(wo, profile, isArmor, out numSpells, out numEpics, out numLegendaries))
-                    return;
-            }
-            else
-            {
-                // new method
-                if (!AssignMagic_New(wo, profile, roll, out numSpells))
-                    return;
-            }
+            AssignSpells(wo, profile, roll);
 
             wo.UiEffects = UiEffects.Magical;
 
@@ -40,82 +21,22 @@ namespace ACE.Server.Factories
 
             wo.ManaRate = CalculateManaRate(maxBaseMana);
 
-            if (roll == null)
+            var maxSpellMana = maxBaseMana;
+
+            if (wo.SpellDID != null)
             {
-                wo.ItemMaxMana = RollItemMaxMana(profile.Tier, numSpells);
-                wo.ItemCurMana = wo.ItemMaxMana;
+                var spell = new Server.Entity.Spell(wo.SpellDID.Value);
 
-                wo.ItemSpellcraft = RollSpellcraft(wo);
-                wo.ItemDifficulty = RollItemDifficulty(wo, numEpics, numLegendaries);
-            }
-            else
-            {
-                var maxSpellMana = maxBaseMana;
+                var castableMana = (int)spell.BaseMana * 5;
 
-                if (wo.SpellDID != null)
-                {
-                    var spell = new Server.Entity.Spell(wo.SpellDID.Value);
-
-                    var castableMana = (int)spell.BaseMana * 5;
-
-                    if (castableMana > maxSpellMana)
-                        maxSpellMana = castableMana;
-                }
-
-                wo.ItemMaxMana = RollItemMaxMana_New(wo, roll, maxSpellMana);
-                wo.ItemCurMana = wo.ItemMaxMana;
-
-                wo.ItemSpellcraft = RollSpellcraft(wo, roll);
-
-                AddActivationRequirements(wo, roll);
-            }
-        }
-
-        private static bool AssignMagic_Spells(WorldObject wo, TreasureDeath profile, bool isArmor, out int numSpells, out int epicCantrips, out int legendaryCantrips)
-        {
-            SpellId[][] spells;
-            SpellId[][] cantrips;
-
-            int lowSpellTier = GetLowSpellTier(profile.Tier);
-            int highSpellTier = GetHighSpellTier(profile.Tier);
-
-            switch (wo.WeenieType)
-            {
-                case WeenieType.Clothing:
-                    spells = ArmorSpells.Table;
-                    cantrips = ArmorCantrips.Table;
-                    break;
-                case WeenieType.Caster:
-                    spells = WandSpells.Table;
-                    cantrips = WandCantrips.Table;
-                    break;
-                case WeenieType.Generic:
-                    spells = JewelrySpells.Table;
-                    cantrips = JewelryCantrips.Table;
-                    break;
-                case WeenieType.MeleeWeapon:
-                    spells = MeleeSpells.Table;
-                    cantrips = MeleeCantrips.Table;
-                    break;
-                case WeenieType.MissileLauncher:
-                    spells = MissileSpells.Table;
-                    cantrips = MissileCantrips.Table;
-                    break;
-                default:
-                    spells = null;
-                    cantrips = null;
-                    break;
+                if (castableMana > maxSpellMana)
+                    maxSpellMana = castableMana;
             }
 
-            if (wo.IsShield)
-            {
-                spells = ArmorSpells.Table;
-                cantrips = ArmorCantrips.Table;
-            }
+            wo.ItemMaxMana = RollItemMaxMana(wo, roll, maxSpellMana);
+            wo.ItemCurMana = wo.ItemMaxMana;
 
-            numSpells = 0;
-            epicCantrips = 0;
-            legendaryCantrips = 0;
+            wo.ItemSpellcraft = RollSpellcraft(wo, roll);
 
             if (spells == null || cantrips == null)
                 return false;
@@ -483,7 +404,7 @@ namespace ACE.Server.Factories
         /// <summary>
         /// Returns the maximum BaseMana from the spells in item's spellbook
         /// </summary>
-        public static int GetMaxBaseMana(WorldObject wo)
+        private static int GetMaxBaseMana(WorldObject wo)
         {
             var maxBaseMana = 0;
 
@@ -527,7 +448,7 @@ namespace ACE.Server.Factories
         /// <summary>
         /// Rolls the ItemMaxMana for an object
         /// </summary>
-        private static int RollItemMaxMana_New(WorldObject wo, TreasureRoll roll, int maxSpellMana)
+        private static int RollItemMaxMana(WorldObject wo, TreasureRoll roll, int maxSpellMana)
         {
             // verified matches up with magloot eor logs
 
@@ -565,7 +486,7 @@ namespace ACE.Server.Factories
         /// <summary>
         /// Calculates the ManaRate for an item
         /// </summary>
-        public static float CalculateManaRate(int maxBaseMana)
+        private static float CalculateManaRate(int maxBaseMana)
         {
             if (maxBaseMana <= 0)
                 maxBaseMana = 1;
@@ -574,40 +495,6 @@ namespace ACE.Server.Factories
             return -0.0f;
             //return -1.0f / (float)Math.Ceiling(1200.0f / maxBaseMana);
         }
-
-        // old method / based on item type
-
-        private static int RollSpellcraft(WorldObject wo)
-        {
-            var maxSpellPower = GetMaxSpellPower(wo);
-
-            (float min, float max) range = (1.0f, 1.0f);
-
-            switch (wo.ItemType)
-            {
-                case ItemType.Armor:
-                case ItemType.Clothing:
-                case ItemType.Jewelry:
-
-                case ItemType.MeleeWeapon:
-                case ItemType.MissileWeapon:
-                case ItemType.Caster:
-
-                    range = (0.9f, 1.1f);
-                    break;
-            }
-
-            var rng = ThreadSafeRandom.Next(range.min, range.max);
-
-            var spellcraft = (int)Math.Ceiling(maxSpellPower * rng);
-
-            // retail was capped at 370
-            spellcraft = Math.Min(spellcraft, 370);
-
-            return spellcraft;
-        }
-
-        // new method / based on treasure roll
 
         private static int RollSpellcraft(WorldObject wo, TreasureRoll roll)
         {
@@ -638,7 +525,7 @@ namespace ACE.Server.Factories
         /// <summary>
         /// Returns the maximum power from the spells in item's SpellDID / spellbook
         /// </summary>
-        public static int GetMaxSpellPower(WorldObject wo)
+        private static int GetMaxSpellPower(WorldObject wo)
         {
             var maxSpellPower = 0;
 
@@ -722,35 +609,6 @@ namespace ACE.Server.Factories
                 return rng < 0.55f;
             }
             return false;
-        }
-
-        // previous method - replaces itemSkillLevelLimit w/ WieldDifficulty,
-        // and does not use treasure roll
-
-        private static int RollItemDifficulty(WorldObject wo, int numEpics, int numLegendaries)
-        {
-            // - # of spells on item
-            var num_spells = wo.Biota.PropertiesSpellBook.Count();
-
-            var spellAddonChance = num_spells * (20.0f / (num_spells + 2.0f));
-            var spellAddon = (float)ThreadSafeRandom.Next(1.0f, spellAddonChance) * num_spells;
-
-            // - # of epics / legendaries on item
-            var epicAddon = numEpics > 0 ? ThreadSafeRandom.Next(1, 5) * numEpics : 0;
-            var legAddon = numLegendaries > 0 ? ThreadSafeRandom.Next(5, 10) * numLegendaries : 0;
-
-            // wield difficulty - skill requirement
-            var wieldFactor = 0.0f;
-
-            if (wo.WieldDifficulty != null && wo.WieldRequirements == WieldRequirement.RawSkill)
-                wieldFactor = wo.WieldDifficulty.Value / 3.0f;
-
-            var itemDifficulty = wo.ItemSpellcraft.Value - wieldFactor;
-
-            if (itemDifficulty < 0)
-                itemDifficulty = 0;
-
-            return (int)Math.Floor(itemDifficulty + spellAddon + epicAddon + legAddon);
         }
 
         /// <summary>
