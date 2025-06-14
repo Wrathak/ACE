@@ -18,6 +18,8 @@ namespace ACE.Server.WorldObjects
 
         public static double GetMagicSkillChance(int skill, int difficulty)
         {
+              if (skill >= difficulty + 50)
+              return 1.0;
             return GetSkillChance(skill, difficulty, 0.07f);
         }
     }

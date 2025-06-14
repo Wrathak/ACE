@@ -531,12 +531,39 @@ namespace ACE.Server.WorldObjects
 
             var castingPreCheckStatus = CastingPreCheckStatus.CastFailed;
 
+            //if (magicSkill > 0 && magicSkill >= (int)difficulty + 50)
+            //{
+            //  castingPreCheckStatus = CastingPreCheckStatus.Success;
+            //  return castingPreCheckStatus;
+            //}
+            //Session.Network.EnqueueSend(new GameMessageSystemChat($"[MagicCheck] Success!", ChatMessageType.Magic));
+            //log.Warn($"[MagicCheck] Success!");
+
             if (magicSkill > 0 && magicSkill >= (int)difficulty - 50)
             {
                 var chance = SkillCheck.GetMagicSkillChance((int)magicSkill, (int)difficulty);
-                var rng = ThreadSafeRandom.Next(0.0f, 1.0f);
-                if (chance > rng)
+                var rng = ThreadSafeRandom.Next(0.0f, 0.999999f);
+
+                //CommandHandlerHelper.WriteOutputInfo(session, $"[MagicCheck] Skill: {magicSkill}, Difficulty: {difficulty}, Chance: {chance:F4}, RNG: {rng:F4}");
+                //Console.WriteLine($"[MagicCheck] Skill: {magicSkill}, Difficulty: {difficulty}, Chance: {chance:F4}, RNG: {rng:F4}");
+                //log.Error($"[MagicCheck] Skill: {magicSkill}, Difficulty: {difficulty}, Chance: {chance:F4}, RNG: {rng:F4}");
+                //Session.Network.EnqueueSend(new GameMessageSystemChat($"[MagicCheck] Skill: {magicSkill}, Difficulty: {difficulty}, Chance: {chance:F4}, RNG: {rng:F4}", ChatMessageType.Magic));
+
+                if (chance >= rng) {
                     castingPreCheckStatus = CastingPreCheckStatus.Success;
+                    //CommandHandlerHelper.WriteOutputInfo(session, "[MagicCheck] Success!");
+                    //Console.WriteLine("[MagicCheck] Success!");
+                    //log.Error($"[MagicCheck] Success!");
+                    //Session.Network.EnqueueSend(new GameMessageSystemChat($"[MagicCheck] Success!", ChatMessageType.Magic));
+                  }
+
+                    else
+                    {
+                    //Console.WriteLine("[MagicCheck] FAIL? This should NOT happen if chance == 1.0!");
+                    //CommandHandlerHelper.WriteOutputInfo(session, "[MagicCheck] FAIL? This should NOT happen if chance == 1.0!");
+                    //log.Error($"[MagicCheck] FAIL? This should NOT happen if chance == 1.0!");
+                    //Session.Network.EnqueueSend(new GameMessageSystemChat($"[MagicCheck] FAIL? This should NOT happen if chance == 1.0!", ChatMessageType.Magic));
+                    }
             }
 
             // build-in spells never fizzle

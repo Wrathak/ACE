@@ -67,7 +67,7 @@ namespace ACE.Server.Command.Handlers.Processors
             return FileType.Undefined;
         }
 
-        [CommandHandler("import-json", AccessLevel.Player, CommandHandlerFlag.None, 1, "Imports json data from the Content folder", "<wcid>")]
+        [CommandHandler("import-json", AccessLevel.Player, CommandHandlerFlag.None, 1, "Imports json data from the Content folder", "<type> <wcid>\n<type> - landblock, quest, recipe, spell, weenie (default if not specified)\n<wcid> - filename prefix to search for. can be 'all' to import all files for this content type")]
         public static void HandleImportJson(Session session, params string[] parameters)
         {
             var param = parameters[0];
@@ -215,7 +215,14 @@ namespace ACE.Server.Command.Handlers.Processors
                 ImportJsonQuest(session, json_folder, file.Name);
         }
 
-        [CommandHandler("import-sql", AccessLevel.Player, CommandHandlerFlag.None, 1, "Imports sql data from the Content folder", "<wcid>")]
+        [CommandHandler("import-sql-folders", AccessLevel.Player, CommandHandlerFlag.None, 1, "Imports all weenie sql data from the Content folder and all sub-folders", "<wcid>\n<wcid> - wcid prefix to search for. can be 'all' to import everything")]
+        public static void HandleImportSQLFolders(Session session, params string[] parameters)
+        {
+            var param = parameters[0];
+            ImportSQLWeenie(session, param, true);
+        }
+
+        [CommandHandler("import-sql", AccessLevel.Player, CommandHandlerFlag.None, 1, "Imports sql data from the Content folder", "<type> <wcid>\n<type> - landblock, encounter, quest, recipe, spell, weenie (default if not specified)\n<wcid> - filename prefix to search for. can be 'all' to import all files for this content type")]
         public static void HandleImportSQL(Session session, params string[] parameters)
         {
             var param = parameters[0];
@@ -225,11 +232,11 @@ namespace ACE.Server.Command.Handlers.Processors
             {
                 contentType = GetContentType(parameters, ref param);
 
-                //if (contentType == FileType.Undefined)
-                //{
-                //    CommandHandlerHelper.WriteOutputInfo(session, $"Unknown content type '{parameters[1]}'");
-                //    return;
-                //}
+                if (contentType == FileType.Undefined)
+                {
+                    CommandHandlerHelper.WriteOutputInfo(session, $"Unknown content type '{parameters[1]}'");
+                    return;
+                }
             }
             try
             {
@@ -1147,7 +1154,7 @@ namespace ACE.Server.Command.Handlers.Processors
 
         public static LandblockInstanceWriter LandblockInstanceWriter;
 
-        [CommandHandler("createinst", AccessLevel.Player, CommandHandlerFlag.RequiresWorld, 1, "Spawns a new wcid or classname as a landblock instance", "<wcid or classname>")]
+        [CommandHandler("createinst", AccessLevel.Player, CommandHandlerFlag.RequiresWorld, 1, "Spawns a new wcid or classname as a landblock instance", "<wcid or classname>\n\nTo create a parent/child relationship: /createinst -p <parent guid> -c <wcid or classname>\nTo automatically get the parent guid from the last appraised object: /createinst -p -c <wcid or classname>\n\nTo manually specify a start guid: /createinst <wcid or classname> <start guid>\nStart guids can be in the range 0x000-0xFFF, or they can be prefixed with 0x7<landblock id>")]
         public static void HandleCreateInst(Session session, params string[] parameters)
         {
             var loc = new Position(session.Player.Location);
@@ -1827,15 +1834,14 @@ namespace ACE.Server.Command.Handlers.Processors
             }
         }
 
-        [CommandHandler("export-json-folders", AccessLevel.Developer, CommandHandlerFlag.None, 1, "Exports content from database to JSON file in a WeenieType/ItemType folder structure", "<wcid>")]
+        [CommandHandler("export-json-folders", AccessLevel.Player, CommandHandlerFlag.None, 1, "Exports content from database to JSON file in a WeenieType/ItemType folder structure", "<wcid>")]
         public static void HandleExportJsonFolder(Session session, params string[] parameters)
         {
             var param = parameters[0];
             ExportJsonWeenie(session, param, true);
         }
 
-        [CommandHandler("export-json", AccessLevel.Player, CommandHandlerFlag.None, 1, "Exports content from database to JSON file", "<wcid>")]
-
+        [CommandHandler("export-json", AccessLevel.Player, CommandHandlerFlag.None, 1, "Exports content from database to JSON file", "<optional type> <id>\n<optional type> - landblock, quest, recipe, spell, weenie (default if not specified)\n<id> - wcid or content id to export")]
         public static void HandleExportJson(Session session, params string[] parameters)
         {
             var param = parameters[0];
@@ -2078,15 +2084,14 @@ namespace ACE.Server.Command.Handlers.Processors
             CommandHandlerHelper.WriteOutputInfo(session, $"Exported {json_folder}{json_filename}");
         }
 
-        [CommandHandler("export-sql-folders", AccessLevel.Developer, CommandHandlerFlag.None, 1, "Exports weenie content from database to an SQL file in a WeenieType/ItemType folder structure", "<wcid>")]
+        [CommandHandler("export-sql-folders", AccessLevel.Player, CommandHandlerFlag.None, 1, "Exports weenie content from database to an SQL file in a WeenieType/ItemType folder structure", "<wcid>")]
         public static void HandleExportSqlFolder(Session session, params string[] parameters)
         {
             var param = parameters[0];
             ExportSQLWeenie(session, param, true);
         }
 
-        [CommandHandler("export-sql", AccessLevel.Player, CommandHandlerFlag.None, 1, "Exports content from database to SQL file", "<wcid> [content-type]")]
-
+        [CommandHandler("export-sql", AccessLevel.Player, CommandHandlerFlag.None, 1, "Exports content from database to SQL file", "<optional type> <id>\n<optional type> - landblock, encounter, quest, recipe, spell, weenie (default if not specified)\n<id> - wcid or content id to export")]
         public static void HandleExportSql(Session session, params string[] parameters)
         {
             var param = parameters[0];
@@ -2958,19 +2963,19 @@ namespace ACE.Server.Command.Handlers.Processors
             obj.SendUpdatePosition(true);
         }
 
-        [CommandHandler("rotate-x", AccessLevel.Developer, CommandHandlerFlag.None, 1, "Adjusts the rotation of a landblock instance along the x-axis", "<degrees>")]
+        [CommandHandler("rotate-x", AccessLevel.Player, CommandHandlerFlag.None, 1, "Adjusts the rotation of a landblock instance along the x-axis", "<degrees>")]
         public static void HandleRotateX(Session session, params string[] parameters)
         {
             HandleRotateAxis(session, Vector3.UnitX, parameters);
         }
 
-        [CommandHandler("rotate-y", AccessLevel.Developer, CommandHandlerFlag.None, 1, "Adjusts the rotation of a landblock instance along the y-axis", "<degrees>")]
+        [CommandHandler("rotate-y", AccessLevel.Player, CommandHandlerFlag.None, 1, "Adjusts the rotation of a landblock instance along the y-axis", "<degrees>")]
         public static void HandleRotateY(Session session, params string[] parameters)
         {
             HandleRotateAxis(session, Vector3.UnitY, parameters);
         }
 
-        [CommandHandler("rotate-z", AccessLevel.Developer, CommandHandlerFlag.None, 1, "Adjusts the rotation of a landblock instance along the z-axis", "<degrees>")]
+        [CommandHandler("rotate-z", AccessLevel.Player, CommandHandlerFlag.None, 1, "Adjusts the rotation of a landblock instance along the z-axis", "<degrees>")]
         public static void HandleRotateZ(Session session, params string[] parameters)
         {
             HandleRotateAxis(session, Vector3.UnitZ, parameters);

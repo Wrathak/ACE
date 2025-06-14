@@ -20,47 +20,8 @@ namespace ACE.Server.Factories
 
             var wo = WorldObjectFactory.CreateNewWorldObject((uint)treasureRoll.Wcid);
 
-            if (weaponSkill == MeleeWeaponSkill.Undef)
-                weaponSkill = (MeleeWeaponSkill)ThreadSafeRandom.Next(1, 1);
+            MutateMeleeWeapon(wo, profile, isMagical, treasureRoll);
 
-
-            switch (weaponSkill)
-            {
-                case MeleeWeaponSkill.HeavyWeapons:
-
-                    weaponType = ThreadSafeRandom.Next(0, LootTables.HeavyWeaponsMatrix.Length - 1);
-                    wcid = LootTables.HeavyWeaponsMatrix[weaponType][eleType];
-                    break;
-
-                case MeleeWeaponSkill.LightWeapons:
-
-                    weaponType = ThreadSafeRandom.Next(0, LootTables.LightWeaponsMatrix.Length - 1);
-                    wcid = LootTables.LightWeaponsMatrix[weaponType][eleType];
-                    break;
-
-                case MeleeWeaponSkill.FinesseWeapons:
-
-                    weaponType = ThreadSafeRandom.Next(0, LootTables.FinesseWeaponsMatrix.Length - 1);
-                    wcid = LootTables.FinesseWeaponsMatrix[weaponType][eleType];
-                    break;
-
-                case MeleeWeaponSkill.TwoHandedCombat:
-
-                    weaponType = ThreadSafeRandom.Next(0, LootTables.TwoHandedWeaponsMatrix.Length - 1);
-                    wcid = LootTables.TwoHandedWeaponsMatrix[weaponType][eleType];
-                    break;
-            }
-
-            var wo = WorldObjectFactory.CreateNewWorldObject((uint)wcid);
-
-            if (wo != null && mutate)
-            {
-                if (!MutateMeleeWeapon(wo, profile, isMagical))
-                {
-                    log.Warn($"[LOOT] {wo.WeenieClassId} - {wo.Name} is not a MeleeWeapon");
-                    return null;
-                }
-            }
             return wo;
         }
 
@@ -133,7 +94,7 @@ namespace ACE.Server.Factories
 
             // item value
             //if (wo.HasMutateFilter(MutateFilter.Value))   // fixme: data
-                MutateValue(wo, profile.Tier, roll);
+            MutateValue(wo, profile.Tier, roll);
 
             // long description
             wo.LongDesc = GetLongDesc(wo);

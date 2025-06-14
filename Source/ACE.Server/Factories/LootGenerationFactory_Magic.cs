@@ -33,372 +33,15 @@ namespace ACE.Server.Factories
                     maxSpellMana = castableMana;
             }
 
-            wo.ItemMaxMana = RollItemMaxMana(wo, roll, maxSpellMana);
-            wo.ItemCurMana = wo.ItemMaxMana;
+
+            //wo.ItemMaxMana = RollItemMaxMana(wo, roll, maxSpellMana);
+            wo.ItemMaxMana = 9999;
+            //wo.ItemCurMana = wo.ItemMaxMana;
+            wo.ItemCurMana = 9999;
 
             wo.ItemSpellcraft = RollSpellcraft(wo, roll);
 
-            if (spells == null || cantrips == null)
-                return false;
-
-            // Refactor 3/2/2020 - HQ
-            // Magic stats
-            numSpells = GetSpellDistribution(profile, out int minorCantrips, out int majorCantrips, out epicCantrips, out legendaryCantrips);
-            int numCantrips = minorCantrips + majorCantrips + epicCantrips + legendaryCantrips;
-
-            if (numSpells - numCantrips > 0)
-            {
-                var indices = Enumerable.Range(0, spells.Length).ToList();
-
-                for (int i = 0; i < numSpells - numCantrips; i++)
-                {
-                    var idx = ThreadSafeRandom.Next(0, indices.Count - 1);
-                    int col = ThreadSafeRandom.Next(lowSpellTier - 1, highSpellTier - 1);
-                    SpellId spellID = spells[indices[idx]][col];
-                    indices.RemoveAt(idx);
-                    wo.Biota.GetOrAddKnownSpell((int)spellID, wo.BiotaDatabaseLock, out _);
-                }
-            }
-
-            // Per discord discussions: ALL armor/shields if it had any spells, had an Impen spell
-            if (isArmor)
-            {
-                var impenSpells = SpellLevelProgression.Impenetrability;
-
-                // Ensure that one of the Impen spells was not already added
-                bool impenFound = false;
-                for (int i = 0; i < 8; i++)
-                {
-                    if (wo.Biota.SpellIsKnown((int)impenSpells[i], wo.BiotaDatabaseLock))
-                    {
-                        impenFound = true;
-                        break;
-                    }
-                }
-                if (!impenFound)
-                {
-                    int col = ThreadSafeRandom.Next(lowSpellTier - 1, highSpellTier - 1);
-                    SpellId spellID = impenSpells[col];
-                    wo.Biota.GetOrAddKnownSpell((int)spellID, wo.BiotaDatabaseLock, out _);
-                }
-            }
-
-            if (numCantrips > 0)
-            {
-                var indices = Enumerable.Range(0, cantrips.Length).ToList();
-
-                // minor cantrips
-                for (var i = 0; i < minorCantrips; i++)
-                {
-                    var idx = ThreadSafeRandom.Next(0, indices.Count - 1);
-                    SpellId spellID = cantrips[indices[idx]][0];
-                    indices.RemoveAt(idx);
-                    wo.Biota.GetOrAddKnownSpell((int)spellID, wo.BiotaDatabaseLock, out _);
-                }
-                // major cantrips
-                for (var i = 0; i < majorCantrips; i++)
-                {
-                    var idx = ThreadSafeRandom.Next(0, indices.Count - 1);
-                    SpellId spellID = cantrips[indices[idx]][1];
-                    indices.RemoveAt(idx);
-                    wo.Biota.GetOrAddKnownSpell((int)spellID, wo.BiotaDatabaseLock, out _);
-                }
-                // epic cantrips
-                for (var i = 0; i < epicCantrips; i++)
-                {
-                    var idx = ThreadSafeRandom.Next(0, indices.Count - 1);
-                    SpellId spellID = cantrips[indices[idx]][2];
-                    indices.RemoveAt(idx);
-                    wo.Biota.GetOrAddKnownSpell((int)spellID, wo.BiotaDatabaseLock, out _);
-                }
-                // legendary cantrips
-                for (var i = 0; i < legendaryCantrips; i++)
-                {
-                    var idx = ThreadSafeRandom.Next(0, indices.Count - 1);
-                    SpellId spellID = cantrips[indices[idx]][3];
-                    indices.RemoveAt(idx);
-                    wo.Biota.GetOrAddKnownSpell((int)spellID, wo.BiotaDatabaseLock, out _);
-                }
-            }
-            return true;
-        }
-
-        private static int GetSpellDistribution(TreasureDeath profile, out int numMinors, out int numMajors, out int numEpics, out int numLegendaries)
-        {
-            int numNonCantrips = 0;
-
-            numMinors = 0;
-            numMajors = 0;
-            numEpics = 0;
-            numLegendaries = 0;
-
-            int nonCantripChance = ThreadSafeRandom.Next(1, 100000);
-
-            numMinors = GetNumMinorCantrips(profile); // All tiers have a chance for at least one minor cantrip
-            numMajors = GetNumMajorCantrips(profile);
-            numEpics = GetNumEpicCantrips(profile);
-            numLegendaries = GetNumLegendaryCantrips(profile);
-
-            //  Fixing the absurd amount of spells on items - HQ 6/21/2020
-            //  From Mags Data all tiers have about the same chance for a given number of spells on items.  This is the ratio for magical items.
-            //  1 Spell(s) - 46.410 %
-            //  2 Spell(s) - 27.040 %
-            //  3 Spell(s) - 17.850 %
-            //  4 Spell(s) - 6.875 %
-            //  5 Spell(s) - 1.525 %
-            //  6 Spell(s) - 0.235 %
-            //  7 Spell(s) - 0.065 %
-
-            if (nonCantripChance <= 46410)
-                numNonCantrips = 1;
-            else if (nonCantripChance <= 73450)
-                numNonCantrips = 2;
-            else if (nonCantripChance <= 90000)
-                numNonCantrips = 3;
-            else if (nonCantripChance <= 97500)
-                numNonCantrips = 4;
-            else if (nonCantripChance <= 99300)
-                numNonCantrips = 5;
-            else if (nonCantripChance <= 99800)
-                numNonCantrips = 6;
-            else
-                numNonCantrips = 7;
-
-            return numNonCantrips + numMinors + numMajors + numEpics + numLegendaries;
-        }
-
-        private static int GetNumMinorCantrips(TreasureDeath profile)
-        {
-            int numMinors = 0;
-
-            var dropRate = PropertyManager.GetDouble("minor_cantrip_drop_rate").Item;
-            if (dropRate <= 0)
-                return 0;
-
-            var dropRateMod = 1.0 / dropRate;
-
-            double lootQualityMod = 1.0f;
-            if (PropertyManager.GetBool("loot_quality_mod").Item && profile.LootQualityMod > 0 && profile.LootQualityMod < 1)
-                lootQualityMod = 1.0f - profile.LootQualityMod;
-
-            switch (profile.Tier)
-            {
-                case 1:
-                    if (ThreadSafeRandom.Next(1, (int)(100 * dropRateMod * lootQualityMod)) == 1)
-                        numMinors = 1;
-                    break;
-                case 2:
-                case 3:
-                    if (ThreadSafeRandom.Next(1, (int)(50 * dropRateMod * lootQualityMod)) == 1)
-                        numMinors = 1;
-                    if (ThreadSafeRandom.Next(1, (int)(200 * dropRateMod * lootQualityMod)) == 1)
-                        numMinors = 2;
-                    break;
-                case 4:
-                case 5:
-                    if (ThreadSafeRandom.Next(1, (int)(50 * dropRateMod * lootQualityMod)) == 1)
-                        numMinors = 1;
-                    if (ThreadSafeRandom.Next(1, (int)(250 * dropRateMod * lootQualityMod)) == 1)
-                        numMinors = 2;
-                    if (ThreadSafeRandom.Next(1, (int)(500 * dropRateMod * lootQualityMod)) == 1)
-                        numMinors = 3;
-                    break;
-                case 6:
-                case 7:
-                default:
-                    if (ThreadSafeRandom.Next(1, (int)(50 * dropRateMod * lootQualityMod)) == 1)
-                        numMinors = 1;
-                    if (ThreadSafeRandom.Next(1, (int)(250 * dropRateMod * lootQualityMod)) == 1)
-                        numMinors = 2;
-                    if (ThreadSafeRandom.Next(1, (int)(1000 * dropRateMod * lootQualityMod)) == 1)
-                        numMinors = 3;
-                    if (ThreadSafeRandom.Next(1, (int)(2500 * dropRateMod * lootQualityMod)) == 1)
-                        numMinors = 4;
-                    break;
-            }
-
-            return numMinors;
-        }
-
-        private static int GetNumMajorCantrips(TreasureDeath profile)
-        {
-            int numMajors = 0;
-
-            var dropRate = PropertyManager.GetDouble("major_cantrip_drop_rate").Item;
-            if (dropRate <= 0)
-                return 0;
-
-            var dropRateMod = 1.0 / dropRate;
-
-            double lootQualityMod = 1.0f;
-            if (PropertyManager.GetBool("loot_quality_mod").Item && profile.LootQualityMod > 0 && profile.LootQualityMod < 1)
-                lootQualityMod = 1.0f - profile.LootQualityMod;
-
-            switch (profile.Tier)
-            {
-                case 1:
-                    numMajors = 0;
-                    break;
-                case 2:
-                    if (ThreadSafeRandom.Next(1, (int)(500 * dropRateMod * lootQualityMod)) == 1)
-                        numMajors = 1;
-                    break;
-                case 3:
-                    if (ThreadSafeRandom.Next(1, (int)(500 * dropRateMod * lootQualityMod)) == 1)
-                        numMajors = 1;
-                    if (ThreadSafeRandom.Next(1, (int)(5000 * dropRateMod * lootQualityMod)) == 1)
-                        numMajors = 2;
-                    break;
-                case 4:
-                case 5:
-                case 6:
-                    if (ThreadSafeRandom.Next(1, (int)(500 * dropRateMod * lootQualityMod)) == 1)
-                        numMajors = 1;
-                    if (ThreadSafeRandom.Next(1, (int)(2500 * dropRateMod * lootQualityMod)) == 1)
-                        numMajors = 2;
-                    break;
-                case 7:
-                default:
-                    if (ThreadSafeRandom.Next(1, (int)(500 * dropRateMod * lootQualityMod)) == 1)
-                        numMajors = 1;
-                    if (ThreadSafeRandom.Next(1, (int)(2500 * dropRateMod * lootQualityMod)) == 1)
-                        numMajors = 2;
-                    if (ThreadSafeRandom.Next(1, (int)(7500 * dropRateMod * lootQualityMod)) == 1)
-                        numMajors = 3;
-                    break;
-            }
-
-            return numMajors;
-        }
-
-        private static int GetNumEpicCantrips(TreasureDeath profile)
-        {
-            int numEpics = 0;
-
-            if (profile.Tier < 7)
-                return 0;
-
-            var dropRate = PropertyManager.GetDouble("epic_cantrip_drop_rate").Item;
-            if (dropRate <= 0)
-                return 0;
-
-            var dropRateMod = 1.0 / dropRate;
-
-            double lootQualityMod = 1.0f;
-            if (PropertyManager.GetBool("loot_quality_mod").Item && profile.LootQualityMod > 0 && profile.LootQualityMod < 1)
-                lootQualityMod = 1.0f - profile.LootQualityMod;
-
-            // 25% base chance for no epics for tier 7
-            if (ThreadSafeRandom.Next(1, 4) > 1)
-            {
-                // 1% chance for 1 Epic, 0.1% chance for 2 Epics,
-                // 0.01% chance for 3 Epics, 0.001% chance for 4 Epics
-                if (ThreadSafeRandom.Next(1, (int)(100 * dropRateMod * lootQualityMod)) == 1)
-                    numEpics = 1;
-                if (ThreadSafeRandom.Next(1, (int)(500 * dropRateMod * lootQualityMod)) == 1)
-                    numEpics = 2;
-                if (ThreadSafeRandom.Next(1, (int)(5000 * dropRateMod * lootQualityMod)) == 1)
-                    numEpics = 3;
-                if (ThreadSafeRandom.Next(1, (int)(25000 * dropRateMod * lootQualityMod)) == 1)
-                    numEpics = 4;
-            }
-
-            return numEpics;
-        }
-
-        private static int GetNumLegendaryCantrips(TreasureDeath profile)
-        {
-            int numLegendaries = 0;
-
-            if (profile.Tier < 8)
-                return 0;
-
-            var dropRate = PropertyManager.GetDouble("legendary_cantrip_drop_rate").Item;
-            if (dropRate <= 0)
-                return 0;
-
-            var dropRateMod = 1.0 / dropRate;
-
-            double lootQualityMod = 1.0f;
-            if (PropertyManager.GetBool("loot_quality_mod").Item && profile.LootQualityMod > 0 && profile.LootQualityMod < 1)
-                lootQualityMod = 1.0f - profile.LootQualityMod;
-
-            // 1% chance for a legendary, 0.02% chance for 2 legendaries
-            if (ThreadSafeRandom.Next(1, (int)(100 * dropRateMod * lootQualityMod)) == 1)
-                numLegendaries = 1;
-            if (ThreadSafeRandom.Next(1, (int)(500 * dropRateMod * lootQualityMod)) == 1)
-                numLegendaries = 2;
-
-            return numLegendaries;
-        }
-
-        private static int GetLowSpellTier(int tier)
-        {
-            int lowSpellTier;
-            switch (tier)
-            {
-                case 1:
-                    lowSpellTier = 2;
-                    break;
-                case 2:
-                    lowSpellTier = 3;
-                    break;
-                case 3:
-                    lowSpellTier = 4;
-                    break;
-                case 4:
-                    lowSpellTier = 5;
-                    break;
-                case 5:
-                case 6:
-                    lowSpellTier = 6;
-                    break;
-                default:
-                    lowSpellTier = 7;
-                    break;
-            }
-
-            return lowSpellTier;
-        }
-
-        private static int GetHighSpellTier(int tier)
-        {
-            int highSpellTier;
-            switch (tier)
-            {
-                case 1:
-                    highSpellTier = 3;
-                    break;
-                case 2:
-                    highSpellTier = 5;
-                    break;
-                case 3:
-                case 4:
-                    highSpellTier = 6;
-                    break;
-                case 5:
-                case 6:
-                    highSpellTier = 7;
-                    break;
-                default:
-                    highSpellTier = 8;
-                    break;
-            }
-
-            return highSpellTier;
-        }
-
-        private static void Shuffle(int[] array)
-        {
-            // verified even distribution
-            for (var i = 0; i < array.Length; i++)
-            {
-                var idx = ThreadSafeRandom.Next(i, array.Length - 1);
-
-                var temp = array[idx];
-                array[idx] = array[i];
-                array[i] = temp;
-            }
+            AddActivationRequirements(wo, roll);
         }
 
         /// <summary>
@@ -406,7 +49,8 @@ namespace ACE.Server.Factories
         /// </summary>
         private static int GetMaxBaseMana(WorldObject wo)
         {
-            var maxBaseMana = 0;
+            //var maxBaseMana = 0;
+            var maxBaseMana = 9999;
 
             if (wo.Biota.PropertiesSpellBook != null)
             {
@@ -418,31 +62,7 @@ namespace ACE.Server.Factories
                         maxBaseMana = (int)spell.BaseMana;
                 }
             }
-            return 9999;
-            //return maxBaseMana;
-        }
-
-        // old table / method
-
-        private static readonly List<(int min, int max)> itemMaxMana_RandomRange = new List<(int min, int max)>()
-        {
-            (9999,  9999),    // T1
-            (9999,  9999),    // T2
-            (9999,  9999),    // T3
-            (9999,  9999),   // T4
-            (9999, 9999),   // T5
-            (9999, 9999),   // T6
-            (9999, 9999),   // T7
-            (9999, 9999),   // T8
-        };
-
-        private static int RollItemMaxMana(int tier, int numSpells)
-        {
-            var range = itemMaxMana_RandomRange[tier - 1];
-
-            var rng = ThreadSafeRandom.Next(range.min, range.max);
-
-            return rng * numSpells;
+            return maxBaseMana;
         }
 
         /// <summary>
@@ -492,8 +112,7 @@ namespace ACE.Server.Factories
                 maxBaseMana = 1;
 
             // verified with eor data
-            return -0.0f;
-            //return -1.0f / (float)Math.Ceiling(1200.0f / maxBaseMana);
+            return -1.0f / (float)Math.Ceiling(1200.0f / maxBaseMana);
         }
 
         private static int RollSpellcraft(WorldObject wo, TreasureRoll roll)
@@ -564,7 +183,7 @@ namespace ACE.Server.Factories
             if (!RollItemSkillLimit(roll))
                 return false;
 
-            wo.ItemSkillLevelLimit = wo.ItemSpellcraft + 20;
+            wo.ItemSkillLevelLimit = wo.ItemSpellcraft + 10;
 
             var skill = Skill.None;
 
@@ -574,17 +193,17 @@ namespace ACE.Server.Factories
             }
             else if (roll.IsArmor)
             {
-                var rng = ThreadSafeRandom.Next(0.0f, 1.0f);
+                //var rng = ThreadSafeRandom.Next(0.0f, 1.0f);
 
-                if (rng < 0.5f)
-                {
+                //if (rng < 0.5f)
+                //{
                     skill = Skill.MeleeDefense;
-                }
-                else
-                {
-                    skill = Skill.MissileDefense;
-                    wo.ItemSkillLevelLimit = (int)(wo.ItemSkillLevelLimit * 0.7f);
-                }
+                //}
+                //else
+                //{
+                //    skill = Skill.MissileDefense;
+                //    wo.ItemSkillLevelLimit = (int)(wo.ItemSkillLevelLimit * 0.5f);
+                //}
             }
             else
             {

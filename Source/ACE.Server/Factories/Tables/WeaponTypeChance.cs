@@ -16,16 +16,16 @@ namespace ACE.Server.Factories.Tables
             //( TreasureWeaponType.Spear,           0.08f ),
             //( TreasureWeaponType.Staff,           0.09f ),
             //( TreasureWeaponType.Dagger,          0.09f ),
-            ( TreasureWeaponType.Unarmed,         0.60f ),
-            ( TreasureWeaponType.Bow,             0.20f ),
-            ( TreasureWeaponType.Caster,          0.20f ),
+            ( TreasureWeaponType.Unarmed,         0.33f ),
+            ( TreasureWeaponType.Bow,             0.33f ),
+            ( TreasureWeaponType.Caster,          0.33f ),
         };
 
         private static ChanceTable<TreasureWeaponType> T5_T6_Chances = new ChanceTable<TreasureWeaponType>()
         {
-          ( TreasureWeaponType.Unarmed,         0.60f ),
-          ( TreasureWeaponType.Bow,             0.20f ),
-          ( TreasureWeaponType.Caster,          0.20f ),
+          ( TreasureWeaponType.Unarmed,         0.33f ),
+          ( TreasureWeaponType.Bow,             0.33f ),
+          ( TreasureWeaponType.Caster,          0.33f ),
         };
 
         // from magloot corpse logs
@@ -43,14 +43,14 @@ namespace ACE.Server.Factories.Tables
         /// </summary>
         public static ChanceTable<TreasureWeaponType> MeleeChances = new ChanceTable<TreasureWeaponType>()
         {
-            ( TreasureWeaponType.Sword,           0.125f ),
-            ( TreasureWeaponType.Mace,            0.125f ),
-            ( TreasureWeaponType.Axe,             0.125f ),
-            ( TreasureWeaponType.Spear,           0.125f ),
-            ( TreasureWeaponType.Unarmed,         0.125f ),
-            ( TreasureWeaponType.Staff,           0.125f ),
-            ( TreasureWeaponType.Dagger,          0.125f ),
-            ( TreasureWeaponType.TwoHandedWeapon, 0.125f ),
+            ( TreasureWeaponType.Sword,           0.993f ),
+            ( TreasureWeaponType.Mace,            0.001f ),
+            ( TreasureWeaponType.Axe,             0.001f ),
+            ( TreasureWeaponType.Spear,           0.001f ),
+            ( TreasureWeaponType.Unarmed,         0.001f ),
+            ( TreasureWeaponType.Staff,           0.001f ),
+            ( TreasureWeaponType.Dagger,          0.001f ),
+            ( TreasureWeaponType.TwoHandedWeapon, 0.001f ),
         };
 
         /// <summary>
@@ -59,9 +59,9 @@ namespace ACE.Server.Factories.Tables
         /// </summary>
         public static ChanceTable<TreasureWeaponType> MissileChances = new ChanceTable<TreasureWeaponType>()
         {
-            ( TreasureWeaponType.Bow,             0.334f ),
-            ( TreasureWeaponType.Crossbow,        0.333f ),
-            ( TreasureWeaponType.Atlatl,          0.333f ),
+            ( TreasureWeaponType.Bow,             0.998f ),
+            ( TreasureWeaponType.Crossbow,        0.001f ),
+            ( TreasureWeaponType.Atlatl,          0.001f ),
         };
 
         private static readonly List<ChanceTable<TreasureWeaponType>> weaponTiers = new List<ChanceTable<TreasureWeaponType>>()

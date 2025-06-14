@@ -49,15 +49,12 @@ namespace ACE.Server.Factories.Tables
         /// </summary>
         private static ChanceTable<TreasureItemType> magicItemProfile8 = new ChanceTable<TreasureItemType>()
         {
-            ( TreasureItemType_Orig.Armor,              0.50f ),
-            ( TreasureItemType_Orig.Weapon,             0.18f ),
-            ( TreasureItemType_Orig.Jewelry,            0.21f ),
-            ( TreasureItemType_Orig.Clothing,           0.09f ),
-            ( TreasureItemType_Orig.Gem,                0.01f ),
-            ( TreasureItemType_Orig.Cloak,              0.01f  ),
-            //( TreasureItemType_Orig.Scroll,             0.14f ),
-            //( TreasureItemType_Orig.ArtObject,          0.125f ),
-            //( TreasureItemType_Orig.EncapsulatedSpirit, 0.005f ),
+            ( TreasureItemType.Armor,               0.47f ),
+            ( TreasureItemType.Weapon,              0.21f ),
+            ( TreasureItemType.Clothing,            0.09f ),
+            ( TreasureItemType.Jewelry,             0.21f ),
+            ( TreasureItemType.Gem,                 0.01f ),
+            ( TreasureItemType.Cloak,               0.01f ),
         };
 
         /// <summary>
@@ -65,42 +62,42 @@ namespace ACE.Server.Factories.Tables
         /// </summary>
         private static ChanceTable<TreasureItemType> magicItemProfile9 = new ChanceTable<TreasureItemType>()
         {
-          ( TreasureItemType_Orig.Armor,              0.50f ),
-          ( TreasureItemType_Orig.Weapon,             0.18f ),
-          ( TreasureItemType_Orig.Jewelry,            0.21f ),
-          ( TreasureItemType_Orig.Clothing,           0.09f ),
-          ( TreasureItemType_Orig.Gem,                0.01f ),
-          ( TreasureItemType_Orig.Cloak,              0.01f  ),
+          ( TreasureItemType.Armor,               0.47f ),
+          ( TreasureItemType.Weapon,              0.21f ),
+          ( TreasureItemType.Clothing,            0.09f ),
+          ( TreasureItemType.Jewelry,             0.21f ),
+          ( TreasureItemType.Gem,                 0.01f ),
+          ( TreasureItemType.Cloak,               0.01f ),
         };
 
         private static ChanceTable<TreasureItemType> magicItemProfile10 = new ChanceTable<TreasureItemType>()
         {
-          ( TreasureItemType_Orig.Armor,              0.50f ),
-          ( TreasureItemType_Orig.Weapon,             0.18f ),
-          ( TreasureItemType_Orig.Jewelry,            0.21f ),
-          ( TreasureItemType_Orig.Clothing,           0.09f ),
-          ( TreasureItemType_Orig.Gem,                0.01f ),
-          ( TreasureItemType_Orig.Cloak,              0.01f  ),
+          ( TreasureItemType.Armor,               0.47f ),
+          ( TreasureItemType.Weapon,              0.21f ),
+          ( TreasureItemType.Clothing,            0.09f ),
+          ( TreasureItemType.Jewelry,             0.21f ),
+          ( TreasureItemType.Gem,                 0.01f ),
+          ( TreasureItemType.Cloak,               0.01f ),
         };
 
         private static ChanceTable<TreasureItemType> magicItemProfile11 = new ChanceTable<TreasureItemType>()
         {
-          ( TreasureItemType_Orig.Armor,              0.50f ),
-          ( TreasureItemType_Orig.Weapon,             0.18f ),
-          ( TreasureItemType_Orig.Jewelry,            0.21f ),
-          ( TreasureItemType_Orig.Clothing,           0.09f ),
-          ( TreasureItemType_Orig.Gem,                0.01f ),
-          ( TreasureItemType_Orig.Cloak,              0.01f  ),
+          ( TreasureItemType.Armor,               0.47f ),
+          ( TreasureItemType.Weapon,              0.21f ),
+          ( TreasureItemType.Clothing,            0.09f ),
+          ( TreasureItemType.Jewelry,             0.21f ),
+          ( TreasureItemType.Gem,                 0.01f ),
+          ( TreasureItemType.Cloak,               0.01f ),
         };
 
         private static ChanceTable<TreasureItemType> magicItemProfile12 = new ChanceTable<TreasureItemType>()
         {
-          ( TreasureItemType_Orig.Armor,              0.50f ),
-          ( TreasureItemType_Orig.Weapon,             0.18f ),
-          ( TreasureItemType_Orig.Jewelry,            0.21f ),
-          ( TreasureItemType_Orig.Clothing,           0.09f ),
-          ( TreasureItemType_Orig.Gem,                0.01f ),
-          ( TreasureItemType_Orig.Cloak,              0.01f  ),
+          ( TreasureItemType.Armor,               0.47f ),
+          ( TreasureItemType.Weapon,              0.21f ),
+          ( TreasureItemType.Clothing,            0.09f ),
+          ( TreasureItemType.Jewelry,             0.21f ),
+          ( TreasureItemType.Gem,                 0.01f ),
+          ( TreasureItemType.Cloak,               0.01f ),
         };
 
         // added
@@ -153,21 +150,21 @@ namespace ACE.Server.Factories.Tables
         // Legendary Chest
         private static ChanceTable<TreasureItemType> magicItemProfile22 = new ChanceTable<TreasureItemType>()
         {
-            ( TreasureItemType_Orig.Weapon,             0.35f ),
-            ( TreasureItemType_Orig.Armor,              0.40f ),
-            ( TreasureItemType_Orig.Clothing,           0.10f ),
-            ( TreasureItemType_Orig.Jewelry,            0.10f ),
-            ( TreasureItemType_Orig.Cloak,              0.05f ),
-            //( TreasureItemType_Orig.PetDevice,          0.05f ),
+            ( TreasureItemType.Weapon,              0.35f ),
+            ( TreasureItemType.Armor,               0.35f ),
+            ( TreasureItemType.Clothing,            0.10f ),
+            ( TreasureItemType.Jewelry,             0.10f ),
+            ( TreasureItemType.Cloak,               0.05f ),
+            ( TreasureItemType.PetDevice,           0.05f ),
         };
 
         // Legendary Magic Chest
         private static ChanceTable<TreasureItemType> magicItemProfile23 = new ChanceTable<TreasureItemType>()
         {
-            ( TreasureItemType_Orig.Clothing,           0.40f ),
-            ( TreasureItemType_Orig.Jewelry,            0.30f ),
-            ( TreasureItemType_Orig.Cloak,              0.30f ),
-            //( TreasureItemType_Orig.PetDevice,          0.30f ),
+            ( TreasureItemType.Clothing,            0.30f ),
+            ( TreasureItemType.Jewelry,             0.20f ),
+            ( TreasureItemType.Cloak,               0.20f ),
+            ( TreasureItemType.PetDevice,           0.30f ),
         };
 
         // Mana Forge Chest

@@ -49,14 +49,11 @@ namespace ACE.Server.Factories.Tables
         /// </summary>
         private static ChanceTable<TreasureItemType> itemProfile8 = new ChanceTable<TreasureItemType>()
         {
-            ( TreasureItemType_Orig.Armor,     0.50f ),
-            ( TreasureItemType_Orig.Weapon,    0.18f ),
-            ( TreasureItemType_Orig.Jewelry,   0.21f ),
-            ( TreasureItemType_Orig.Clothing,  0.09f ),
-            ( TreasureItemType_Orig.Gem,       0.02f ),
-            //( TreasureItemType_Orig.ArtObject, 0.125f ),
-            //( TreasureItemType_Orig.PetDevice, 0.125f ),
-            //( TreasureItemType_Orig.Scroll,    0.125f ),
+          ( TreasureItemType.Armor,       0.47f ),
+          ( TreasureItemType.Weapon,      0.21f ),
+          ( TreasureItemType.Clothing,    0.09f ),
+          ( TreasureItemType.Jewelry,     0.21f ),
+          ( TreasureItemType.Gem,         0.02f ),
         };
 
         /// <summary>
@@ -64,38 +61,29 @@ namespace ACE.Server.Factories.Tables
         /// </summary>
         private static ChanceTable<TreasureItemType> itemProfile9 = new ChanceTable<TreasureItemType>()
         {
-          ( TreasureItemType_Orig.Armor,     0.50f ),
-          ( TreasureItemType_Orig.Weapon,    0.18f ),
-          ( TreasureItemType_Orig.Jewelry,   0.21f ),
-          ( TreasureItemType_Orig.Clothing,  0.09f ),
-          ( TreasureItemType_Orig.Gem,       0.02f ),
-          //( TreasureItemType_Orig.ArtObject, 0.125f ),
-          //( TreasureItemType_Orig.PetDevice, 0.125f ),
-          //( TreasureItemType_Orig.Scroll,    0.125f ),
+          ( TreasureItemType.Armor,       0.47f ),
+          ( TreasureItemType.Weapon,      0.21f ),
+          ( TreasureItemType.Clothing,    0.09f ),
+          ( TreasureItemType.Jewelry,     0.21f ),
+          ( TreasureItemType.Gem,         0.02f ),
         };
 
         private static ChanceTable<TreasureItemType> itemProfile10 = new ChanceTable<TreasureItemType>()
         {
-          ( TreasureItemType_Orig.Armor,     0.50f ),
-          ( TreasureItemType_Orig.Weapon,    0.18f ),
-          ( TreasureItemType_Orig.Jewelry,   0.21f ),
-          ( TreasureItemType_Orig.Clothing,  0.09f ),
-          ( TreasureItemType_Orig.Gem,       0.02f ),
-          //( TreasureItemType_Orig.ArtObject, 0.125f ),
-          //( TreasureItemType_Orig.PetDevice, 0.125f ),
-          //( TreasureItemType_Orig.Scroll,    0.125f ),
+          ( TreasureItemType.Armor,       0.47f ),
+          ( TreasureItemType.Weapon,      0.21f ),
+          ( TreasureItemType.Clothing,    0.09f ),
+          ( TreasureItemType.Jewelry,     0.21f ),
+          ( TreasureItemType.Gem,         0.02f ),
         };
 
         private static ChanceTable<TreasureItemType> itemProfile11 = new ChanceTable<TreasureItemType>()
         {
-          ( TreasureItemType_Orig.Armor,     0.50f ),
-          ( TreasureItemType_Orig.Weapon,    0.18f ),
-          ( TreasureItemType_Orig.Jewelry,   0.21f ),
-          ( TreasureItemType_Orig.Clothing,  0.09f ),
-          ( TreasureItemType_Orig.Gem,       0.02f ),
-          //( TreasureItemType_Orig.ArtObject, 0.125f ),
-          //( TreasureItemType_Orig.PetDevice, 0.125f ),
-          //( TreasureItemType_Orig.Scroll,    0.125f ),
+          ( TreasureItemType.Armor,       0.47f ),
+          ( TreasureItemType.Weapon,      0.21f ),
+          ( TreasureItemType.Clothing,    0.09f ),
+          ( TreasureItemType.Jewelry,     0.21f ),
+          ( TreasureItemType.Gem,         0.02f ),
         };
 
         /// <summary>

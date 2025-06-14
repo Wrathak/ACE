@@ -21,8 +21,8 @@ namespace ACE.Server.Factories.Tables
 
         public static ChanceTable<TreasureItemType> DefaultMagical { get; } = new ChanceTable<TreasureItemType>()
         {
-            ( TreasureItemType.Armor,      0.50f ),
-            ( TreasureItemType.Weapon,     0.18f ),
+            ( TreasureItemType.Armor,      0.47f ),
+            ( TreasureItemType.Weapon,     0.21f ),
             ( TreasureItemType.Jewelry,    0.21f ),
             ( TreasureItemType.Clothing,   0.09f ),
             ( TreasureItemType.Cloak,      0.01f ),
@@ -31,8 +31,8 @@ namespace ACE.Server.Factories.Tables
 
         public static ChanceTable<TreasureItemType> DefaultNonMagical { get; } = new ChanceTable<TreasureItemType>()
         {
-          ( TreasureItemType.Armor,      0.50f ),
-          ( TreasureItemType.Weapon,     0.18f ),
+          ( TreasureItemType.Armor,      0.47f ),
+          ( TreasureItemType.Weapon,     0.21f ),
           ( TreasureItemType.Jewelry,    0.21f ),
           ( TreasureItemType.Clothing,   0.09f ),
           ( TreasureItemType.Cloak,      0.01f ),
@@ -75,8 +75,8 @@ namespace ACE.Server.Factories.Tables
 
         public static ChanceTable<TreasureItemType> MixedMagicEquipment { get; } = new ChanceTable<TreasureItemType>()
         {
-          ( TreasureItemType.Armor,      0.50f ),
-          ( TreasureItemType.Weapon,     0.18f ),
+          ( TreasureItemType.Armor,      0.47f ),
+          ( TreasureItemType.Weapon,     0.21f ),
           ( TreasureItemType.Jewelry,    0.21f ),
           ( TreasureItemType.Clothing,   0.09f ),
           ( TreasureItemType.Cloak,      0.01f ),

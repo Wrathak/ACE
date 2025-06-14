@@ -18,8 +18,8 @@ namespace ACE.Server.Factories.Tables
             //SpellId.EnduranceSelf1,
             //SpellId.CoordinationSelf1,
             //SpellId.QuicknessSelf1,     // added, according to spellSelectionGroup6
-
             //SpellId.DualWieldMasterySelf1,
+            //SpellId.ShieldMasterySelf1,
 
             SpellId.ArmorExpertiseSelf1,
             SpellId.ItemExpertiseSelf1,
@@ -32,7 +32,6 @@ namespace ACE.Server.Factories.Tables
             SpellId.SwiftKillerSelf1,
 
             SpellId.HeavyWeaponsMasterySelf1,
-            //SpellId.ShieldMasterySelf1,
 
             SpellId.DirtyFightingMasterySelf1,
             SpellId.RecklessnessMasterySelf1,

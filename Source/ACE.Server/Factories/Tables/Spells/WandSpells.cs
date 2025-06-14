@@ -35,13 +35,8 @@ namespace ACE.Server.Factories.Tables
 
             //SpellId.CreatureEnchantmentMasterySelf1,
             //SpellId.ItemEnchantmentMasterySelf1,
-
             //SpellId.VoidMagicMasterySelf1,  // missing from original
-
-
-
             //SpellId.ArcaneEnlightenmentSelf1,
-
             //SpellId.SneakAttackMasterySelf1,
         };
 

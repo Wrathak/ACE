@@ -19,30 +19,8 @@ namespace ACE.Server.Factories
             treasureRoll.WeaponType = TreasureWeaponType.Caster;
             treasureRoll.Wcid = CasterWcids.Roll(profile.Tier);
 
-            if (wield == -1)
-                wield = RollWieldDifficulty(profile.Tier, TreasureWeaponType.Caster);
-
-            // Getting the caster Weenie needed.
-            if (wield == 0)
-            {
-                // Determine plain caster type: 0 - Orb, 1 - Sceptre, 2 - Staff, 3 - Wand
-                subType = ThreadSafeRandom.Next(0, 3);
-                casterWeenie = LootTables.CasterWeaponsMatrix[wield][subType];
-            }
-            else
-            {
-                // Determine caster type: 1 - Sceptre, 2 - Baton, 3 - Staff
-                int casterType = ThreadSafeRandom.Next(1, 3);
-
-                // Determine element type: 0 - Slashing, 1 - Piercing, 2 - Blunt, 3 - Frost, 4 - Fire, 5 - Acid, 6 - Electric, 7 - Nether
-                element = forceWar ? ThreadSafeRandom.Next(0, 6) : ThreadSafeRandom.Next(0, 6);
-                casterWeenie = LootTables.CasterWeaponsMatrix[casterType][element];
-            }
-
-            WorldObject wo = WorldObjectFactory.CreateNewWorldObject((uint)casterWeenie);
-
-            if (wo != null && mutate)
-                MutateCaster(wo, profile, isMagical, wield);
+            var wo = WorldObjectFactory.CreateNewWorldObject((uint)treasureRoll.Wcid);
+            MutateCaster(wo, profile, isMagical, treasureRoll);
 
             return wo;
         }
@@ -66,73 +44,12 @@ namespace ACE.Server.Factories
                 if (wo.W_DamageType == DamageType.Nether)
                     wo.WieldSkillType = (int)Skill.VoidMagic;
                 else
-                {
-                    elementalDamageMod = RollElementalDamageMod(wieldDifficulty.Value);
-
-                    if (wo.W_DamageType == DamageType.Nether)
-                        wieldSkillType = Skill.VoidMagic;
-                    else
-                        wieldSkillType = Skill.WarMagic;
-                }
-
-
-
-                // ManaConversionMod
-                var manaConversionMod = RollManaConversionMod(profile.Tier);
-                if (manaConversionMod > 0.0f)
-                    wo.ManaConversionMod = manaConversionMod;
-
-                // ElementalDamageMod
-                if (elementalDamageMod > 1.0f)
-                    wo.ElementalDamageMod = elementalDamageMod;
-
-                // WieldRequirements
-                if (wieldDifficulty > 0 || wieldRequirement == WieldRequirement.Level)
-                {
-                    wo.WieldRequirements = wieldRequirement;
-                    wo.WieldSkillType = (int)wieldSkillType;
-                    wo.WieldDifficulty = wieldDifficulty;
-                }
-                else
-                {
-                    wo.WieldRequirements = WieldRequirement.Invalid;
-                    wo.WieldSkillType = null;
-                    wo.WieldDifficulty = null;
-                }
-
-                wo.WieldSkillType = (int)Skill.ItemEnchantment;
-
-                // WeaponDefense
-                wo.WeaponDefense = RollWeaponDefense(wieldDifficulty.Value, profile);
+                    wo.WieldSkillType = (int)Skill.WarMagic;
             }
 
-                // mutate ManaConversionMod
-                var mutationFilter = MutationCache.GetMutation("Casters.caster.txt");
-                mutationFilter.TryMutate(wo, profile.Tier);
-
-                // mutate ElementalDamageMod / WieldRequirements
-                var isElemental = wo.W_DamageType != DamageType.Undef;
-                var scriptName = GetCasterScript(isElemental);
-
-                mutationFilter = MutationCache.GetMutation(scriptName);
-                mutationFilter.TryMutate(wo, profile.Tier);
-
-                // this part was not handled by mutation filter
-                if (wo.WieldRequirements == WieldRequirement.RawSkill)
-                {
-                    if (wo.W_DamageType == DamageType.Nether)
-                        wo.WieldSkillType = (int)Skill.VoidMagic;
-                    else
-                        wo.WieldSkillType = (int)Skill.WarMagic;
-                }
-
-                //wo.WieldSkillType = null;
-                wo.WieldSkillType = (int)Skill.ItemEnchantment;
-
-                // mutate WeaponDefense
-                mutationFilter = MutationCache.GetMutation("Casters.weapon_defense.txt");
-                mutationFilter.TryMutate(wo, profile.Tier);
-            }
+            // mutate WeaponDefense
+            mutationFilter = MutationCache.GetMutation("Casters.weapon_defense.txt");
+            mutationFilter.TryMutate(wo, profile.Tier);
 
             // material type
             var materialType = GetMaterialType(wo, profile.Tier);
@@ -178,7 +95,7 @@ namespace ACE.Server.Factories
 
             // item value
             //if (wo.HasMutateFilter(MutateFilter.Value))   // fixme: data
-                MutateValue(wo, profile.Tier, roll);
+            MutateValue(wo, profile.Tier, roll);
 
             // long description
             wo.LongDesc = GetLongDesc(wo);

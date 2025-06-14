@@ -16,7 +16,6 @@ namespace ACE.Server.Factories.Tables
         private static readonly List<SpellId> spells = new List<SpellId>()
         {
             // creature buffs
-
             SpellId.StrengthSelf1,
             SpellId.EnduranceSelf1,
             SpellId.CoordinationSelf1,
@@ -39,11 +38,9 @@ namespace ACE.Server.Factories.Tables
             // item buffs
 
             SpellId.Impenetrability1,
-
             SpellId.BladeBane1,
             SpellId.PiercingBane1,
             SpellId.BludgeonBane1,
-
             SpellId.FlameBane1,
             SpellId.FrostBane1,
             SpellId.AcidBane1,
@@ -61,51 +58,37 @@ namespace ACE.Server.Factories.Tables
             //SpellId.WarMagicMasterySelf1,
             //SpellId.VoidMagicMasterySelf1,
             //SpellId.SummoningMasterySelf1,
-
             //SpellId.DeceptionMasterySelf1,
             //SpellId.ManaMasterySelf1,
-
             //SpellId.DirtyFightingMasterySelf1,
             //SpellId.RecklessnessMasterySelf1,
             //SpellId.SneakAttackMasterySelf1,
             //SpellId.DualWieldMasterySelf1,
-
-
-
             //SpellId.AlchemyMasterySelf1,
             //SpellId.CookingMasterySelf1,
             //SpellId.FletchingMasterySelf1,
-
             //SpellId.LeadershipMasterySelf1,
-          //  SpellId.FealtySelf1,
-
-
+            //SpellId.FealtySelf1,
             //SpellId.ArmorExpertiseSelf1,
             //SpellId.ItemExpertiseSelf1,
             //SpellId.MagicItemExpertiseSelf1,
             //SpellId.WeaponExpertiseSelf1,
-
             //SpellId.MonsterAttunementSelf1,
             //SpellId.PersonAttunementSelf1,
 
             // life buffs
 
             //SpellId.ArmorSelf1,
-
             //SpellId.BladeProtectionSelf1,
             //SpellId.PiercingProtectionSelf1,
             //SpellId.BludgeonProtectionSelf1,
-
             //SpellId.FireProtectionSelf1,
             //SpellId.ColdProtectionSelf1,
             //SpellId.AcidProtectionSelf1,
             //SpellId.LightningProtectionSelf1,
-
             //SpellId.RegenerationSelf1,
             //SpellId.RejuvenationSelf1,
             //SpellId.ManaRenewalSelf1,
-
-
         };
 
         private const int NumTiers = 8;

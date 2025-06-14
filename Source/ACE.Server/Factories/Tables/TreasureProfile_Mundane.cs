@@ -44,12 +44,12 @@ namespace ACE.Server.Factories.Tables
         /// </summary>
         private static ChanceTable<TreasureItemType> mundaneProfile7 = new ChanceTable<TreasureItemType>()
         {
-            ( TreasureItemType_Orig.Pyreal,         0.25f ),
-            ( TreasureItemType_Orig.Consumable,     0.17f ),
-            ( TreasureItemType_Orig.HealKit,        0.08f ),
-            ( TreasureItemType_Orig.Lockpick,       0.16f ),
-            ( TreasureItemType_Orig.SpellComponent, 0.17f ),
-            ( TreasureItemType_Orig.ManaStone,      0.17f ),
+            ( TreasureItemType.Pyreal,         0.17f ),
+            ( TreasureItemType.Consumable,     0.17f ),
+            ( TreasureItemType.HealKit,        0.16f ),
+            ( TreasureItemType.Lockpick,       0.16f ),
+            ( TreasureItemType.SpellComponent, 0.17f ),
+            ( TreasureItemType.ManaStone,      0.17f ),
         };
 
         /// <summary>
